@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chez Hub · Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
+.topbar{background:#1A1A1A;padding:14px 28px;display:flex;align-items:center;gap:12px}
+.logo{font-family:'Lato',sans-serif;font-weight:900;font-size:18px;color:#F15F37;letter-spacing:3px}
+.admin-badge{background:rgba(241,95,55,0.2);color:#F15F37;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;border:1px solid rgba(241,95,55,0.3)}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+.topbar-date{font-size:12px;color:rgba(255,255,255,0.4)}
+.logout-btn{font-size:11px;color:rgba(255,255,255,0.3);background:none;border:none;cursor:pointer;padding:4px 8px}
+.body{padding:24px 28px;max-width:1100px;margin:0 auto}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.stat-card{background:white;border:0.5px solid #eee;border-radius:12px;padding:16px 20px}
+.stat-label{font-size:11px;color:#999;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px}
+.stat-num{font-family:'Lato',sans-serif;font-size:28px;font-weight:900;color:#1A1A1A;line-height:1}
+.stat-sub{font-size:11px;color:#bbb;margin-top:4px}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.section-title{font-size:13px;font-weight:600;color:#1A1A1A}
+.section-sub{font-size:11px;color:#999}
+.table-wrap{background:white;border:0.5px solid #eee;border-radius:12px;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+thead tr{background:#FAFAFA;border-bottom:1px solid #eee}
+th{padding:11px 16px;text-align:left;font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:0.1em;white-space:nowrap}
+/* Main agent row */
+.agent-row{border-bottom:0.5px solid #f5f5f5;cursor:pointer;transition:background 0.1s}
+.agent-row:hover{background:#FAFAFA}
+.agent-row.expanded{background:#FAFAFA;border-bottom:none}
+/* Detail row */
+.detail-row{display:none;border-bottom:1px solid #eee}
+.detail-row.open{display:table-row}
+.detail-cell{padding:0 16px 20px 16px;background:#FAFAFA}
+.detail-inner{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding-top:16px;border-top:0.5px solid #eee}
+.cat-block{background:white;border:0.5px solid #eee;border-radius:10px;padding:12px 14px;overflow:hidden}
+.cat-block-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.cat-color{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.cat-block-title{font-size:11px;font-weight:700;color:#1A1A1A}
+.cat-block-pct{margin-left:auto;font-size:11px;font-weight:700}
+.step-line{display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:0.5px solid #f9f9f9}
+.step-line:last-child{border-bottom:none}
+.step-dot{width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-dot.done{background:#F15F37}
+.step-dot.pending{background:#f0f0f0;border:1px solid #ddd}
+.step-dot.done svg{display:block}
+.step-dot svg{width:8px;height:8px;stroke:white;fill:none;stroke-width:3;display:none}
+.step-text{font-size:11px;line-height:1.3}
+.step-text.done{color:#bbb;text-decoration:line-through}
+.step-text.pending{color:#555}
+/* Agent cell */
+.agent-cell{display:flex;align-items:center;gap:10px}
+.avt{width:34px;height:34px;border-radius:50%;background:#F15F37;display:flex;align-items:center;justify-content:center;font-family:'Lato',sans-serif;font-weight:900;font-size:12px;color:white;flex-shrink:0}
+.agent-name{font-size:13px;font-weight:500;color:#1A1A1A}
+.agent-meta{font-size:11px;color:#999;margin-top:1px}
+/* Progress */
+.prog-wrap{display:flex;align-items:center;gap:8px}
+.prog-bar{flex:1;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;min-width:80px}
+.prog-fill{height:100%;border-radius:3px}
+.prog-pct{font-size:12px;font-weight:600;min-width:36px;text-align:right}
+/* Cat pills */
+.cat-pill{font-size:10px;padding:3px 8px;border-radius:20px;font-weight:600}
+/* Last seen */
+.ls-never{color:#bbb;font-size:12px}
+.ls-ok{color:#2ECC71;font-size:12px;font-weight:500}
+.ls-warn{color:#F39C12;font-size:12px;font-weight:500}
+.ls-danger{color:#E74C3C;font-size:12px;font-weight:600}
+/* View link */
+.view-link{font-size:11px;color:#F15F37;text-decoration:none;padding:5px 10px;border:0.5px solid #FFD5B8;border-radius:6px;white-space:nowrap}
+.view-link:hover{background:#FFF0E8}
+/* Expand chevron */
+.expand-chev{width:14px;height:14px;stroke:#bbb;fill:none;stroke-width:2;transition:transform 0.2s}
+/* Alert */
+.alert-banner{background:#FFF3CD;border:0.5px solid #FFD5B8;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.alert-icon{font-size:18px}
+.alert-text{font-size:12px;color:#856404}
+/* Login */
+.login-wrap{display:flex;align-items:center;justify-content:center;min-height:100vh;background:#F7F5F2}
+.login-card{background:white;border:0.5px solid #eee;border-radius:16px;padding:36px 40px;width:360px;text-align:center}
+.login-logo{font-family:'Lato',sans-serif;font-weight:900;font-size:22px;color:#F15F37;letter-spacing:3px;margin-bottom:6px}
+.login-sub{font-size:12px;color:#999;margin-bottom:28px}
+.login-label{font-size:12px;font-weight:500;color:#555;text-align:left;display:block;margin-bottom:6px}
+.login-input{width:100%;padding:10px 14px;border:1px solid #eee;border-radius:8px;font-size:14px;outline:none;font-family:'DM Sans',sans-serif;margin-bottom:14px}
+.login-input:focus{border-color:#F15F37}
+.login-btn{width:100%;background:#F15F37;color:white;border:none;border-radius:8px;padding:11px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif}
+.login-error{font-size:12px;color:#E74C3C;margin-top:8px;display:none}
+.refresh-btn{font-size:11px;color:#F15F37;background:none;border:0.5px solid #FFD5B8;border-radius:6px;padding:6px 12px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">CHEZ HUB</div>
+    <div class="login-sub">Admin Dashboard · Restricted Access</div>
+    <label class="login-label">Password</label>
+    <input class="login-input" type="password" id="pw-input" placeholder="Enter admin password">
+    <button class="login-btn" onclick="doLogin()">Sign In</button>
+    <div class="login-error" id="login-error">Incorrect password. Try again.</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" style="display:none">
+  <div class="topbar">
+    <div class="logo">CHEZ HUB</div>
+    <div class="admin-badge">Admin View</div>
+    <div class="topbar-right">
+      <div class="topbar-date" id="today-date"></div>
+      <button class="logout-btn" onclick="doLogout()">Sign out</button>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-label">In Onboarding</div><div class="stat-num" id="stat-total">—</div><div class="stat-sub">New agents active</div></div>
+      <div class="stat-card"><div class="stat-label">Avg Progress</div><div class="stat-num" id="stat-avg">—</div><div class="stat-sub">Across all agents</div></div>
+      <div class="stat-card"><div class="stat-label">Need Attention</div><div class="stat-num" id="stat-stuck" style="color:#E74C3C">—</div><div class="stat-sub">No activity 7+ days</div></div>
+      <div class="stat-card"><div class="stat-label">Completed</div><div class="stat-num" id="stat-done" style="color:#2ECC71">—</div><div class="stat-sub">100% onboarding done</div></div>
+    </div>
+
+    <div class="alert-banner" id="alert-banner" style="display:none">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-text" id="alert-text"></div>
+    </div>
+
+    <div class="section-header">
+      <div>
+        <div class="section-title">Agents in Onboarding</div>
+        <div class="section-sub">Click any row to see step-by-step detail</div>
+      </div>
+      <button class="refresh-btn" onclick="refreshData()">↻ Refresh</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Agent</th>
+            <th>Overall Progress</th>
+            <th>Welcome</th>
+            <th>Tech</th>
+            <th>Brand</th>
+            <th>Marketing</th>
+            <th>First Steps</th>
+            <th>Last Active</th>
+            <th>Day</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="agents-tbody"></tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:24px;font-size:10px;color:#bbb;text-align:center;padding-bottom:24px">
+      Progress tracked locally per device · Chez Hub Admin · <span id="footer-date"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+var PASSWORD = 'chez2026';
+
+var ALL_STEPS = {
+  w1:'Office access & parking',   w2:'Meet Lead Agent & team',
+  w3:'Join WhatsApp groups',       w4:'Review culture & values',
+  t1:'Activate Side account',      t2:'Set up @chezre.com email',
+  t3:'Connect Follow Up Boss',     t4:'MLS Miami access',
+  t5:'Digital signature setup',    b1:'Complete Zillow profile',
+  b2:'Luxury Presence website',    b3:'Update social media bio',
+  m1:'Schedule headshot',          m2:'Agentz onboarding & brand kit',
+  m3:'Get first marketing materials',f1:'Attend first training',
+  f2:'Host/assist Open House',     f3:'Close/assist first deal'
+};
+
+var NEW_AGENTS = [
+  {
+    key:'monica', name:'Monica Herrera', group:'Cabrera', role:'Associate',
+    startDate:'2026-03-07', pageUrl:'monica.html',
+    cats:[
+      {id:'welcome',   label:'Welcome', color:'#F15F37', steps:['w1','w2','w3','w4']},
+      {id:'tech',      label:'Tech',    color:'#4A90D9', steps:['t1','t2','t3','t4','t5']},
+      {id:'brand',     label:'Brand',   color:'#7B68EE', steps:['b1','b2','b3']},
+      {id:'marketing', label:'Mktg',    color:'#E87DB8', steps:['m1','m2','m3']},
+      {id:'first',     label:'First',   color:'#2ECC71', steps:['f1','f2','f3']},
+    ]
+  }
+];
+
+function getInitials(n){ return n.split(' ').map(function(w){return w[0];}).join('').substring(0,2).toUpperCase(); }
+function getProgress(k){ try{return JSON.parse(localStorage.getItem('ob_'+k)||'{}');}catch(e){return{};} }
+
+function calcProgress(agent){
+  var p=getProgress(agent.key), totalSteps=0, doneSteps=0, catResults=[];
+  agent.cats.forEach(function(cat){
+    var catDone=cat.steps.filter(function(s){return!!p[s];}).length;
+    totalSteps+=cat.steps.length; doneSteps+=catDone;
+    catResults.push({id:cat.id,label:cat.label,done:catDone,total:cat.steps.length,color:cat.color,steps:cat.steps,progress:p});
+  });
+  var pct=totalSteps>0?Math.round(doneSteps/totalSteps*100):0;
+  var lastSeen=p['_lastSeen']||null;
+  var daysSince=lastSeen?Math.floor((Date.now()-lastSeen)/86400000):null;
+  var daysIn=Math.floor((Date.now()-new Date(agent.startDate))/86400000);
+  return{pct:pct,done:doneSteps,total:totalSteps,cats:catResults,lastSeen:lastSeen,daysSince:daysSince,daysIn:daysIn};
+}
+
+function barColor(pct){ return pct<25?'#E74C3C':pct<60?'#F39C12':pct<100?'#4A90D9':'#2ECC71'; }
+
+function lastSeenHTML(d){
+  if(d===null) return '<span class="ls-never">Never opened</span>';
+  if(d===0) return '<span class="ls-ok">Today</span>';
+  if(d===1) return '<span class="ls-ok">Yesterday</span>';
+  if(d<=6) return '<span class="ls-warn">'+d+' days ago</span>';
+  return '<span class="ls-danger">'+d+' days ago ⚠️</span>';
+}
+
+function buildDetailRow(agent, prog, rowId){
+  var cats = prog.cats.map(function(cat){
+    var catPct = cat.total>0?Math.round(cat.done/cat.total*100):0;
+    var stepsHTML = cat.steps.map(function(stepId){
+      var done = !!cat.progress[stepId];
+      var label = ALL_STEPS[stepId] || stepId;
+      return '<div class="step-line">'+
+        '<div class="step-dot '+(done?'done':'pending')+'">'+
+          '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>'+
+        '</div>'+
+        '<div class="step-text '+(done?'done':'pending')+'">'+label+'</div>'+
+      '</div>';
+    }).join('');
+
+    return '<div class="cat-block">'+
+      '<div class="cat-block-header">'+
+        '<div class="cat-color" style="background:'+cat.color+'"></div>'+
+        '<div class="cat-block-title">'+cat.label+'</div>'+
+        '<div class="cat-block-pct" style="color:'+cat.color+'">'+catPct+'%</div>'+
+      '</div>'+
+      stepsHTML+
+    '</div>';
+  }).join('');
+
+  // Agent form data
+  var formData = prog.cats ? '' : '';
+  try{
+    var agentSaved = JSON.parse(localStorage.getItem('ob_'+agent.key)||'{}');
+    var f = agentSaved['agentForm'];
+    if(f && f.name){
+      formData = '<div style="background:#F7F9FC;border:0.5px solid #E8F0FE;border-radius:10px;padding:14px 16px;margin-bottom:12px">' +
+        '<div style="font-size:10px;font-weight:700;color:#4A90D9;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">Agent Information Form</div>' +
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px">' +
+          '<div><span style="color:#999">Name</span><br><strong>' + (f.name||'—') + '</strong></div>' +
+          '<div><span style="color:#999">Email</span><br><strong>' + (f.email||'—') + '</strong></div>' +
+          '<div><span style="color:#999">Phone</span><br><strong>' + (f.phone||'—') + '</strong></div>' +
+          '<div><span style="color:#999">Birthday</span><br><strong>' + (f.birthday||'—') + '</strong></div>' +
+          '<div><span style="color:#999">Shirt Size</span><br><strong>' + (f.shirt||'—') + '</strong></div>' +
+          '<div><span style="color:#999">License #</span><br><strong>' + (f.license||'—') + '</strong></div>' +
+          '<div style="grid-column:1/-1"><span style="color:#999">Home Address</span><br><strong>' + (f.address||'—') + '</strong></div>' +
+        '</div>' +
+        (f.submittedAt ? '<div style="font-size:10px;color:#bbb;margin-top:8px">Submitted ' + new Date(f.submittedAt).toLocaleString() + '</div>' : '') +
+      '</div>';
+    }
+  }catch(e){}
+
+  // Next pending step
+  var nextStep = null;
+  prog.cats.forEach(function(cat){
+    if(nextStep) return;
+    cat.steps.forEach(function(s){
+      if(!nextStep && !cat.progress[s]) nextStep = ALL_STEPS[s];
+    });
+  });
+
+  return '<tr class="detail-row" id="detail-'+rowId+'">'+
+    '<td colspan="11" class="detail-cell">'+
+      formData +
+      (nextStep ? '<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;padding:10px 14px;background:#FFF8F5;border:0.5px solid #FFD5B8;border-radius:8px">'+
+        '<div style="font-size:14px">👉</div>'+
+        '<div style="font-size:12px;color:#C8601A;font-weight:500">Next step: <strong>'+nextStep+'</strong></div>'+
+      '</div>' : '<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;padding:10px 14px;background:#E8F5E9;border:0.5px solid #C8E6C9;border-radius:8px">'+
+        '<div style="font-size:14px">🎉</div>'+
+        '<div style="font-size:12px;color:#2E7D32;font-weight:500">Onboarding complete!</div>'+
+      '</div>')+
+      '<div class="detail-inner">'+cats+'</div>'+
+    '</td>'+
+  '</tr>';
+}
+
+function toggleDetail(rowId){
+  var detail = document.getElementById('detail-'+rowId);
+  var agentRow = document.getElementById('row-'+rowId);
+  var chev = document.getElementById('chev-'+rowId);
+  if(!detail) return;
+  var open = detail.classList.contains('open');
+  detail.classList.toggle('open', !open);
+  if(agentRow) agentRow.classList.toggle('expanded', !open);
+  if(chev) chev.style.transform = open ? '' : 'rotate(180deg)';
+}
+
+function renderAgent(agent, rowId){
+  var prog = calcProgress(agent);
+  var initials = getInitials(agent.name);
+  var catCells = prog.cats.map(function(cat){
+    var pct=Math.round(cat.done/cat.total*100);
+    var bg=cat.done===cat.total?cat.color+'20':'#F5F5F5';
+    var col=cat.done===cat.total?cat.color:'#bbb';
+    return '<td><span class="cat-pill" style="background:'+bg+';color:'+col+'">'+cat.done+'/'+cat.total+'</span></td>';
+  }).join('');
+
+  var agentRowHTML = '<tr class="agent-row" id="row-'+rowId+'" onclick="toggleDetail(\''+rowId+'\')">'+
+    '<td style="padding:13px 8px 13px 16px"><svg class="expand-chev" id="chev-'+rowId+'" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></td>'+
+    '<td><div class="agent-cell"><div class="avt">'+initials+'</div><div><div class="agent-name">'+agent.name+'</div><div class="agent-meta">'+agent.group+' · '+agent.role+'</div></div></div></td>'+
+    '<td><div class="prog-wrap"><div class="prog-bar"><div class="prog-fill" style="width:'+prog.pct+'%;background:'+barColor(prog.pct)+'"></div></div><span class="prog-pct" style="color:'+barColor(prog.pct)+'">'+prog.pct+'%</span></div></td>'+
+    catCells+
+    '<td>'+lastSeenHTML(prog.daysSince)+'</td>'+
+    '<td style="font-size:12px;color:#999">Day '+prog.daysIn+'</td>'+
+    '<td onclick="event.stopPropagation()"><a class="view-link" href="'+agent.pageUrl+'" target="_blank">View →</a></td>'+
+  '</tr>';
+
+  var detailRowHTML = buildDetailRow(agent, prog, rowId);
+  return agentRowHTML + detailRowHTML;
+}
+
+function refreshData(){
+  var tbody = document.getElementById('agents-tbody');
+  if(!tbody) return;
+  var totalPct=0, stuckCount=0, doneCount=0, stuckNames=[];
+
+  var html = NEW_AGENTS.map(function(agent, i){
+    var prog = calcProgress(agent);
+    totalPct+=prog.pct;
+    if(prog.pct===100) doneCount++;
+    if(prog.daysSince===null||prog.daysSince>=7){ stuckCount++; stuckNames.push(agent.name.split(' ')[0]); }
+    return renderAgent(agent, 'agent-'+i);
+  }).join('');
+
+  tbody.innerHTML = html || '<tr><td colspan="11" style="text-align:center;padding:48px;color:#bbb;font-size:13px">No agents currently onboarding</td></tr>';
+
+  document.getElementById('stat-total').textContent = NEW_AGENTS.length;
+  document.getElementById('stat-avg').textContent = NEW_AGENTS.length>0?Math.round(totalPct/NEW_AGENTS.length)+'%':'—';
+  document.getElementById('stat-stuck').textContent = stuckCount;
+  document.getElementById('stat-done').textContent = doneCount;
+
+  var banner=document.getElementById('alert-banner');
+  if(stuckCount>0){
+    banner.style.display='flex';
+    document.getElementById('alert-text').textContent=stuckNames.join(', ')+(stuckCount===1?' has':' have')+' not opened their portal in 7+ days. Consider reaching out.';
+  } else { banner.style.display='none'; }
+}
+
+function doLogin(){
+  var pw=document.getElementById('pw-input').value;
+  if(pw===PASSWORD){
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('dashboard').style.display='block';
+    sessionStorage.setItem('chez_admin','1');
+    var now=new Date();
+    var ds=now.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    var el=document.getElementById('today-date'); if(el) el.textContent=ds;
+    var fe=document.getElementById('footer-date'); if(fe) fe.textContent=ds;
+    refreshData();
+  } else {
+    document.getElementById('login-error').style.display='block';
+    document.getElementById('pw-input').value='';
+    document.getElementById('pw-input').focus();
+  }
+}
+
+function doLogout(){
+  sessionStorage.removeItem('chez_admin');
+  document.getElementById('dashboard').style.display='none';
+  document.getElementById('login-screen').style.display='flex';
+  document.getElementById('pw-input').value='';
+}
+
+window.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
+  if(sessionStorage.getItem('chez_admin')==='1'){
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('dashboard').style.display='block';
+    var now=new Date();
+    var ds=now.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    var el=document.getElementById('today-date'); if(el) el.textContent=ds;
+    var fe=document.getElementById('footer-date'); if(fe) fe.textContent=ds;
+    refreshData();
+  }
+});
+</script>
+</body>
+</html>
