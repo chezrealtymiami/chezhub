@@ -10,10 +10,7 @@
 body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
 .topbar{background:white;border-bottom:1px solid #eee;padding:14px 24px;display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:10}
 .logo{font-family:'Lato',sans-serif;font-weight:900;font-size:16px;color:#F15F37;letter-spacing:3px}
-.new-badge{background:#FFF0E8;color:#F15F37;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;margin-left:auto}
 .body{padding:20px 24px;max-width:780px;margin:0 auto}
-
-/* HERO */
 .hero{background:#2A2A2A;border-radius:14px;padding:22px 26px;display:flex;align-items:center;gap:18px;margin-bottom:20px}
 .avt{width:60px;height:60px;border-radius:50%;background:#F15F37;display:flex;align-items:center;justify-content:center;font-family:'Lato',sans-serif;font-weight:900;font-size:22px;color:white;flex-shrink:0}
 .hero-tag{font-size:10px;font-weight:700;color:#F15F37;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:4px}
@@ -23,27 +20,8 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
 .pct-sub{font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;text-align:center}
 .pct-bar{width:90px;height:5px;background:rgba(255,255,255,0.1);border-radius:3px;margin-top:8px;overflow:hidden}
 .pct-fill{height:100%;background:#F15F37;border-radius:3px;transition:width 0.4s}
-
-/* WELCOME BANNER */
 .welcome-banner{border-radius:14px;padding:28px 28px 24px;margin-bottom:20px;text-align:center;overflow:hidden;position:relative;background-image:url('https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/BG%20CHEZ.png');background-size:cover;background-position:center}
-.banner-overlay{display:none}
 .banner-content{position:relative;z-index:1}
-
-/* SIDE SECTION */
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* BLOCKS */
 .section-label{font-size:10px;font-weight:700;color:#999;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px}
 .block-card{background:white;border:0.5px solid #eee;border-radius:12px;margin-bottom:14px;overflow:hidden}
 .block-header{padding:14px 18px;display:flex;align-items:center;gap:12px;background:#F15F37;cursor:pointer;user-select:none}
@@ -55,8 +33,6 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
 .block-chev{width:16px;height:16px;stroke:white;fill:none;stroke-width:2;transition:transform 0.2s;flex-shrink:0}
 .block-steps{display:none;border-top:0.5px solid #f5f5f5}
 .block-steps.open{display:block}
-
-/* STEPS */
 .step{border-bottom:0.5px solid #f5f5f5}
 .step:last-child{border-bottom:none}
 .step-header{padding:12px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
@@ -71,8 +47,6 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
 .step-chev{width:13px;height:13px;stroke:#bbb;fill:none;stroke-width:2;flex-shrink:0;transition:transform 0.2s}
 .step-body{display:none;padding:0 16px 16px 50px;background:#FAFAFA;border-top:0.5px solid #f0f0f0}
 .step-body.open{display:block}
-
-/* CONTENT */
 .block-label{font-size:10px;font-weight:700;color:#999;letter-spacing:0.1em;text-transform:uppercase;margin:12px 0 6px}
 .desc{font-size:12px;color:#555;line-height:1.65}
 .info-box{background:#F0F7FF;border:0.5px solid #B8D4F0;border-radius:8px;padding:10px 12px;margin-bottom:6px;font-size:11px;color:#1A4A7A;line-height:1.7}
@@ -96,8 +70,6 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
 .confirm-label{font-size:12px;color:#C8601A;font-weight:500}
 .help-card{background:#FFF8F5;border:0.5px solid #FFD5B8;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;margin-top:4px}
 .wa-btn{background:#F15F37;color:white;text-decoration:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:600;white-space:nowrap}
-
-/* LOCKED STATE */
 .step.locked .step-title{color:#bbb}
 .step.locked .step-header{cursor:default;opacity:0.5}
 .step.locked .step-chev{display:none}
@@ -107,28 +79,65 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
 .step.locked .step-num{background:#ddd}
 @keyframes unlock{0%{transform:scale(0.8);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
 .step.just-unlocked{animation:unlock 0.4s ease forwards}
+
+/* CHECKPOINT TOAST */
+.checkpoint-toast{position:fixed;bottom:24px;right:24px;background:#2A2A2A;color:white;border-radius:12px;padding:14px 18px;font-size:12px;display:flex;align-items:center;gap:10px;z-index:999;transform:translateY(80px);opacity:0;transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);max-width:320px;box-shadow:0 8px 32px rgba(0,0,0,0.25)}
+.checkpoint-toast.show{transform:translateY(0);opacity:1}
+.checkpoint-dot{width:8px;height:8px;border-radius:50%;background:#F15F37;flex-shrink:0}
+
+/* NOT FOUND */
+.not-found{text-align:center;padding:80px 24px}
+.not-found h2{font-family:'Lato',sans-serif;font-size:28px;font-weight:900;color:#2A2A2A;margin-bottom:12px}
+.not-found p{font-size:14px;color:#999;line-height:1.6}
+
+/* CELEBRATION MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.modal-overlay.show{opacity:1;pointer-events:all}
+.modal-box{background:white;border-radius:20px;padding:40px 32px;text-align:center;max-width:420px;width:90%;transform:scale(0.85);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.modal-overlay.show .modal-box{transform:scale(1)}
+.modal-emoji{font-size:56px;margin-bottom:16px;display:block}
+.modal-title{font-family:'Lato',sans-serif;font-size:28px;font-weight:900;color:#2A2A2A;margin-bottom:8px}
+.modal-sub{font-size:14px;color:#777;line-height:1.6;margin-bottom:24px}
+.modal-btn{background:#F15F37;color:white;border:none;border-radius:10px;padding:14px 32px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;width:100%}
+canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
 </style>
 </head>
 <body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<div class="modal-overlay" id="celebration-modal">
+  <div class="modal-box">
+    <span class="modal-emoji">🎉</span>
+    <div class="modal-title">You're Chezified! 🧡</div>
+    <div class="modal-sub" id="modal-msg"></div>
+    <button class="modal-btn" onclick="closeCelebration()">Let's go close deals! 🚀</button>
+  </div>
+</div>
+
+<div class="checkpoint-toast" id="checkpoint-toast">
+  <div class="checkpoint-dot"></div>
+  <div id="checkpoint-msg">Checkpoint reached — Admin notified! 📬</div>
+</div>
 
 <div class="topbar">
   <div class="logo">CHEZ HUB</div>
   <div style="font-size:11px;color:#bbb">/</div>
   <div style="font-size:11px;color:#bbb;font-weight:400">New Agent Onboarding</div>
   <div style="font-size:11px;color:#bbb">/</div>
-  <div style="font-size:11px;color:#F15F37;font-weight:600">Monica Herrera</div>
+  <div style="font-size:11px;color:#F15F37;font-weight:600" id="topbar-name">—</div>
   <img src="https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/CHEZLOGO%20HORIZONTAL_ORANGE.png" style="height:24px;width:auto;object-fit:contain;margin-left:auto" alt="Chez Realty">
 </div>
 
-<div class="body">
+<div class="body" id="main-body">
 
   <!-- HERO -->
   <div class="hero">
-    <div class="avt">MH</div>
+    <div class="avt" id="hero-avt">??</div>
     <div style="flex:1">
-      <div class="hero-tag">Welcome to Chez · Cabrera Group</div>
-      <div class="hero-name">Monica Herrera</div>
-      <div class="hero-role">Associate · Started March 7, 2026</div>
+      <div class="hero-tag">Welcome to Chez · <span id="hero-group">Chez Realty</span></div>
+      <div class="hero-name" id="hero-name">—</div>
+      <div class="hero-role">Associate Agent / Realtor · Started <span id="hero-start">—</span></div>
     </div>
     <div style="flex-shrink:0">
       <div class="pct-num" id="pct">0%</div>
@@ -139,10 +148,9 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
 
   <!-- WELCOME BANNER -->
   <div class="welcome-banner">
-    <div class="banner-overlay"></div>
     <div class="banner-content">
       <div style="font-family:'Lato',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:10px">Chez Realty · Miami</div>
-      <div style="font-family:'Lato',sans-serif;font-size:36px;font-weight:900;color:white;line-height:1.1;margin-bottom:8px">Oh la la, Monica! 🎉</div>
+      <div style="font-family:'Lato',sans-serif;font-size:36px;font-weight:900;color:white;line-height:1.1;margin-bottom:8px" id="banner-title">Oh la la! 🎉</div>
       <div style="font-size:15px;color:rgba(255,255,255,0.9);margin-bottom:18px;line-height:1.6"><em>Oui oui oui</em> — you made it! Welcome to <strong>Chez Realty</strong>,<br>Miami's most <em>magnifique</em> real estate team. 🧡</div>
       <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:14px 20px;margin-bottom:20px;font-size:13px;color:white;line-height:1.7;text-align:left;max-width:520px;margin-left:auto;margin-right:auto">
         Your onboarding is organized in <strong>4 blocks</strong>. Go at your own pace — the faster you move through them, the sooner you're ready to close your first deal. Let's go! 🚀
@@ -193,7 +201,7 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
   <!-- CHEZ ONBOARDING -->
   <div class="section-label">Chez Onboarding — 4 Blocks to Activation</div>
 
-  <!-- ═══ BLOCK 1: GETTING STARTED ═══ -->
+  <!-- ═══ BLOCK 1 ═══ -->
   <div class="block-card">
     <div class="block-header" onclick="toggleBlock('b1')">
       <div class="block-num">1</div>
@@ -222,7 +230,7 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
           <div class="block-label">What you need to do</div>
           <div class="desc">Your @chezre.com email is your professional identity at Chez. Set it up before anything else.</div>
           <div class="info-box">1️⃣ Check your personal email for a Google Workspace invite<br>2️⃣ Accept and create your password<br>3️⃣ Log in at <strong>mail.google.com</strong> with your @chezre.com address<br>4️⃣ Enable 2-factor authentication</div>
-          <a class="link-item" href="https://wa.me/17862804186?text=Hi+Male,+I+need+help+with+my+Chez+email" target="_blank"><div class="link-ico" style="background:#E8F5E9">💬</div><div><div class="link-title">Contact Male for help</div><div class="link-sub">WhatsApp · (786) 280-4186</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          <a class="link-item" href="https://wa.me/17862804186?text=Hi+Admin,+I+need+help+with+my+Chez+email" target="_blank"><div class="link-ico" style="background:#E8F5E9">💬</div><div><div class="link-title">Contact Admin for help</div><div class="link-sub">WhatsApp · (786) 280-4186</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <div class="confirm-row"><div class="chk" id="chk-s1" onclick="markDone('s1','b1',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">My @chezre.com email is active and I can log in</div></div>
         </div>
       </div>
@@ -265,7 +273,7 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
     </div>
   </div>
 
-  <!-- ═══ BLOCK 2: ACTIVATION ═══ -->
+  <!-- ═══ BLOCK 2 ═══ -->
   <div class="block-card">
     <div class="block-header" onclick="toggleBlock('b2')">
       <div class="block-num">2</div>
@@ -310,11 +318,11 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
         </div>
         <div class="step-body" id="body-s5">
           <div class="block-label">What you need to do</div>
-          <div class="desc">Fill out all fields below and send them to Male with the orange button.</div>
+          <div class="desc">Fill out all fields below and send them to Admin with the orange button.</div>
           <div style="margin-top:12px">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
-              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Full Name *</div><input id="f-name" type="text" placeholder="Monica Herrera" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;outline:none"></div>
-              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Email Address *</div><input id="f-email" type="email" placeholder="monica@chezre.com" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;outline:none"></div>
+              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Full Name *</div><input id="f-name" type="text" placeholder="Your full name" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;outline:none"></div>
+              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Email Address *</div><input id="f-email" type="email" placeholder="you@chezre.com" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;outline:none"></div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
               <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Phone Number *</div><input id="f-phone" type="tel" placeholder="(305) 000-0000" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;outline:none"></div>
@@ -329,9 +337,9 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
           </div>
           <button onclick="submitAgentForm()" style="width:100%;background:#F15F37;color:white;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Send email to Male
+            Send email to Admin
           </button>
-          <div class="confirm-row"><div class="chk" id="chk-s5" onclick="markDone('s5','b2',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have sent my information to Male</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s5" onclick="markDone('s5','b2',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have sent my information to Admin</div></div>
         </div>
       </div>
 
@@ -356,7 +364,7 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
     </div>
   </div>
 
-  <!-- ═══ BLOCK 3: TECH STACK ═══ -->
+  <!-- ═══ BLOCK 3 ═══ -->
   <div class="block-card">
     <div class="block-header" onclick="toggleBlock('b3')">
       <div class="block-num">3</div>
@@ -422,7 +430,7 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
         </div>
         <div class="step-body" id="body-s9">
           <div class="block-label">Part 1 — Profile & team invite</div>
-          <div class="info-box">1️⃣ Create Zillow agent profile — add headshot, phone & license<br>2️⃣ Message Male so we send the team invite<br>3️⃣ Accept the Chez Realty team invite</div>
+          <div class="info-box">1️⃣ Create Zillow agent profile — add headshot, phone & license<br>2️⃣ Message Admin so we can send the team invite<br>3️⃣ Accept the Chez Realty team invite</div>
           <div class="block-label">Part 2 — Flex agreement & Academy</div>
           <div class="info-box">4️⃣ Go to <strong>zillow.com/pbflex/agent</strong> · Sign Flex Agreement<br>5️⃣ Download/update the <strong>Premier Agent App</strong><br>6️⃣ Save backup number: <strong>(206) 539-0456</strong><br>7️⃣ Complete Zillow Academy Flex onboarding plan</div>
           <a class="link-item" href="https://www.zillow.com/pbflex/agent" target="_blank"><div class="link-ico" style="background:#E8F0FE">✍️</div><div><div class="link-title">Sign Zillow Flex Agreement</div><div class="link-sub">zillow.com/pbflex/agent</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
@@ -442,7 +450,7 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
         <div class="step-body" id="body-s10">
           <div class="block-label">What you need to do</div>
           <div class="desc">We will send you the team invite once you reach this step. Accept it and complete your profile with headshot, bio, and license number.</div>
-          <div class="info-box">📧 Check your Chez email for the Realtor.com invite. Contact Male if not received within 24h.</div>
+          <div class="info-box">📧 Check your Chez email for the Realtor.com invite. Contact Admin if not received within 24h.</div>
           <div class="confirm-row"><div class="chk" id="chk-s10" onclick="markDone('s10','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Realtor.com invite accepted and profile complete</div></div>
         </div>
       </div>
@@ -458,8 +466,8 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
         </div>
         <div class="step-body" id="body-s11">
           <div class="block-label">What you need to do</div>
-          <div class="desc">We fill out the Ylopo questionnaire for you and send the training email. Wait for Male to send it before starting.</div>
-          <div class="info-box orange">📌 Wait for the Ylopo training email from Male before starting this step.</div>
+          <div class="desc">We fill out the Ylopo questionnaire for you and send the training email. Wait for Admin to send it before starting.</div>
+          <div class="info-box orange">📌 Wait for the Ylopo training email from Admin before starting this step.</div>
           <a class="link-item" href="https://ylopo.zendesk.com/hc/en-us/articles/360021746612" target="_blank"><div class="link-ico" style="background:#F3E5F5">⭐</div><div><div class="link-title">Getting Started with Ylopo Stars</div><div class="link-sub">ylopo.zendesk.com</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <a class="link-item" href="https://ylopo.zendesk.com/hc/en-us/articles/360030238472" target="_blank"><div class="link-ico" style="background:#F3E5F5">🤖</div><div><div class="link-title">Ylopo AI Texting (Raiya) & FUB</div><div class="link-sub">ylopo.zendesk.com</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <div class="confirm-row"><div class="chk" id="chk-s11" onclick="markDone('s11','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Ylopo setup and training complete</div></div>
@@ -469,7 +477,7 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
     </div>
   </div>
 
-  <!-- ═══ BLOCK 4: READY TO SELL ═══ -->
+  <!-- ═══ BLOCK 4 ═══ -->
   <div class="block-card">
     <div class="block-header" onclick="toggleBlock('b4')">
       <div class="block-num">4</div>
@@ -497,8 +505,8 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
         <div class="step-body" id="body-s12">
           <div class="block-label">What you need to do</div>
           <div class="desc">Study the Chez scripts. The <strong>Zillow ALM script</strong> is your primary lead conversion tool — read it, practice out loud, know it cold before your 1-on-1.</div>
-          <div class="info-box orange">📌 Ask Male for the Scripts Drive link if you have not received it yet.</div>
-          <a class="link-item" href="https://wa.me/17862804186?text=Hi+Male,+can+you+send+me+the+Scripts+Drive?" target="_blank"><div class="link-ico" style="background:#E8F5E9">💬</div><div><div class="link-title">Request Scripts Drive from Male</div><div class="link-sub">WhatsApp · (786) 280-4186</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          <div class="info-box orange">📌 Ask Admin for the Scripts Drive link if you have not received it yet.</div>
+          <a class="link-item" href="https://wa.me/17862804186?text=Hi+Admin,+can+you+send+me+the+Scripts+Drive?" target="_blank"><div class="link-ico" style="background:#E8F5E9">💬</div><div><div class="link-title">Request Scripts Drive from Admin</div><div class="link-sub">WhatsApp · (786) 280-4186</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <div class="confirm-row"><div class="chk" id="chk-s12" onclick="markDone('s12','b4',2)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I know the Zillow ALM script</div></div>
         </div>
       </div>
@@ -514,8 +522,8 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
         </div>
         <div class="step-body" id="body-s13">
           <div class="block-label">What you need to do</div>
-          <div class="desc">Your alignment call with the founders — goals, strategy, and your first 90 days at Chez. Come prepared. Contact Male to schedule it.</div>
-          <a class="link-item" href="https://wa.me/17862804186?text=Hi+Male,+I+am+ready+for+my+1on1+with+Jose+and+Dexter!" target="_blank"><div class="link-ico" style="background:#E8F5E9">💬</div><div><div class="link-title">Contact Male to schedule</div><div class="link-sub">WhatsApp · (786) 280-4186</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          <div class="desc">Your alignment call with the founders — goals, strategy, and your first 90 days at Chez. Come prepared. Contact Admin to schedule it.</div>
+          <a class="link-item" href="https://wa.me/17862804186?text=Hi+Admin,+I+am+ready+for+my+1on1+with+Jose+and+Dexter!" target="_blank"><div class="link-ico" style="background:#E8F5E9">💬</div><div><div class="link-title">Contact Admin to schedule</div><div class="link-sub">WhatsApp · (786) 280-4186</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <div class="confirm-row"><div class="chk" id="chk-s13" onclick="markDone('s13','b4',2)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">1-on-1 with Jose and Dexter complete</div></div>
         </div>
       </div>
@@ -528,322 +536,320 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
     <div style="font-size:22px">💬</div>
     <div style="flex:1">
       <div style="font-size:13px;font-weight:500;color:#1A1A1A">Need help with any step?</div>
-      <div style="font-size:11px;color:#999;margin-top:2px">Male is your go-to for onboarding questions</div>
+      <div style="font-size:11px;color:#999;margin-top:2px">Admin is your go-to for onboarding questions</div>
     </div>
-    <a class="wa-btn" href="https://wa.me/17862804186?text=Hi+Male,+I+need+help+with+my+onboarding" target="_blank">WhatsApp Male</a>
+    <a class="wa-btn" href="https://wa.me/17862804186?text=Hi+Admin,+I+need+help+with+my+onboarding" target="_blank">WhatsApp Admin</a>
   </div>
 
 </div>
 
 <script>
+// ═══════════════════════════════════════════════════════════
+// AGENT REGISTRY — add new agents here
+// URL usage: onboarding.html?agent=dayanara
+// ═══════════════════════════════════════════════════════════
+var AGENTS = {
+  'demo': {
+    name:     'Agent Demo',
+    email:    'agent@chezre.com',
+    initials: 'AD',
+    group:    'Chez Realty',
+    start:    'April 16, 2026',
+    lsKey:    'ob_demo'
+  },
+  'monica': {
+    name:     'Monica Herrera',
+    email:    'monica@chezre.com',
+    initials: 'MH',
+    group:    'Cabrera Group',
+    start:    'March 7, 2026',
+    lsKey:    'ob_monica'
+  },
+  'dayanara': {
+    name:     'Dayanara Munoz',
+    email:    'dayanara@chezre.com',
+    initials: 'DM',
+    group:    'Chez Realty',
+    start:    'April 11, 2026',
+    lsKey:    'ob_dayanara'
+  }
+  // ADD NEW AGENTS HERE:
+  // 'slug': { name:'Full Name', email:'name@chezre.com', initials:'XX', group:'Chez Realty', start:'Month D, YYYY', lsKey:'ob_slug' }
+};
+
+// ═══════════════════════════════════════════════════════════
+// BOOT — resolve agent from URL
+// ═══════════════════════════════════════════════════════════
+var params  = new URLSearchParams(window.location.search);
+var slug    = (params.get('agent') || 'demo').toLowerCase().trim();
+var AGENT   = AGENTS[slug] || AGENTS['demo'];
+
+if(AGENT){
+  // Inject agent data into the page
+  document.title = AGENT.name + ' · Chez Hub Onboarding';
+  document.getElementById('topbar-name').textContent  = AGENT.name;
+  document.getElementById('hero-avt').textContent     = AGENT.initials;
+  document.getElementById('hero-name').textContent    = AGENT.name;
+  document.getElementById('hero-group').textContent   = AGENT.group;
+  document.getElementById('hero-start').textContent   = AGENT.start;
+  document.getElementById('banner-title').textContent = 'Oh la la, ' + AGENT.name.split(' ')[0] + '! 🎉';
+  document.getElementById('modal-msg').textContent    =
+    AGENT.name.split(' ')[0] + ', you\'ve completed your full onboarding! Welcome to the Chez family — let\'s close some deals! 🏠✨';
+  // Pre-fill email in form
+  setTimeout(function(){
+    var fe = document.getElementById('f-email');
+    if(fe && !fe.value) fe.value = AGENT.email;
+  }, 100);
+}
+
+// ═══════════════════════════════════════════════════════════
+// CHECKPOINTS
+// ═══════════════════════════════════════════════════════════
+var CHECKPOINT_STEPS = {
+  's4':  'Side Thursday Training completed ✅',
+  's9':  'Zillow profile live & Flex agreement signed ✅',
+  's10': 'Realtor.com invite accepted & profile complete ✅',
+  's11': 'Ylopo setup & training complete ✅',
+  's12': 'Scripts reviewed — ready for 1-on-1 ✅'
+};
+
+function sendCheckpointEmail(stepId, stepLabel){
+  if(!AGENT) return;
+  var subject = encodeURIComponent('[Chez Hub] Checkpoint — ' + AGENT.name + ' · ' + stepLabel);
+  var body = encodeURIComponent(
+    'ONBOARDING CHECKPOINT\n=====================\n\n' +
+    'Agent:  ' + AGENT.name + '\n' +
+    'Step:   ' + stepLabel + '\n' +
+    'Time:   ' + new Date().toLocaleString() + '\n\n' +
+    '— Chez Hub Automated Notification'
+  );
+  window.open('mailto:admin@chezre.com?subject=' + subject + '&body=' + body, '_blank');
+  showCheckpointToast(stepLabel);
+}
+
+function showCheckpointToast(label){
+  var toast = document.getElementById('checkpoint-toast');
+  var msg   = document.getElementById('checkpoint-msg');
+  if(msg) msg.textContent = '📬 Checkpoint: ' + label;
+  if(toast){ toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 4000); }
+}
+
+// ═══════════════════════════════════════════════════════════
+// CONFETTI + CELEBRATION
+// ═══════════════════════════════════════════════════════════
+function launchConfetti(){
+  var canvas = document.getElementById('confetti-canvas');
+  if(!canvas) return;
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  var ctx = canvas.getContext('2d');
+  var colors = ['#F15F37','#2A2A2A','#FFD700','#FF69B4','#00CED1','#FFF'];
+  var pieces = Array.from({length:180}, function(){
+    return { x:Math.random()*canvas.width, y:Math.random()*canvas.height-canvas.height,
+      w:Math.random()*10+5, h:Math.random()*6+3,
+      color:colors[Math.floor(Math.random()*colors.length)],
+      rot:Math.random()*360, vx:(Math.random()-.5)*4, vy:Math.random()*4+2, vr:(Math.random()-.5)*8 };
+  });
+  var start = Date.now();
+  (function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    var alive = false;
+    pieces.forEach(function(p){
+      if(p.y < canvas.height+20) alive = true;
+      p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr;
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180);
+      ctx.fillStyle=p.color; ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); ctx.restore();
+    });
+    if(alive && Date.now()-start<5000) requestAnimationFrame(draw);
+    else ctx.clearRect(0,0,canvas.width,canvas.height);
+  })();
+}
+
+function showCelebration(){ document.getElementById('celebration-modal').classList.add('show'); launchConfetti(); }
+function closeCelebration(){ document.getElementById('celebration-modal').classList.remove('show'); }
+
+// ═══════════════════════════════════════════════════════════
+// PROGRESS ENGINE
+// ═══════════════════════════════════════════════════════════
 var SIDE_TOTAL = 5;
+var CHEZ_TOTAL = 14;
 var CATS = { b1:{total:3,done:0}, b2:{total:3,done:0}, b3:{total:5,done:0}, b4:{total:2,done:0} };
-var CHEZ_TOTAL = 14; // 13 steps + ready check
+var STEP_ORDER = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13'];
 
-function getCat(id){
-  var n=parseInt(id.replace('s',''));
-  return n<=3?'b1': n<=6?'b2': n<=11?'b3': 'b4';
+function lsKey(){ return AGENT ? AGENT.lsKey : 'ob_unknown'; }
+function getSaved(){ try{ return JSON.parse(localStorage.getItem(lsKey())||'{}'); }catch(e){ return {}; } }
+function setSaved(obj){ localStorage.setItem(lsKey(), JSON.stringify(obj)); }
+
+function getCat(id){ var n=parseInt(id.replace('s','')); return n<=3?'b1':n<=6?'b2':n<=11?'b3':'b4'; }
+function getNextStep(id){ var i=STEP_ORDER.indexOf(id); return i>=0&&i<STEP_ORDER.length-1?STEP_ORDER[i+1]:null; }
+
+function lockStep(id){
+  var el=document.querySelector('[data-step="'+id+'"]'); if(!el) return;
+  el.classList.remove('unlocked','just-unlocked'); el.classList.add('locked');
+  var b=document.getElementById('body-'+id); if(b) b.classList.remove('open');
 }
-
-function loadProgress(){
-  try{
-    // First lock all steps except s1
-    STEP_ORDER.forEach(function(sid,i){
-      if(i > 0) lockStep(sid);
-    });
-    var saved=JSON.parse(localStorage.getItem('ob_onboarding')||'{}');
-    // Apply completed steps in order and unlock next
-    var lastCompleted = -1;
-    STEP_ORDER.forEach(function(sid,i){
-      if(saved[sid]){
-        var cat=getCat(sid);
-        if(cat) applyDone(sid,cat,false);
-        lastCompleted=i;
-        // Unlock next step
-        if(i+1 < STEP_ORDER.length) unlockStepSilent(STEP_ORDER[i+1]);
-      }
-    });
-    if(saved['ready']) applyReady();
-    updateTotals();
-    loadFormData();
-  }catch(e){}
-}
-
-function openBlock1(){
-  var bsteps = document.getElementById('bsteps-b1');
-  var bchev = document.getElementById('bchev-b1');
-  if(bsteps && !bsteps.classList.contains('open')){
-    bsteps.classList.add('open');
-    if(bchev) bchev.style.transform='rotate(180deg)';
-  }
-  // Open first incomplete step
-  var saved = JSON.parse(localStorage.getItem('ob_onboarding')||'{}');
-  var firstOpen = ['s1','s2','s3'].find(function(sid){ return !saved[sid]; });
-  if(firstOpen){
-    var body = document.getElementById('body-'+firstOpen);
-    var chev = document.getElementById('chev-'+firstOpen);
-    if(body){ body.classList.add('open'); }
-    if(chev) chev.style.transform='rotate(180deg)';
-  }
-}
-
 function unlockStepSilent(id){
-  var el=document.querySelector('[data-step="'+id+'"]');
-  if(!el) return;
-  el.classList.remove('locked');
-  el.classList.add('unlocked');
+  var el=document.querySelector('[data-step="'+id+'"]'); if(!el) return;
+  el.classList.remove('locked'); el.classList.add('unlocked');
+}
+function unlockStep(id){
+  var el=document.querySelector('[data-step="'+id+'"]'); if(!el) return;
+  el.classList.remove('locked'); el.classList.add('unlocked','just-unlocked');
+  setTimeout(function(){ el.classList.remove('just-unlocked'); },500);
+  setTimeout(function(){
+    var body=document.getElementById('body-'+id), chev=document.getElementById('chev-'+id);
+    if(body){ document.querySelectorAll('.step-body.open').forEach(function(e){e.classList.remove('open');}); body.classList.add('open'); }
+    if(chev) chev.style.transform='rotate(180deg)';
+    var se=document.querySelector('[data-step="'+id+'"]');
+    if(se){ var bs=se.closest('.block-steps');
+      if(bs&&!bs.classList.contains('open')){ bs.classList.add('open');
+        var bid=bs.id.replace('bsteps-',''), bc=document.getElementById('bchev-'+bid);
+        if(bc) bc.style.transform='rotate(180deg)'; } }
+  },300);
 }
 
 function applyDone(id,cat,save){
-  var chk=document.getElementById('chk-'+id);
-  var status=document.getElementById('status-'+id);
-  var title=document.getElementById('title-'+id);
-  var snum=document.getElementById('snum-'+id);
+  var chk=document.getElementById('chk-'+id), st=document.getElementById('status-'+id),
+      ti=document.getElementById('title-'+id), sn=document.getElementById('snum-'+id);
   if(chk) chk.classList.add('checked');
-  if(status){status.textContent='Done'; status.className='step-status done';}
-  if(title) title.classList.add('done');
-  if(snum) snum.classList.add('done');
-  if(save!==false){
-    CATS[cat].done++;
-    var saved=JSON.parse(localStorage.getItem('ob_onboarding')||'{}');
-    saved[id]=true; saved['_lastSeen']=Date.now();
-    localStorage.setItem('ob_onboarding',JSON.stringify(saved));
-    updateTotals();
-  }
-}
-
-var STEP_ORDER = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13'];
-
-function getNextStep(id){
-  var idx = STEP_ORDER.indexOf(id);
-  return idx >= 0 && idx < STEP_ORDER.length-1 ? STEP_ORDER[idx+1] : null;
-}
-
-function lockStep(id){
-  var el = document.querySelector('[data-step="'+id+'"]');
-  if(!el) return;
-  el.classList.remove('unlocked','just-unlocked');
-  el.classList.add('locked');
-  // Close body if open
-  var body = document.getElementById('body-'+id);
-  if(body) body.classList.remove('open');
-}
-
-function unlockStep(id){
-  var el = document.querySelector('[data-step="'+id+'"]');
-  if(!el) return;
-  el.classList.remove('locked');
-  el.classList.add('unlocked','just-unlocked');
-  setTimeout(function(){ el.classList.remove('just-unlocked'); }, 500);
-  // Auto-open the newly unlocked step
-  setTimeout(function(){
-    var body = document.getElementById('body-'+id);
-    var chev = document.getElementById('chev-'+id);
-    if(body){ 
-      document.querySelectorAll('.step-body.open').forEach(function(e){ e.classList.remove('open'); });
-      body.classList.add('open');
-    }
-    if(chev) chev.style.transform='rotate(180deg)';
-    // Also open the block if needed
-    var stepEl = document.querySelector('[data-step="'+id+'"]');
-    if(stepEl){
-      var blockSteps = stepEl.closest('.block-steps');
-      if(blockSteps && !blockSteps.classList.contains('open')){
-        blockSteps.classList.add('open');
-        var blockId = blockSteps.id.replace('bsteps-','');
-        var bchev = document.getElementById('bchev-'+blockId);
-        if(bchev) bchev.style.transform='rotate(180deg)';
-      }
-    }
-  }, 300);
+  if(st){st.textContent='Done'; st.className='step-status done';}
+  if(ti) ti.classList.add('done');
+  if(sn) sn.classList.add('done');
+  if(save!==false){ CATS[cat].done++; var s=getSaved(); s[id]=true; s['_lastSeen']=Date.now(); setSaved(s); updateTotals(); }
 }
 
 function markDone(id,cat,total){
-  var chk=document.getElementById('chk-'+id);
-  if(!chk) return;
-  var stepEl=document.querySelector('[data-step="'+id+'"]');
-  if(stepEl && stepEl.classList.contains('locked')) return;
-  var isDone=chk.classList.contains('checked');
-  if(isDone){
-    // Uncheck — re-lock all subsequent steps
+  var chk=document.getElementById('chk-'+id); if(!chk) return;
+  var el=document.querySelector('[data-step="'+id+'"]');
+  if(el&&el.classList.contains('locked')) return;
+  if(chk.classList.contains('checked')){
     chk.classList.remove('checked');
-    var s=document.getElementById('status-'+id);
-    var t=document.getElementById('title-'+id);
-    var snum=document.getElementById('snum-'+id);
+    var s=document.getElementById('status-'+id), t=document.getElementById('title-'+id), sn=document.getElementById('snum-'+id);
     if(s){s.textContent='Pending'; s.className='step-status pending';}
-    if(t) t.classList.remove('done');
-    if(snum) snum.classList.remove('done');
+    if(t) t.classList.remove('done'); if(sn) sn.classList.remove('done');
     CATS[cat].done=Math.max(0,CATS[cat].done-1);
-    var saved=JSON.parse(localStorage.getItem('ob_onboarding')||'{}');
-    saved[id]=false; saved['_lastSeen']=Date.now();
-    localStorage.setItem('ob_onboarding',JSON.stringify(saved));
-    // Re-lock all steps after this one
+    var sv=getSaved(); sv[id]=false; sv['_lastSeen']=Date.now(); setSaved(sv);
     var idx=STEP_ORDER.indexOf(id);
-    for(var i=idx+1;i<STEP_ORDER.length;i++){
-      var s2=JSON.parse(localStorage.getItem('ob_onboarding')||'{}');
-      if(!s2[STEP_ORDER[i]]) lockStep(STEP_ORDER[i]);
-    }
+    for(var i=idx+1;i<STEP_ORDER.length;i++){ var s2=getSaved(); if(!s2[STEP_ORDER[i]]) lockStep(STEP_ORDER[i]); }
   } else {
     applyDone(id,cat,true);
-    // Unlock next step
-    var next=getNextStep(id);
-    if(next) unlockStep(next);
+    if(CHECKPOINT_STEPS[id]) setTimeout(function(){ sendCheckpointEmail(id,CHECKPOINT_STEPS[id]); },400);
+    if(id==='s13') setTimeout(showCelebration,600);
+    var next=getNextStep(id); if(next) unlockStep(next);
   }
   updateTotals();
 }
 
 function updateTotals(){
   var chezDone=0;
-  Object.keys(CATS).forEach(function(cat){
-    var d=CATS[cat].done, t=CATS[cat].total;
-    chezDone+=d;
-    var meta=document.getElementById('meta-'+cat);
-    var bar=document.getElementById('bar-'+cat);
-    if(meta) meta.textContent=d+' of '+t;
-    if(bar) bar.style.width=Math.round(d/t*100)+'%';
+  Object.keys(CATS).forEach(function(c){
+    var d=CATS[c].done, t=CATS[c].total; chezDone+=d;
+    var m=document.getElementById('meta-'+c), b=document.getElementById('bar-'+c);
+    if(m) m.textContent=d+' of '+t;
+    if(b) b.style.width=Math.round(d/t*100)+'%';
   });
-  try{
-    var saved=JSON.parse(localStorage.getItem('ob_onboarding')||'{}');
-    if(saved['ready']) chezDone++;
-  }catch(e){}
-  var totalDone=SIDE_TOTAL+chezDone;
-  var totalAll=SIDE_TOTAL+CHEZ_TOTAL;
-  var pct=Math.round(totalDone/totalAll*100);
-  var pctEl=document.getElementById('pct');
-  var stepsEl=document.getElementById('steps-label');
-  var barEl=document.getElementById('pct-bar');
-  if(pctEl) pctEl.textContent=pct+'%';
-  if(stepsEl) stepsEl.textContent=totalDone+' of '+totalAll+' steps';
-  if(barEl) barEl.style.width=pct+'%';
+  if(getSaved()['ready']) chezDone++;
+  var td=SIDE_TOTAL+chezDone, ta=SIDE_TOTAL+CHEZ_TOTAL, pct=Math.round(td/ta*100);
+  var pe=document.getElementById('pct'), se=document.getElementById('steps-label'), be=document.getElementById('pct-bar');
+  if(pe) pe.textContent=pct+'%';
+  if(se) se.textContent=td+' of '+ta+' steps';
+  if(be) be.style.width=pct+'%';
+}
+
+function loadProgress(){
+  STEP_ORDER.forEach(function(sid,i){ if(i>0) lockStep(sid); });
+  var saved=getSaved();
+  STEP_ORDER.forEach(function(sid,i){
+    if(saved[sid]){ applyDone(sid,getCat(sid),false); if(i+1<STEP_ORDER.length) unlockStepSilent(STEP_ORDER[i+1]); }
+  });
+  if(saved['ready']) applyReady();
+  updateTotals(); loadFormData();
+}
+
+function openBlock1(){
+  var bs=document.getElementById('bsteps-b1'), bc=document.getElementById('bchev-b1');
+  if(bs&&!bs.classList.contains('open')){ bs.classList.add('open'); if(bc) bc.style.transform='rotate(180deg)'; }
+  var saved=getSaved(), first=['s1','s2','s3'].find(function(s){ return !saved[s]; });
+  if(first){ var b=document.getElementById('body-'+first), c=document.getElementById('chev-'+first);
+    if(b) b.classList.add('open'); if(c) c.style.transform='rotate(180deg)'; }
 }
 
 function toggleBlock(bid){
-  var steps=document.getElementById('bsteps-'+bid);
-  var chev=document.getElementById('bchev-'+bid);
-  if(!steps) return;
-  var open=steps.classList.contains('open');
-  steps.classList.toggle('open');
-  if(chev) chev.style.transform=open?'':'rotate(180deg)';
+  var s=document.getElementById('bsteps-'+bid), c=document.getElementById('bchev-'+bid); if(!s) return;
+  var open=s.classList.contains('open'); s.classList.toggle('open');
+  if(c) c.style.transform=open?'':'rotate(180deg)';
 }
-
 function toggleStep(id){
-  var stepEl = document.querySelector('[data-step="'+id+'"]');
-  if(stepEl && stepEl.classList.contains('locked')) return;
-  var body=document.getElementById('body-'+id);
-  var chev=document.getElementById('chev-'+id);
-  if(!body) return;
+  var el=document.querySelector('[data-step="'+id+'"]');
+  if(el&&el.classList.contains('locked')) return;
+  var body=document.getElementById('body-'+id), chev=document.getElementById('chev-'+id); if(!body) return;
   var open=body.classList.contains('open');
-  document.querySelectorAll('.step-body.open').forEach(function(el){ el.classList.remove('open'); });
-  document.querySelectorAll('.step-chev').forEach(function(el){ el.style.transform=''; });
-  if(!open){
-    body.classList.add('open');
-    if(chev) chev.style.transform='rotate(180deg)';
-  }
+  document.querySelectorAll('.step-body.open').forEach(function(e){e.classList.remove('open');});
+  document.querySelectorAll('.step-chev').forEach(function(e){e.style.transform='';});
+  if(!open){ body.classList.add('open'); if(chev) chev.style.transform='rotate(180deg)'; }
 }
 
 function applyReady(){
-  var chk=document.getElementById('chk-ready');
-  var icon=document.getElementById('chk-ready-icon');
-  var label=document.getElementById('ready-label');
+  var chk=document.getElementById('chk-ready'), icon=document.getElementById('chk-ready-icon'), lbl=document.getElementById('ready-label');
   if(chk){chk.style.background='#F15F37'; chk.style.borderColor='#F15F37';}
   if(icon) icon.style.display='block';
-  if(label){label.innerHTML='<strong style="color:#F15F37">Oui oui! Yes, I\'m ready to Chezify myself! 🧡</strong>'; label.style.color='#F15F37';}
+  if(lbl){lbl.innerHTML='<strong style="color:#F15F37">Oui oui! Yes, I\'m ready to Chezify myself! 🧡</strong>'; lbl.style.color='#F15F37';}
 }
-
 function markReady(){
   var chk=document.getElementById('chk-ready');
-  var isDone=chk.style.background==='rgb(241, 95, 55)';
-  if(isDone){
+  if(chk.style.background==='rgb(241, 95, 55)'){
     chk.style.background='white'; chk.style.borderColor='#F15F37';
     document.getElementById('chk-ready-icon').style.display='none';
-    var label=document.getElementById('ready-label');
-    label.innerHTML='Click to confirm — <em>"Yes, I\'m ready to Chezify myself!"</em>';
-    label.style.color='#999';
-    var saved=JSON.parse(localStorage.getItem('ob_onboarding')||'{}');
-    saved['ready']=false; localStorage.setItem('ob_onboarding',JSON.stringify(saved));
+    var lbl=document.getElementById('ready-label');
+    lbl.innerHTML='Click to confirm — <em>"Yes, I\'m ready to Chezify myself!"</em>'; lbl.style.color='#999';
+    var s=getSaved(); s['ready']=false; setSaved(s);
   } else {
-    applyReady();
-    var saved=JSON.parse(localStorage.getItem('ob_onboarding')||'{}');
-    saved['ready']=true; saved['_lastSeen']=Date.now();
-    localStorage.setItem('ob_onboarding',JSON.stringify(saved));
-    setTimeout(openBlock1, 300);
+    applyReady(); var s=getSaved(); s['ready']=true; s['_lastSeen']=Date.now(); setSaved(s);
+    setTimeout(openBlock1,300);
   }
   updateTotals();
 }
 
 function autoSaveForm(){
-  var data=getFormData();
-  var saved=JSON.parse(localStorage.getItem('ob_onboarding')||'{}');
-  saved['agentForm']=data; saved['_lastSeen']=Date.now();
-  localStorage.setItem('ob_onboarding',JSON.stringify(saved));
-  var st=document.getElementById('form-status');
-  if(st) st.textContent='✓ Draft saved automatically';
+  var s=getSaved(); s['agentForm']=getFormData(); s['_lastSeen']=Date.now(); setSaved(s);
+  var st=document.getElementById('form-status'); if(st) st.textContent='✓ Draft saved automatically';
 }
-
 function getFormData(){
-  return {
-    name:(document.getElementById('f-name')||{}).value||'',
+  return { name:(document.getElementById('f-name')||{}).value||'',
     email:(document.getElementById('f-email')||{}).value||'',
     phone:(document.getElementById('f-phone')||{}).value||'',
     birthday:(document.getElementById('f-birthday')||{}).value||'',
     shirt:(document.getElementById('f-shirt')||{}).value||'',
     license:(document.getElementById('f-license')||{}).value||'',
-    address:(document.getElementById('f-address')||{}).value||''
-  };
+    address:(document.getElementById('f-address')||{}).value||'' };
 }
-
 function loadFormData(){
-  try{
-    var saved=JSON.parse(localStorage.getItem('ob_onboarding')||'{}');
-    var f=saved['agentForm'];
-    if(!f) return;
-    ['name','email','phone','birthday','shirt','license','address'].forEach(function(k){
-      if(f[k]){var el=document.getElementById('f-'+k); if(el) el.value=f[k];}
-    });
-  }catch(e){}
+  var f=getSaved()['agentForm']; if(!f) return;
+  ['name','email','phone','birthday','shirt','license','address'].forEach(function(k){
+    if(f[k]){var el=document.getElementById('f-'+k); if(el) el.value=f[k];}
+  });
 }
-
 function submitAgentForm(){
-  var data=getFormData();
-  var missing=[];
-  if(!data.name) missing.push('Full Name');
-  if(!data.email) missing.push('Email');
-  if(!data.phone) missing.push('Phone');
-  if(!data.birthday) missing.push('Birthday');
-  if(!data.shirt) missing.push('Shirt Size');
-  if(!data.license) missing.push('License Number');
-  if(!data.address) missing.push('Home Address');
-  if(missing.length>0){
-    var st=document.getElementById('form-status');
-    if(st){st.textContent='⚠️ Please fill in: '+missing.join(', '); st.style.color='#E74C3C';}
-    return;
-  }
+  var data=getFormData(), missing=[];
+  ['name','email','phone','birthday','shirt','license','address'].forEach(function(k){
+    if(!data[k]) missing.push(k.charAt(0).toUpperCase()+k.slice(1));
+  });
+  if(missing.length){ var st=document.getElementById('form-status');
+    if(st){st.textContent='⚠️ Please fill in: '+missing.join(', '); st.style.color='#E74C3C';} return; }
   var subject=encodeURIComponent('New Agent Info — '+data.name);
-  var body=encodeURIComponent(
-    'New Agent Information\n====================\n\n'+
-    'Full Name:       '+data.name+'\n'+
-    'Email:           '+data.email+'\n'+
-    'Phone:           '+data.phone+'\n'+
-    'Birthday:        '+data.birthday+'\n'+
-    'Shirt Size:      '+data.shirt+'\n'+
-    'License Number:  '+data.license+'\n'+
-    'Home Address:    '+data.address+'\n\n'+
-    'Submitted: '+new Date().toLocaleString()
-  );
+  var body=encodeURIComponent('New Agent Information\n====================\n\n'+
+    'Full Name:       '+data.name+'\nEmail:           '+data.email+'\nPhone:           '+data.phone+'\n'+
+    'Birthday:        '+data.birthday+'\nShirt Size:      '+data.shirt+'\nLicense Number:  '+data.license+'\n'+
+    'Home Address:    '+data.address+'\n\nSubmitted: '+new Date().toLocaleString());
   window.location.href='mailto:admin@chezre.com?subject='+subject+'&body='+body;
-  var saved=JSON.parse(localStorage.getItem('ob_onboarding')||'{}');
-  saved['agentForm']=data; saved['_lastSeen']=Date.now();
-  localStorage.setItem('ob_onboarding',JSON.stringify(saved));
+  var s=getSaved(); s['agentForm']=data; s['_lastSeen']=Date.now(); setSaved(s);
   var st=document.getElementById('form-status');
   if(st){st.textContent='📧 Email draft opened — press Send!'; st.style.color='#2E7D32';}
 }
 
+// ── INIT ──────────────────────────────────────────────────
 loadProgress();
 updateTotals();
-// Block 1 opens only after Chezify check — handled by markReady()
-// If already checked, open block 1
-var saved2=JSON.parse(localStorage.getItem('ob_onboarding')||'{}');
-if(saved2['ready']) openBlock1();
+if(getSaved()['ready']) openBlock1();
 </script>
 </body>
 </html>
