@@ -604,8 +604,27 @@ if(AGENT){
 }
 
 // ═══════════════════════════════════════════════════════════
-// CHECKPOINTS
+// GOOGLE SHEETS SYNC
 // ═══════════════════════════════════════════════════════════
+var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxRGP2rO-45RH0ET7nmceO0-mW76hL0o9so9kqNBmAAVG99OBOWACB-AX9rI1vhqueW/exec';
+
+function syncToSheet(stepId, status){
+  if(!AGENT) return;
+  try{
+    fetch(SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        agent:  slug,
+        name:   AGENT.name,
+        step:   stepId,
+        status: status,
+        time:   new Date().toLocaleString()
+      })
+    });
+  }catch(e){ console.log('Sheets sync error:', e); }
+}
 var CHECKPOINT_STEPS = {
   's4':  'Side Thursday Training completed ✅',
   's9':  'Zillow profile live & Flex agreement signed ✅',
@@ -733,6 +752,7 @@ function markDone(id,cat,total){
     for(var i=idx+1;i<STEP_ORDER.length;i++){ var s2=getSaved(); if(!s2[STEP_ORDER[i]]) lockStep(STEP_ORDER[i]); }
   } else {
     applyDone(id,cat,true);
+    syncToSheet(id, 'done');
     if(CHECKPOINT_STEPS[id]) setTimeout(function(){ sendCheckpointEmail(id,CHECKPOINT_STEPS[id]); },400);
     if(id==='s13') setTimeout(showCelebration,600);
     var next=getNextStep(id); if(next) unlockStep(next);
@@ -816,6 +836,7 @@ function markReady(){
   } else {
     applyReady();
     var s=getSaved(); s['ready']=true; s['_lastSeen']=Date.now(); setSaved(s);
+    syncToSheet('ready', 'done');
     unlockStepSilent('s1');
     setTimeout(openBlock1,300);
   }
