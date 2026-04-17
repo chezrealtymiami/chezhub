@@ -15,71 +15,103 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
 .topbar-right{margin-left:auto;display:flex;align-items:center;gap:12px}
 .topbar-date{font-size:12px;color:rgba(255,255,255,0.4)}
 .logout-btn{font-size:11px;color:rgba(255,255,255,0.3);background:none;border:none;cursor:pointer;padding:4px 8px}
-.body{padding:24px 28px;max-width:1200px;margin:0 auto}
+.body{padding:24px 28px;max-width:1000px;margin:0 auto}
+
+/* STATS */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
 .stat-card{background:white;border:0.5px solid #eee;border-radius:12px;padding:16px 20px}
-.stat-label{font-size:11px;color:#999;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px}
-.stat-num{font-family:'Lato',sans-serif;font-size:28px;font-weight:900;color:#1A1A1A;line-height:1}
+.stat-label{font-size:10px;color:#999;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px}
+.stat-num{font-family:'Lato',sans-serif;font-size:32px;font-weight:900;color:#1A1A1A;line-height:1}
 .stat-sub{font-size:11px;color:#bbb;margin-top:4px}
-.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.section-title{font-size:13px;font-weight:600;color:#1A1A1A}
-.section-sub{font-size:11px;color:#999}
-.table-wrap{background:white;border:0.5px solid #eee;border-radius:12px;overflow:hidden}
-table{width:100%;border-collapse:collapse}
-thead tr{background:#FAFAFA;border-bottom:1px solid #eee}
-th{padding:11px 16px;text-align:left;font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:0.1em;white-space:nowrap}
-.agent-row{border-bottom:0.5px solid #f5f5f5;cursor:pointer;transition:background 0.1s}
-.agent-row:hover{background:#FAFAFA}
-.agent-row.expanded{background:#FAFAFA;border-bottom:none}
-.detail-row{display:none;border-bottom:1px solid #eee}
-.detail-row.open{display:table-row}
-.detail-cell{padding:0 16px 20px 16px;background:#FAFAFA}
-.detail-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-top:16px;border-top:0.5px solid #eee}
-.cat-block{background:white;border:0.5px solid #eee;border-radius:10px;padding:12px 14px}
-.cat-block-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.cat-color{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.cat-block-title{font-size:11px;font-weight:700;color:#1A1A1A}
-.cat-block-pct{margin-left:auto;font-size:11px;font-weight:700}
-.step-line{display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:0.5px solid #f9f9f9}
-.step-line:last-child{border-bottom:none}
-.step-dot{width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.step-dot.done{background:#F15F37}
-.step-dot.pending{background:#f0f0f0;border:1px solid #ddd}
-.step-dot.done svg{display:block}
-.step-dot svg{width:8px;height:8px;stroke:white;fill:none;stroke-width:3;display:none}
-.step-text{font-size:11px;line-height:1.3}
-.step-text.done{color:#bbb;text-decoration:line-through}
-.step-text.pending{color:#555}
-.agent-cell{display:flex;align-items:center;gap:10px}
-.avt{width:34px;height:34px;border-radius:50%;background:#F15F37;display:flex;align-items:center;justify-content:center;font-family:'Lato',sans-serif;font-weight:900;font-size:12px;color:white;flex-shrink:0}
-.agent-name{font-size:13px;font-weight:500;color:#1A1A1A}
-.agent-meta{font-size:11px;color:#999;margin-top:1px}
-.prog-wrap{display:flex;align-items:center;gap:8px}
-.prog-bar{flex:1;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;min-width:80px}
-.prog-fill{height:100%;border-radius:3px}
-.prog-pct{font-size:12px;font-weight:600;min-width:36px;text-align:right}
-.cat-pill{font-size:10px;padding:3px 8px;border-radius:20px;font-weight:600}
-.view-link{font-size:11px;color:#F15F37;text-decoration:none;padding:5px 10px;border:0.5px solid #FFD5B8;border-radius:6px;white-space:nowrap}
-.view-link:hover{background:#FFF0E8}
-.expand-chev{width:14px;height:14px;stroke:#bbb;fill:none;stroke-width:2;transition:transform 0.2s}
+
+/* ALERT */
 .alert-banner{background:#FFF3CD;border:0.5px solid #FFD5B8;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px;margin-bottom:20px}
 .alert-text{font-size:12px;color:#856404}
+
+/* SECTION */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.section-title{font-size:13px;font-weight:600;color:#1A1A1A}
+.section-sub{font-size:11px;color:#999;margin-top:2px}
+.refresh-btn{font-size:11px;color:#F15F37;background:none;border:0.5px solid #FFD5B8;border-radius:6px;padding:6px 14px;cursor:pointer;font-family:inherit}
+.refresh-btn:hover{background:#FFF0E8}
+.lu-note{font-size:10px;color:#bbb}
+
+/* AGENT CARDS */
+.agents-list{display:flex;flex-direction:column;gap:12px}
+
+.agent-card{background:white;border:0.5px solid #eee;border-radius:14px;overflow:hidden;cursor:pointer;transition:box-shadow 0.15s,border-color 0.15s}
+.agent-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.07);border-color:#ddd}
+.agent-card.expanded{box-shadow:0 4px 20px rgba(0,0,0,0.1);border-color:#F15F37}
+
+/* CARD MAIN ROW */
+.card-main{padding:18px 20px;display:flex;align-items:center;gap:16px}
+.avt{width:42px;height:42px;border-radius:50%;background:#F15F37;display:flex;align-items:center;justify-content:center;font-family:'Lato',sans-serif;font-weight:900;font-size:14px;color:white;flex-shrink:0}
+.agent-info{flex:1;min-width:0}
+.agent-name{font-family:'Lato',sans-serif;font-size:16px;font-weight:900;color:#1A1A1A;line-height:1.2}
+.agent-meta{font-size:11px;color:#bbb;margin-top:3px}
+
+/* PROGRESS SECTION */
+.prog-section{flex:2;min-width:0}
+.prog-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.prog-label{font-size:11px;color:#999;font-weight:500}
+.prog-pct{font-family:'Lato',sans-serif;font-size:20px;font-weight:900}
+.prog-bar-wrap{height:10px;background:#F0F0F0;border-radius:6px;overflow:hidden;margin-bottom:10px}
+.prog-bar-fill{height:100%;border-radius:6px;transition:width 0.4s}
+
+/* BLOCK MINI BARS */
+.blocks-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.block-mini{display:flex;flex-direction:column;gap:4px}
+.block-mini-label{display:flex;align-items:center;justify-content:space-between}
+.block-mini-name{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em}
+.block-mini-count{font-size:9px;font-weight:700}
+.block-mini-bar{height:5px;background:#F0F0F0;border-radius:3px;overflow:hidden}
+.block-mini-fill{height:100%;border-radius:3px;transition:width 0.4s}
+
+/* STATUS BADGE */
+.status-col{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.badge{font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap}
+.badge-done{background:#2ECC71;color:white;font-size:11px;padding:6px 14px;box-shadow:0 2px 8px rgba(46,204,113,0.4)}
+.badge-active{background:#FFF8F5;color:#F15F37}
+.badge-waiting{background:#F5F5F5;color:#999}
+.expand-chev{width:16px;height:16px;stroke:#F15F37;fill:none;stroke-width:2.5;transition:transform 0.3s;flex-shrink:0;opacity:0.8}
+
+/* DETAIL PANEL */
+.card-detail{display:none;border-top:0.5px solid #f0f0f0;padding:20px;background:#FAFAFA}
+.card-detail.open{display:block}
+.detail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+.block-card{background:white;border:0.5px solid #eee;border-radius:10px;padding:14px}
+.block-card-header{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.block-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.block-card-title{font-size:11px;font-weight:700;color:#1A1A1A;flex:1}
+.block-card-pct{font-size:11px;font-weight:700}
+.step-line{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:0.5px solid #f9f9f9}
+.step-line:last-child{border-bottom:none}
+.step-dot{width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-dot.done{background:#F15F37}
+.step-dot.pending{background:#f0f0f0;border:1px solid #e0e0e0}
+.step-dot svg{width:8px;height:8px;stroke:white;fill:none;stroke-width:3;display:none}
+.step-dot.done svg{display:block}
+.step-name{font-size:11px;line-height:1.4}
+.step-name.done{color:#bbb;text-decoration:line-through}
+.step-name.pending{color:#444}
+.next-step{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#FFF8F5;border:0.5px solid #FFD5B8;border-radius:8px;margin-bottom:0}
+.next-done{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#E8F5E9;border:0.5px solid #C8E6C9;border-radius:8px}
+
+/* LOGIN */
 .login-wrap{display:flex;align-items:center;justify-content:center;min-height:100vh;background:#F7F5F2}
-.login-card{background:white;border:0.5px solid #eee;border-radius:16px;padding:36px 40px;width:360px;text-align:center}
+.login-card{background:white;border:0.5px solid #eee;border-radius:16px;padding:36px 40px;width:360px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.06)}
 .login-logo{font-family:'Lato',sans-serif;font-weight:900;font-size:22px;color:#F15F37;letter-spacing:3px;margin-bottom:6px}
 .login-sub{font-size:12px;color:#999;margin-bottom:28px}
 .login-label{font-size:12px;font-weight:500;color:#555;text-align:left;display:block;margin-bottom:6px}
 .login-input{width:100%;padding:10px 14px;border:1px solid #eee;border-radius:8px;font-size:14px;outline:none;font-family:'DM Sans',sans-serif;margin-bottom:14px}
 .login-input:focus{border-color:#F15F37}
-.login-btn{width:100%;background:#F15F37;color:white;border:none;border-radius:8px;padding:11px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif}
-.login-error{font-size:12px;color:#E74C3C;margin-top:8px;display:none}
-.refresh-btn{font-size:11px;color:#F15F37;background:none;border:0.5px solid #FFD5B8;border-radius:6px;padding:6px 12px;cursor:pointer}
-.loading{text-align:center;padding:48px;color:#bbb;font-size:13px}
+.login-btn{width:100%;background:#F15F37;color:white;border:none;border-radius:8px;padding:12px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif}
+.login-error{font-size:12px;color:#E74C3C;margin-top:10px;display:none}
+
+/* LOADING */
+.loading-state{text-align:center;padding:48px;color:#bbb;font-size:13px}
 .spinner{display:inline-block;width:18px;height:18px;border:2px solid #eee;border-top-color:#F15F37;border-radius:50%;animation:spin 0.7s linear infinite;margin-right:8px;vertical-align:middle}
 @keyframes spin{to{transform:rotate(360deg)}}
-.last-update{font-size:10px;color:#bbb;margin-left:8px}
-.badge-done{background:#E8F5E9;color:#2E7D32;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px}
-.badge-active{background:#FFF8F5;color:#F15F37;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px}
 </style>
 </head>
 <body>
@@ -101,17 +133,21 @@ th{padding:11px 16px;text-align:left;font-size:10px;font-weight:700;color:#999;t
   <div class="topbar">
     <div class="logo">CHEZ HUB</div>
     <div class="admin-badge">Admin View</div>
-    <div class="topbar-right">
+    <div style="flex:1;text-align:center">
       <div class="topbar-date" id="today-date"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px">
+      <img src="https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/CHEZLOGO%20HORIZONTAL_ORANGE.png" style="height:24px;width:auto;object-fit:contain" alt="Chez Realty">
       <button class="logout-btn" onclick="doLogout()">Sign out</button>
     </div>
   </div>
 
   <div class="body">
+
     <div class="stats-row">
       <div class="stat-card"><div class="stat-label">In Onboarding</div><div class="stat-num" id="stat-total">—</div><div class="stat-sub">New agents active</div></div>
       <div class="stat-card"><div class="stat-label">Avg Progress</div><div class="stat-num" id="stat-avg">—</div><div class="stat-sub">Across all agents</div></div>
-      <div class="stat-card"><div class="stat-label">Need Attention</div><div class="stat-num" id="stat-stuck" style="color:#E74C3C">—</div><div class="stat-sub">0% after 3+ days</div></div>
+      <div class="stat-card"><div class="stat-label">Need Attention</div><div class="stat-num" id="stat-stuck" style="color:#F15F37">—</div><div class="stat-sub">Not started yet</div></div>
       <div class="stat-card"><div class="stat-label">Completed</div><div class="stat-num" id="stat-done" style="color:#2ECC71">—</div><div class="stat-sub">100% onboarding done</div></div>
     </div>
 
@@ -123,58 +159,36 @@ th{padding:11px 16px;text-align:left;font-size:10px;font-weight:700;color:#999;t
     <div class="section-header">
       <div>
         <div class="section-title">Agents in Onboarding</div>
-        <div class="section-sub">Live data from Google Sheets · Click any row to see step-by-step detail</div>
+        <div class="section-sub">Live from Google Sheets · Click any card for step detail</div>
       </div>
-      <div style="display:flex;align-items:center;gap:8px">
-        <span class="last-update" id="last-update"></span>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="lu-note" id="last-update"></span>
         <button class="refresh-btn" onclick="loadFromSheets()">↻ Refresh</button>
       </div>
     </div>
 
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Agent</th>
-            <th>Overall Progress</th>
-            <th>Block 1 — Getting Started</th>
-            <th>Block 2 — Activation</th>
-            <th>Block 3 — Tech Stack</th>
-            <th>Block 4 — Ready to Sell</th>
-            <th>Last Update</th>
-            <th>Status</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="agents-tbody">
-          <tr><td colspan="10" class="loading"><span class="spinner"></span>Loading agent data...</td></tr>
-        </tbody>
-      </table>
+    <div class="agents-list" id="agents-list">
+      <div class="loading-state"><span class="spinner"></span>Loading agent data...</div>
     </div>
 
-    <div style="margin-top:24px;font-size:10px;color:#bbb;text-align:center;padding-bottom:24px">
+    <div style="margin-top:24px;font-size:10px;color:#bbb;text-align:center;padding-bottom:32px">
       Chez Hub Admin · Data synced from Google Sheets · <span id="footer-date"></span>
     </div>
   </div>
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════════
-// CONFIG
-// ═══════════════════════════════════════════════════════════
 var PASSWORD   = 'chez2026';
 var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxRGP2rO-45RH0ET7nmceO0-mW76hL0o9so9kqNBmAAVG99OBOWACB-AX9rI1vhqueW/exec';
 
-// Step definitions per block
 var BLOCKS = [
   { id:'b1', label:'Getting Started', color:'#F15F37',
     steps:['ready','s1','s2','s3'],
     labels:{'ready':'Chezify check','s1':'@chezre.com email','s2':'Welcome email read','s3':'Headshot scheduled'} },
-  { id:'b2', label:'Activation', color:'#4A90D9',
+  { id:'b2', label:'Activation', color:'#F15F37',
     steps:['s4','s5','s6'],
     labels:{'s4':'Side Thursday training','s5':'Agent info form sent','s6':'Miami Realtors applied'} },
-  { id:'b3', label:'Tech Stack', color:'#7B68EE',
+  { id:'b3', label:'Tech Stack', color:'#F15F37',
     steps:['s7','s8','s9','s10','s11'],
     labels:{'s7':'FUB CRM setup','s8':'Matrix MLS videos','s9':'Zillow profile & Flex','s10':'Realtor.com invite','s11':'Ylopo setup'} },
   { id:'b4', label:'Ready to Sell', color:'#2ECC71',
@@ -182,240 +196,227 @@ var BLOCKS = [
     labels:{'s12':'Scripts reviewed','s13':'1-on-1 with Jose & Dexter'} }
 ];
 
-var TOTAL_STEPS = 14; // ready + s1-s13
+var TOTAL_STEPS = 14;
 
-// Agent registry — must match onboarding.html
 var AGENTS = {
   'monica':   { name:'Monica Herrera',  group:'Cabrera Group', start:'March 7, 2026',  initials:'MH' },
-  'dayanara': { name:'Dayanara Munoz',  group:'Chez Realty',   start:'April 11, 2026', initials:'DM' },
-  'demo':     { name:'Agent Demo',      group:'Chez Realty',   start:'April 16, 2026', initials:'AD' }
+  'dayanara': { name:'Dayanara Munoz',  group:'Chez Realty',   start:'April 11, 2026', initials:'DM' }
 };
 
-// ═══════════════════════════════════════════════════════════
-// SHEETS DATA
-// ═══════════════════════════════════════════════════════════
-var sheetData = {}; // { slug: { ready:'✅', s1:'✅', ... lastUpdate:'...' } }
+var sheetData = {};
 
 function loadFromSheets(){
-  document.getElementById('agents-tbody').innerHTML =
-    '<tr><td colspan="10" class="loading"><span class="spinner"></span>Loading agent data...</td></tr>';
+  document.getElementById('agents-list').innerHTML =
+    '<div class="loading-state"><span class="spinner"></span>Loading agent data...</div>';
   document.getElementById('last-update').textContent = '';
 
   fetch(SHEETS_URL)
     .then(function(r){ return r.json(); })
     .then(function(rows){
       sheetData = {};
-      if(!rows || rows.length < 2){ renderDashboard(); return; }
-
-      var headers = rows[0]; // ['Agent','Name','Group','Started','Ready','S1',...,'Last Update']
-      for(var i = 1; i < rows.length; i++){
-        var row = rows[i];
-        var slug = (row[0]||'').toString().toLowerCase().trim();
-        if(!slug) continue;
-        var agentData = { lastUpdate: row[headers.length-1] || '' };
-        // Map headers to step keys
-        headers.forEach(function(h, col){
-          var key = h.toString().toLowerCase();
-          if(key === 'ready') agentData['ready'] = row[col];
-          else if(key.match(/^s\d+$/)) agentData[key] = row[col];
-        });
-        sheetData[slug] = agentData;
+      if(rows && rows.length >= 2){
+        var headers = rows[0];
+        for(var i=1;i<rows.length;i++){
+          var row=rows[i];
+          var slug=(row[0]||'').toString().toLowerCase().trim();
+          if(!slug||slug==='demo') continue;
+          var agentData={lastUpdate:row[headers.length-1]||''};
+          headers.forEach(function(h,col){
+            var key=h.toString().toLowerCase();
+            if(key==='ready') agentData['ready']=row[col];
+            else if(key.match(/^s\d+$/)) agentData[key]=row[col];
+          });
+          sheetData[slug]=agentData;
+        }
       }
       renderDashboard();
-      var now = new Date();
       document.getElementById('last-update').textContent =
-        'Updated ' + now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+        'Updated '+new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
     })
-    .catch(function(err){
-      console.error('Sheets error:', err);
-      document.getElementById('agents-tbody').innerHTML =
-        '<tr><td colspan="10" class="loading">⚠️ Could not load data from Google Sheets. <button class="refresh-btn" onclick="loadFromSheets()" style="margin-left:8px">Try again</button></td></tr>';
+    .catch(function(){
+      document.getElementById('agents-list').innerHTML =
+        '<div class="loading-state">⚠️ Could not load data from Google Sheets. <button class="refresh-btn" onclick="loadFromSheets()" style="margin-left:8px">Try again</button></div>';
     });
 }
 
-// ═══════════════════════════════════════════════════════════
-// CALCULATE AGENT PROGRESS FROM SHEET DATA
-// ═══════════════════════════════════════════════════════════
-function calcAgentProgress(slug){
-  var data = sheetData[slug] || {};
-  var blockResults = BLOCKS.map(function(block){
-    var done = block.steps.filter(function(s){ return data[s] === '✅'; }).length;
-    return { block:block, done:done, total:block.steps.length, data:data };
+function calcProgress(slug){
+  var data=sheetData[slug]||{};
+  var blocks=BLOCKS.map(function(b){
+    var done=b.steps.filter(function(s){return data[s]==='✅';}).length;
+    return {block:b,done:done,total:b.steps.length,data:data};
   });
-  var totalDone = blockResults.reduce(function(acc,b){ return acc + b.done; }, 0);
-  var pct = Math.round(totalDone / TOTAL_STEPS * 100);
-  return { pct:pct, totalDone:totalDone, blocks:blockResults, lastUpdate:data.lastUpdate||null };
+  var totalDone=blocks.reduce(function(a,b){return a+b.done;},0);
+  return {pct:Math.round(totalDone/TOTAL_STEPS*100),totalDone:totalDone,blocks:blocks,lastUpdate:data.lastUpdate||null};
 }
 
-function barColor(pct){ return pct<25?'#E74C3C':pct<60?'#F39C12':pct<100?'#4A90D9':'#2ECC71'; }
+function barColor(pct){ return pct===100?'#2ECC71':pct===0?'#E0E0E0':'#F15F37'; }
 
-// ═══════════════════════════════════════════════════════════
-// RENDER
-// ═══════════════════════════════════════════════════════════
 function renderDashboard(){
-  var slugs = Object.keys(AGENTS).filter(function(s){ return s !== 'demo'; });
-  // Also add any slugs from sheets not in registry
-  Object.keys(sheetData).forEach(function(s){
-    if(s !== 'demo' && slugs.indexOf(s) === -1) slugs.push(s);
-  });
+  var slugs=Object.keys(AGENTS);
+  Object.keys(sheetData).forEach(function(s){ if(slugs.indexOf(s)===-1) slugs.push(s); });
 
-  var totalPct = 0, stuckCount = 0, doneCount = 0, stuckNames = [];
-  var html = '';
+  var totalPct=0,stuckCount=0,doneCount=0,stuckNames=[];
+  var html='';
 
-  if(slugs.length === 0){
-    html = '<tr><td colspan="10" class="loading">No agents currently onboarding</td></tr>';
+  if(slugs.length===0){
+    html='<div class="loading-state">No agents currently onboarding</div>';
   } else {
-    slugs.forEach(function(slug, i){
-      var agent = AGENTS[slug] || { name:slug, group:'—', start:'—', initials:slug.substring(0,2).toUpperCase() };
-      var prog = calcAgentProgress(slug);
-      totalPct += prog.pct;
-      if(prog.pct === 100) doneCount++;
+    slugs.forEach(function(slug,i){
+      var agent=AGENTS[slug]||{name:slug,group:'—',start:'—',initials:slug.substring(0,2).toUpperCase()};
+      var prog=calcProgress(slug);
+      totalPct+=prog.pct;
+      if(prog.pct===100) doneCount++;
       if(!prog.lastUpdate){ stuckCount++; stuckNames.push(agent.name.split(' ')[0]); }
-      html += renderAgentRow(slug, agent, prog, i);
+      html+=renderCard(slug,agent,prog,i);
     });
   }
 
-  document.getElementById('agents-tbody').innerHTML = html;
-  document.getElementById('stat-total').textContent = slugs.length;
-  document.getElementById('stat-avg').textContent   = slugs.length > 0 ? Math.round(totalPct/slugs.length)+'%' : '—';
-  document.getElementById('stat-stuck').textContent = stuckCount;
-  document.getElementById('stat-done').textContent  = doneCount;
+  document.getElementById('agents-list').innerHTML=html;
+  document.getElementById('stat-total').textContent=slugs.length;
+  document.getElementById('stat-avg').textContent=slugs.length>0?Math.round(totalPct/slugs.length)+'%':'—';
+  document.getElementById('stat-stuck').textContent=stuckCount;
+  document.getElementById('stat-done').textContent=doneCount;
 
-  var banner = document.getElementById('alert-banner');
-  if(stuckCount > 0){
-    banner.style.display = 'flex';
-    document.getElementById('alert-text').textContent =
-      stuckNames.join(', ') + (stuckCount===1?' has':' have') + ' not started their onboarding yet. Consider reaching out.';
-  } else {
-    banner.style.display = 'none';
-  }
+  var banner=document.getElementById('alert-banner');
+  if(stuckCount>0){
+    banner.style.display='flex';
+    document.getElementById('alert-text').textContent=
+      stuckNames.join(', ')+(stuckCount===1?' has':' have')+' not started onboarding yet. Consider reaching out.';
+  } else { banner.style.display='none'; }
 }
 
-function renderAgentRow(slug, agent, prog, idx){
-  var rowId = 'row-' + idx;
-
-  // Block pills
-  var blockCells = prog.blocks.map(function(b){
-    var pct = b.total > 0 ? Math.round(b.done/b.total*100) : 0;
-    var bg  = b.done === b.total ? b.block.color+'22' : '#F5F5F5';
-    var col = b.done === b.total ? b.block.color : '#bbb';
-    return '<td><span class="cat-pill" style="background:'+bg+';color:'+col+'">'+b.done+'/'+b.total+'</span></td>';
-  }).join('');
-
-  // Last update
-  var lastUpHTML = prog.lastUpdate
-    ? '<span style="font-size:12px;color:#555">'+prog.lastUpdate+'</span>'
-    : '<span style="font-size:12px;color:#bbb">No activity yet</span>';
+function renderCard(slug,agent,prog,idx){
+  var pctColor = '#F15F37';
 
   // Status badge
-  var statusHTML = prog.pct === 100
-    ? '<span class="badge-done">Complete ✅</span>'
-    : '<span class="badge-active">Active 🟠</span>';
+  var badge = prog.pct===100
+    ? '<span class="badge badge-done">Complete ✅</span>'
+    : prog.lastUpdate
+      ? '<span class="badge badge-active">Active 🟠</span>'
+      : '<span class="badge badge-waiting">Not started</span>';
 
-  var agentRowHTML =
-    '<tr class="agent-row" id="'+rowId+'" onclick="toggleDetail(\''+idx+'\')">' +
-      '<td style="padding:13px 8px 13px 16px"><svg class="expand-chev" id="chev-'+idx+'" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></td>' +
-      '<td><div class="agent-cell"><div class="avt">'+agent.initials+'</div><div><div class="agent-name">'+agent.name+'</div><div class="agent-meta">'+agent.group+' · Started '+agent.start+'</div></div></div></td>' +
-      '<td><div class="prog-wrap"><div class="prog-bar"><div class="prog-fill" style="width:'+prog.pct+'%;background:'+barColor(prog.pct)+'"></div></div><span class="prog-pct" style="color:'+barColor(prog.pct)+'">'+prog.pct+'%</span></div></td>' +
-      blockCells +
-      '<td>'+lastUpHTML+'</td>' +
-      '<td>'+statusHTML+'</td>' +
-      '<td onclick="event.stopPropagation()"><a class="view-link" href="newagent/onboarding.html?agent='+slug+'" target="_blank">View →</a></td>' +
-    '</tr>';
-
-  var detailRowHTML = buildDetailRow(slug, agent, prog, idx);
-  return agentRowHTML + detailRowHTML;
-}
-
-function buildDetailRow(slug, agent, prog, idx){
-  // Next pending step
-  var nextStep = null;
-  prog.blocks.forEach(function(b){
-    if(nextStep) return;
-    b.block.steps.forEach(function(s){
-      if(!nextStep && b.data[s] !== '✅') nextStep = b.block.labels[s];
-    });
-  });
-
-  var nextHTML = nextStep
-    ? '<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;padding:10px 14px;background:#FFF8F5;border:0.5px solid #FFD5B8;border-radius:8px"><div style="font-size:14px">👉</div><div style="font-size:12px;color:#C8601A;font-weight:500">Next step: <strong>'+nextStep+'</strong></div></div>'
-    : '<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;padding:10px 14px;background:#E8F5E9;border:0.5px solid #C8E6C9;border-radius:8px"><div style="font-size:14px">🎉</div><div style="font-size:12px;color:#2E7D32;font-weight:500">Onboarding complete!</div></div>';
-
-  var blocksHTML = prog.blocks.map(function(b){
-    var catPct = b.total > 0 ? Math.round(b.done/b.total*100) : 0;
-    var stepsHTML = b.block.steps.map(function(s){
-      var done = b.data[s] === '✅';
-      return '<div class="step-line">'+
-        '<div class="step-dot '+(done?'done':'pending')+'"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>'+
-        '<div class="step-text '+(done?'done':'pending')+'">'+b.block.labels[s]+'</div>'+
-      '</div>';
-    }).join('');
-    return '<div class="cat-block">'+
-      '<div class="cat-block-header">'+
-        '<div class="cat-color" style="background:'+b.block.color+'"></div>'+
-        '<div class="cat-block-title">'+b.block.label+'</div>'+
-        '<div class="cat-block-pct" style="color:'+b.block.color+'">'+catPct+'%</div>'+
-      '</div>'+stepsHTML+
+  // Block mini bars — always orange
+  var miniBlocks=prog.blocks.map(function(b){
+    var bPct=b.total>0?Math.round(b.done/b.total*100):0;
+    var bColor=bPct>0?'#F15F37':'#E0E0E0';
+    return '<div class="block-mini">'+
+      '<div class="block-mini-label">'+
+        '<span class="block-mini-name" style="color:#F15F37">'+b.block.label.split(' ')[0]+'</span>'+
+        '<span class="block-mini-count" style="color:'+(bPct>0?'#F15F37':'#bbb')+'">'+b.done+'/'+b.total+'</span>'+
+      '</div>'+
+      '<div class="block-mini-bar"><div class="block-mini-fill" style="width:'+bPct+'%;background:#F15F37"></div></div>'+
     '</div>';
   }).join('');
 
-  return '<tr class="detail-row" id="detail-'+idx+'">'+
-    '<td colspan="10" class="detail-cell">'+
+  // Last update
+  var lastUp=prog.lastUpdate
+    ?'<span style="font-size:9px;font-weight:700;color:#bbb;text-transform:uppercase;letter-spacing:0.05em">Last activity · </span><span style="font-size:11px;color:#888">'+prog.lastUpdate+'</span>'
+    :'<span style="font-size:11px;color:#ccc">No activity yet</span>';
+
+  // Detail blocks
+  var detailBlocks=prog.blocks.map(function(b){
+    var catPct=b.total>0?Math.round(b.done/b.total*100):0;
+    var stepsHTML=b.block.steps.map(function(s){
+      var done=b.data[s]==='✅';
+      return '<div class="step-line">'+
+        '<div class="step-dot '+(done?'done':'pending')+'"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>'+
+        '<div class="step-name '+(done?'done':'pending')+'">'+b.block.labels[s]+'</div>'+
+      '</div>';
+    }).join('');
+    return '<div class="block-card">'+
+      '<div class="block-card-header">'+
+        '<div class="block-dot" style="background:#F15F37"></div>'+
+        '<div class="block-card-title">'+b.block.label+'</div>'+
+        '<div class="block-card-pct" style="color:#F15F37">'+catPct+'%</div>'+
+      '</div>'+stepsHTML+'</div>';
+  }).join('');
+
+  // Next step
+  var nextStep=null;
+  prog.blocks.forEach(function(b){
+    if(nextStep) return;
+    b.block.steps.forEach(function(s){
+      if(!nextStep&&b.data[s]!=='✅') nextStep=b.block.labels[s];
+    });
+  });
+  var nextHTML=nextStep
+    ?'<div class="next-step"><span style="font-size:16px">👉</span><span style="font-size:12px;color:#C8601A;font-weight:500">Next: <strong>'+nextStep+'</strong></span></div>'
+    :'<div class="next-done"><span style="font-size:16px">🎉</span><span style="font-size:12px;color:#2E7D32;font-weight:600">Onboarding complete!</span></div>';
+
+  return '<div class="agent-card" id="card-'+idx+'" onclick="toggleCard('+idx+')">'+
+    '<div class="card-main">'+
+      '<div class="avt">'+agent.initials+'</div>'+
+      '<div class="agent-info">'+
+        '<div style="display:flex;align-items:center;gap:6px">'+
+          '<div class="agent-name">'+agent.name+'</div>'+
+          '<svg class="expand-chev" id="chev-'+idx+'" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>'+
+        '</div>'+
+        '<div class="agent-meta">'+agent.group+' · Started '+agent.start+'</div>'+
+        '<div style="margin-top:5px">'+lastUp+'</div>'+
+      '</div>'+
+      '<div class="prog-section">'+
+        '<div class="prog-top">'+
+          '<span class="prog-label">Overall Progress</span>'+
+          '<span class="prog-pct" style="color:'+pctColor+'">'+prog.pct+'%</span>'+
+        '</div>'+
+        '<div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:'+prog.pct+'%;background:#F15F37"></div></div>'+
+        '<div class="blocks-row">'+miniBlocks+'</div>'+
+      '</div>'+
+      '<div class="status-col">'+
+        badge+
+      '</div>'+
+    '</div>'+
+    '<div class="card-detail" id="detail-'+idx+'">'+
       nextHTML+
-      '<div class="detail-inner">'+blocksHTML+'</div>'+
-    '</td>'+
-  '</tr>';
+      '<div class="detail-grid">'+detailBlocks+'</div>'+
+    '</div>'+
+  '</div>';
 }
 
-function toggleDetail(idx){
-  var detail   = document.getElementById('detail-'+idx);
-  var agentRow = document.getElementById('row-'+idx);
-  var chev     = document.getElementById('chev-'+idx);
-  if(!detail) return;
-  var open = detail.classList.contains('open');
+function toggleCard(idx){
+  var card=document.getElementById('card-'+idx);
+  var detail=document.getElementById('detail-'+idx);
+  var chev=document.getElementById('chev-'+idx);
+  if(!card||!detail) return;
+  var open=detail.classList.contains('open');
   detail.classList.toggle('open',!open);
-  if(agentRow) agentRow.classList.toggle('expanded',!open);
-  if(chev) chev.style.transform = open?'':'rotate(180deg)';
+  card.classList.toggle('expanded',!open);
+  if(chev) chev.style.transform=open?'':'rotate(180deg)';
 }
 
-// ═══════════════════════════════════════════════════════════
-// AUTH
-// ═══════════════════════════════════════════════════════════
 function doLogin(){
-  var pw = document.getElementById('pw-input').value;
-  if(pw === PASSWORD){
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
+  var pw=document.getElementById('pw-input').value;
+  if(pw===PASSWORD){
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('dashboard').style.display='block';
     sessionStorage.setItem('chez_admin','1');
-    setDates();
-    loadFromSheets();
+    setDates(); loadFromSheets();
   } else {
-    document.getElementById('login-error').style.display = 'block';
-    document.getElementById('pw-input').value = '';
+    document.getElementById('login-error').style.display='block';
+    document.getElementById('pw-input').value='';
     document.getElementById('pw-input').focus();
   }
 }
 
 function doLogout(){
   sessionStorage.removeItem('chez_admin');
-  document.getElementById('dashboard').style.display = 'none';
-  document.getElementById('login-screen').style.display = 'flex';
-  document.getElementById('pw-input').value = '';
+  document.getElementById('dashboard').style.display='none';
+  document.getElementById('login-screen').style.display='flex';
+  document.getElementById('pw-input').value='';
 }
 
 function setDates(){
-  var ds = new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  var el = document.getElementById('today-date'); if(el) el.textContent = ds;
-  var fe = document.getElementById('footer-date'); if(fe) fe.textContent = ds;
+  var ds=new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  var el=document.getElementById('today-date'); if(el) el.textContent=ds;
+  var fe=document.getElementById('footer-date'); if(fe) fe.textContent=ds;
 }
 
 window.addEventListener('DOMContentLoaded',function(){
-  document.getElementById('pw-input').addEventListener('keydown',function(e){ if(e.key==='Enter') doLogin(); });
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
   if(sessionStorage.getItem('chez_admin')==='1'){
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
-    setDates();
-    loadFromSheets();
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('dashboard').style.display='block';
+    setDates(); loadFromSheets();
   }
 });
 </script>
