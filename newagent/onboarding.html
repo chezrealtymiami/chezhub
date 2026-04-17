@@ -750,6 +750,7 @@ function markDone(id,cat,total){
     if(t) t.classList.remove('done'); if(sn) sn.classList.remove('done');
     CATS[cat].done=Math.max(0,CATS[cat].done-1);
     var sv=getSaved(); sv[id]=false; sv['_lastSeen']=Date.now(); setSaved(sv);
+    syncToSheet(id, 'pending');
     var idx=STEP_ORDER.indexOf(id);
     for(var i=idx+1;i<STEP_ORDER.length;i++){ var s2=getSaved(); if(!s2[STEP_ORDER[i]]) lockStep(STEP_ORDER[i]); }
   } else {
@@ -834,6 +835,7 @@ function markReady(){
     var lbl=document.getElementById('ready-label');
     lbl.innerHTML='Click to confirm — <em>"Yes, I\'m ready to Chezify myself!"</em>'; lbl.style.color='#999';
     var s=getSaved(); s['ready']=false; setSaved(s);
+    syncToSheet('ready', 'pending');
     STEP_ORDER.forEach(function(sid){ lockStep(sid); });
   } else {
     applyReady();
