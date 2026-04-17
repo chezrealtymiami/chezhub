@@ -618,6 +618,8 @@ function syncToSheet(stepId, status){
       body: JSON.stringify({
         agent:  slug,
         name:   AGENT.name,
+        group:  AGENT.group,
+        start:  AGENT.start,
         step:   stepId,
         status: status,
         time:   new Date().toLocaleString()
