@@ -231,7 +231,8 @@ function loadFromSheets(){
           sheetData[slug]=agentData;
         }
       }
-      // Also load NEW AGENT INFO tab
+      // Also load AGENTS tab and NEW AGENT INFO tab
+      loadAgentsRegistry();
       loadAgentInfo();
       renderDashboard();
       document.getElementById('last-update').textContent =
@@ -267,7 +268,7 @@ function renderDashboard(){
     html='<div class="loading-state">No agents currently onboarding</div>';
   } else {
     slugs.forEach(function(slug,i){
-      var agent=AGENTS[slug]||{name:slug,group:'—',start:'—',initials:slug.substring(0,2).toUpperCase()};
+      var agent=agentsRegistry[slug]||AGENTS[slug]||{name:slug,group:'—',start:'—',initials:slug.substring(0,2).toUpperCase()};
       var prog=calcProgress(slug);
       totalPct+=prog.pct;
       if(prog.pct===100) doneCount++;
@@ -440,7 +441,29 @@ function showToast(msg){
   setTimeout(function(){ document.body.removeChild(t); }, 3000);
 }
 
-var agentInfo = {}; // { slug: { name, email, phone, birthday, shirt, license, address } }
+var agentInfo = {};    // { slug: { name, email, phone, ... } } from NEW AGENT INFO tab
+var agentsRegistry = {}; // { slug: { name, initials, group, start } } from AGENTS tab
+
+function loadAgentsRegistry(){
+  fetch(SHEETS_URL + '?action=get_all_agents')
+    .then(function(r){ return r.json(); })
+    .then(function(rows){
+      agentsRegistry = {};
+      if(!rows || rows.length < 2) return;
+      for(var i=1;i<rows.length;i++){
+        var slug = (rows[i][0]||'').toString().toLowerCase().trim();
+        if(!slug) continue;
+        agentsRegistry[slug] = {
+          name:     rows[i][1]||slug,
+          email:    rows[i][2]||'',
+          initials: rows[i][3]||slug.substring(0,2).toUpperCase(),
+          group:    rows[i][4]||'—',
+          start:    rows[i][5]||'—'
+        };
+      }
+    })
+    .catch(function(){});
+}
 
 function loadAgentInfo(){
   // Fetch NEW AGENT INFO tab via a second sheet read
