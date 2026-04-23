@@ -199,8 +199,9 @@ var BLOCKS = [
 var TOTAL_STEPS = 15;
 
 var AGENTS = {
-  'monica':   { name:'Monica Herrera',  group:'Cabrera Group', start:'March 7, 2026',  initials:'MH' },
-  'dayanara': { name:'Dayanara Munoz',  group:'Chez Realty',   start:'April 11, 2026', initials:'DM' }
+  // Registry for known agents — used as fallback display info
+  // New agents added via onboarding.html appear automatically from Sheet
+  // 'slug': { name:'Full Name', group:'Chez Realty', start:'Month D, YYYY', initials:'XX' }
 };
 
 var sheetData = {};
