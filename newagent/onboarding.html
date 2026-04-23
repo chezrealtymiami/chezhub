@@ -591,28 +591,48 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
 // AGENT REGISTRY — add new agents here
 // URL usage: onboarding.html?agent=dayanara
 // ═══════════════════════════════════════════════════════════
-var AGENTS = {
-  'demo': {
-    name:     'Agent Demo',
-    email:    'agent@chezre.com',
-    initials: 'AD',
-    group:    'Chez Realty',
-    start:    'April 23, 2026',
-    lsKey:    'ob_demo'
-  }
-  // ADD NEW AGENTS HERE:
-  // 'slug': { name:'Full Name', email:'name@chezre.com', initials:'XX', group:'Chez Realty', start:'Month D, YYYY', lsKey:'ob_slug' }
-};
+// ═══════════════════════════════════════════════════════════
+// AGENT REGISTRY — loaded from Google Sheets AGENTS tab
+// To add a new agent: add a row in the AGENTS tab of the Sheet
+// Columns: slug | name | email | initials | group | start
+// ═══════════════════════════════════════════════════════════
+var AGENTS = {}; // populated from Sheet on load
+var AGENT   = null;
+var slug    = (new URLSearchParams(window.location.search).get('agent') || 'demo').toLowerCase().trim();
 
 // ═══════════════════════════════════════════════════════════
-// BOOT — resolve agent from URL
+// BOOT — load agent from Google Sheets AGENTS tab
 // ═══════════════════════════════════════════════════════════
-var params  = new URLSearchParams(window.location.search);
-var slug    = (params.get('agent') || 'demo').toLowerCase().trim();
-var AGENT   = AGENTS[slug] || AGENTS['demo'];
+function loadAgentFromSheet(){
+  fetch(SHEETS_URL + '?action=get_agent&slug=' + slug)
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if(data && data.name){
+        AGENT = data;
+        AGENT.lsKey = 'ob_' + slug;
+        injectAgentData();
+      } else {
+        // Fallback to demo
+        AGENT = { name:'Agent Demo', email:'agent@chezre.com', initials:'AD', group:'Chez Realty', start:'April 23, 2026', lsKey:'ob_demo' };
+        injectAgentData();
+      }
+      loadProgress();
+      updateTotals();
+      if(getSaved()['ready']) openBlock1();
+      checkYlopoFromSheet();
+    })
+    .catch(function(){
+      // Fallback if Sheet unreachable
+      AGENT = { name:'Agent Demo', email:'agent@chezre.com', initials:'AD', group:'Chez Realty', start:'April 23, 2026', lsKey:'ob_demo' };
+      injectAgentData();
+      loadProgress();
+      updateTotals();
+      if(getSaved()['ready']) openBlock1();
+    });
+}
 
-if(AGENT){
-  // Inject agent data into the page
+function injectAgentData(){
+  if(!AGENT) return;
   document.title = AGENT.name + ' · Chez Hub Onboarding';
   document.getElementById('topbar-name').textContent  = AGENT.name;
   document.getElementById('hero-avt').textContent     = AGENT.initials;
@@ -621,8 +641,7 @@ if(AGENT){
   document.getElementById('hero-start').textContent   = AGENT.start;
   document.getElementById('banner-title').textContent = 'Oh la la, ' + AGENT.name.split(' ')[0] + '! 🎉';
   document.getElementById('modal-msg').textContent    =
-    AGENT.name.split(' ')[0] + ', you\'ve completed your full onboarding! Welcome to the Chez family — let\'s close some deals! 🏠✨';
-  // Pre-fill email in form
+    AGENT.name.split(' ')[0] + ", you've completed your full onboarding! Welcome to the Chez family — let's close some deals! 🏠✨";
   setTimeout(function(){
     var fe = document.getElementById('f-email');
     if(fe && !fe.value) fe.value = AGENT.email;
@@ -962,10 +981,7 @@ function markDoneYlopo(){
 }
 
 // ── INIT ──────────────────────────────────────────────────
-loadProgress();
-updateTotals();
-checkYlopoFromSheet();
-if(getSaved()['ready']) openBlock1();
+loadAgentFromSheet();
 </script>
 </body>
 </html>
