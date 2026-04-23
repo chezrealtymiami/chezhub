@@ -255,8 +255,9 @@ function calcProgress(slug){
 function barColor(pct){ return pct===100?'#2ECC71':pct===0?'#E0E0E0':'#F15F37'; }
 
 function renderDashboard(){
-  var slugs=Object.keys(AGENTS);
-  Object.keys(sheetData).forEach(function(s){ if(slugs.indexOf(s)===-1) slugs.push(s); });
+  // Sheet is source of truth — all agents from sheet appear automatically
+  var slugs=Object.keys(sheetData);
+  Object.keys(AGENTS).forEach(function(s){ if(slugs.indexOf(s)===-1) slugs.push(s); });
 
   var totalPct=0,stuckCount=0,doneCount=0,stuckNames=[];
   var html='';
