@@ -183,20 +183,20 @@ var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxRGP2rO-45RH0ET7nmceO
 
 var BLOCKS = [
   { id:'b1', label:'Getting Started', color:'#F15F37',
-    steps:['ready','s1','s2','s3'],
-    labels:{'ready':'Chezify check','s1':'@chezre.com email','s2':'Welcome email read','s3':'Headshot scheduled'} },
+    steps:['ready','s1','s2','s3','s4'],
+    labels:{'ready':'Chezify check','s1':'@chezre.com email','s2':'Chrome profile setup','s3':'Welcome email read','s4':'Headshot scheduled'} },
   { id:'b2', label:'Activation', color:'#F15F37',
-    steps:['s4','s5','s6'],
-    labels:{'s4':'Side Thursday training','s5':'Agent info form sent','s6':'Miami Realtors applied'} },
+    steps:['s5','s6','s7'],
+    labels:{'s5':'Side Thursday training','s6':'Agent info form sent','s7':'Miami Realtors applied'} },
   { id:'b3', label:'Tech Stack', color:'#F15F37',
-    steps:['s7','s8','s9','s10','s11'],
-    labels:{'s7':'FUB CRM setup','s8':'Matrix MLS videos','s9':'Zillow profile & Flex','s10':'Realtor.com invite','s11':'Ylopo setup'} },
-  { id:'b4', label:'Ready to Sell', color:'#2ECC71',
-    steps:['s12','s13'],
-    labels:{'s12':'Scripts reviewed','s13':'1-on-1 with Jose & Dexter'} }
+    steps:['s8','s9','s10','s11','s12'],
+    labels:{'s8':'FUB CRM setup','s9':'Matrix MLS videos','s10':'Zillow profile & Flex','s11':'Realtor.com invite','s12':'Ylopo setup'} },
+  { id:'b4', label:'Ready to Sell', color:'#F15F37',
+    steps:['s13','s14'],
+    labels:{'s13':'Scripts reviewed','s14':'1-on-1 with Jose & Dexter'} }
 ];
 
-var TOTAL_STEPS = 14;
+var TOTAL_STEPS = 15;
 
 var AGENTS = {
   'monica':   { name:'Monica Herrera',  group:'Cabrera Group', start:'March 7, 2026',  initials:'MH' },
@@ -225,10 +225,13 @@ function loadFromSheets(){
             var key=h.toString().toLowerCase();
             if(key==='ready') agentData['ready']=row[col];
             else if(key.match(/^s\d+$/)) agentData[key]=row[col];
+            else if(key==='ylopo ok') agentData['ylopo_ok']=row[col];
           });
           sheetData[slug]=agentData;
         }
       }
+      // Also load NEW AGENT INFO tab
+      loadAgentInfo();
       renderDashboard();
       document.getElementById('last-update').textContent =
         'Updated '+new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
@@ -343,6 +346,35 @@ function renderCard(slug,agent,prog,idx){
     ?'<div class="next-step"><span style="font-size:16px">👉</span><span style="font-size:12px;color:#C8601A;font-weight:500">Next: <strong>'+nextStep+'</strong></span></div>'
     :'<div class="next-done"><span style="font-size:16px">🎉</span><span style="font-size:12px;color:#2E7D32;font-weight:600">Onboarding complete!</span></div>';
 
+
+  // Agent Info card
+  var info = agentInfo[slug] || {};
+  var hasInfo = info.name || info.email || info.phone;
+  var agentInfoCard = hasInfo
+    ? '<div style="background:white;border:0.5px solid #eee;border-radius:10px;padding:14px 16px;margin-bottom:12px">'+
+      '<div style="font-size:10px;font-weight:700;color:#F15F37;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">👤 Agent Information</div>'+
+      '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;font-size:12px">'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Full Name</div><div style="font-weight:500;color:#1A1A1A">'+(info.name||'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Email</div><div style="font-weight:500;color:#1A1A1A">'+(info.email||'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Phone</div><div style="font-weight:500;color:#1A1A1A">'+(info.phone||'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Birthday</div><div style="font-weight:500;color:#1A1A1A">'+(info.birthday||'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Shirt Size</div><div style="font-weight:500;color:#1A1A1A">'+(info.shirt||'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">License #</div><div style="font-weight:500;color:#1A1A1A">'+(info.license||'—')+'</div></div>'+
+        '<div style="grid-column:1/-1"><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Home Address</div><div style="font-weight:500;color:#1A1A1A">'+(info.address||'—')+'</div></div>'+
+      '</div>'+
+      '</div>'
+    : '';
+
+  // Ylopo unlock button
+  var ylopoUnlocked = (sheetData[slug]||{})['ylopo_ok'] === '\u2705';
+  var ylopoBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;background:#F3E5F5;border:0.5px solid #CE87C1;border-radius:8px">'+
+    '<span style="font-size:14px">⭐</span>'+
+    '<div style="flex:1;font-size:12px;color:#6A1B9A;font-weight:500">Ylopo: '+
+    (ylopoUnlocked ? '<strong style="color:#2E7D32">Activated ✅</strong>' : '<strong style="color:#E65100">Pending — Admin must activate</strong>')+
+    '</div>'+
+    (!ylopoUnlocked ? '<button onclick="event.stopPropagation();unlockYlopo(\''+slug+'\','+idx+');" style="background:#F15F37;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🔓 Unlock Ylopo</button>' : '')+
+    '</div>';
+
   return '<div class="agent-card" id="card-'+idx+'" onclick="toggleCard('+idx+')">'+
     '<div class="card-main">'+
       '<div class="avt">'+agent.initials+'</div>'+
@@ -368,6 +400,8 @@ function renderCard(slug,agent,prog,idx){
     '</div>'+
     '<div class="card-detail" id="detail-'+idx+'">'+
       nextHTML+
+      agentInfoCard+
+      ylopoBtn+
       '<div class="detail-grid">'+detailBlocks+'</div>'+
     '</div>'+
   '</div>';
@@ -382,6 +416,55 @@ function toggleCard(idx){
   detail.classList.toggle('open',!open);
   card.classList.toggle('expanded',!open);
   if(chev) chev.style.transform=open?'':'rotate(180deg)';
+}
+
+function unlockYlopo(slug, idx){
+  if(!confirm('Unlock Ylopo for ' + slug + '?')) return;
+  fetch(SHEETS_URL, {
+    method:'POST', mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({action:'ylopo_unlock', agent:slug, name:slug, group:'', start:''})
+  }).then(function(){
+    showToast('Ylopo unlocked for ' + slug + ' ✅');
+    setTimeout(function(){ loadFromSheets(); }, 1500);
+  }).catch(function(){ showToast('Error unlocking Ylopo'); });
+}
+
+function showToast(msg){
+  var t = document.createElement('div');
+  t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#2A2A2A;color:white;padding:12px 18px;border-radius:10px;font-size:12px;z-index:9999;font-family:inherit';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function(){ document.body.removeChild(t); }, 3000);
+}
+
+var agentInfo = {}; // { slug: { name, email, phone, birthday, shirt, license, address } }
+
+function loadAgentInfo(){
+  // Fetch NEW AGENT INFO tab via a second sheet read
+  // We pass action=agent_info to get that tab
+  fetch(SHEETS_URL + '?action=agent_info')
+    .then(function(r){ return r.json(); })
+    .then(function(rows){
+      agentInfo = {};
+      if(!rows || rows.length < 2) return;
+      var headers = rows[0];
+      for(var i=1;i<rows.length;i++){
+        var row = rows[i];
+        var slug = (row[1]||'').toString().toLowerCase().trim();
+        if(!slug) continue;
+        agentInfo[slug] = {
+          name:     row[2]||'',
+          email:    row[3]||'',
+          phone:    row[4]||'',
+          birthday: row[5]||'',
+          shirt:    row[6]||'',
+          license:  row[7]||'',
+          address:  row[8]||''
+        };
+      }
+    })
+    .catch(function(){ /* silent fail */ });
 }
 
 function doLogin(){
