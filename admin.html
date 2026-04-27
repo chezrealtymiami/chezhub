@@ -455,25 +455,29 @@ function toggleCard(idx){
 }
 
 function unlockSideTraining(slug, idx){
-  if(!confirm('Verify Side Training completion for ' + slug + '?')) return;
+  var agent = agentsRegistry[slug] || {};
+  var name = agent.name || slug;
+  if(!confirm('Verify Side Training for ' + name + '?')) return;
   fetch(SHEETS_URL, {
     method:'POST', mode:'no-cors',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({action:'side_unlock', agent:slug, name:slug, group:'', start:''})
+    body:JSON.stringify({action:'side_unlock', agent:slug, name:name, group:agent.group||'', start:agent.start||''})
   }).then(function(){
-    showToast('Side Training verified for ' + slug + ' ✅');
+    showToast('Side Training verified for ' + name + ' ✅');
     setTimeout(function(){ loadFromSheets(); }, 1500);
   }).catch(function(){ showToast('Error verifying Side Training'); });
 }
 
 function unlockYlopo(slug, idx){
-  if(!confirm('Unlock Ylopo for ' + slug + '?')) return;
+  var agent = agentsRegistry[slug] || {};
+  var name = agent.name || slug;
+  if(!confirm('Unlock Ylopo for ' + name + '?')) return;
   fetch(SHEETS_URL, {
     method:'POST', mode:'no-cors',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({action:'ylopo_unlock', agent:slug, name:slug, group:'', start:''})
+    body:JSON.stringify({action:'ylopo_unlock', agent:slug, name:name, group:agent.group||'', start:agent.start||''})
   }).then(function(){
-    showToast('Ylopo unlocked for ' + slug + ' ✅');
+    showToast('Ylopo unlocked for ' + name + ' ✅');
     setTimeout(function(){ loadFromSheets(); }, 1500);
   }).catch(function(){ showToast('Error unlocking Ylopo'); });
 }
