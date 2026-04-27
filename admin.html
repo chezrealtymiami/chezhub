@@ -390,7 +390,19 @@ function renderCard(slug,agent,prog,idx){
 
   // Ylopo unlock button
   var ylopoUnlocked = (sheetData[slug]||{})['ylopo_ok'] === '\u2705';
-  var ylopoBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;background:#F3E5F5;border:0.5px solid #CE87C1;border-radius:8px">'+
+  // Side Training unlock button
+  var sideUnlocked = (sheetData[slug]||{})['side_ok'] === '✅';
+  var sideCert = (sheetData[slug]||{})['side_certificate'] || '';
+  var sideBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;padding:10px 14px;background:#E8F0FE;border:0.5px solid #B8D4F0;border-radius:8px">'+
+    '<span style="font-size:14px">🎓</span>'+
+    '<div style="flex:1;font-size:12px;color:#1A4A7A;font-weight:500">Side Training: '+
+    (sideUnlocked ? '<strong style=\"color:#2E7D32\">Verified ✅</strong>' : '<strong style=\"color:#E65100\">Pending verification</strong>')+
+    (sideCert ? ' · <a href=\"'+sideCert+'\" target=\"_blank\" style=\"color:#4A90D9;font-size:11px\">View Certificate →</a>' : '')+
+    '</div>'+
+    (!sideUnlocked ? '<button onclick=\"event.stopPropagation();unlockSideTraining(\''+slug+'\','+idx+');\" style=\"background:#4A90D9;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit\">✅ Verify Training</button>' : '')+
+    '</div>';
+
+    var ylopoBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;background:#F3E5F5;border:0.5px solid #CE87C1;border-radius:8px">'+
     '<span style="font-size:14px">⭐</span>'+
     '<div style="flex:1;font-size:12px;color:#6A1B9A;font-weight:500">Ylopo: '+
     (ylopoUnlocked ? '<strong style="color:#2E7D32">Activated ✅</strong>' : '<strong style="color:#E65100">Pending — Admin must activate</strong>')+
