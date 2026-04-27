@@ -227,6 +227,8 @@ function loadFromSheets(){
             if(key==='ready') agentData['ready']=row[col];
             else if(key.match(/^s\d+$/)) agentData[key]=row[col];
             else if(key==='ylopo ok') agentData['ylopo_ok']=row[col];
+            else if(key==='side ok') agentData['side_ok']=row[col];
+            else if(key==='side certificate') agentData['side_certificate']=row[col];
           });
           sheetData[slug]=agentData;
         }
@@ -422,6 +424,7 @@ function renderCard(slug,agent,prog,idx){
     '<div class="card-detail" id="detail-'+idx+'">'+
       nextHTML+
       agentInfoCard+
+      sideBtn+
       ylopoBtn+
       '<div class="detail-grid">'+detailBlocks+'</div>'+
     '</div>'+
@@ -437,6 +440,18 @@ function toggleCard(idx){
   detail.classList.toggle('open',!open);
   card.classList.toggle('expanded',!open);
   if(chev) chev.style.transform=open?'':'rotate(180deg)';
+}
+
+function unlockSideTraining(slug, idx){
+  if(!confirm('Verify Side Training completion for ' + slug + '?')) return;
+  fetch(SHEETS_URL, {
+    method:'POST', mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({action:'side_unlock', agent:slug, name:slug, group:'', start:''})
+  }).then(function(){
+    showToast('Side Training verified for ' + slug + ' ✅');
+    setTimeout(function(){ loadFromSheets(); }, 1500);
+  }).catch(function(){ showToast('Error verifying Side Training'); });
 }
 
 function unlockYlopo(slug, idx){
