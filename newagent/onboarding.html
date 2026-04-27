@@ -142,7 +142,7 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
     </div>
     <div style="flex-shrink:0">
       <div class="pct-num" id="pct">26%</div>
-      <div class="pct-sub" id="steps-label">5 of 20 steps</div>
+      <div class="pct-sub" id="steps-label">5 of 19 steps</div>
       <div class="pct-bar"><div class="pct-fill" id="pct-bar" style="width:26%"></div></div>
     </div>
   </div>
@@ -211,7 +211,7 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
         <div style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:1px">Set up your Chez identity</div>
       </div>
       <div style="margin-left:auto;display:flex;align-items:center;gap:10px">
-        <div class="block-meta" id="meta-b1">0 of 4</div>
+        <div class="block-meta" id="meta-b1">0 of 3</div>
         <div class="block-bar-wrap"><div class="block-bar-fill" id="bar-b1" style="width:0%"></div></div>
         <svg class="block-chev" id="bchev-b1" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
@@ -256,38 +256,23 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
         </div>
       </div>
 
+      
+
       <div class="step locked" data-step="s3">
         <div class="step-header" onclick="toggleStep('s3')">
           <div class="step-num" id="snum-s3">3</div>
-          <div class="step-icon">📧</div>
-          <div class="step-title" id="title-s3">Read your Chez welcome email</div>
+          <div class="step-icon">📸</div>
+          <div class="step-title" id="title-s3">Schedule your professional headshot</div>
           <div class="step-status pending" id="status-s3">Pending</div>
           <svg class="step-chev" id="chev-s3" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           <div class="step-lock" id="lock-s3"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
         <div class="step-body" id="body-s3">
-          <div class="block-label">What you need to do</div>
-          <div class="desc">We sent a welcome email to your Chez address with photographer info, what to wear, and your first steps. Read it carefully.</div>
-          <div class="info-box">📷 Photographer info & what to wear<br>📋 Your first steps this week<br>📬 Sent to your @chezre.com email</div>
-          <div class="confirm-row"><div class="chk" id="chk-s3" onclick="markDone('s3','b1',4)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have read my Chez welcome email</div></div>
-        </div>
-      </div>
-
-      <div class="step locked" data-step="s4">
-        <div class="step-header" onclick="toggleStep('s4')">
-          <div class="step-num" id="snum-s4">4</div>
-          <div class="step-icon">📸</div>
-          <div class="step-title" id="title-s4">Schedule your professional headshot</div>
-          <div class="step-status pending" id="status-s4">Pending</div>
-          <svg class="step-chev" id="chev-s4" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          <div class="step-lock" id="lock-s4"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        </div>
-        <div class="step-body" id="body-s4">
           <div class="block-label">Your photographer</div>
           <div class="info-box green">📷 <strong>Krastina Dimitrova — Firefly By The Sea</strong><br>📞 (617) 794-2903<br>📍 13020 SW 120th St, Miami, FL 33186</div>
           <div class="block-label">What to wear</div>
-          <div class="info-box">👔 Soft, neutral colors — black, navy blue, or very light tones<br>👗 Bring two outfit options · Iron clothes the night before</div>
-          <div class="confirm-row"><div class="chk" id="chk-s4" onclick="markDone('s4','b1',4)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have scheduled my headshot with Krastina</div></div>
+          <div class="info-box">👔 Soft, neutral colors — black, navy blue, or very light tones<br>👗 Bring two outfit options · Iron clothes the night before<br><br>🔍 <strong>Need inspiration?</strong> Check how our agents look on <a href="https://chezre.com/team" target="_blank" style="color:#F15F37;font-weight:700">chezre.com/team →</a></div>
+          <div class="confirm-row"><div class="chk" id="chk-s3" onclick="markDone('s3','b1',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have scheduled my headshot with Krastina</div></div>
         </div>
       </div>
 
@@ -310,82 +295,89 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
     </div>
     <div class="block-steps" id="bsteps-b2">
 
+      <div class="step locked" data-step="s4">
+        <div class="step-header" onclick="toggleStep('s4')">
+          <div class="step-num" id="snum-s4">4</div>
+          <div class="step-icon">📋</div>
+          <div class="step-title" id="title-s4">Fill out your agent information form</div>
+          <div class="step-status pending" id="status-s4">Pending</div>
+          <svg class="step-chev" id="chev-s4" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="step-lock" id="lock-s4"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        </div>
+        <div class="step-body" id="body-s4">
+          <div class="block-label">What you need to do</div>
+          <div class="desc">Fill out all fields below. Your information will be saved directly to our system.</div>
+          <div style="margin-top:12px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Full Name *</div><input id="f-name" type="text" placeholder="Your full name" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;box-sizing:border-box;outline:none"></div>
+              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Email Address *</div><input id="f-email" type="email" placeholder="you@chezre.com" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;box-sizing:border-box;outline:none"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Phone Number *</div><input id="f-phone" type="tel" placeholder="(305) 000-0000" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;box-sizing:border-box;outline:none"></div>
+              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Birthday *</div><input id="f-birthday" type="text" placeholder="March 15" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;box-sizing:border-box;outline:none"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Shirt Size *</div><select id="f-shirt" onchange="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;box-sizing:border-box;outline:none;background:white"><option value="">Select size</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></div>
+              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">License Number *</div><input id="f-license" type="text" placeholder="SL3XXXXXX" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;box-sizing:border-box;outline:none"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Instagram Handle</div><input id="f-instagram" type="text" placeholder="@yourhandle" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;box-sizing:border-box;outline:none"></div>
+              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Home Address *</div><input id="f-address" type="text" placeholder="123 SW 8th St, Miami FL" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;box-sizing:border-box;outline:none"></div>
+            </div>
+            <div id="form-status" style="font-size:11px;color:#bbb;text-align:right;margin-bottom:10px;min-height:16px"></div>
+          </div>
+          <button onclick="submitAgentForm()" style="width:100%;background:#F15F37;color:white;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;margin-bottom:12px">💾 Save my information</button>
+          <div class="confirm-row"><div class="chk" id="chk-s4" onclick="markDone('s4','b2',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have filled in my information</div></div>
+        </div>
+      </div>
+
       <div class="step locked" data-step="s5">
         <div class="step-header" onclick="toggleStep('s5')">
-          <div class="step-num" id="snum-s5">4</div>
-          <div class="step-icon">🎓</div>
-          <div class="step-title" id="title-s5">Register for mandatory Side Thursday training</div>
+          <div class="step-num" id="snum-s5">5</div>
+          <div class="step-icon">🏛️</div>
+          <div class="step-title" id="title-s5">Apply for Miami Association of Realtors</div>
           <div class="step-status pending" id="status-s5">Pending</div>
           <svg class="step-chev" id="chev-s5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           <div class="step-lock" id="lock-s5"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
         <div class="step-body" id="body-s5">
           <div class="block-label">What you need to do</div>
-          <div class="desc">Register for the Thursday Side training once all your Side systems are active. This is <strong>mandatory</strong> — we cannot move forward without it.</div>
-          <div class="info-box orange">⚠️ MANDATORY — without this we cannot continue. Register as soon as your Side systems are active.</div>
-          <a class="link-item" href="https://side.360learning.com/paths/6994d265690dfd97e30d031c/home?lang=" target="_blank"><div class="link-ico" style="background:#E8F0FE">🎓</div><div><div class="link-title">Side Thursday Training — Register Now</div><div class="link-sub">side.360learning.com</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-          <div class="confirm-row"><div class="chk" id="chk-s5" onclick="markDone('s5','b2',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have completed the mandatory Side Thursday training</div></div>
+          <div class="desc">For brand new agents only. If you were already a Realtor, skip this step.</div>
+          <div class="info-box">✅ Choose membership with the title <strong>"REALTOR"</strong><br>✅ Pay in full or 4 equal installments<br>✅ Also apply for <strong>SUPRA EKey</strong> at the end<br>⚠️ Only after your license is active with Chez<br>⏭️ Already a Realtor? Skip this step</div>
+          <a class="link-item" href="https://docs.google.com/document/d/14mVdkoTzNws3XtWlch0ycECOIP2BbdMtPFMi7wX_awI/edit" target="_blank"><div class="link-ico" style="background:#E8F5E9">📄</div><div><div class="link-title">Miami MLS Application Instructions</div><div class="link-sub">Google Doc · Step by step</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          <div class="confirm-row"><div class="chk" id="chk-s5" onclick="markDone('s5','b2',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Applied for Miami Realtors (or already a member)</div></div>
         </div>
       </div>
 
       <div class="step locked" data-step="s6">
         <div class="step-header" onclick="toggleStep('s6')">
-          <div class="step-num" id="snum-s6">5</div>
-          <div class="step-icon">📋</div>
-          <div class="step-title" id="title-s6">Fill out your agent information form</div>
+          <div class="step-num" id="snum-s6">6</div>
+          <div class="step-icon">🎓</div>
+          <div class="step-title" id="title-s6">Register for mandatory Side Thursday training</div>
           <div class="step-status pending" id="status-s6">Pending</div>
           <svg class="step-chev" id="chev-s6" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           <div class="step-lock" id="lock-s6"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
         <div class="step-body" id="body-s6">
           <div class="block-label">What you need to do</div>
-          <div class="desc">Fill out all fields below and send them to Admin with the orange button.</div>
-          <div style="margin-top:12px">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
-              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Full Name *</div><input id="f-name" type="text" placeholder="Your full name" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;outline:none"></div>
-              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Email Address *</div><input id="f-email" type="email" placeholder="you@chezre.com" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;outline:none"></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
-              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Phone Number *</div><input id="f-phone" type="tel" placeholder="(305) 000-0000" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;outline:none"></div>
-              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Birthday *</div><input id="f-birthday" type="text" placeholder="March 15" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;outline:none"></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
-              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Shirt Size *</div><select id="f-shirt" onchange="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;outline:none;background:white"><option value="">Select size</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></div>
-              <div><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">License Number *</div><input id="f-license" type="text" placeholder="SL3XXXXXX" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;outline:none"></div>
-            </div>
-            <div style="margin-bottom:10px"><div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Home Address *</div><input id="f-address" type="text" placeholder="123 SW 8th St, Miami FL 33130" oninput="autoSaveForm()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;outline:none"></div>
-            <div id="form-status" style="font-size:11px;color:#bbb;text-align:right;margin-bottom:10px;min-height:16px"></div>
+          <div class="desc">Register and complete the mandatory Side Thursday Training. Admin must verify your completion before you can continue to Block 3.</div>
+          <div class="info-box orange">⚠️ <strong>MANDATORY</strong> — Blocks 3 and 4 are locked until Admin verifies your completion.</div>
+          <a class="link-item" href="https://side.360learning.com/paths/6994d265690dfd97e30d031c/home?lang=" target="_blank"><div class="link-ico" style="background:#E8F0FE">🎓</div><div><div class="link-title">Register for Side Thursday Training</div><div class="link-sub">side.360learning.com — every Thursday</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          <div class="block-label">After completing the training</div>
+          <div class="desc" style="margin-bottom:8px">Paste the link to your Side training certificate below so Admin can verify your completion.</div>
+          <div style="margin-bottom:12px">
+            <div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px">Certificate Link</div>
+            <input id="f-certificate" type="url" placeholder="https://side.360learning.com/certificate/..." oninput="saveCertificate()" style="width:100%;padding:9px 12px;border:1px solid #eee;border-radius:8px;font-size:13px;font-family:inherit;box-sizing:border-box;outline:none">
+            <div id="cert-status" style="font-size:11px;color:#2E7D32;margin-top:4px;min-height:16px"></div>
           </div>
-          <button onclick="submitAgentForm()" style="width:100%;background:#F15F37;color:white;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Send email to Admin
-          </button>
-          <div class="confirm-row"><div class="chk" id="chk-s6" onclick="markDone('s6','b2',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have sent my information to Admin</div></div>
-        </div>
-      </div>
-
-      <div class="step locked" data-step="s7">
-        <div class="step-header" onclick="toggleStep('s7')">
-          <div class="step-num" id="snum-s7">6</div>
-          <div class="step-icon">🏛️</div>
-          <div class="step-title" id="title-s7">Apply for Miami Association of Realtors</div>
-          <div class="step-status pending" id="status-s7">Pending</div>
-          <svg class="step-chev" id="chev-s7" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          <div class="step-lock" id="lock-s7"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        </div>
-        <div class="step-body" id="body-s7">
-          <div class="block-label">What you need to do</div>
-          <div class="desc">For brand new agents only. If you were already a Realtor, skip this step.</div>
-          <div class="info-box">✅ Choose membership with the title <strong>"REALTOR"</strong><br>✅ Pay in full or 4 equal installments<br>✅ Also apply for <strong>SUPRA EKey</strong> at the end<br>⚠️ Only after your license is active with Chez<br>⏭️ Already a Realtor? Skip this step</div>
-          <a class="link-item" href="https://docs.google.com/document/d/14mVdkoTzNws3XtWlch0ycECOIP2BbdMtPFMi7wX_awI/edit" target="_blank"><div class="link-ico" style="background:#E8F5E9">📄</div><div><div class="link-title">Miami MLS Application Instructions</div><div class="link-sub">Google Doc · Step by step</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-          <div class="confirm-row"><div class="chk" id="chk-s7" onclick="markDone('s7','b2',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Applied for Miami Realtors (or already a member)</div></div>
+          <div class="info-box orange" id="side-admin-notice">⏳ <strong>Waiting for Admin to verify your Side Training.</strong> Once verified, Blocks 3 and 4 will unlock automatically.</div>
+          <div class="confirm-row"><div class="chk" id="chk-s6" onclick="markDoneSideTraining()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have completed the Side Thursday training and submitted my certificate link</div></div>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- ═══ BLOCK 3 ═══ -->
   <div class="block-card">
     <div class="block-header" onclick="toggleBlock('b3')">
       <div class="block-num">3</div>
@@ -401,55 +393,55 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
     </div>
     <div class="block-steps" id="bsteps-b3">
 
-      <div class="step locked" data-step="s8">
-        <div class="step-header" onclick="toggleStep('s8')">
-          <div class="step-num" id="snum-s8">7</div>
+      <div class="step locked" data-step="s7">
+        <div class="step-header" onclick="toggleStep('s7')">
+          <div class="step-num" id="snum-s7">7</div>
           <div class="step-icon">🔑</div>
-          <div class="step-title" id="title-s8">Follow Up Boss (FUB) — your CRM</div>
-          <div class="step-status pending" id="status-s8">Pending</div>
-          <svg class="step-chev" id="chev-s8" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          <div class="step-lock" id="lock-s8"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="step-title" id="title-s7">Follow Up Boss (FUB) — your CRM</div>
+          <div class="step-status pending" id="status-s7">Pending</div>
+          <svg class="step-chev" id="chev-s7" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="step-lock" id="lock-s7"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
-        <div class="step-body" id="body-s8">
+        <div class="step-body" id="body-s7">
           <div class="block-label">What you need to do</div>
           <div class="desc">FUB is where all your leads live. Complete bootcamp, connect your Chez email, and watch both Chez University videos.</div>
           <a class="link-item" href="https://docs.google.com/document/d/1aJl9124835TFxlsUuHZl7e8j4CQ-SdTNOCxc012AMk8/edit" target="_blank"><div class="link-ico" style="background:#E8F0FE">📄</div><div><div class="link-title">FUB Setup Guide — Chez Doc</div><div class="link-sub">Google Doc · Full instructions</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <a class="video-block" href="https://side.360learning.com/course/play/69c2cb4a57b60d5f3d3eec0b" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Smart Lists & Best Practices</div><div class="video-dur">Chez University</div></div></a>
           <a class="video-block" href="https://side.360learning.com/course/play/69c2c8bfbda10b274f6df1a1" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Handraiser Alerts Best Practices</div><div class="video-dur">Chez University</div></div></a>
-          <div class="confirm-row"><div class="chk" id="chk-s8" onclick="markDone('s8','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">FUB bootcamp complete and email connected</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s7" onclick="markDone('s7','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">FUB bootcamp complete and email connected</div></div>
         </div>
       </div>
 
-      <div class="step locked" data-step="s9">
-        <div class="step-header" onclick="toggleStep('s9')">
-          <div class="step-num" id="snum-s9">8</div>
+      <div class="step locked" data-step="s8">
+        <div class="step-header" onclick="toggleStep('s8')">
+          <div class="step-num" id="snum-s8">8</div>
           <div class="step-icon">🏘</div>
-          <div class="step-title" id="title-s9">Matrix MLS — 5 training videos</div>
-          <div class="step-status pending" id="status-s9">Pending</div>
-          <svg class="step-chev" id="chev-s9" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          <div class="step-lock" id="lock-s9"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="step-title" id="title-s8">Matrix MLS — 5 training videos</div>
+          <div class="step-status pending" id="status-s8">Pending</div>
+          <svg class="step-chev" id="chev-s8" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="step-lock" id="lock-s8"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
-        <div class="step-body" id="body-s9">
+        <div class="step-body" id="body-s8">
           <div class="block-label">Watch all 5 videos</div>
           <a class="video-block" href="https://side.360learning.com/course/play/69c570f0bfaf92163fcc620d" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 1</div><div class="video-dur">Chez University</div></div></a>
           <a class="video-block" href="https://side.360learning.com/course/play/69c57160f832a986ab7b0f9c" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 2</div><div class="video-dur">Chez University</div></div></a>
           <a class="video-block" href="https://side.360learning.com/course/play/69c57436973cb8ff5bd1e44d" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 3</div><div class="video-dur">Chez University</div></div></a>
           <a class="video-block" href="https://side.360learning.com/course/play/69c56bc0405bb153ba0da0c7" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 4</div><div class="video-dur">Chez University</div></div></a>
           <a class="video-block" href="https://side.360learning.com/course/play/69c5700c0ed14db78b73df3d" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 5</div><div class="video-dur">Chez University</div></div></a>
-          <div class="confirm-row"><div class="chk" id="chk-s9" onclick="markDone('s9','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">All 5 Matrix videos watched</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s8" onclick="markDone('s8','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">All 5 Matrix videos watched</div></div>
         </div>
       </div>
 
-      <div class="step locked" data-step="s10">
-        <div class="step-header" onclick="toggleStep('s10')">
-          <div class="step-num" id="snum-s10">9</div>
+      <div class="step locked" data-step="s9">
+        <div class="step-header" onclick="toggleStep('s9')">
+          <div class="step-num" id="snum-s9">9</div>
           <div class="step-icon">🏡</div>
-          <div class="step-title" id="title-s10">Zillow — profile & Flex agreement</div>
-          <div class="step-status pending" id="status-s10">Pending</div>
-          <svg class="step-chev" id="chev-s10" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          <div class="step-lock" id="lock-s10"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="step-title" id="title-s9">Zillow — profile & Flex agreement</div>
+          <div class="step-status pending" id="status-s9">Pending</div>
+          <svg class="step-chev" id="chev-s9" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="step-lock" id="lock-s9"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
-        <div class="step-body" id="body-s10">
+        <div class="step-body" id="body-s9">
           <div class="block-label">Step 1 — Request your team invite</div>
           <div class="info-box orange">📧 Before anything else, fill out the form below so Admin can send you the Chez Realty team invite on Zillow. You will receive it within 24 hours.</div>
           <a class="link-item" href="https://docs.google.com/document/d/1FXtgNScEAJPUT2bsPbKRTL2Y5YVmlPOIFwX2G3AFVD0/edit" target="_blank"><div class="link-ico" style="background:#E8F0FE">📋</div><div><div class="link-title">Zillow Invite Request Form</div><div class="link-sub">Fill this out first — Google Doc</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
@@ -460,40 +452,40 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
           <div class="info-box">4️⃣ Go to <strong>zillow.com/pbflex/agent</strong> · Sign Flex Agreement (Broker = Side)<br>5️⃣ Download/update the <strong>Premier Agent App</strong> AFTER signing<br>6️⃣ Save backup number: <strong>(206) 539-0456</strong><br>7️⃣ Log into Zillow Academy and complete your Flex onboarding plan</div>
           <a class="link-item" href="https://www.zillow.com/pbflex/agent" target="_blank"><div class="link-ico" style="background:#E8F0FE">✍️</div><div><div class="link-title">Sign Zillow Flex Agreement</div><div class="link-sub">zillow.com/pbflex/agent</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <a class="link-item" href="https://drive.google.com/file/d/1j4C77tx1zDBCaxbS6WK0sVYoJQ9gaipG/view?usp=sharing" target="_blank"><div class="link-ico" style="background:#E8F0FE">🎓</div><div><div class="link-title">Zillow On-Demand Courses</div><div class="link-sub">Complete these for your Flex onboarding · Google Drive</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-          <div class="confirm-row"><div class="chk" id="chk-s10" onclick="markDone('s10','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Invite requested, profile live, Flex agreement signed and courses completed</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s9" onclick="markDone('s9','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Invite requested, profile live, Flex agreement signed and courses completed</div></div>
         </div>
       </div>
 
-      <div class="step locked" data-step="s11">
-        <div class="step-header" onclick="toggleStep('s11')">
-          <div class="step-num" id="snum-s11">10</div>
+      <div class="step locked" data-step="s10">
+        <div class="step-header" onclick="toggleStep('s10')">
+          <div class="step-num" id="snum-s10">10</div>
           <div class="step-icon">🌐</div>
-          <div class="step-title" id="title-s11">Realtor.com — accept team invite</div>
-          <div class="step-status pending" id="status-s11">Pending</div>
-          <svg class="step-chev" id="chev-s11" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          <div class="step-lock" id="lock-s11"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="step-title" id="title-s10">Realtor.com — accept team invite</div>
+          <div class="step-status pending" id="status-s10">Pending</div>
+          <svg class="step-chev" id="chev-s10" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="step-lock" id="lock-s10"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
-        <div class="step-body" id="body-s11">
+        <div class="step-body" id="body-s10">
           <div class="block-label">Step 1 — Request your team invite</div>
           <div class="info-box orange">📧 First, email Admin to request your Realtor.com team invite. You will receive it within 24 hours.</div>
           <a class="link-item" href="mailto:admin@chezre.com?subject=Realtor.com%20Team%20Invite%20Request&body=Hi%20Admin%2C%0A%0AI%20have%20reached%20Step%2011%20of%20my%20onboarding%20and%20I%20am%20ready%20to%20join%20the%20Chez%20Realty%20team%20on%20Realtor.com.%0A%0APlease%20send%20me%20the%20team%20invite%20to%20my%20Chez%20email.%0A%0AThank%20you!" target="_blank"><div class="link-ico" style="background:#E8F0FE">✉️</div><div><div class="link-title">Request Realtor.com Invite from Admin</div><div class="link-sub">Click to send email — invite arrives within 24h</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <div class="block-label">Step 2 — Complete your profile</div>
           <div class="desc">Once you receive the invite, accept it and complete your Realtor.com profile with your headshot, bio, and license number.</div>
           <div class="info-box">📧 Check your @chezre.com email for the invite. Contact Admin if not received within 24h.</div>
-          <div class="confirm-row"><div class="chk" id="chk-s11" onclick="markDone('s11','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Invite requested, accepted and profile complete</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s10" onclick="markDone('s10','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Invite requested, accepted and profile complete</div></div>
         </div>
       </div>
 
-      <div class="step locked" data-step="s12">
-        <div class="step-header" onclick="toggleStep('s12')">
-          <div class="step-num" id="snum-s12">11</div>
+      <div class="step locked" data-step="s11">
+        <div class="step-header" onclick="toggleStep('s11')">
+          <div class="step-num" id="snum-s11">11</div>
           <div class="step-icon">⭐</div>
-          <div class="step-title" id="title-s12">Ylopo — setup & training</div>
-          <div class="step-status pending" id="status-s12">Pending</div>
-          <svg class="step-chev" id="chev-s12" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          <div class="step-lock" id="lock-s12"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="step-title" id="title-s11">Ylopo — setup & training</div>
+          <div class="step-status pending" id="status-s11">Pending</div>
+          <svg class="step-chev" id="chev-s11" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="step-lock" id="lock-s11"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
-        <div class="step-body" id="body-s12">
+        <div class="step-body" id="body-s11">
           <div class="block-label">What you need to do</div>
           <div class="desc">Admin fills out the Ylopo questionnaire to activate your account. Once activated, complete all the training resources below in order.</div>
           <div class="info-box orange" id="ylopo-admin-notice">⏳ <strong>Waiting for Admin to activate your Ylopo account.</strong> Once activated, this step will unlock and you can proceed with the training below.</div>
@@ -509,14 +501,13 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
           <a class="link-item" href="https://ylopo.zendesk.com/hc/en-us/articles/360021971371" target="_blank"><div class="link-ico" style="background:#F3E5F5">⚠️</div><div><div class="link-title">Invalid or Bad Contact Information</div><div class="link-sub">ylopo.zendesk.com</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <a class="link-item" href="https://ylopo.zendesk.com/hc/en-us/articles/360021960171" target="_blank"><div class="link-ico" style="background:#F3E5F5">🏷️</div><div><div class="link-title">Ylopo Tags</div><div class="link-sub">ylopo.zendesk.com</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           </div>
-          <div class="confirm-row"><div class="chk" id="chk-s12" onclick="markDoneYlopo()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label" id="ylopo-confirm-label">Waiting for Admin to activate Ylopo — check back soon</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s11" onclick="markDoneYlopo()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label" id="ylopo-confirm-label">Waiting for Admin to activate Ylopo — check back soon</div></div>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- ═══ BLOCK 4 ═══ -->
   <div class="block-card">
     <div class="block-header" onclick="toggleBlock('b4')">
       <div class="block-num">4</div>
@@ -532,16 +523,16 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
     </div>
     <div class="block-steps" id="bsteps-b4">
 
-      <div class="step locked" data-step="s13">
-        <div class="step-header" onclick="toggleStep('s13')">
-          <div class="step-num" id="snum-s13">12</div>
+      <div class="step locked" data-step="s12">
+        <div class="step-header" onclick="toggleStep('s12')">
+          <div class="step-num" id="snum-s12">12</div>
           <div class="step-icon">📝</div>
-          <div class="step-title" id="title-s13">Review scripts — focus on Zillow ALM</div>
-          <div class="step-status pending" id="status-s13">Pending</div>
-          <svg class="step-chev" id="chev-s13" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          <div class="step-lock" id="lock-s13"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="step-title" id="title-s12">Review scripts — focus on Zillow ALM</div>
+          <div class="step-status pending" id="status-s12">Pending</div>
+          <svg class="step-chev" id="chev-s12" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="step-lock" id="lock-s12"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
-        <div class="step-body" id="body-s13">
+        <div class="step-body" id="body-s12">
           <div class="block-label">What you need to do</div>
           <div class="desc">Study both scripts below. The <strong>Zillow ALM script</strong> is your primary lead conversion tool. Practice out loud and use the AI mock call tool to prepare for your 1-on-1 role play session with Jose & Dexter.</div>
           <div class="block-label">Your Scripts</div>
@@ -550,24 +541,24 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
           <div class="block-label">Practice — AI Role Play</div>
           <div class="info-box green">🤖 Use the AI mock call tool to practice your ALM script before your 1-on-1. The more you practice, the better your role play session with Jose & Dexter will be.</div>
           <a class="link-item" href="https://mockcall.zillowlabs.com/characters?f=14" target="_blank"><div class="link-ico" style="background:#E8F5E9">🎭</div><div><div class="link-title">AI Mock Call Practice — Zillow</div><div class="link-sub">Practice your ALM script with AI · mockcall.zillowlabs.com</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-          <div class="confirm-row"><div class="chk" id="chk-s13" onclick="markDone('s13','b4',2)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have read both scripts and practiced with the AI mock call</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s12" onclick="markDone('s12','b4',2)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have read both scripts and practiced with the AI mock call</div></div>
         </div>
       </div>
 
-      <div class="step locked" data-step="s14">
-        <div class="step-header" onclick="toggleStep('s14')">
-          <div class="step-num" id="snum-s14">13</div>
+      <div class="step locked" data-step="s13">
+        <div class="step-header" onclick="toggleStep('s13')">
+          <div class="step-num" id="snum-s13">13</div>
           <div class="step-icon">🤝</div>
-          <div class="step-title" id="title-s14">1-on-1 with Jose & Dexter</div>
-          <div class="step-status pending" id="status-s14">Pending</div>
-          <svg class="step-chev" id="chev-s14" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          <div class="step-lock" id="lock-s14"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="step-title" id="title-s13">1-on-1 with Jose & Dexter</div>
+          <div class="step-status pending" id="status-s13">Pending</div>
+          <svg class="step-chev" id="chev-s13" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="step-lock" id="lock-s13"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
-        <div class="step-body" id="body-s14">
+        <div class="step-body" id="body-s13">
           <div class="block-label">What you need to do</div>
           <div class="desc">Your alignment call with Jose & Dexter. You will go over everything from your onboarding, discuss goals and strategy, and do a <strong>live role play of your scripts</strong>. Come prepared — know your ALM and Rebuttal scripts cold.</div>
           <a class="link-item" href="mailto:admin@chezre.com?subject=Ready%20for%201-on-1%20with%20Jose%20%26%20Dexter" target="_blank"><div class="link-ico" style="background:#E8F5E9">✉️</div><div><div class="link-title">Contact Admin to schedule</div><div class="link-sub">Email · admin@chezre.com</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-          <div class="confirm-row"><div class="chk" id="chk-s14" onclick="markDone('s14','b4',2)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">1-on-1 with Jose and Dexter complete</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s13" onclick="markDone('s13','b4',2)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">1-on-1 with Jose and Dexter complete</div></div>
         </div>
       </div>
 
@@ -619,6 +610,7 @@ function loadAgentFromSheet(){
       loadProgress();
       updateTotals();
       if(getSaved()['ready']) openBlock1();
+      checkSideTrainingFromSheet();
       checkYlopoFromSheet();
     })
     .catch(function(){
@@ -673,11 +665,10 @@ function syncToSheet(stepId, status){
   }catch(e){ console.log('Sheets sync error:', e); }
 }
 var CHECKPOINT_STEPS = {
-  's5':  'Side Thursday Training completed ✅',
-  's10': 'Zillow profile live & Flex agreement signed ✅',
-  's11': 'Realtor.com invite accepted & profile complete ✅',
-  's12': 'Ylopo setup & training complete ✅',
-  's13': 'Scripts reviewed — ready for 1-on-1 ✅'
+  's9':  'Zillow profile live & Flex agreement signed ✅',
+  's10': 'Realtor.com invite accepted & profile complete ✅',
+  's11': 'Ylopo setup & training complete ✅',
+  's12': 'Scripts reviewed — ready for 1-on-1 ✅'
 };
 
 function sendCheckpointEmail(stepId, stepLabel){
@@ -738,15 +729,15 @@ function closeCelebration(){ document.getElementById('celebration-modal').classL
 // PROGRESS ENGINE
 // ═══════════════════════════════════════════════════════════
 var SIDE_TOTAL = 5;
-var CHEZ_TOTAL = 15;
-var CATS = { b1:{total:4,done:0}, b2:{total:3,done:0}, b3:{total:5,done:0}, b4:{total:2,done:0} };
-var STEP_ORDER = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14'];
+var CHEZ_TOTAL = 14; // 13 steps + ready check
+var CATS = { b1:{total:3,done:0}, b2:{total:3,done:0}, b3:{total:5,done:0}, b4:{total:2,done:0} };
+var STEP_ORDER = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13'];
 
 function lsKey(){ return AGENT ? AGENT.lsKey : 'ob_unknown'; }
 function getSaved(){ try{ return JSON.parse(localStorage.getItem(lsKey())||'{}'); }catch(e){ return {}; } }
 function setSaved(obj){ localStorage.setItem(lsKey(), JSON.stringify(obj)); }
 
-function getCat(id){ var n=parseInt(id.replace('s','')); return n<=4?'b1':n<=7?'b2':n<=12?'b3':'b4'; }
+function getCat(id){ var n=parseInt(id.replace('s','')); return n<=3?'b1':n<=6?'b2':n<=11?'b3':'b4'; }
 function getNextStep(id){ var i=STEP_ORDER.indexOf(id); return i>=0&&i<STEP_ORDER.length-1?STEP_ORDER[i+1]:null; }
 
 function lockStep(id){
@@ -802,7 +793,7 @@ function markDone(id,cat,total){
     applyDone(id,cat,true);
     syncToSheet(id, 'done');
     if(CHECKPOINT_STEPS[id]) setTimeout(function(){ sendCheckpointEmail(id,CHECKPOINT_STEPS[id]); },400);
-    if(id==='s14') setTimeout(showCelebration,600);
+    if(id==='s13') setTimeout(showCelebration,600);
     var next=getNextStep(id); if(next) unlockStep(next);
   }
   updateTotals();
@@ -916,36 +907,21 @@ function submitAgentForm(){
   ['name','email','phone','birthday','shirt','license','address'].forEach(function(k){
     if(!data[k]) missing.push(k.charAt(0).toUpperCase()+k.slice(1));
   });
-  if(missing.length){ var st=document.getElementById('form-status');
-    if(st){st.textContent='⚠️ Please fill in: '+missing.join(', '); st.style.color='#E74C3C';} return; }
-  var subject=encodeURIComponent('New Agent Info — '+data.name);
-  var body=encodeURIComponent('New Agent Information\n====================\n\n'+
-    'Full Name:       '+data.name+'\nEmail:           '+data.email+'\nPhone:           '+data.phone+'\n'+
-    'Birthday:        '+data.birthday+'\nShirt Size:      '+data.shirt+'\nLicense Number:  '+data.license+'\n'+
-    'Home Address:    '+data.address+'\n\nSubmitted: '+new Date().toLocaleString());
-  window.location.href='mailto:admin@chezre.com?subject='+subject+'&body='+body;
-  var s=getSaved(); s['agentForm']=data; s['_lastSeen']=Date.now(); setSaved(s);
-  // Also sync to Google Sheets NEW AGENT INFO tab
+  if(missing.length){
+    var st=document.getElementById('form-status');
+    if(st){st.textContent='⚠️ Please fill in: '+missing.join(', '); st.style.color='#E74C3C';}
+    return;
+  }
   if(AGENT){
-    fetch(SHEETS_URL, {
-      method:'POST', mode:'no-cors',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        action:'agent_form',
-        agent: slug,
-        name:  AGENT.name,
-        group: AGENT.group,
-        start: AGENT.start,
-        formData: data
-      })
+    fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({action:'agent_form',agent:slug,name:AGENT.name,group:AGENT.group,start:AGENT.start,formData:data})
     });
   }
+  var s=getSaved(); s['agentForm']=data; s['_lastSeen']=Date.now(); setSaved(s);
   var st=document.getElementById('form-status');
-  if(st){st.textContent='📧 Email draft opened — press Send!'; st.style.color='#2E7D32';}
+  if(st){st.textContent='✅ Information saved!'; st.style.color='#2E7D32';}
 }
 
-
-// ── YLOPO ADMIN CHECKPOINT — Sheet based ────────────────────
 function checkYlopoFromSheet(){
   if(!AGENT) return;
   fetch(SHEETS_URL + '?action=ylopo_check&agent=' + slug)
@@ -967,7 +943,7 @@ function applyYlopoState(unlocked){
     if(resources) resources.style.display = 'block';
     if(confirmLabel) confirmLabel.textContent = 'Ylopo setup and all training resources completed';
     if(chk){ chk.style.opacity='1'; chk.style.cursor='pointer';
-      chk.onclick = function(){ markDone('s12','b3',5); }; }
+      chk.onclick = function(){ markDone('s11','b3',5); }; }
   } else {
     if(resources) resources.style.display = 'none';
     if(chk){ chk.style.opacity='0.4'; chk.style.cursor='not-allowed';
@@ -978,6 +954,55 @@ function applyYlopoState(unlocked){
 
 function markDoneYlopo(){
   showCheckpointToast('Waiting for Admin to activate your Ylopo account');
+}
+
+
+// ── SIDE TRAINING ADMIN CHECKPOINT ──────────────────────────
+function saveCertificate(){
+  var val=(document.getElementById('f-certificate')||{}).value||'';
+  var s=getSaved(); s['side_certificate']=val; setSaved(s);
+  var st=document.getElementById('cert-status');
+  if(st) st.textContent = val ? '✓ Certificate link saved' : '';
+  if(AGENT && val){
+    fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({action:'side_certificate',agent:slug,name:AGENT.name,group:AGENT.group,start:AGENT.start,certificate:val})
+    });
+  }
+}
+
+function checkSideTrainingFromSheet(){
+  if(!AGENT) return;
+  fetch(SHEETS_URL+'?action=side_check&slug='+slug)
+    .then(function(r){return r.json();})
+    .then(function(data){ applySideTrainingState(data && data.side_ok===true); })
+    .catch(function(){ applySideTrainingState(false); });
+}
+
+function applySideTrainingState(unlocked){
+  var notice=document.getElementById('side-admin-notice');
+  var chk=document.getElementById('chk-s6');
+  if(unlocked){
+    if(notice) notice.style.display='none';
+    if(chk){ chk.style.opacity='1'; chk.style.cursor='pointer';
+      chk.onclick=function(){ markDone('s6','b2',3); }; }
+    ['b3','b4'].forEach(function(bid){
+      var card=document.getElementById(bid+'-card');
+      if(card){ card.style.opacity=''; card.style.pointerEvents=''; }
+    });
+  } else {
+    if(chk){ chk.style.opacity='0.4'; chk.style.cursor='not-allowed';
+      chk.onclick=function(){ showCheckpointToast('Blocks 3 & 4 locked — waiting for Admin to verify your Side Training'); }; }
+    ['b3','b4'].forEach(function(bid){
+      var card=document.getElementById(bid+'-card');
+      if(card){ card.style.opacity='0.4'; card.style.pointerEvents='none'; }
+    });
+    var cert=getSaved()['side_certificate'];
+    if(cert){ var el=document.getElementById('f-certificate'); if(el) el.value=cert; }
+  }
+}
+
+function markDoneSideTraining(){
+  showCheckpointToast('Blocks 3 & 4 locked — waiting for Admin to verify your Side Training');
 }
 
 // ── INIT ──────────────────────────────────────────────────
