@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>New Agent · Chez Hub</title>
+<title>Chez Hub · Agent Onboarding</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/CHEZ_ORANGE_FAV_64px.png">
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
@@ -712,7 +712,7 @@ function loadAgentFromSheet(){
 
 function injectAgentData(){
   if(!AGENT) return;
-  document.title = AGENT.name + ' · Chez Hub Onboarding';
+  document.title = 'Chez Hub · ' + AGENT.name + ' Onboarding';
   document.getElementById('topbar-name').textContent  = AGENT.name;
   document.getElementById('hero-avt').textContent     = AGENT.initials;
   document.getElementById('hero-name').textContent    = AGENT.name;
