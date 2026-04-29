@@ -820,7 +820,7 @@ var CHEZ_TOTAL = 15; // 14 steps + ready check // 13 steps + ready check
 var CATS = { b1:{total:3,done:0}, b2:{total:3,done:0}, b3:{total:5,done:0}, b4:{total:2,done:0} };
 var STEP_ORDER = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14'];
 
-function lsKey(){ return AGENT ? AGENT.lsKey : 'ob_unknown'; }
+function lsKey(){ return 'ob_' + slug; }
 function getSaved(){ try{ return JSON.parse(localStorage.getItem(lsKey())||'{}'); }catch(e){ return {}; } }
 function setSaved(obj){ localStorage.setItem(lsKey(), JSON.stringify(obj)); }
 
@@ -1129,6 +1129,7 @@ function copyZillowEmail(){
 var DEV_MODE = false; // bypasses Side Training admin lock
 
 // ── INIT ──────────────────────────────────────────────────
+
 loadAgentFromSheet();
 </script>
 </body>
