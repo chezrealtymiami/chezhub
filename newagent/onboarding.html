@@ -644,8 +644,20 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
         <div class="step-body" id="body-s14">
           <div class="block-label">What you need to do</div>
           <div class="desc">Your alignment call with Jose & Dexter. You will go over everything from your onboarding, discuss goals and strategy, and do a <strong>live role play of your scripts</strong>. Come prepared — know your ALM and Rebuttal scripts cold.</div>
-          <a class="link-item" href="mailto:admin@chezre.com?subject=Ready%20for%201-on-1%20with%20Jose%20%26%20Dexter" target="_blank"><div class="link-ico" style="background:#E8F5E9">✉️</div><div><div class="link-title">Contact Admin to schedule</div><div class="link-sub">Email · admin@chezre.com</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-          <div class="confirm-row"><div class="chk" id="chk-s14" onclick="markDone('s14','b4',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">1-on-1 with Jose and Dexter complete</div></div>
+
+          <div class="block-label">Request your meeting</div>
+          <div class="desc" style="margin-bottom:10px">Send the email below to Admin to schedule your 1-on-1 with Jose & Dexter.</div>
+
+          <div style="background:#F7F5F2;border:1px solid #eee;border-radius:10px;padding:16px;margin-bottom:12px">
+            <div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">📅 1-on-1 Meeting Request</div>
+            <div style="font-size:13px;color:#2A2A2A;line-height:1.6" id="oneonone-email-template">Hi,<br><br>I have completed my onboarding and I'm ready to schedule my 1-on-1 meeting with Jose & Dexter.<br><br>Please let me know your availability.<br><br>Thank you!</div>
+            <div style="display:flex;gap:8px;margin-top:14px">
+              <button onclick="copyOneOnOneEmail()" id="copy-btn-1on1" style="flex:1;background:white;color:#2A2A2A;border:1px solid #ddd;border-radius:8px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">📋 Copy</button>
+              <a id="send-1on1-email" href="#" onclick="sendOneOnOneEmail(event)" style="flex:1;background:#F15F37;color:white;border:none;border-radius:8px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;display:flex;align-items:center;justify-content:center">✉️ Send Email</a>
+            </div>
+          </div>
+
+          <div class="confirm-row"><div class="chk" id="chk-s14" onclick="markDone('s14','b4',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">1-on-1 meeting requested and confirmed</div></div>
         </div>
       </div>
 
@@ -1127,6 +1139,25 @@ function copyZillowEmail(){
 
 // ── DEV MODE — set to false for production ──────────────────
 var DEV_MODE = false; // bypasses Side Training admin lock
+
+// ── 1-ON-1 EMAIL ────────────────────────────────────────────
+function sendOneOnOneEmail(e){
+  e.preventDefault();
+  if(!AGENT) return;
+  var subject = encodeURIComponent('1-on-1 Meeting Request — ' + AGENT.name);
+  var body = encodeURIComponent('Hi,\n\nI have completed my onboarding and I\'m ready to schedule my 1-on-1 meeting with Jose & Dexter.\n\nPlease let me know your availability.\n\nThank you,\n' + AGENT.name);
+  window.open('mailto:admin@chezre.com?subject=' + subject + '&body=' + body, '_blank');
+}
+
+function copyOneOnOneEmail(){
+  var text = 'Hi,\n\nI have completed my onboarding and I\'m ready to schedule my 1-on-1 meeting with Jose & Dexter.\n\nPlease let me know your availability.\n\nThank you!';
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(function(){
+      var btn = document.getElementById('copy-btn-1on1');
+      if(btn){ btn.textContent = '✅ Copied!'; setTimeout(function(){ btn.textContent = '📋 Copy'; }, 2000); }
+    });
+  }
+}
 
 // ── INIT ──────────────────────────────────────────────────
 
