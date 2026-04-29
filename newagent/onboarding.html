@@ -717,7 +717,13 @@ function injectAgentData(){
   document.getElementById('hero-avt').textContent     = AGENT.initials;
   document.getElementById('hero-name').textContent    = AGENT.name;
   document.getElementById('hero-group').textContent   = AGENT.group;
-  document.getElementById('hero-start').textContent   = AGENT.start;
+  var rawDate = AGENT.start || '';
+  var displayDate = rawDate;
+  if(rawDate.includes('T')){
+    var d = new Date(rawDate);
+    displayDate = d.toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'});
+  }
+  document.getElementById('hero-start').textContent = displayDate;
   document.getElementById('banner-title').textContent = 'Oh la la, ' + AGENT.name.split(' ')[0] + '! 🎉';
   document.getElementById('modal-msg').textContent    =
     AGENT.name.split(' ')[0] + ", you've completed your full onboarding! Welcome to the Chez family — let's close some deals! 🏠✨";
@@ -899,13 +905,22 @@ function updateTotals(){
 function loadProgress(){
   // Lock ALL steps initially
   STEP_ORDER.forEach(function(sid){ lockStep(sid); });
+  // Reset CATS counters
+  Object.keys(CATS).forEach(function(c){ CATS[c].done=0; });
   var saved=getSaved();
   // Only unlock s1 (and chain) if ready is checked
   if(saved['ready']){
     unlockStepSilent('s1');
     STEP_ORDER.forEach(function(sid,i){
       if(saved[sid]){
-        applyDone(sid,getCat(sid),false);
+        // Apply done visually AND increment counter
+        var chk=document.getElementById('chk-'+sid), st=document.getElementById('status-'+sid),
+            ti=document.getElementById('title-'+sid), sn=document.getElementById('snum-'+sid);
+        if(chk) chk.classList.add('checked');
+        if(st){st.textContent='Done'; st.className='step-status done';}
+        if(ti) ti.classList.add('done');
+        if(sn) sn.classList.add('done');
+        CATS[getCat(sid)].done++;
         if(i+1<STEP_ORDER.length) unlockStepSilent(STEP_ORDER[i+1]);
       }
     });
