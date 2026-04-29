@@ -1080,10 +1080,14 @@ function checkSideTrainingFromSheet(){
 function applySideTrainingState(unlocked){
   var notice=document.getElementById('side-admin-notice');
   var chk=document.getElementById('chk-s6');
+  // Restore certificate field always
+  var cert=getSaved()['side_certificate'];
+  if(cert){ var el=document.getElementById('f-certificate'); if(el) el.value=cert; }
   if(unlocked){
     if(notice) notice.style.display='none';
     if(chk){ chk.style.opacity='1'; chk.style.cursor='pointer';
       chk.onclick=function(){ markDone('s6','b2',3); }; }
+    // Always unlock B3/B4 visually when side is verified
     ['b3','b4'].forEach(function(bid){
       var card=document.getElementById(bid+'-card');
       if(card){ card.style.opacity=''; card.style.pointerEvents=''; }
@@ -1091,12 +1095,18 @@ function applySideTrainingState(unlocked){
   } else {
     if(chk){ chk.style.opacity='0.4'; chk.style.cursor='not-allowed';
       chk.onclick=function(){ showCheckpointToast('Blocks 3 & 4 locked — waiting for Admin to verify your Side Training'); }; }
+    // Only lock B3/B4 if agent has NOT completed any steps in those blocks
+    var saved=getSaved();
+    var b3done = ['s7','s8','s9','s10','s11'].some(function(s){ return saved[s]; });
+    var b4done = ['s12','s13','s14'].some(function(s){ return saved[s]; });
     ['b3','b4'].forEach(function(bid){
       var card=document.getElementById(bid+'-card');
-      if(card){ card.style.opacity='0.4'; card.style.pointerEvents='none'; }
+      var hasProgress = (bid==='b3') ? b3done : b4done;
+      if(card && !hasProgress){ 
+        card.style.opacity='0.4'; 
+        card.style.pointerEvents='none'; 
+      }
     });
-    var cert=getSaved()['side_certificate'];
-    if(cert){ var el=document.getElementById('f-certificate'); if(el) el.value=cert; }
   }
 }
 
