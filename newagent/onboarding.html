@@ -230,6 +230,10 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
         <div class="step-body" id="body-s1">
           <div class="block-label">What you need to do</div>
           <div class="desc">Your @chezre.com email is your professional identity at Chez. Set it up before anything else.</div>
+          <div class="info-box" style="background:#FFF8E1;border-color:#FFB300;border-left:4px solid #FFB300">
+            <strong style="color:#E65100">🔐 Important — OKTA</strong><br>
+            Side uses <strong>OKTA</strong> as their access platform. You will use your <strong>@chezre.com Google account</strong> to log in through OKTA to access all Chez & Side technology. There is no separate username or password — everything goes through your Chez Google account.
+          </div>
           <div class="info-box">1️⃣ Check your personal email for a Google Workspace invite<br>2️⃣ Accept and create your password<br>3️⃣ Log in at <strong>mail.google.com</strong> with your @chezre.com address<br>4️⃣ Enable 2-factor authentication</div>
           <a class="link-item" href="mailto:admin@chezre.com?subject=Help%20needed%20-%20Chez%20email%20setup" target="_blank"><div class="link-ico" style="background:#E8F5E9">✉️</div><div><div class="link-title">Contact Admin for help</div><div class="link-sub">Email · admin@chezre.com</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <div class="confirm-row"><div class="chk" id="chk-s1" onclick="markDone('s1','b1',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">My @chezre.com email is active and I can log in</div></div>
@@ -248,6 +252,10 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
         <div class="step-body" id="body-s2">
           <div class="block-label">Why this matters</div>
           <div class="desc">This is one of the most important steps in your onboarding. Creating a dedicated Chrome profile with your @chezre.com account ensures that ALL your Chez tools, logins, and accounts stay organized under one professional identity — separate from your personal life.</div>
+          <div class="info-box" style="background:#FFF8E1;border-color:#FFB300;border-left:4px solid #FFB300">
+            <strong style="color:#E65100">🔐 Remember — OKTA</strong><br>
+            From this Chrome profile you will access <strong>OKTA</strong> — Side's access platform — using your <strong>@chezre.com Google account</strong>. No separate username or password needed. Always use this profile when accessing any Chez or Side platform.
+          </div>
           <div class="info-box orange">⚠️ If you skip this step and use your personal email to create accounts, it becomes very difficult to transfer or manage them later. Do this first — always.</div>
           <div class="block-label">How to set it up</div>
           <div class="info-box">1️⃣ Open <strong>Google Chrome</strong> on your computer<br>2️⃣ Click your profile icon (top right corner)<br>3️⃣ Click <strong>"Add"</strong> or <strong>"+ Add new profile"</strong><br>4️⃣ Sign in with your <strong>@chezre.com</strong> Google account<br>5️⃣ Name this profile <strong>"Chez Realty"</strong><br>6️⃣ From now on, use <strong>this Chrome profile</strong> for every Chez tool and platform</div>
@@ -462,9 +470,9 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
             <div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">📧 Zillow & Realtor.com Invite Request</div>
             <div style="font-size:13px;color:#2A2A2A;line-height:1.6" id="zillow-email-template">Hi Chez,<br><br>I have completed the required onboarding steps and am ready to receive access to the next platforms.<br><br>Please send me my:<br>· Zillow invite<br>· Realtor.com invite<br><br>Let me know if you need anything else from me.<br><br>Thank you,</div>
             <div style="display:flex;gap:8px;margin-top:14px">
-              <button onclick="copyZillowEmail()" id="copy-btn" style="flex:1;background:white;color:#2A2A2A;border:1px solid #ddd;border-radius:8px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">📋 Copy</button>
-              <a href="mailto:admin@chezre.com?subject=Zillow%20%26%20Realtor.com%20Invite%20Request&body=Hi%20Chez%2C%0A%0AI%20have%20completed%20the%20required%20onboarding%20steps%20and%20am%20ready%20to%20receive%20access%20to%20the%20next%20platforms.%0A%0APlease%20send%20me%20my%3A%0A%C2%B7%20Zillow%20invite%0A%C2%B7%20Realtor.com%20invite%0A%0ALet%20me%20know%20if%20you%20need%20anything%20else%20from%20me.%0A%0AThank%20you%2C" style="flex:1;background:#F15F37;color:white;border:none;border-radius:8px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;display:flex;align-items:center;justify-content:center">✉️ Send Email</a>
+              <button onclick="copyZillowEmail()" id="copy-btn" style="width:100%;background:#F15F37;color:white;border:none;border-radius:8px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">📋 Copy email text</button>
             </div>
+            <div class="info-box" style="margin-top:8px">📌 Copy the text above and paste it into your preferred email client (Gmail, Outlook, etc.) — send it to <strong>admin@chezre.com</strong></div>
           </div>
 
           <div class="block-label">Step 2 — Set up your Zillow profile</div>
@@ -628,6 +636,10 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
           <div class="info-box green">🤖 Use the AI mock call tool to practice your ALM script before your 1-on-1. The more you practice, the better your session with Jose &amp; Dexter will be.</div>
           <a class="link-item" href="https://mockcall.zillowlabs.com/characters?f=14" target="_blank"><div class="link-ico" style="background:#E8F5E9">🎭</div><div><div class="link-title">AI Mock Call Practice — Zillow</div><div class="link-sub">Practice your ALM script with AI · mockcall.zillowlabs.com</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
 
+          <div class="block-label">Download Scripts — PDF</div>
+          <a class="link-item" href="https://chezrealtymiami.github.io/chezhub/docs/ALM-SCRIPT_ONBOARDING_CHEZ%20REALTY.pdf" target="_blank"><div class="link-ico" style="background:#FFF0E8">📄</div><div><div class="link-title">ALM Script — PDF</div><div class="link-sub">Download or print · Chez Realty branded</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          <a class="link-item" href="https://chezrealtymiami.github.io/chezhub/docs/REBUTTAL-SCRIPT_ONBOARDING_CHEZ%20REALTY.pdf" target="_blank"><div class="link-ico" style="background:#F5F0FF">📄</div><div><div class="link-title">Rebuttal Script — PDF</div><div class="link-sub">Download or print · Chez Realty branded</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+
           <div class="confirm-row"><div class="chk" id="chk-s13" onclick="markDone('s13','b4',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have read both scripts and practiced with the AI mock call</div></div>
         </div>
       </div>
@@ -652,9 +664,9 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
             <div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">📅 1-on-1 Meeting Request</div>
             <div style="font-size:13px;color:#2A2A2A;line-height:1.6" id="oneonone-email-template">Hi,<br><br>I have completed my onboarding and I'm ready to schedule my 1-on-1 meeting with Jose & Dexter.<br><br>Please let me know your availability.<br><br>Thank you!</div>
             <div style="display:flex;gap:8px;margin-top:14px">
-              <button onclick="copyOneOnOneEmail()" id="copy-btn-1on1" style="flex:1;background:white;color:#2A2A2A;border:1px solid #ddd;border-radius:8px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">📋 Copy</button>
-              <a id="send-1on1-email" href="#" onclick="sendOneOnOneEmail(event)" style="flex:1;background:#F15F37;color:white;border:none;border-radius:8px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;display:flex;align-items:center;justify-content:center">✉️ Send Email</a>
+              <button onclick="copyOneOnOneEmail()" id="copy-btn-1on1" style="width:100%;background:#F15F37;color:white;border:none;border-radius:8px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">📋 Copy email text</button>
             </div>
+            <div class="info-box" style="margin-top:8px">📌 Copy the text above and paste it into your preferred email client (Gmail, Outlook, etc.) — send it to <strong>admin@chezre.com</strong></div>
           </div>
 
           <div class="confirm-row"><div class="chk" id="chk-s14" onclick="markDone('s14','b4',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">1-on-1 meeting requested and confirmed</div></div>
