@@ -791,6 +791,8 @@ function loadAgentFromSheet(){
       if(getSaved()['ready']) openBlock1();
       checkSideTrainingFromSheet();
       checkYlopoFromSheet();
+      // Re-sync all completed steps to Sheet (catches any missed syncs)
+      resyncToSheet();
     })
     .catch(function(){
       // Fallback if Sheet unreachable
@@ -1237,6 +1239,16 @@ function copyOneOnOneEmail(){
       if(btn){ btn.textContent = '✅ Copied!'; setTimeout(function(){ btn.textContent = '📋 Copy'; }, 2000); }
     });
   }
+}
+
+// ── RESYNC — ensures Sheet has all completed steps ─────────
+function resyncToSheet(){
+  if(!AGENT) return;
+  var saved = getSaved();
+  if(saved['ready']) syncToSheet('ready', 'done');
+  STEP_ORDER.forEach(function(sid){
+    if(saved[sid] === true) syncToSheet(sid, 'done');
+  });
 }
 
 // ── INIT ──────────────────────────────────────────────────
