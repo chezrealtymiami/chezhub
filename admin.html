@@ -193,7 +193,7 @@ var BLOCKS = [
     labels:{'s7':'FUB CRM setup','s8':'Matrix MLS videos','s9':'Zillow profile & Flex','s10':'Realtor.com invite','s11':'Ylopo setup'} },
   { id:'b4', label:'Ready to Sell', color:'#F15F37',
     steps:['s12','s13','s14'],
-    labels:{'s12':'Agentz marketing','s13':'Scripts reviewed','s14':'1-on-1 with Jose & Dexter'} }
+    labels:{'s12':'Buyer Broker training','s13':'Scripts reviewed','s14':'1-on-1 with Jose & Dexter'} }
 ];
 
 var TOTAL_STEPS = 15;
@@ -389,10 +389,10 @@ function renderCard(slug,agent,prog,idx){
     : '';
 
   // Zillow unlock button
-  var zillowUnlocked = (sheetData[slug]||{})['zillow_ok'] === '\u2705';
+  var zillowUnlocked = (sheetData[slug]||{})['zillow_ok'] === '✅';
   var zillowBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;background:#E3F2FD;border:0.5px solid #90CAF9;border-radius:8px">'+
     '<span style="font-size:14px">🏠</span>'+
-    '<div style="flex:1;font-size:12px;color:#1565C0;font-weight:500">Zillow &amp; Realtor.com: '+
+    '<div style="flex:1;font-size:12px;color:#1565C0;font-weight:500">Zillow & Realtor.com: '+
     (zillowUnlocked ? '<strong style=\"color:#2E7D32\">Invites Sent ✅</strong>' : '<strong style=\"color:#E65100\">Pending — Admin must send invites</strong>')+
     '</div>'+
     (!zillowUnlocked ? '<button onclick=\"event.stopPropagation();unlockZillow(\''+slug+'\');\" style=\"background:#1E88E5;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit\">✅ Invites Sent</button>' : '')+
@@ -409,7 +409,7 @@ function renderCard(slug,agent,prog,idx){
     (sideUnlocked ? '<strong style=\"color:#2E7D32\">Verified ✅</strong>' : '<strong style=\"color:#E65100\">Pending verification</strong>')+
     (sideCert ? ' · <a href=\"'+sideCert+'\" target=\"_blank\" style=\"color:#4A90D9;font-size:11px\">View Certificate →</a>' : '')+
     '</div>'+
-    (!sideUnlocked ? '<button onclick=\"event.stopPropagation();unlockSideTraining(\''+slug+'\');\" style=\"background:#4A90D9;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit\">✅ Verify Training</button>' : '')+
+    (!sideUnlocked ? '<button onclick=\"event.stopPropagation();unlockSideTraining(\''+slug+'\','+idx+');\" style=\"background:#4A90D9;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit\">✅ Verify Training</button>' : '')+
     '</div>';
 
     var ylopoBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;background:#F3E5F5;border:0.5px solid #CE87C1;border-radius:8px;margin-bottom:16px">'+
@@ -417,7 +417,7 @@ function renderCard(slug,agent,prog,idx){
     '<div style="flex:1;font-size:12px;color:#6A1B9A;font-weight:500">Ylopo: '+
     (ylopoUnlocked ? '<strong style="color:#2E7D32">Activated ✅</strong>' : '<strong style="color:#E65100">Pending — Admin must activate</strong>')+
     '</div>'+
-    (!ylopoUnlocked ? '<button onclick="event.stopPropagation();unlockYlopo(\''+slug+'\');" style="background:#F15F37;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🔓 Unlock Ylopo</button>' : '')+
+    (!ylopoUnlocked ? '<button onclick="event.stopPropagation();unlockYlopo(\''+slug+'\','+idx+');" style="background:#F15F37;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🔓 Unlock Ylopo</button>' : '')+
     '</div>';
 
   return '<div class="agent-card" id="card-'+idx+'" onclick="toggleCard('+idx+')">'+
@@ -465,7 +465,7 @@ function toggleCard(idx){
   if(chev) chev.style.transform=open?'':'rotate(180deg)';
 }
 
-function unlockSideTraining(slug){
+function unlockSideTraining(slug, idx){
   var agent = agentsRegistry[slug] || {};
   var name = agent.name || slug;
   if(!confirm('Verify Side Training for ' + name + '?')) return;
@@ -479,7 +479,7 @@ function unlockSideTraining(slug){
   }).catch(function(){ showToast('Error verifying Side Training'); });
 }
 
-function unlockYlopo(slug){
+function unlockYlopo(slug, idx){
   var agent = agentsRegistry[slug] || {};
   var name = agent.name || slug;
   if(!confirm('Unlock Ylopo for ' + name + '?')) return;
