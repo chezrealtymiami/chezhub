@@ -391,7 +391,8 @@ function renderCard(slug,agent,prog,idx){
 
   // Zillow unlock button
   var zillowUnlocked = (sheetData[slug]||{})['zillow_ok'] === '✅';
-  var zillowBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;background:#E3F2FD;border:0.5px solid #90CAF9;border-radius:8px">'+
+  var zillowBg = zillowUnlocked ? 'background:#F0FFF4;border:0.5px solid #86EFAC' : 'background:#E3F2FD;border:0.5px solid #90CAF9';
+  var zillowBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;'+zillowBg+';border-radius:8px">'+
     '<span style="font-size:14px">🏠</span>'+
     '<div style="flex:1;font-size:12px;color:#1565C0;font-weight:500">Zillow &amp; Realtor.com: '+
     (zillowUnlocked ? '<strong style=\"color:#2E7D32\">Invites Sent ✅</strong>' : '<strong style=\"color:#E65100\">Pending — Admin must send invites</strong>')+
@@ -413,7 +414,8 @@ function renderCard(slug,agent,prog,idx){
     (!sideUnlocked ? '<button onclick=\"event.stopPropagation();unlockSideTraining(\''+slug+'\');\" style=\"background:#4A90D9;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit\">✅ Verify Training</button>' : '')+
     '</div>';
 
-    var ylopoBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;background:#F3E5F5;border:0.5px solid #CE87C1;border-radius:8px;margin-bottom:16px">'+
+    var ylopoBg = ylopoUnlocked ? 'background:#F0FFF4;border:0.5px solid #86EFAC' : 'background:#F3E5F5;border:0.5px solid #CE87C1';
+  var ylopoBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;'+ylopoBg+';border-radius:8px;margin-bottom:16px">'+
     '<span style="font-size:14px">⭐</span>'+
     '<div style="flex:1;font-size:12px;color:#6A1B9A;font-weight:500">Ylopo: '+
     (ylopoUnlocked ? '<strong style="color:#2E7D32">Activated ✅</strong>' : '<strong style="color:#E65100">Pending — Admin must activate</strong>')+
