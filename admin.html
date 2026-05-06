@@ -391,8 +391,7 @@ function renderCard(slug,agent,prog,idx){
 
   // Zillow unlock button
   var zillowUnlocked = (sheetData[slug]||{})['zillow_ok'] === '✅';
-  var zillowBg = zillowUnlocked ? 'background:#E8F5E9;border:0.5px solid #C8E6C9' : 'background:#E3F2FD;border:0.5px solid #90CAF9';
-  var zillowBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;'+zillowBg+';border-radius:8px">'+
+  var zillowBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;'+(zillowUnlocked?'background:#E8F5E9;border:0.5px solid #C8E6C9':'background:#E3F2FD;border:0.5px solid #90CAF9')+';border-radius:8px">'+
     '<span style="font-size:14px">🏠</span>'+
     '<div style="flex:1;font-size:12px;color:#1565C0;font-weight:500">Zillow &amp; Realtor.com: '+
     (zillowUnlocked ? '<strong style=\"color:#2E7D32\">Invites Sent ✅</strong>' : '<strong style=\"color:#E65100\">Pending — Admin must send invites</strong>')+
@@ -405,7 +404,7 @@ function renderCard(slug,agent,prog,idx){
   // Side Training unlock button
   var sideUnlocked = (sheetData[slug]||{})['side_ok'] === '✅';
   var sideCert = (sheetData[slug]||{})['side_certificate'] || '';
-  var sideBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;'+sideBg+';border-radius:8px">'+
+  var sideBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;'+(sideUnlocked?'background:#E8F5E9;border:0.5px solid #C8E6C9':'background:#E8F0FE;border:0.5px solid #B8D4F0')+';border-radius:8px">'+
     '<span style="font-size:14px">🎓</span>'+
     '<div style="flex:1;font-size:12px;color:'+(sideUnlocked?'#2E7D32':'#1A4A7A')+';font-weight:500">Side Training: '+
     (sideUnlocked ? '<strong style=\"color:#2E7D32\">Verified ✅</strong>' : '<strong style=\"color:#E65100\">Pending verification</strong>')+
@@ -413,9 +412,7 @@ function renderCard(slug,agent,prog,idx){
     '</div>'+
     (!sideUnlocked ? '<button onclick=\"event.stopPropagation();unlockSideTraining(\''+slug+'\');\" style=\"background:#4A90D9;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit\">✅ Verify Training</button>' : '')+
     '</div>';
-
-    var ylopoBg = ylopoUnlocked ? 'background:#E8F5E9;border:0.5px solid #C8E6C9' : 'background:#F3E5F5;border:0.5px solid #CE87C1';
-  var ylopoBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;'+ylopoBg+';border-radius:8px;margin-bottom:16px">'+
+  var ylopoBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;'+(ylopoUnlocked?'background:#E8F5E9;border:0.5px solid #C8E6C9':'background:#F3E5F5;border:0.5px solid #CE87C1')+';border-radius:8px;margin-bottom:16px">'+
     '<span style="font-size:14px">⭐</span>'+
     '<div style="flex:1;font-size:12px;color:'+(ylopoUnlocked?'#2E7D32':'#6A1B9A')+';font-weight:500">Ylopo: '+
     (ylopoUnlocked ? '<strong style="color:#2E7D32">Activated ✅</strong>' : '<strong style="color:#E65100">Pending — Admin must activate</strong>')+
