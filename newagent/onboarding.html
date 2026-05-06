@@ -24,7 +24,7 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
 .welcome-banner{border-radius:14px;padding:28px 28px 24px;margin-bottom:20px;text-align:center;overflow:hidden;position:relative;background-image:url('https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/BG%20CHEZ.png');background-size:cover;background-position:center}
 .banner-content{position:relative;z-index:1}
 .section-label{font-size:10px;font-weight:700;color:#999;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px}
-.block-card{background:white;border:0.5px solid #eee;border-radius:12px;margin-bottom:14px;overflow:hidden}
+.block-card{background:white;border:0.5px solid #eee;border-radius:12px;margin-bottom:14px;overflow:hidden;width:100%;box-sizing:border-box}
 .block-header{padding:14px 18px;display:flex;align-items:center;gap:12px;background:#F15F37;cursor:pointer;user-select:none}
 .block-num{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-family:'Lato',sans-serif;font-weight:900;font-size:13px;color:white;flex-shrink:0}
 .block-title{font-size:14px;font-weight:700;color:white;flex:1}
@@ -492,21 +492,16 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
           <div class="step-lock" id="lock-s8"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
         <div class="step-body" id="body-s8">
-          <div class="block-label">Watch all 5 videos</div>
+          <div class="block-label">Watch all 8 videos</div>
           <a class="video-block" href="https://side.360learning.com/course/play/69c570f0bfaf92163fcc620d" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 1</div><div class="video-dur">Chez University</div></div></a>
           <a class="video-block" href="https://side.360learning.com/course/play/69c57160f832a986ab7b0f9c" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 2</div><div class="video-dur">Chez University</div></div></a>
-          <a class="video-block" href="https://side.360learning.com/course/play/69c57436973cb8ff5bd1e44d" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 3</div><div class="video-dur">Chez University</div></div></a>
-          <a class="video-block" href="https://side.360learning.com/course/play/69c56bc0405bb153ba0da0c7" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 4</div><div class="video-dur">Chez University</div></div></a>
-          <a class="video-block" href="https://side.360learning.com/course/play/69c5700c0ed14db78b73df3d" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 5</div><div class="video-dur">Chez University</div></div></a>
-                    <a class="link-item" href="https://side.360learning.com/course/edit/69c56f7738f185b4b56badeb/element/69c56f94c75af68d088eec1c" target="_blank"><div class="link-ico" style="background:#1A1A2E;color:white;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">▶</div><div><div class="link-title">Matrix Best Practices — Vol. 6</div><div class="link-sub">Chez University · 360 Learning</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-          <a class="link-item" href="https://side.360learning.com/course/edit/69c2d54af392a057c29abd6b/element/69c2d55fc0a59b34b9f02b4f" target="_blank"><div class="link-ico" style="background:#1A1A2E;color:white;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">▶</div><div><div class="link-title">Matrix Best Practices — Vol. 7</div><div class="link-sub">Chez University · 360 Learning</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-          <a class="link-item" href="https://side.360learning.com/course/edit/69c572f8e0316642ada59073/element/69c5731130a66028da162ada" target="_blank"><div class="link-ico" style="background:#1A1A2E;color:white;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">▶</div><div><div class="link-title">Matrix Best Practices — Vol. 8</div><div class="link-sub">Chez University · 360 Learning</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-          <a class="link-item" href="https://side.360learning.com/course/edit/69c5721c949e769be3eb2450/element/69c57242806c99caf624fb72" target="_blank"><div class="link-ico" style="background:#1A1A2E;color:white;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">▶</div><div><div class="link-title">Matrix Best Practices — Vol. 9</div><div class="link-sub">Chez University · 360 Learning</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-<div class="confirm-row"><div class="chk" id="chk-s8" onclick="markDone('s8','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">All 5 Matrix videos watched</div></div>
-        </div
-          <a class="video-block" href="https://side.360learning.com/course/play/69c56bc0405bb153ba0da0c7" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 4</div><div class="video-dur">Chez University</div></div></a>
-          <a class="video-block" href="https://side.360learning.com/course/play/69c5700c0ed14db78b73df3d" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 5</div><div class="video-dur">Chez University</div></div></a>
-          <div class="confirm-row"><div class="chk" id="chk-s8" onclick="markDone('s8','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">All 5 Matrix videos watched</div></div>
+          <a class="video-block" href="https://side.360learning.com/course/play/69c56bc0405bb153ba0da0c7" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 3</div><div class="video-dur">Chez University</div></div></a>
+          <a class="video-block" href="https://side.360learning.com/course/play/69c5700c0ed14db78b73df3d" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 4</div><div class="video-dur">Chez University</div></div></a>
+          <a class="video-block" href="https://side.360learning.com/course/edit/69c56f7738f185b4b56badeb/element/69c56f94c75af68d088eec1c" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 5</div><div class="video-dur">Chez University</div></div></a>
+          <a class="video-block" href="https://side.360learning.com/course/edit/69c2d54af392a057c29abd6b/element/69c2d55fc0a59b34b9f02b4f" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 6</div><div class="video-dur">Chez University</div></div></a>
+          <a class="video-block" href="https://side.360learning.com/course/edit/69c572f8e0316642ada59073/element/69c5731130a66028da162ada" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 7</div><div class="video-dur">Chez University</div></div></a>
+          <a class="video-block" href="https://side.360learning.com/course/edit/69c5721c949e769be3eb2450/element/69c57242806c99caf624fb72" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 8</div><div class="video-dur">Chez University</div></div></a>
+          <div class="confirm-row"><div class="chk" id="chk-s8" onclick="markDone('s8','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">All 8 Matrix videos watched</div></div>
         </div>
       </div>
 
@@ -1218,8 +1213,10 @@ function applySideTrainingState(unlocked){
       var card=document.getElementById(bid+'-card');
       var hasProgress = (bid==='b3') ? b3done : b4done;
       if(card && !hasProgress){ 
-        card.style.opacity='0.4'; 
-        card.style.pointerEvents='none'; 
+        card.style.opacity='0.5';
+        card.style.pointerEvents='none';
+        card.style.width='';
+        card.style.minWidth='';
       }
     });
   }
