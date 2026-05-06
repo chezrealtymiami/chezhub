@@ -388,6 +388,16 @@ function renderCard(slug,agent,prog,idx){
       '</div>'
     : '';
 
+  // Zillow unlock button
+  var zillowUnlocked = (sheetData[slug]||{})['zillow_ok'] === '\u2705';
+  var zillowBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;background:#E3F2FD;border:0.5px solid #90CAF9;border-radius:8px">'+
+    '<span style="font-size:14px">🏠</span>'+
+    '<div style="flex:1;font-size:12px;color:#1565C0;font-weight:500">Zillow &amp; Realtor.com: '+
+    (zillowUnlocked ? '<strong style=\"color:#2E7D32\">Invites Sent ✅</strong>' : '<strong style=\"color:#E65100\">Pending — Admin must send invites</strong>')+
+    '</div>'+
+    (!zillowUnlocked ? '<button onclick=\"event.stopPropagation();unlockZillow(\''+slug+'\');\" style=\"background:#1E88E5;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit\">✅ Invites Sent</button>' : '')+
+    '</div>';
+
   // Ylopo unlock button
   var ylopoUnlocked = (sheetData[slug]||{})['ylopo_ok'] === '\u2705';
   // Side Training unlock button
