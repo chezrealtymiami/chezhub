@@ -1196,11 +1196,12 @@ function getFormData(){
     birthday:(document.getElementById('f-birthday')||{}).value||'',
     shirt:(document.getElementById('f-shirt')||{}).value||'',
     license:(document.getElementById('f-license')||{}).value||'',
+    instagram:(document.getElementById('f-instagram')||{}).value||'',
     address:(document.getElementById('f-address')||{}).value||'' };
 }
 function loadFormData(){
   var f=getSaved()['agentForm']; if(!f) return;
-  ['name','email','phone','birthday','shirt','license','address'].forEach(function(k){
+  ['name','email','phone','birthday','shirt','license','instagram','address'].forEach(function(k){
     if(f[k]){var el=document.getElementById('f-'+k); if(el) el.value=f[k];}
   });
 }
