@@ -277,6 +277,23 @@ function calcProgress(slug){
 
 function barColor(pct){ return pct===100?'#2ECC71':pct===0?'#E0E0E0':'#F15F37'; }
 
+// Google devuelve las fechas del Sheet como 2026-09-23T05:00:00.000Z.
+// Leemos los números del texto en vez de usar new Date(), porque eso traduce
+// a la zona horaria del navegador y le resta un día a quien esté al oeste.
+var MESES = ['January','February','March','April','May','June',
+             'July','August','September','October','November','December'];
+
+function formatStartDate(raw){
+  if(raw === null || raw === undefined || raw === '') return '—';
+  var s = raw.toString().trim();
+  if(s.indexOf('T') === -1) return s;            // ya viene legible, no tocar
+  var p = s.split('T')[0].split('-');            // ["2026","09","23"]
+  if(p.length !== 3) return s;
+  var mes = MESES[parseInt(p[1], 10) - 1];
+  if(!mes) return s;
+  return mes + ' ' + parseInt(p[2], 10) + ', ' + p[0];
+}
+
 function renderDashboard(){
   // Sheet is source of truth — all agents from sheet appear automatically
   var slugs=Object.keys(sheetData);
@@ -428,7 +445,7 @@ function renderCard(slug,agent,prog,idx){
           '<div class="agent-name">'+agent.name+'</div>'+
           '<svg class="expand-chev" id="chev-'+idx+'" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>'+
         '</div>'+
-        '<div class="agent-meta">'+agent.group+' · Started '+agent.start+'</div>'+
+        '<div class="agent-meta">'+agent.group+' · Started '+formatStartDate(agent.start)+'</div>'+
         '<div style="margin-top:5px">'+lastUp+'</div>'+
       '</div>'+
       '<div class="prog-section">'+
@@ -562,6 +579,9 @@ function loadAgentInfo(){
           address:  row[8]||''
         };
       }
+      // Este fetch termina DESPUÉS del primer renderDashboard(), así que sin
+      // este redibujo la ficha del agente no aparecía hasta apretar Refresh.
+      if(Object.keys(agentInfo).length) renderDashboard();
     })
     .catch(function(){ /* silent fail */ });
 }
