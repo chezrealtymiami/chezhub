@@ -55,7 +55,7 @@ body{font-family:'DM Sans',sans-serif;background:#F7F5F2;min-height:100vh}
 .prog-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
 .prog-label{font-size:11px;color:#999;font-weight:500}
 .prog-pct{font-family:'Lato',sans-serif;font-size:20px;font-weight:900}
-.prog-bar-wrap{height:10px;background:#F0F0F0;border-radius:6px;overflow:hidden;margin-bottom:10px}
+.prog-bar-wrap{height:9px;background:#EDEAE6;border-radius:6px;overflow:hidden;margin-bottom:12px}
 .prog-bar-fill{height:100%;border-radius:6px;transition:width 0.4s}
 
 /* ─── CHAPTERS ─── */
@@ -320,6 +320,20 @@ function barColor(pct){ return pct===100?'#2ECC71':pct===0?'#E0E0E0':'#F15F37'; 
 var MESES = ['January','February','March','April','May','June',
              'July','August','September','October','November','December'];
 
+// "Last Update" llega en dos formas: el string que escribe el script
+// ("23/9/2026, 6:05:49 p.m.") o una fecha real de Sheets serializada como
+// ISO ("2026-06-15T21:31:11.000Z"). Llevamos la segunda al mismo formato
+// d/m/aaaa de la primera. No usamos new Date() para no correr el día.
+function formatActivity(raw){
+  if(raw === null || raw === undefined || raw === '') return '';
+  var s = raw.toString().trim();
+  var m = s.match(/^(\d{4})-(\d{2})-(\d{2})T/);
+  if(m) return parseInt(m[3],10) + '/' + parseInt(m[2],10) + '/' + m[1];
+  var d = s.match(/^(\d{1,2}\/\d{1,2}\/\d{4})/);   // corta la hora
+  if(d) return d[1];
+  return s;
+}
+
 function formatStartDate(raw){
   if(raw === null || raw === undefined || raw === '') return '—';
   var s = raw.toString().trim();
@@ -408,10 +422,10 @@ function renderCard(slug,agent,prog,idx){
   }
 
   var puerta = '<div class="gate-mark '+(sideOk?'open':'locked')+'" title="'+
-      (sideOk ? 'Side Training verificado — Chapter 2 habilitado'
-              : 'Side Training pendiente de tu verificación — Chapter 2 bloqueado')+'">'+
+      (sideOk ? 'Side Training verified — Chapter 2 unlocked'
+              : 'Side Training pending your verification — Chapter 2 locked')+'">'+
     '<div class="gate-icon">'+(sideOk?'🔓':'🔒')+'</div>'+
-    '<div class="gate-label">'+(sideOk?'Abierto':'Cerrado')+'</div>'+
+    '<div class="gate-label">'+(sideOk?'Open':'Locked')+'</div>'+
   '</div>';
 
   var miniBlocks = '<div class="chapters-row">'+
@@ -420,7 +434,7 @@ function renderCard(slug,agent,prog,idx){
 
   // Last update
   var lastUp=prog.lastUpdate
-    ?'<span style="font-size:9px;font-weight:700;color:#bbb;text-transform:uppercase;letter-spacing:0.05em">Last activity · </span><span style="font-size:11px;color:#888">'+prog.lastUpdate+'</span>'
+    ?'<span style="font-size:9px;font-weight:700;color:#bbb;text-transform:uppercase;letter-spacing:0.05em">Last activity · </span><span style="font-size:11px;color:#888">'+formatActivity(prog.lastUpdate)+'</span>'
     :'<span style="font-size:11px;color:#ccc">No activity yet</span>';
 
   // Detail blocks — agrupados por Chapter
@@ -540,7 +554,7 @@ function renderCard(slug,agent,prog,idx){
           '<span class="prog-pct" style="color:'+pctColor+'">'+prog.pct+'%</span>'+
         '</div>'+
         '<div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:'+prog.pct+'%;background:#F15F37"></div></div>'+
-        '<div class="blocks-row">'+miniBlocks+'</div>'+
+        miniBlocks+
       '</div>'+
       '<div class="status-col">'+
         badge+
