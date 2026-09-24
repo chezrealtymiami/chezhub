@@ -326,6 +326,18 @@ var MESES = ['January','February','March','April','May','June',
 // d/m/aaaa de la primera. No usamos new Date() para no correr el día.
 // El handle puede venir como "@ana", "ana", "instagram.com/ana" o una URL
 // completa. Lo normalizamos a un perfil abrible.
+// El teléfono puede llegar como número (3055550142) o ya con formato.
+// Lo llevamos a (305) 555-0142 sólo si son 10 dígitos claros; cualquier otra
+// cosa (extensiones, internacionales) se muestra tal como está cargada.
+function formatPhone(raw){
+  if(raw === null || raw === undefined || raw === '') return '';
+  var s = String(raw).trim();
+  var d = s.replace(/\D/g, '');
+  if(d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+  if(d.length !== 10) return s;
+  return '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6);
+}
+
 function igUrl(h){
   var s = (h || '').toString().trim();
   if(!s) return '';
@@ -512,14 +524,14 @@ function renderCard(slug,agent,prog,idx){
     ? '<div style="background:white;border:0.5px solid #eee;border-radius:10px;padding:14px 16px;margin-bottom:12px">'+
       '<div style="font-size:10px;font-weight:700;color:#F15F37;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">👤 Agent Information</div>'+
       '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;font-size:12px">'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Full Name</div><div style="font-weight:500;color:#1A1A1A">'+(info.name||'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Email</div><div style="font-weight:500;color:#1A1A1A">'+(info.email?enlace('mailto:'+info.email, info.email):'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Phone</div><div style="font-weight:500;color:#1A1A1A">'+(info.phone?enlace('tel:'+info.phone.replace(/[^0-9+]/g,''), info.phone):'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Birthday</div><div style="font-weight:500;color:#1A1A1A">'+(info.birthday||'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Shirt Size</div><div style="font-weight:500;color:#1A1A1A">'+(info.shirt||'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">License #</div><div style="font-weight:500;color:#1A1A1A">'+(info.license||'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Instagram</div><div style="font-weight:500;color:#1A1A1A">'+(info.instagram&&igUrl(info.instagram)?enlace(igUrl(info.instagram), info.instagram, ' &#8599;'):(info.instagram||'—'))+'</div></div>'+
-        '<div style="grid-column:2/-1"><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Home Address</div><div style="font-weight:500;color:#1A1A1A">'+(info.address||'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Full Name</div><div style="font-weight:500;color:#1A1A1A">'+(info.name!==''&&info.name!=null?String(info.name):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Email</div><div style="font-weight:500;color:#1A1A1A">'+(info.email?enlace('mailto:'+String(info.email), String(info.email)):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Phone</div><div style="font-weight:500;color:#1A1A1A">'+(info.phone?enlace('tel:'+String(info.phone).replace(/[^0-9+]/g,''), formatPhone(info.phone)):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Birthday</div><div style="font-weight:500;color:#1A1A1A">'+(info.birthday!==''&&info.birthday!=null?String(info.birthday):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Shirt Size</div><div style="font-weight:500;color:#1A1A1A">'+(info.shirt!==''&&info.shirt!=null?String(info.shirt):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">License #</div><div style="font-weight:500;color:#1A1A1A">'+(info.license!==''&&info.license!=null?String(info.license):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Instagram</div><div style="font-weight:500;color:#1A1A1A">'+(info.instagram&&igUrl(info.instagram)?enlace(igUrl(info.instagram), String(info.instagram), ' &#8599;'):(info.instagram||'—'))+'</div></div>'+
+        '<div style="grid-column:2/-1"><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Home Address</div><div style="font-weight:500;color:#1A1A1A">'+(info.address!==''&&info.address!=null?String(info.address):'—')+'</div></div>'+
       '</div>'+
       '</div>'
     : '';
