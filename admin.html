@@ -324,6 +324,24 @@ var MESES = ['January','February','March','April','May','June',
 // ("23/9/2026, 6:05:49 p.m.") o una fecha real de Sheets serializada como
 // ISO ("2026-06-15T21:31:11.000Z"). Llevamos la segunda al mismo formato
 // d/m/aaaa de la primera. No usamos new Date() para no correr el día.
+// El handle puede venir como "@ana", "ana", "instagram.com/ana" o una URL
+// completa. Lo normalizamos a un perfil abrible.
+function igUrl(h){
+  var s = (h || '').toString().trim();
+  if(!s) return '';
+  if(/^https?:\/\//i.test(s)) return s;
+  s = s.replace(/^@/, '').replace(/^(www\.)?instagram\.com\//i, '').replace(/\/+$/, '');
+  return s ? 'https://instagram.com/' + s : '';
+}
+
+// stopPropagation: sin esto, el click abre el enlace Y colapsa la tarjeta
+function enlace(href, texto, extra){
+  return '<a href="' + href + '" target="_blank" rel="noopener" ' +
+         'onclick="event.stopPropagation()" ' +
+         'style="font-weight:500;color:#F15F37;text-decoration:none">' +
+         texto + (extra || '') + '</a>';
+}
+
 function formatActivity(raw){
   if(raw === null || raw === undefined || raw === '') return '';
   var s = raw.toString().trim();
@@ -495,12 +513,12 @@ function renderCard(slug,agent,prog,idx){
       '<div style="font-size:10px;font-weight:700;color:#F15F37;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">👤 Agent Information</div>'+
       '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;font-size:12px">'+
         '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Full Name</div><div style="font-weight:500;color:#1A1A1A">'+(info.name||'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Email</div><div style="font-weight:500;color:#1A1A1A">'+(info.email||'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Phone</div><div style="font-weight:500;color:#1A1A1A">'+(info.phone||'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Email</div><div style="font-weight:500;color:#1A1A1A">'+(info.email?enlace('mailto:'+info.email, info.email):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Phone</div><div style="font-weight:500;color:#1A1A1A">'+(info.phone?enlace('tel:'+info.phone.replace(/[^0-9+]/g,''), info.phone):'—')+'</div></div>'+
         '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Birthday</div><div style="font-weight:500;color:#1A1A1A">'+(info.birthday||'—')+'</div></div>'+
         '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Shirt Size</div><div style="font-weight:500;color:#1A1A1A">'+(info.shirt||'—')+'</div></div>'+
         '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">License #</div><div style="font-weight:500;color:#1A1A1A">'+(info.license||'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Instagram</div><div style="font-weight:500;color:#1A1A1A">'+(info.instagram||'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Instagram</div><div style="font-weight:500;color:#1A1A1A">'+(info.instagram&&igUrl(info.instagram)?enlace(igUrl(info.instagram), info.instagram, ' &#8599;'):(info.instagram||'—'))+'</div></div>'+
         '<div style="grid-column:2/-1"><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Home Address</div><div style="font-weight:500;color:#1A1A1A">'+(info.address||'—')+'</div></div>'+
       '</div>'+
       '</div>'
