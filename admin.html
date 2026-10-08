@@ -329,6 +329,15 @@ var MESES = ['January','February','March','April','May','June',
 // El teléfono puede llegar como número (3055550142) o ya con formato.
 // Lo llevamos a (305) 555-0142 sólo si son 10 dígitos claros; cualquier otra
 // cosa (extensiones, internacionales) se muestra tal como está cargada.
+// Todo dato que venga de la hoja pasa por aquí antes de entrar al HTML.
+// Un slug como "<mariana>" o un nombre como "Smith & Co" rompían la tarjeta
+// entera: el navegador los leía como etiquetas y se tragaba el resto.
+var ESCAPES = {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};
+function esc(v){
+  if(v === null || v === undefined) return '';
+  return String(v).replace(/[&<>"']/g, function(c){ return ESCAPES[c]; });
+}
+
 function formatPhone(raw){
   if(raw === null || raw === undefined || raw === '') return '';
   var s = String(raw).trim();
@@ -464,7 +473,7 @@ function renderCard(slug,agent,prog,idx){
 
   // Last update
   var lastUp=prog.lastUpdate
-    ?'<span style="font-size:9px;font-weight:700;color:#bbb;text-transform:uppercase;letter-spacing:0.05em">Last activity · </span><span style="font-size:11px;color:#888">'+formatActivity(prog.lastUpdate)+'</span>'
+    ?'<span style="font-size:9px;font-weight:700;color:#bbb;text-transform:uppercase;letter-spacing:0.05em">Last activity · </span><span style="font-size:11px;color:#888">'+esc(formatActivity(prog.lastUpdate))+'</span>'
     :'<span style="font-size:11px;color:#ccc">No activity yet</span>';
 
   // Detail blocks — agrupados por Chapter
@@ -513,7 +522,7 @@ function renderCard(slug,agent,prog,idx){
     });
   });
   var nextHTML=nextStep
-    ?'<div class="next-step" style="margin-bottom:10px"><span style="font-size:16px">👉</span><span style="font-size:12px;color:#C8601A;font-weight:500">Next: <strong>'+nextStep+'</strong></span></div>'
+    ?'<div class="next-step" style="margin-bottom:10px"><span style="font-size:16px">👉</span><span style="font-size:12px;color:#C8601A;font-weight:500">Next: <strong>'+esc(nextStep)+'</strong></span></div>'
     :'<div class="next-done" style="margin-bottom:10px"><span style="font-size:16px">🎉</span><span style="font-size:12px;color:#2E7D32;font-weight:600">Onboarding complete!</span></div>';
 
 
@@ -524,14 +533,14 @@ function renderCard(slug,agent,prog,idx){
     ? '<div style="background:white;border:0.5px solid #eee;border-radius:10px;padding:14px 16px;margin-bottom:12px">'+
       '<div style="font-size:10px;font-weight:700;color:#F15F37;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">👤 Agent Information</div>'+
       '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;font-size:12px">'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Full Name</div><div style="font-weight:500;color:#1A1A1A">'+(info.name!==''&&info.name!=null?String(info.name):'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Email</div><div style="font-weight:500;color:#1A1A1A">'+(info.email?enlace('mailto:'+String(info.email), String(info.email)):'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Phone</div><div style="font-weight:500;color:#1A1A1A">'+(info.phone?enlace('tel:'+String(info.phone).replace(/[^0-9+]/g,''), formatPhone(info.phone)):'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Birthday</div><div style="font-weight:500;color:#1A1A1A">'+(info.birthday!==''&&info.birthday!=null?String(info.birthday):'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Shirt Size</div><div style="font-weight:500;color:#1A1A1A">'+(info.shirt!==''&&info.shirt!=null?String(info.shirt):'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">License #</div><div style="font-weight:500;color:#1A1A1A">'+(info.license!==''&&info.license!=null?String(info.license):'—')+'</div></div>'+
-        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Instagram</div><div style="font-weight:500;color:#1A1A1A">'+(info.instagram&&igUrl(info.instagram)?enlace(igUrl(info.instagram), String(info.instagram), ' &#8599;'):(info.instagram||'—'))+'</div></div>'+
-        '<div style="grid-column:2/-1"><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Home Address</div><div style="font-weight:500;color:#1A1A1A">'+(info.address!==''&&info.address!=null?String(info.address):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Full Name</div><div style="font-weight:500;color:#1A1A1A">'+(info.name!==''&&info.name!=null?esc(info.name):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Email</div><div style="font-weight:500;color:#1A1A1A">'+(info.email?enlace('mailto:'+esc(info.email), esc(info.email)):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Phone</div><div style="font-weight:500;color:#1A1A1A">'+(info.phone?enlace('tel:'+String(info.phone).replace(/[^0-9+]/g,''), esc(formatPhone(info.phone))):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Birthday</div><div style="font-weight:500;color:#1A1A1A">'+(info.birthday!==''&&info.birthday!=null?esc(formatStartDate(info.birthday)):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Shirt Size</div><div style="font-weight:500;color:#1A1A1A">'+(info.shirt!==''&&info.shirt!=null?esc(info.shirt):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">License #</div><div style="font-weight:500;color:#1A1A1A">'+(info.license!==''&&info.license!=null?esc(info.license):'—')+'</div></div>'+
+        '<div><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Instagram</div><div style="font-weight:500;color:#1A1A1A">'+(info.instagram&&igUrl(info.instagram)?enlace(esc(igUrl(info.instagram)), esc(info.instagram), ' &#8599;'):esc(info.instagram)||'—')+'</div></div>'+
+        '<div style="grid-column:2/-1"><div style="font-size:9px;color:#bbb;text-transform:uppercase;font-weight:700;margin-bottom:2px">Home Address</div><div style="font-weight:500;color:#1A1A1A">'+(info.address!==''&&info.address!=null?esc(info.address):'—')+'</div></div>'+
       '</div>'+
       '</div>'
     : '';
@@ -543,7 +552,7 @@ function renderCard(slug,agent,prog,idx){
     '<div style="flex:1;font-size:12px;color:#1565C0;font-weight:500">Zillow &amp; Realtor.com: '+
     (zillowUnlocked ? '<strong style=\"color:#2E7D32\">Invites Sent ✅</strong>' : '<strong style=\"color:#E65100\">Pending — Admin must send invites</strong>')+
     '</div>'+
-    (!zillowUnlocked ? '<button onclick=\"event.stopPropagation();unlockZillow(\''+slug+'\');\" style=\"background:#1E88E5;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit\">✅ Invites Sent</button>' : '')+
+    (!zillowUnlocked ? '<button onclick=\"event.stopPropagation();unlockZillow(\''+esc(slug)+'\');\" style=\"background:#1E88E5;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit\">✅ Invites Sent</button>' : '')+
     '</div>';
 
   // Ylopo unlock button
@@ -555,27 +564,27 @@ function renderCard(slug,agent,prog,idx){
     '<span style="font-size:14px">🎓</span>'+
     '<div style="flex:1;font-size:12px;color:'+(sideUnlocked?'#2E7D32':'#1A4A7A')+';font-weight:500">Side Training: '+
     (sideUnlocked ? '<strong style=\"color:#2E7D32\">Verified ✅</strong>' : '<strong style=\"color:#E65100\">Pending verification</strong>')+
-    (sideCert ? ' · <a href=\"'+sideCert+'\" target=\"_blank\" style=\"color:#4A90D9;font-size:11px\">View Certificate →</a>' : '')+
+    (sideCert ? ' · <a href=\"'+esc(sideCert)+'\" target=\"_blank\" style=\"color:#4A90D9;font-size:11px\">View Certificate →</a>' : '')+
     '</div>'+
-    (!sideUnlocked ? '<button onclick=\"event.stopPropagation();unlockSideTraining(\''+slug+'\');\" style=\"background:#4A90D9;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit\">✅ Verify Training</button>' : '')+
+    (!sideUnlocked ? '<button onclick=\"event.stopPropagation();unlockSideTraining(\''+esc(slug)+'\');\" style=\"background:#4A90D9;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit\">✅ Verify Training</button>' : '')+
     '</div>';
   var ylopoBtn = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:10px 14px;'+(ylopoUnlocked?'background:#E8F5E9;border:0.5px solid #C8E6C9':'background:#F3E5F5;border:0.5px solid #CE87C1')+';border-radius:8px;margin-bottom:16px">'+
     '<span style="font-size:14px">⭐</span>'+
     '<div style="flex:1;font-size:12px;color:'+(ylopoUnlocked?'#2E7D32':'#6A1B9A')+';font-weight:500">Ylopo: '+
     (ylopoUnlocked ? '<strong style="color:#2E7D32">Activated ✅</strong>' : '<strong style="color:#E65100">Pending — Admin must activate</strong>')+
     '</div>'+
-    (!ylopoUnlocked ? '<button onclick="event.stopPropagation();unlockYlopo(\''+slug+'\');" style="background:#F15F37;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🔓 Unlock Ylopo</button>' : '')+
+    (!ylopoUnlocked ? '<button onclick="event.stopPropagation();unlockYlopo(\''+esc(slug)+'\');" style="background:#F15F37;color:white;border:none;border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">🔓 Unlock Ylopo</button>' : '')+
     '</div>';
 
   return '<div class="agent-card" id="card-'+idx+'" onclick="toggleCard('+idx+')">'+
     '<div class="card-main">'+
-      '<div class="avt">'+agent.initials+'</div>'+
+      '<div class="avt">'+esc(agent.initials)+'</div>'+
       '<div class="agent-info">'+
         '<div style="display:flex;align-items:center;gap:6px">'+
-          '<div class="agent-name">'+agent.name+'</div>'+
+          '<div class="agent-name">'+esc(agent.name)+'</div>'+
           '<svg class="expand-chev" id="chev-'+idx+'" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>'+
         '</div>'+
-        '<div class="agent-meta">'+agent.group+' · Started '+formatStartDate(agent.start)+'</div>'+
+        '<div class="agent-meta">'+esc(agent.group)+' · Started '+esc(formatStartDate(agent.start))+'</div>'+
         '<div style="margin-top:5px">'+lastUp+'</div>'+
       '</div>'+
       '<div class="prog-section">'+
