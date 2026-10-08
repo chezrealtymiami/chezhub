@@ -847,7 +847,15 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
 // ═══════════════════════════════════════════════════════════
 var AGENTS = {}; // populated from Sheet on load
 var AGENT   = null;
-var slug    = (new URLSearchParams(window.location.search).get('agent') || 'demo').toLowerCase().trim();
+// El slug se limpia antes de usarse. Si alguien manda el link con la
+// plantilla a medio reemplazar (?agent=<mariana>), con mayúsculas o con un
+// espacio pegado, igual aterriza en el agente correcto en vez de crear una
+// fila basura en el Sheet.
+var slug = (function(){
+  var crudo = new URLSearchParams(window.location.search).get('agent') || '';
+  var limpio = crudo.toLowerCase().trim().replace(/[^a-z0-9_-]/g, '');
+  return limpio || 'demo';
+})();
 
 // ═══════════════════════════════════════════════════════════
 // BOOT — load agent from Google Sheets AGENTS tab
