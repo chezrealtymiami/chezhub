@@ -1916,6 +1916,7 @@ function enterHub(agent) {
     <script>
     (function() {
       const CRM_JSON = 'https://cdn.jsdelivr.net/gh/chezrealtymiami/chezhub@main/crm-data.json';
+      const CRM_EMBEDDED = {"lastUpdated":"2026-10-21T17:01:31.000Z","teamCompliance":80.9,"agents":[{"name":"Christian Padron","score":100,"totalRecords":195,"compliant":195,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Jennifer Miranda","score":100,"totalRecords":139,"compliant":139,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Yenelis Martinez","score":100,"totalRecords":41,"compliant":41,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Moulay Alaoui","score":100,"totalRecords":22,"compliant":22,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Krystal Green-Bergnes","score":100,"totalRecords":13,"compliant":13,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Jeny Campos","score":100,"totalRecords":5,"compliant":5,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Lisa Rosedietcher","score":100,"totalRecords":2,"compliant":2,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Connie Lozano","score":100,"totalRecords":1,"compliant":1,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Jaydelyn Ortiz","score":98.82,"totalRecords":169,"compliant":167,"atRisk":2,"neglected":0,"status":"Meets Standard"},{"name":"Alex Mirambell","score":95.83,"totalRecords":24,"compliant":23,"atRisk":1,"neglected":0,"status":"Meets Standard"},{"name":"Maribel Reyes","score":95.83,"totalRecords":24,"compliant":23,"atRisk":0,"neglected":1,"status":"Meets Standard"},{"name":"Jessica Alvarez-Ducos","score":95.65,"totalRecords":115,"compliant":110,"atRisk":1,"neglected":4,"status":"Meets Standard"},{"name":"Ruben Grana","score":92.59,"totalRecords":27,"compliant":25,"atRisk":0,"neglected":2,"status":"Meets Standard"},{"name":"Roxana Ibanez","score":92.31,"totalRecords":13,"compliant":12,"atRisk":0,"neglected":1,"status":"Meets Standard"},{"name":"Camila Ciochon","score":89.74,"totalRecords":39,"compliant":35,"atRisk":1,"neglected":3,"status":"Meets Standard"},{"name":"Brian Leon","score":86.36,"totalRecords":44,"compliant":38,"atRisk":0,"neglected":6,"status":"Meets Standard"},{"name":"Jennifer Avila","score":85,"totalRecords":20,"compliant":17,"atRisk":3,"neglected":0,"status":"Meets Standard"}]};
 
       function getBadge(agent, rank, allAgents) {
         if (agent.score === 100) return { label: 'PERFECT SCORE', icon: '🥇', color: '#FFD700', bg: 'rgba(255,215,0,0.15)', bar: 'linear-gradient(90deg,#FFD700,#F15F37)', accent: '#FFD700' };
@@ -2029,13 +2030,14 @@ function enterHub(agent) {
         </div>\`;
       }
 
+      // Mostrar data embebida de hoy inmediatamente
+      renderWidget(CRM_EMBEDDED);
+
+      // Intentar traer versión más fresca en background
       fetch(CRM_JSON + '?t=' + Date.now())
         .then(r => r.json())
         .then(renderWidget)
-        .catch(() => {
-          document.getElementById('crm-widget-inner').innerHTML =
-            '<div style="padding:30px;text-align:center;color:rgba(255,255,255,0.3);font-size:13px">No se pudo cargar la data CRM.</div>';
-        });
+        .catch(() => { /* ya se ve la data embebida */ });
     })();
     </script>
 
