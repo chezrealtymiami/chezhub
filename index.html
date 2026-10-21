@@ -1178,7 +1178,13 @@ function enterHub(agent) {
       }
 
       function renderWidget(data) {
-        const agents = data.agents || [];
+        // Filtrar agentes con nombres sucios (header row capturado por el parser)
+        const HEADER_WORDS = ['records','compliant','risk','neglected','status','agent','name','compliance'];
+        const agents = (data.agents || []).filter(a => {
+          const words = a.name.toLowerCase().split(/\s+/);
+          const dirtyCount = words.filter(w => HEADER_WORDS.includes(w)).length;
+          return dirtyCount < 2; // si tiene 2+ palabras de header, es basura
+        });
         const top5 = agents.slice(0, 5);
         const rest = agents.slice(5).filter(a => a.score >= 80);
         const tc = data.teamCompliance ? data.teamCompliance.toFixed(1) : '—';
