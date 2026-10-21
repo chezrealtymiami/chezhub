@@ -1168,7 +1168,9 @@ function enterHub(agent) {
 
   function renderWidget(data) {
     var HEADER = ['records','compliant','risk','neglected','status','agent','name','compliance'];
+    var EXCLUDED = ['Roxana Ibanez','Roxana Ibañez','Ramses Toledo','Yensi Toledo'];
     var agents = (data.agents||[]).filter(function(a){
+      if (EXCLUDED.indexOf(a.name) >= 0) return false;
       var words = a.name.toLowerCase().split(/\s+/);
       return words.filter(function(w){return HEADER.indexOf(w)>=0;}).length < 2;
     });
