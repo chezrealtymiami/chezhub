@@ -1172,6 +1172,11 @@ function enterHub(agent) {
       var words = a.name.toLowerCase().split(/\s+/);
       return words.filter(function(w){return HEADER.indexOf(w)>=0;}).length < 2;
     });
+    // Ordenar: primero por score desc, luego por volumen (totalRecords) desc
+    agents.sort(function(a,b){
+      if (b.score !== a.score) return b.score - a.score;
+      return b.totalRecords - a.totalRecords;
+    });
     var top5 = agents.slice(0,5);
     var rest = agents.slice(5).filter(function(a){return a.score>=80;});
     var tc = data.teamCompliance ? data.teamCompliance.toFixed(1) : '—';
