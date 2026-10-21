@@ -325,12 +325,12 @@ function enterHub(agent) {
     <a class="sitem" data-label="My Profile" href="#perfil" style="display:none"><span class="sitem-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span><span class="sdot"></span><span class="sitem-label">My Profile</span></a>
     <div class="slabel">Community</div>
     <a class="sitem" data-label="Celebrations" href="#celebraciones"><span class="sitem-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="sdot"></span><span class="sitem-label">Celebrations</span></a>
-        <a class="sitem" data-label="Training Calendar" href="#training-calendar"><span class="sitem-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="sdot"></span><span class="sitem-label">Training Calendar</span></a>
     <a class="sitem" data-label="Onboarding Now" href="#onboarding"><span class="sitem-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-1.5-3.3"/><path d="M17 6a4 4 0 0 1 0 7"/></svg></span><span class="sdot"></span><span class="sitem-label">Onboarding Now</span></a>
     <a class="sitem" data-label="News" href="#lejournal"><span class="sitem-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a4 4 0 0 1-4 4z"/><path d="M10 2v4h6"/><line x1="10" y1="10" x2="16" y2="10"/><line x1="10" y1="14" x2="16" y2="14"/></svg></span><span class="sdot"></span><span class="sitem-label">News</span></a>
     <a class="sitem" data-label="CRM Leaderboard" href="#crm-leaderboard"><span class="sitem-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span><span class="sdot"></span><span class="sitem-label">CRM Standouts</span></a>
     <a class="sitem" data-label="Zillow" href="#zillow-data"><span class="sitem-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span class="sdot"></span><span class="sitem-label">Zillow</span></a>
     <div class="slabel">Knowledge</div>
+    <a class="sitem" data-label="Training Calendar" href="#training-calendar"><span class="sitem-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="sdot"></span><span class="sitem-label">Training Calendar</span></a>
     <a class="sitem" data-label="Chez U" href="#chezu"><span class="sitem-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span class="sdot"></span><span class="sitem-label">Chez U</span></a>
     <a class="sitem" data-label="Side 360 Learning" href="#side360" target="_blank"><span class="sitem-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="sdot"></span><span class="sitem-label">Side 360 Learning</span></a>
 
@@ -455,6 +455,425 @@ function enterHub(agent) {
 
     <!-- WIDGETS ROW -->
     <!-- WIDGETS ROW -->
+
+
+    <!-- ═══ CRM DATA ════════════════════════════════════════ -->
+    <!-- CRM LEADERBOARD -->
+    <div id="crm-leaderboard" style="margin-bottom:28px">
+      <div style="background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%);border-radius:16px;overflow:hidden;border:none" id="crm-widget-inner">
+        <div style="padding:30px;text-align:center;color:rgba(255,255,255,0.3);font-size:13px">Cargando datos CRM...</div>
+      </div>
+    </div>
+    <!-- END CRM LEADERBOARD -->
+<script>
+(function() {
+  var CRM_JSON = 'https://cdn.jsdelivr.net/gh/chezrealtymiami/chezhub@main/crm-data.json';
+  var CRM_EMBEDDED = {"lastUpdated":"2026-10-21T17:01:31.000Z","teamCompliance":80.9,"agents":[{"name":"Christian Padron","score":100,"totalRecords":195,"compliant":195,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Jennifer Miranda","score":100,"totalRecords":139,"compliant":139,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Yenelis Martinez","score":100,"totalRecords":41,"compliant":41,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Moulay Alaoui","score":100,"totalRecords":22,"compliant":22,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Krystal Green-Bergnes","score":100,"totalRecords":13,"compliant":13,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Jeny Campos","score":100,"totalRecords":5,"compliant":5,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Lisa Rosedietcher","score":100,"totalRecords":2,"compliant":2,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Connie Lozano","score":100,"totalRecords":1,"compliant":1,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Jaydelyn Ortiz","score":98.82,"totalRecords":169,"compliant":167,"atRisk":2,"neglected":0,"status":"Meets Standard"},{"name":"Alex Mirambell","score":95.83,"totalRecords":24,"compliant":23,"atRisk":1,"neglected":0,"status":"Meets Standard"},{"name":"Maribel Reyes","score":95.83,"totalRecords":24,"compliant":23,"atRisk":0,"neglected":1,"status":"Meets Standard"},{"name":"Jessica Alvarez-Ducos","score":95.65,"totalRecords":115,"compliant":110,"atRisk":1,"neglected":4,"status":"Meets Standard"},{"name":"Ruben Grana","score":92.59,"totalRecords":27,"compliant":25,"atRisk":0,"neglected":2,"status":"Meets Standard"},{"name":"Roxana Ibanez","score":92.31,"totalRecords":13,"compliant":12,"atRisk":0,"neglected":1,"status":"Meets Standard"},{"name":"Camila Ciochon","score":89.74,"totalRecords":39,"compliant":35,"atRisk":1,"neglected":3,"status":"Meets Standard"},{"name":"Brian Leon","score":86.36,"totalRecords":44,"compliant":38,"atRisk":0,"neglected":6,"status":"Meets Standard"},{"name":"Jennifer Avila","score":85,"totalRecords":20,"compliant":17,"atRisk":3,"neglected":0,"status":"Meets Standard"}]};
+
+  function getBadge(agent, rank) {
+    if (agent.score === 100) return {label:'PERFECT SCORE', icon:'🥇', color:'#FFD700', bg:'rgba(255,215,0,0.15)', bar:'linear-gradient(90deg,#FFD700,#F15F37)', accent:'#FFD700'};
+    return {label:'STANDOUT', icon:'⭐', color:'#C0C0C0', bg:'rgba(192,192,192,0.12)', bar:'linear-gradient(90deg,#F15F37,#e05028)', accent:'#F15F37'};
+  }
+
+  function renderWidget(data) {
+    var HEADER = ['records','compliant','risk','neglected','status','agent','name','compliance'];
+    var EXCLUDED = ['Roxana Ibanez','Roxana Ibañez','Ramses Toledo','Yensi Toledo'];
+    var agents = (data.agents||[]).filter(function(a){
+      if (EXCLUDED.indexOf(a.name) >= 0) return false;
+      var words = a.name.toLowerCase().split(/\s+/);
+      return words.filter(function(w){return HEADER.indexOf(w)>=0;}).length < 2;
+    });
+    // Ordenar: primero por score desc, luego por volumen (totalRecords) desc
+    agents.sort(function(a,b){
+      if (b.score !== a.score) return b.score - a.score;
+      return b.totalRecords - a.totalRecords;
+    });
+    var top5 = agents.slice(0,5);
+    var rest = agents.slice(5).filter(function(a){return a.score>=80;});
+    var tc = data.teamCompliance ? data.teamCompliance.toFixed(1) : '—';
+    var dateStr = data.lastUpdated ? new Date(data.lastUpdated).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : '—';
+
+    var PHOTO_MAP = {
+      'Christian Padron':'CHRISTIAN PADRON',
+      'Jennifer Miranda':'JENNIFER MIRANDA',
+      'Yenelis Martinez':'YENELIS MARTINEZ',
+      'Moulay Alaoui':'MOULAY ALAOUI',
+      'Krystal Green-Bergnes':'KRYSTAL GREEN-BERGNES',
+      'Jeny Campos':'JENELLE CAMPOS',
+      'Lisa Rosedietcher':'LISA ROSEDIETCHER',
+      'Connie Lozano':'CONSTANZA LOZANO',
+      'Jaydelyn Ortiz':'JAYDELYN ORTIZ',
+      'Alex Mirambell':'ALEX MIRAMBELL',
+      'Maribel Reyes':'MARIBEL REYES',
+      'Jessica Alvarez-Ducos':'JESSICA ALVAREZ-DUCOS',
+      'Ruben Grana':'RUBEN GRANA',
+      'Roxana Ibanez':'ROXANA IBANEZ',
+      'Camila Ciochon':'CAMILA CIOCHON',
+      'Brian Leon':'BRIAN LEON',
+      'Jennifer Avila':'JENNIFER AVILA'
+    };
+    var IMG_BASE = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/';
+
+    function getPhoto(name) {
+      var file = PHOTO_MAP[name];
+      return file ? IMG_BASE + encodeURIComponent(file) + '.png' : '';
+    }
+    function getInitials(name) {
+      return name.split(' ').slice(0,2).map(function(w){return w[0];}).join('');
+    }
+
+    var topCards = top5.map(function(a, i) {
+      var badge = getBadge(a, i+1);
+      var pct = a.score.toFixed(1);
+      var barW = Math.min(a.score,100).toFixed(2);
+      var accent = a.score===100 ? '#FFD700' : '#F15F37';
+      var photo = getPhoto(a.name);
+      var initials = getInitials(a.name);
+      var avatar = photo
+        ? '<img src="'+photo+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid '+badge.accent+'" />'
+          + '<div style="display:none;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.08);border:2px solid '+badge.accent+';align-items:center;justify-content:center;color:'+badge.accent+';font-size:16px;font-weight:700">'+initials+'</div>'
+        : '<div style="display:flex;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.08);border:2px solid '+badge.accent+';align-items:center;justify-content:center;color:'+badge.accent+';font-size:16px;font-weight:700">'+initials+'</div>';
+      return '<div style="background:#1e1e1e;padding:18px 20px;position:relative;overflow:hidden">'
+        + '<div style="position:absolute;top:0;left:0;width:3px;height:100%;background:'+badge.accent+'"></div>'
+        + '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">'
+        + '<div style="flex:1">'
+        + '<div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">'
+        + '<div style="position:relative;flex-shrink:0">'+avatar+'</div>'
+        + '<div>'
+        + '<div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">'
+        + '<span style="font-size:13px">'+badge.icon+'</span>'
+        + '<span style="background:'+badge.bg+';color:'+badge.color+';font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px">'+badge.label+'</span>'
+        + '</div>'
+        + '<div style="color:white;font-size:15px;font-weight:600;line-height:1.2">'+a.name+'</div>'
+        + '</div></div>'
+        + '<div style="display:flex;align-items:center;gap:6px;margin-bottom:5px">'
+        + '<div style="flex:1;background:rgba(255,255,255,0.08);border-radius:100px;height:5px;overflow:hidden">'
+        + '<div style="width:'+barW+'%;height:100%;background:'+badge.bar+';border-radius:100px"></div></div>'
+        + '<span style="color:'+accent+';font-size:13px;font-weight:700">'+pct+'%</span>'
+        + '</div>'
+        + '<div style="color:rgba(255,255,255,0.35);font-size:10px">'+a.compliant+' / '+a.totalRecords+' records</div>'
+        + '</div>'
+        + '<div style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.05);border:1.5px solid '+badge.accent+';display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-start">'
+        + '<span style="color:'+badge.accent+';font-size:11px;font-weight:800">'+(i+1)+'</span>'
+        + '</div></div></div>';
+    }).join('');
+
+    var restRows = rest.map(function(a, i) {
+      var pct = a.score.toFixed(1);
+      var barW = Math.min(a.score,100).toFixed(2);
+      var scoreColor = a.score===100 ? '#FFD700' : '#F15F37';
+      var photo2 = getPhoto(a.name);
+      var initials2 = getInitials(a.name);
+      var avatar2 = photo2
+        ? '<img src="'+photo2+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(241,95,55,0.5)" />'
+          + '<div style="display:none;width:32px;height:32px;border-radius:50%;background:rgba(241,95,55,0.15);border:1.5px solid rgba(241,95,55,0.4);align-items:center;justify-content:center;color:#F15F37;font-size:10px;font-weight:700">'+initials2+'</div>'
+        : '<div style="display:flex;width:32px;height:32px;border-radius:50%;background:rgba(241,95,55,0.15);border:1.5px solid rgba(241,95,55,0.4);align-items:center;justify-content:center;color:#F15F37;font-size:10px;font-weight:700">'+initials2+'</div>';
+      return '<tr style="border-bottom:1px solid rgba(255,255,255,0.05)">'
+        + '<td style="padding:8px 10px;width:30px;text-align:center">'
+        + '<span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(241,95,55,0.15);color:#F15F37;font-size:10px;font-weight:700">'+(i+6)+'</span>'
+        + '</td>'
+        + '<td style="padding:8px 8px;width:40px"><div style="position:relative">'+avatar2+'</div></td>'
+        + '<td style="padding:8px 8px;color:white;font-size:13px;font-weight:500;white-space:nowrap">'+a.name+'</td>'
+        + '<td style="padding:9px 8px;color:rgba(255,255,255,0.35);font-size:11px;white-space:nowrap">Meets Standard</td>'
+        + '<td style="padding:9px 8px;width:180px">'
+        + '<div style="display:flex;align-items:center;gap:7px">'
+        + '<div style="flex:1;background:rgba(255,255,255,0.08);border-radius:100px;height:4px;overflow:hidden">'
+        + '<div style="width:'+barW+'%;height:100%;background:linear-gradient(90deg,'+scoreColor+',#e05028);border-radius:100px"></div></div>'
+        + '<span style="color:'+scoreColor+';font-size:12px;font-weight:700;min-width:38px;text-align:right">'+pct+'%</span>'
+        + '</div></td>'
+        + '<td style="padding:9px 14px;color:rgba(255,255,255,0.3);font-size:11px;text-align:right;white-space:nowrap">'+a.compliant+' / '+a.totalRecords+'</td>'
+        + '</tr>';
+    }).join('');
+
+    var html = '<div style="background:linear-gradient(90deg,#F15F37 0%,#c94a27 100%);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">'
+      + '<div style="display:flex;align-items:center;gap:12px"><span style="font-size:22px">🏆</span>'
+      + '<div><div style="color:white;font-size:16px;font-weight:700">CRM Daily Standouts</div>'
+      + '<div style="color:rgba(255,255,255,0.8);font-size:11px;margin-top:2px">BATTR Compliance Report · '+dateStr+'</div></div></div>'
+      + '<div style="background:rgba(255,255,255,0.15);border-radius:20px;padding:5px 12px;color:white;font-size:11px;font-weight:600">📊 '+tc+'% Team Compliance</div>'
+      + '</div>'
+      + '<div style="background:rgba(241,95,55,0.08);border-bottom:1px solid rgba(241,95,55,0.12);padding:9px 22px;display:flex;align-items:center;gap:8px">'
+      + '<span style="font-size:12px">💡</span>'
+      + '<span style="color:rgba(255,255,255,0.55);font-size:11px">Volume matters — 100% on 195 records is not the same as 100% on 1. Rankings reflect both rate and volume.</span></div>'
+      + '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.07)">'
+      + topCards + '</div>'
+      + (restRows ? '<div style="padding:0;background:rgba(0,0,0,0.15)"><div style="padding:10px 14px 4px;color:rgba(255,255,255,0.35);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase">Also Worth Mentioning</div><table style="width:100%;border-collapse:collapse">'+restRows+'</table></div>' : '')
+      + '<div style="padding:10px 22px;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">'
+      + '<div style="display:flex;align-items:center;gap:14px">'
+      + '<div style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;background:#FFD700;border-radius:50%;display:inline-block"></span><span style="color:rgba(255,255,255,0.45);font-size:10px">Perfect Score</span></div>'
+      + '<div style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;background:#F15F37;border-radius:50%;display:inline-block"></span><span style="color:rgba(255,255,255,0.45);font-size:10px">Standout (80%+)</span></div>'
+      + '</div><div style="color:rgba(255,255,255,0.25);font-size:10px;text-align:right">Source: BATTR · Auto-updated daily<br><span style="color:rgba(255,255,255,0.18);font-size:9px">Agents sorted by compliance % (highest to lowest). Excluded agents not shown.</span></div></div>';
+
+    document.getElementById('crm-widget-inner').innerHTML = html;
+  }
+
+  renderWidget(CRM_EMBEDDED);
+
+  fetch(CRM_JSON + '?t=' + Date.now())
+    .then(function(r){return r.json();})
+    .then(renderWidget)
+    .catch(function(){});
+})();
+</script>
+
+    <!-- TEAM MOMENTUM WIDGET -->
+    <div id="momentum-widget" style="margin-bottom:28px">
+      <div style="background:linear-gradient(135deg,#111827 0%,#1e2433 100%);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)">
+        <!-- Header -->
+        <div style="padding:16px 22px 12px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <div style="font-family:'Lato',sans-serif;font-size:16px;font-weight:900;color:white;letter-spacing:0.3px">&#128200; Team Momentum</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:3px;letter-spacing:0.05em;text-transform:uppercase">Last 24h vs previous audit</div>
+          </div>
+          <div style="background:rgba(241,95,55,0.12);border:1px solid rgba(241,95,55,0.25);border-radius:8px;padding:5px 12px">
+            <span style="color:#F15F37;font-size:11px;font-weight:700">Oct 21, 2026</span>
+          </div>
+        </div>
+        <!-- Metrics grid -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0">
+          <!-- Compliance % -->
+          <div style="padding:18px 20px;border-right:1px solid rgba(255,255,255,0.06)">
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Compliance</div>
+            <div style="font-family:'Lato',sans-serif;font-size:26px;font-weight:900;color:white;line-height:1">80.9<span style="font-size:14px;color:rgba(255,255,255,0.5)">%</span></div>
+            <div style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,0.12);border-radius:6px;padding:3px 8px">
+              <span style="color:#22c55e;font-size:12px;font-weight:700">+3.4%</span>
+              <span style="color:rgba(255,255,255,0.35);font-size:10px">vs yesterday</span>
+            </div>
+          </div>
+          <!-- Neglected -->
+          <div style="padding:18px 20px;border-right:1px solid rgba(255,255,255,0.06)">
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Neglected</div>
+            <div style="font-family:'Lato',sans-serif;font-size:26px;font-weight:900;color:white;line-height:1">184</div>
+            <div style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,0.12);border-radius:6px;padding:3px 8px">
+              <span style="color:#22c55e;font-size:12px;font-weight:700">-53</span>
+              <span style="color:rgba(255,255,255,0.35);font-size:10px">vs yesterday</span>
+            </div>
+          </div>
+          <!-- At Risk -->
+          <div style="padding:18px 20px;border-right:1px solid rgba(255,255,255,0.06)">
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">At Risk</div>
+            <div style="font-family:'Lato',sans-serif;font-size:26px;font-weight:900;color:white;line-height:1">53</div>
+            <div style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;background:rgba(239,68,68,0.12);border-radius:6px;padding:3px 8px">
+              <span style="color:#ef4444;font-size:12px;font-weight:700">+3</span>
+              <span style="color:rgba(255,255,255,0.35);font-size:10px">vs yesterday</span>
+            </div>
+          </div>
+          <!-- 4-Week Trend -->
+          <div style="padding:18px 20px">
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">4-Week Trend</div>
+            <div style="font-family:'Lato',sans-serif;font-size:26px;font-weight:900;color:white;line-height:1">80.9<span style="font-size:14px;color:rgba(255,255,255,0.5)">%</span></div>
+            <div style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,0.12);border-radius:6px;padding:3px 8px">
+              <span style="color:#22c55e;font-size:12px;font-weight:700">+8.1%</span>
+              <span style="color:rgba(255,255,255,0.35);font-size:10px">vs Sep 23</span>
+            </div>
+          </div>
+        </div>
+        <!-- Progress bar -->
+        <div style="padding:10px 20px 14px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
+            <span style="font-size:10px;color:rgba(255,255,255,0.3)">72.8% (4 wks ago)</span>
+            <span style="font-size:10px;color:rgba(255,255,255,0.3)">80% target</span>
+            <span style="font-size:10px;color:#22c55e;font-weight:700">80.9% today</span>
+          </div>
+          <div style="height:4px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden">
+            <div style="height:100%;width:80.9%;background:linear-gradient(90deg,#F15F37,#22c55e);border-radius:4px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END TEAM MOMENTUM WIDGET -->
+
+
+    <!-- ZILLOW DATA -->
+    <div id="zillow-data" style="margin-bottom:28px">
+      <div style="background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%);border-radius:16px;overflow:hidden">
+
+        <!-- Header -->
+        <div style="background:linear-gradient(90deg,#006aff 0%,#0050cc 100%);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 9.5V22h7v-7h6v7h7V9.5L12 2z"/></svg>
+            <div>
+              <div style="color:white;font-size:16px;font-weight:700;letter-spacing:0.5px">Chez Realty on Zillow</div>
+              <div style="color:rgba(255,255,255,0.8);font-size:11px;margin-top:2px">zillow.com/profile/chezrealty · Data as of Oct 2026</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border-radius:20px;padding:5px 12px">
+            <span style="color:#FFD700;font-size:13px">★</span>
+            <span style="color:white;font-size:13px;font-weight:700">5.0</span>
+            <span style="color:rgba(255,255,255,0.7);font-size:11px">· 365 reviews</span>
+          </div>
+        </div>
+
+        <!-- Key Stats Row -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));border-bottom:1px solid rgba(255,255,255,0.07)">
+          <div style="padding:16px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)">
+            <div style="color:white;font-size:22px;font-weight:800">652</div>
+            <div style="color:rgba(255,255,255,0.45);font-size:10px;margin-top:3px;text-transform:uppercase;letter-spacing:0.5px">Total Sales</div>
+          </div>
+          <div style="padding:16px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)">
+            <div style="color:#4CAF50;font-size:22px;font-weight:800">160</div>
+            <div style="color:rgba(255,255,255,0.45);font-size:10px;margin-top:3px;text-transform:uppercase;letter-spacing:0.5px">Last 12 Months</div>
+          </div>
+          <div style="padding:16px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)">
+            <div style="color:white;font-size:22px;font-weight:800">$646K</div>
+            <div style="color:rgba(255,255,255,0.45);font-size:10px;margin-top:3px;text-transform:uppercase;letter-spacing:0.5px">Avg Sale Price</div>
+          </div>
+          <div style="padding:16px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)">
+            <div style="color:white;font-size:22px;font-weight:800">26</div>
+            <div style="color:rgba(255,255,255,0.45);font-size:10px;margin-top:3px;text-transform:uppercase;letter-spacing:0.5px">Active Listings</div>
+          </div>
+          <div style="padding:16px 20px;text-align:center">
+            <div style="color:white;font-size:22px;font-weight:800">$60K–$17M</div>
+            <div style="color:rgba(255,255,255,0.45);font-size:10px;margin-top:3px;text-transform:uppercase;letter-spacing:0.5px">Price Range</div>
+          </div>
+        </div>
+
+        <!-- Two-column layout: Recent Sales + Active Listings -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+
+          <!-- Recent Sales -->
+          <div style="border-right:1px solid rgba(255,255,255,0.07)">
+            <div style="padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between">
+              <div style="color:white;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase">Recent Sales</div>
+              <span style="background:rgba(76,175,80,0.15);color:#4CAF50;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px">SOLD</span>
+            </div>
+            <div style="padding:8px 0">
+              <!-- Sale 1 -->
+              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <div style="flex:1;min-width:0">
+                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">15533 SW 19th St, Miramar</div>
+                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">4bd · 3ba · 2,707 sqft · Seller · 2 days ago</div>
+                </div>
+                <div style="color:#4CAF50;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$785K</div>
+              </div>
+              <!-- Sale 2 -->
+              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <div style="flex:1;min-width:0">
+                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">11425 NW 88th Ct, Hialeah Gardens</div>
+                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">3bd · 2ba · 1,405 sqft · Seller · 13 days ago</div>
+                </div>
+                <div style="color:#4CAF50;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$540K</div>
+              </div>
+              <!-- Sale 3 -->
+              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <div style="flex:1;min-width:0">
+                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">24035 SW 110th Ct, Homestead</div>
+                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">3bd · 2ba · 1,739 sqft · Seller · 14 days ago</div>
+                </div>
+                <div style="color:#4CAF50;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$555K</div>
+              </div>
+              <!-- Sale 4 -->
+              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <div style="flex:1;min-width:0">
+                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">17670 SW 154th Pl, Miami</div>
+                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">4bd · 4ba · 3,090 sqft · Seller · 14 days ago</div>
+                </div>
+                <div style="color:#4CAF50;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$832K</div>
+              </div>
+              <!-- Sale 5 -->
+              <div style="padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <div style="flex:1;min-width:0">
+                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">16850 S Glades Dr #2G, N. Miami Beach</div>
+                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">2bd · 2ba · 970 sqft · Buyer · 15 days ago</div>
+                </div>
+                <div style="color:#4CAF50;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$157.5K</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Listings -->
+          <div>
+            <div style="padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between">
+              <div style="color:white;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase">Active Listings</div>
+              <span style="background:rgba(0,106,255,0.15);color:#6aaeff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px">FOR SALE · 26</span>
+            </div>
+            <div style="padding:8px 0">
+              <!-- Listing 1 -->
+              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <div style="flex:1;min-width:0">
+                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">5750 SW 67th Ave, Miami</div>
+                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">5bd · 4ba · 3,483 sqft</div>
+                </div>
+                <div style="color:#6aaeff;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$2.3M</div>
+              </div>
+              <!-- Listing 2 -->
+              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <div style="flex:1;min-width:0">
+                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">9361 SW 103rd St, Miami</div>
+                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">4bd · 4ba · 3,544 sqft · Open House 10/25</div>
+                </div>
+                <div style="color:#6aaeff;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$2.5M</div>
+              </div>
+              <!-- Listing 3 -->
+              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <div style="flex:1;min-width:0">
+                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">7330 Tropicana St, Miramar</div>
+                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">3bd · 2ba · 1,328 sqft · 3D Tour</div>
+                </div>
+                <div style="color:#6aaeff;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$425K</div>
+              </div>
+              <!-- Listing 4 -->
+              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <div style="flex:1;min-width:0">
+                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">13996 Lake Lure Ct, Miami Lakes</div>
+                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">4bd · 2ba · 1,476 sqft · Fully Furnished</div>
+                </div>
+                <div style="color:#6aaeff;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$850K</div>
+              </div>
+              <!-- Listing 5 -->
+              <div style="padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <div style="flex:1;min-width:0">
+                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">11840 SW 171st Ter, Miami</div>
+                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">3bd · 2ba · 1,645 sqft · 3D Tour</div>
+                </div>
+                <div style="color:#6aaeff;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$685K</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Top Agents by Reviews -->
+        <div style="border-top:1px solid rgba(255,255,255,0.07);padding:14px 20px">
+          <div style="color:rgba(255,255,255,0.4);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">Top Agents by Zillow Reviews</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border-radius:10px;padding:7px 14px">
+              <span style="color:#FFD700;font-size:11px">★</span>
+              <span style="color:white;font-size:12px;font-weight:600">Dexter Brandao</span>
+              <span style="color:rgba(255,255,255,0.35);font-size:11px">91 reviews</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border-radius:10px;padding:7px 14px">
+              <span style="color:#FFD700;font-size:11px">★</span>
+              <span style="color:white;font-size:12px;font-weight:600">Jose Medina</span>
+              <span style="color:rgba(255,255,255,0.35);font-size:11px">71 reviews</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border-radius:10px;padding:7px 14px">
+              <span style="color:#FFD700;font-size:11px">★</span>
+              <span style="color:white;font-size:12px;font-weight:600">Alex Mirambell</span>
+              <span style="color:rgba(255,255,255,0.35);font-size:11px">56 reviews</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border-radius:10px;padding:7px 14px">
+              <span style="color:#FFD700;font-size:11px">★</span>
+              <span style="color:white;font-size:12px;font-weight:600">Ruben Grana</span>
+              <span style="color:rgba(255,255,255,0.35);font-size:11px">54 reviews</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border-radius:10px;padding:7px 14px">
+              <span style="color:#FFD700;font-size:11px">★</span>
+              <span style="color:white;font-size:12px;font-weight:600">Johana Cabrera</span>
+              <span style="color:rgba(255,255,255,0.35);font-size:11px">31 reviews</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="padding:10px 22px;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+          <span style="color:rgba(255,255,255,0.25);font-size:10px">Source: Zillow · Updated manually · Oct 2026 · 5 of 26 listings shown · 5 of 652 sales shown</span>
+          <a href="https://www.zillow.com/profile/chezrealty" target="_blank" style="color:#6aaeff;font-size:10px;text-decoration:none;font-weight:600">View full profile ↗</a>
+        </div>
+
+      </div>
+    </div>
+    <!-- END ZILLOW DATA -->
+    <!-- END CRM DATA ══════════════════════════════════════════ -->
 
     <!-- ═══ COMMUNITY ═══════════════════════════════════════ -->
 
@@ -1148,356 +1567,10 @@ function enterHub(agent) {
       </div>
     </div>
 
-        <!-- CRM LEADERBOARD -->
-    <div id="crm-leaderboard" style="margin-bottom:28px">
-      <div style="background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%);border-radius:16px;overflow:hidden;border:none" id="crm-widget-inner">
-        <div style="padding:30px;text-align:center;color:rgba(255,255,255,0.3);font-size:13px">Cargando datos CRM...</div>
-      </div>
-    </div>
-    <!-- END CRM LEADERBOARD -->
 
-    <script>
-(function() {
-  var CRM_JSON = 'https://cdn.jsdelivr.net/gh/chezrealtymiami/chezhub@main/crm-data.json';
-  var CRM_EMBEDDED = {"lastUpdated":"2026-10-21T17:01:31.000Z","teamCompliance":80.9,"agents":[{"name":"Christian Padron","score":100,"totalRecords":195,"compliant":195,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Jennifer Miranda","score":100,"totalRecords":139,"compliant":139,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Yenelis Martinez","score":100,"totalRecords":41,"compliant":41,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Moulay Alaoui","score":100,"totalRecords":22,"compliant":22,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Krystal Green-Bergnes","score":100,"totalRecords":13,"compliant":13,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Jeny Campos","score":100,"totalRecords":5,"compliant":5,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Lisa Rosedietcher","score":100,"totalRecords":2,"compliant":2,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Connie Lozano","score":100,"totalRecords":1,"compliant":1,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Jaydelyn Ortiz","score":98.82,"totalRecords":169,"compliant":167,"atRisk":2,"neglected":0,"status":"Meets Standard"},{"name":"Alex Mirambell","score":95.83,"totalRecords":24,"compliant":23,"atRisk":1,"neglected":0,"status":"Meets Standard"},{"name":"Maribel Reyes","score":95.83,"totalRecords":24,"compliant":23,"atRisk":0,"neglected":1,"status":"Meets Standard"},{"name":"Jessica Alvarez-Ducos","score":95.65,"totalRecords":115,"compliant":110,"atRisk":1,"neglected":4,"status":"Meets Standard"},{"name":"Ruben Grana","score":92.59,"totalRecords":27,"compliant":25,"atRisk":0,"neglected":2,"status":"Meets Standard"},{"name":"Roxana Ibanez","score":92.31,"totalRecords":13,"compliant":12,"atRisk":0,"neglected":1,"status":"Meets Standard"},{"name":"Camila Ciochon","score":89.74,"totalRecords":39,"compliant":35,"atRisk":1,"neglected":3,"status":"Meets Standard"},{"name":"Brian Leon","score":86.36,"totalRecords":44,"compliant":38,"atRisk":0,"neglected":6,"status":"Meets Standard"},{"name":"Jennifer Avila","score":85,"totalRecords":20,"compliant":17,"atRisk":3,"neglected":0,"status":"Meets Standard"}]};
 
-  function getBadge(agent, rank) {
-    if (agent.score === 100) return {label:'PERFECT SCORE', icon:'🥇', color:'#FFD700', bg:'rgba(255,215,0,0.15)', bar:'linear-gradient(90deg,#FFD700,#F15F37)', accent:'#FFD700'};
-    return {label:'STANDOUT', icon:'⭐', color:'#C0C0C0', bg:'rgba(192,192,192,0.12)', bar:'linear-gradient(90deg,#F15F37,#e05028)', accent:'#F15F37'};
-  }
-
-  function renderWidget(data) {
-    var HEADER = ['records','compliant','risk','neglected','status','agent','name','compliance'];
-    var EXCLUDED = ['Roxana Ibanez','Roxana Ibañez','Ramses Toledo','Yensi Toledo'];
-    var agents = (data.agents||[]).filter(function(a){
-      if (EXCLUDED.indexOf(a.name) >= 0) return false;
-      var words = a.name.toLowerCase().split(/\s+/);
-      return words.filter(function(w){return HEADER.indexOf(w)>=0;}).length < 2;
-    });
-    // Ordenar: primero por score desc, luego por volumen (totalRecords) desc
-    agents.sort(function(a,b){
-      if (b.score !== a.score) return b.score - a.score;
-      return b.totalRecords - a.totalRecords;
-    });
-    var top5 = agents.slice(0,5);
-    var rest = agents.slice(5).filter(function(a){return a.score>=80;});
-    var tc = data.teamCompliance ? data.teamCompliance.toFixed(1) : '—';
-    var dateStr = data.lastUpdated ? new Date(data.lastUpdated).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : '—';
-
-    var PHOTO_MAP = {
-      'Christian Padron':'CHRISTIAN PADRON',
-      'Jennifer Miranda':'JENNIFER MIRANDA',
-      'Yenelis Martinez':'YENELIS MARTINEZ',
-      'Moulay Alaoui':'MOULAY ALAOUI',
-      'Krystal Green-Bergnes':'KRYSTAL GREEN-BERGNES',
-      'Jeny Campos':'JENELLE CAMPOS',
-      'Lisa Rosedietcher':'LISA ROSEDIETCHER',
-      'Connie Lozano':'CONSTANZA LOZANO',
-      'Jaydelyn Ortiz':'JAYDELYN ORTIZ',
-      'Alex Mirambell':'ALEX MIRAMBELL',
-      'Maribel Reyes':'MARIBEL REYES',
-      'Jessica Alvarez-Ducos':'JESSICA ALVAREZ-DUCOS',
-      'Ruben Grana':'RUBEN GRANA',
-      'Roxana Ibanez':'ROXANA IBANEZ',
-      'Camila Ciochon':'CAMILA CIOCHON',
-      'Brian Leon':'BRIAN LEON',
-      'Jennifer Avila':'JENNIFER AVILA'
-    };
-    var IMG_BASE = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/';
-
-    function getPhoto(name) {
-      var file = PHOTO_MAP[name];
-      return file ? IMG_BASE + encodeURIComponent(file) + '.png' : '';
-    }
-    function getInitials(name) {
-      return name.split(' ').slice(0,2).map(function(w){return w[0];}).join('');
-    }
-
-    var topCards = top5.map(function(a, i) {
-      var badge = getBadge(a, i+1);
-      var pct = a.score.toFixed(1);
-      var barW = Math.min(a.score,100).toFixed(2);
-      var accent = a.score===100 ? '#FFD700' : '#F15F37';
-      var photo = getPhoto(a.name);
-      var initials = getInitials(a.name);
-      var avatar = photo
-        ? '<img src="'+photo+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid '+badge.accent+'" />'
-          + '<div style="display:none;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.08);border:2px solid '+badge.accent+';align-items:center;justify-content:center;color:'+badge.accent+';font-size:16px;font-weight:700">'+initials+'</div>'
-        : '<div style="display:flex;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.08);border:2px solid '+badge.accent+';align-items:center;justify-content:center;color:'+badge.accent+';font-size:16px;font-weight:700">'+initials+'</div>';
-      return '<div style="background:#1e1e1e;padding:18px 20px;position:relative;overflow:hidden">'
-        + '<div style="position:absolute;top:0;left:0;width:3px;height:100%;background:'+badge.accent+'"></div>'
-        + '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">'
-        + '<div style="flex:1">'
-        + '<div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">'
-        + '<div style="position:relative;flex-shrink:0">'+avatar+'</div>'
-        + '<div>'
-        + '<div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">'
-        + '<span style="font-size:13px">'+badge.icon+'</span>'
-        + '<span style="background:'+badge.bg+';color:'+badge.color+';font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px">'+badge.label+'</span>'
-        + '</div>'
-        + '<div style="color:white;font-size:15px;font-weight:600;line-height:1.2">'+a.name+'</div>'
-        + '</div></div>'
-        + '<div style="display:flex;align-items:center;gap:6px;margin-bottom:5px">'
-        + '<div style="flex:1;background:rgba(255,255,255,0.08);border-radius:100px;height:5px;overflow:hidden">'
-        + '<div style="width:'+barW+'%;height:100%;background:'+badge.bar+';border-radius:100px"></div></div>'
-        + '<span style="color:'+accent+';font-size:13px;font-weight:700">'+pct+'%</span>'
-        + '</div>'
-        + '<div style="color:rgba(255,255,255,0.35);font-size:10px">'+a.compliant+' / '+a.totalRecords+' records</div>'
-        + '</div>'
-        + '<div style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.05);border:1.5px solid '+badge.accent+';display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-start">'
-        + '<span style="color:'+badge.accent+';font-size:11px;font-weight:800">'+(i+1)+'</span>'
-        + '</div></div></div>';
-    }).join('');
-
-    var restRows = rest.map(function(a, i) {
-      var pct = a.score.toFixed(1);
-      var barW = Math.min(a.score,100).toFixed(2);
-      var scoreColor = a.score===100 ? '#FFD700' : '#F15F37';
-      var photo2 = getPhoto(a.name);
-      var initials2 = getInitials(a.name);
-      var avatar2 = photo2
-        ? '<img src="'+photo2+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(241,95,55,0.5)" />'
-          + '<div style="display:none;width:32px;height:32px;border-radius:50%;background:rgba(241,95,55,0.15);border:1.5px solid rgba(241,95,55,0.4);align-items:center;justify-content:center;color:#F15F37;font-size:10px;font-weight:700">'+initials2+'</div>'
-        : '<div style="display:flex;width:32px;height:32px;border-radius:50%;background:rgba(241,95,55,0.15);border:1.5px solid rgba(241,95,55,0.4);align-items:center;justify-content:center;color:#F15F37;font-size:10px;font-weight:700">'+initials2+'</div>';
-      return '<tr style="border-bottom:1px solid rgba(255,255,255,0.05)">'
-        + '<td style="padding:8px 10px;width:30px;text-align:center">'
-        + '<span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(241,95,55,0.15);color:#F15F37;font-size:10px;font-weight:700">'+(i+6)+'</span>'
-        + '</td>'
-        + '<td style="padding:8px 8px;width:40px"><div style="position:relative">'+avatar2+'</div></td>'
-        + '<td style="padding:8px 8px;color:white;font-size:13px;font-weight:500;white-space:nowrap">'+a.name+'</td>'
-        + '<td style="padding:9px 8px;color:rgba(255,255,255,0.35);font-size:11px;white-space:nowrap">Meets Standard</td>'
-        + '<td style="padding:9px 8px;width:180px">'
-        + '<div style="display:flex;align-items:center;gap:7px">'
-        + '<div style="flex:1;background:rgba(255,255,255,0.08);border-radius:100px;height:4px;overflow:hidden">'
-        + '<div style="width:'+barW+'%;height:100%;background:linear-gradient(90deg,'+scoreColor+',#e05028);border-radius:100px"></div></div>'
-        + '<span style="color:'+scoreColor+';font-size:12px;font-weight:700;min-width:38px;text-align:right">'+pct+'%</span>'
-        + '</div></td>'
-        + '<td style="padding:9px 14px;color:rgba(255,255,255,0.3);font-size:11px;text-align:right;white-space:nowrap">'+a.compliant+' / '+a.totalRecords+'</td>'
-        + '</tr>';
-    }).join('');
-
-    var html = '<div style="background:linear-gradient(90deg,#F15F37 0%,#c94a27 100%);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">'
-      + '<div style="display:flex;align-items:center;gap:12px"><span style="font-size:22px">🏆</span>'
-      + '<div><div style="color:white;font-size:16px;font-weight:700">CRM Daily Standouts</div>'
-      + '<div style="color:rgba(255,255,255,0.8);font-size:11px;margin-top:2px">BATTR Compliance Report · '+dateStr+'</div></div></div>'
-      + '<div style="background:rgba(255,255,255,0.15);border-radius:20px;padding:5px 12px;color:white;font-size:11px;font-weight:600">📊 '+tc+'% Team Compliance</div>'
-      + '</div>'
-      + '<div style="background:rgba(241,95,55,0.08);border-bottom:1px solid rgba(241,95,55,0.12);padding:9px 22px;display:flex;align-items:center;gap:8px">'
-      + '<span style="font-size:12px">💡</span>'
-      + '<span style="color:rgba(255,255,255,0.55);font-size:11px">Volume matters — 100% on 195 records is not the same as 100% on 1. Rankings reflect both rate and volume.</span></div>'
-      + '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.07)">'
-      + topCards + '</div>'
-      + (restRows ? '<div style="padding:0;background:rgba(0,0,0,0.15)"><div style="padding:10px 14px 4px;color:rgba(255,255,255,0.35);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase">Also Worth Mentioning</div><table style="width:100%;border-collapse:collapse">'+restRows+'</table></div>' : '')
-      + '<div style="padding:10px 22px;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">'
-      + '<div style="display:flex;align-items:center;gap:14px">'
-      + '<div style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;background:#FFD700;border-radius:50%;display:inline-block"></span><span style="color:rgba(255,255,255,0.45);font-size:10px">Perfect Score</span></div>'
-      + '<div style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;background:#F15F37;border-radius:50%;display:inline-block"></span><span style="color:rgba(255,255,255,0.45);font-size:10px">Standout (80%+)</span></div>'
-      + '</div><div style="color:rgba(255,255,255,0.25);font-size:10px;text-align:right">Source: BATTR · Auto-updated daily<br><span style="color:rgba(255,255,255,0.18);font-size:9px">Agents sorted by compliance % (highest to lowest). Excluded agents not shown.</span></div></div>';
-
-    document.getElementById('crm-widget-inner').innerHTML = html;
-  }
-
-  renderWidget(CRM_EMBEDDED);
-
-  fetch(CRM_JSON + '?t=' + Date.now())
-    .then(function(r){return r.json();})
-    .then(renderWidget)
-    .catch(function(){});
-})();
-</script>
 
     
-
-    <!-- ZILLOW DATA -->
-    <div id="zillow-data" style="margin-bottom:28px">
-      <div style="background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%);border-radius:16px;overflow:hidden">
-
-        <!-- Header -->
-        <div style="background:linear-gradient(90deg,#006aff 0%,#0050cc 100%);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
-          <div style="display:flex;align-items:center;gap:12px">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 9.5V22h7v-7h6v7h7V9.5L12 2z"/></svg>
-            <div>
-              <div style="color:white;font-size:16px;font-weight:700;letter-spacing:0.5px">Chez Realty on Zillow</div>
-              <div style="color:rgba(255,255,255,0.8);font-size:11px;margin-top:2px">zillow.com/profile/chezrealty · Data as of Oct 2026</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border-radius:20px;padding:5px 12px">
-            <span style="color:#FFD700;font-size:13px">★</span>
-            <span style="color:white;font-size:13px;font-weight:700">5.0</span>
-            <span style="color:rgba(255,255,255,0.7);font-size:11px">· 365 reviews</span>
-          </div>
-        </div>
-
-        <!-- Key Stats Row -->
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));border-bottom:1px solid rgba(255,255,255,0.07)">
-          <div style="padding:16px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)">
-            <div style="color:white;font-size:22px;font-weight:800">652</div>
-            <div style="color:rgba(255,255,255,0.45);font-size:10px;margin-top:3px;text-transform:uppercase;letter-spacing:0.5px">Total Sales</div>
-          </div>
-          <div style="padding:16px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)">
-            <div style="color:#4CAF50;font-size:22px;font-weight:800">160</div>
-            <div style="color:rgba(255,255,255,0.45);font-size:10px;margin-top:3px;text-transform:uppercase;letter-spacing:0.5px">Last 12 Months</div>
-          </div>
-          <div style="padding:16px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)">
-            <div style="color:white;font-size:22px;font-weight:800">$646K</div>
-            <div style="color:rgba(255,255,255,0.45);font-size:10px;margin-top:3px;text-transform:uppercase;letter-spacing:0.5px">Avg Sale Price</div>
-          </div>
-          <div style="padding:16px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)">
-            <div style="color:white;font-size:22px;font-weight:800">26</div>
-            <div style="color:rgba(255,255,255,0.45);font-size:10px;margin-top:3px;text-transform:uppercase;letter-spacing:0.5px">Active Listings</div>
-          </div>
-          <div style="padding:16px 20px;text-align:center">
-            <div style="color:white;font-size:22px;font-weight:800">$60K–$17M</div>
-            <div style="color:rgba(255,255,255,0.45);font-size:10px;margin-top:3px;text-transform:uppercase;letter-spacing:0.5px">Price Range</div>
-          </div>
-        </div>
-
-        <!-- Two-column layout: Recent Sales + Active Listings -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
-
-          <!-- Recent Sales -->
-          <div style="border-right:1px solid rgba(255,255,255,0.07)">
-            <div style="padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between">
-              <div style="color:white;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase">Recent Sales</div>
-              <span style="background:rgba(76,175,80,0.15);color:#4CAF50;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px">SOLD</span>
-            </div>
-            <div style="padding:8px 0">
-              <!-- Sale 1 -->
-              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
-                <div style="flex:1;min-width:0">
-                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">15533 SW 19th St, Miramar</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">4bd · 3ba · 2,707 sqft · Seller · 2 days ago</div>
-                </div>
-                <div style="color:#4CAF50;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$785K</div>
-              </div>
-              <!-- Sale 2 -->
-              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
-                <div style="flex:1;min-width:0">
-                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">11425 NW 88th Ct, Hialeah Gardens</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">3bd · 2ba · 1,405 sqft · Seller · 13 days ago</div>
-                </div>
-                <div style="color:#4CAF50;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$540K</div>
-              </div>
-              <!-- Sale 3 -->
-              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
-                <div style="flex:1;min-width:0">
-                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">24035 SW 110th Ct, Homestead</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">3bd · 2ba · 1,739 sqft · Seller · 14 days ago</div>
-                </div>
-                <div style="color:#4CAF50;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$555K</div>
-              </div>
-              <!-- Sale 4 -->
-              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
-                <div style="flex:1;min-width:0">
-                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">17670 SW 154th Pl, Miami</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">4bd · 4ba · 3,090 sqft · Seller · 14 days ago</div>
-                </div>
-                <div style="color:#4CAF50;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$832K</div>
-              </div>
-              <!-- Sale 5 -->
-              <div style="padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-                <div style="flex:1;min-width:0">
-                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">16850 S Glades Dr #2G, N. Miami Beach</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">2bd · 2ba · 970 sqft · Buyer · 15 days ago</div>
-                </div>
-                <div style="color:#4CAF50;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$157.5K</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Active Listings -->
-          <div>
-            <div style="padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between">
-              <div style="color:white;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase">Active Listings</div>
-              <span style="background:rgba(0,106,255,0.15);color:#6aaeff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px">FOR SALE · 26</span>
-            </div>
-            <div style="padding:8px 0">
-              <!-- Listing 1 -->
-              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
-                <div style="flex:1;min-width:0">
-                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">5750 SW 67th Ave, Miami</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">5bd · 4ba · 3,483 sqft</div>
-                </div>
-                <div style="color:#6aaeff;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$2.3M</div>
-              </div>
-              <!-- Listing 2 -->
-              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
-                <div style="flex:1;min-width:0">
-                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">9361 SW 103rd St, Miami</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">4bd · 4ba · 3,544 sqft · Open House 10/25</div>
-                </div>
-                <div style="color:#6aaeff;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$2.5M</div>
-              </div>
-              <!-- Listing 3 -->
-              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
-                <div style="flex:1;min-width:0">
-                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">7330 Tropicana St, Miramar</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">3bd · 2ba · 1,328 sqft · 3D Tour</div>
-                </div>
-                <div style="color:#6aaeff;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$425K</div>
-              </div>
-              <!-- Listing 4 -->
-              <div style="padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;gap:12px">
-                <div style="flex:1;min-width:0">
-                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">13996 Lake Lure Ct, Miami Lakes</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">4bd · 2ba · 1,476 sqft · Fully Furnished</div>
-                </div>
-                <div style="color:#6aaeff;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$850K</div>
-              </div>
-              <!-- Listing 5 -->
-              <div style="padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-                <div style="flex:1;min-width:0">
-                  <div style="color:white;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">11840 SW 171st Ter, Miami</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:10px;margin-top:2px">3bd · 2ba · 1,645 sqft · 3D Tour</div>
-                </div>
-                <div style="color:#6aaeff;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0">$685K</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Top Agents by Reviews -->
-        <div style="border-top:1px solid rgba(255,255,255,0.07);padding:14px 20px">
-          <div style="color:rgba(255,255,255,0.4);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">Top Agents by Zillow Reviews</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border-radius:10px;padding:7px 14px">
-              <span style="color:#FFD700;font-size:11px">★</span>
-              <span style="color:white;font-size:12px;font-weight:600">Dexter Brandao</span>
-              <span style="color:rgba(255,255,255,0.35);font-size:11px">91 reviews</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border-radius:10px;padding:7px 14px">
-              <span style="color:#FFD700;font-size:11px">★</span>
-              <span style="color:white;font-size:12px;font-weight:600">Jose Medina</span>
-              <span style="color:rgba(255,255,255,0.35);font-size:11px">71 reviews</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border-radius:10px;padding:7px 14px">
-              <span style="color:#FFD700;font-size:11px">★</span>
-              <span style="color:white;font-size:12px;font-weight:600">Alex Mirambell</span>
-              <span style="color:rgba(255,255,255,0.35);font-size:11px">56 reviews</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border-radius:10px;padding:7px 14px">
-              <span style="color:#FFD700;font-size:11px">★</span>
-              <span style="color:white;font-size:12px;font-weight:600">Ruben Grana</span>
-              <span style="color:rgba(255,255,255,0.35);font-size:11px">54 reviews</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border-radius:10px;padding:7px 14px">
-              <span style="color:#FFD700;font-size:11px">★</span>
-              <span style="color:white;font-size:12px;font-weight:600">Johana Cabrera</span>
-              <span style="color:rgba(255,255,255,0.35);font-size:11px">31 reviews</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Footer -->
-        <div style="padding:10px 22px;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-          <span style="color:rgba(255,255,255,0.25);font-size:10px">Source: Zillow · Updated manually · Oct 2026 · 5 of 26 listings shown · 5 of 652 sales shown</span>
-          <a href="https://www.zillow.com/profile/chezrealty" target="_blank" style="color:#6aaeff;font-size:10px;text-decoration:none;font-weight:600">View full profile ↗</a>
-        </div>
-
-      </div>
-    </div>
-    <!-- END ZILLOW DATA -->
 
         <!-- Q3 NUMBERS -->
     <div style="margin-bottom:24px;background:linear-gradient(135deg,#F15F37,#C04F0C);border-radius:16px;padding:28px 32px;position:relative;overflow:hidden">
