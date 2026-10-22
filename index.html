@@ -462,18 +462,19 @@ function enterHub(agent) {
 
     <!-- ═══ COMMUNITY ═══════════════════════════════════════ -->
 
-    <!-- BIRTHDAYS + ANNIVERSARIES -->
+    <!-- BIRTHDAYS + ANNIVERSARIES — dynamic from celebrations-data.json -->
     <div id="celebraciones"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+    <div id="celebrations-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+      <!-- rendered by renderCelebrations() -->
       <div class="widget-card">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
           <div style="display:flex;align-items:center;gap:8px">
             <div class="widget-icon" style="background:#FDF2EB"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F15F37" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-            <span class="widget-title">October Birthdays 🎂</span>
+            <span class="widget-title" id="bday-title">October Birthdays 🎂</span>
           </div>
-          <span class="widget-count">3</span>
+          <span class="widget-count" id="bday-count">3</span>
         </div>
-        <div>
+        <div id="bday-list">
           <div class="bday-item"><img class="bday-avt" src="https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/DAYANARA%20MUNOZ.png" onerror="this.src='https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/CHEZ%20LOGO.png'"><div class="bday-info"><div class="bday-name">Dayanara Munoz</div><div class="bday-date">Oct 6 · Chez Team</div></div><div class="bday-days">Oct 6</div></div>
           <div class="bday-item"><img class="bday-avt" src="https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/MARIO%20CABRERA%20SR.png" onerror="this.src='https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/CHEZ%20LOGO.png'"><div class="bday-info"><div class="bday-name">Mario Cabrera Sr.</div><div class="bday-date">Oct 10 · Cabrera Group</div></div><div class="bday-days">Oct 10</div></div>
           <div class="bday-item"><img class="bday-avt" src="https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/NICOLE%20PANEQUE.png" onerror="this.src='https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/CHEZ%20LOGO.png'"><div class="bday-info"><div class="bday-name">Nicole Paneque</div><div class="bday-date">Oct 31 · Chez Team</div></div><div class="bday-days">Oct 31</div></div>
@@ -483,24 +484,26 @@ function enterHub(agent) {
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
           <div style="display:flex;align-items:center;gap:8px">
             <div class="widget-icon" style="background:#FDF2EB"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F15F37" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
-            <span class="widget-title">October Anniversaries 🎉</span>
+            <span class="widget-title" id="anniv-title">October Anniversaries 🎉</span>
           </div>
-          <span class="widget-count">1</span>
+          <span class="widget-count" id="anniv-count">1</span>
         </div>
-        <div class="bday-item"><img class="bday-avt" src="https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/LAURIE%20MORENO.png" onerror="this.src='https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/CHEZ%20LOGO.png'"><div class="bday-info"><div class="bday-name">Laurie Moreno</div><div class="bday-date">Oct 26 · Chez Team · 🎊 1 Year</div></div><div class="bday-days bday-today">This month!</div></div>
+        <div id="anniv-list">
+          <div class="bday-item"><img class="bday-avt" src="https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/LAURIE%20MORENO.png" onerror="this.src='https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/CHEZ%20LOGO.png'"><div class="bday-info"><div class="bday-name">Laurie Moreno</div><div class="bday-date">Oct 26 · Chez Team · 🎊 1 Year</div></div><div class="bday-days bday-today">This month!</div></div>
+        </div>
       </div>
     </div>
 
+    <!-- ONBOARDING NOW — dynamic from onboarding-data.json -->
     <div id="onboarding" style="margin-bottom:14px">
       <div class="widget-card" style="background:#1A1208;border:none;padding:18px 20px">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
           <div style="width:6px;height:6px;border-radius:50%;background:#2ECC71;animation:pulse 2s infinite"></div>
           <span style="font-size:10px;font-weight:700;color:#2ECC71;letter-spacing:0.15em;text-transform:uppercase">Live · Onboarding Now</span>
-          <span style="font-size:10px;color:rgba(255,255,255,0.3);margin-left:auto">3 agents</span>
+          <span id="onb-count" style="font-size:10px;color:rgba(255,255,255,0.3);margin-left:auto">3 agents</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr;gap:12px">
-
-          <!-- MARIANA DE BARROS -->
+        <div id="onb-list" style="display:grid;grid-template-columns:1fr;gap:12px">
+          <!-- fallback rendered by renderOnboarding(); replaced on fetch -->
           <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:14px">
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
               <div style="width:36px;height:36px;border-radius:50%;background:#2ECC71;display:flex;align-items:center;justify-content:center;font-family:'Lato',sans-serif;font-weight:900;font-size:12px;color:white;flex-shrink:0;position:relative">MB<div style="position:absolute;bottom:-1px;right:-1px;width:8px;height:8px;border-radius:50%;background:#2ECC71;border:2px solid #1A1208"></div></div>
@@ -521,58 +524,13 @@ function enterHub(agent) {
               Say hi 🧡
             </a>
           </div>
-
-          <!-- KRYSTAL GREEN-BERGNES -->
-          <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:14px">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-              <div style="width:36px;height:36px;border-radius:50%;background:#27AE60;display:flex;align-items:center;justify-content:center;font-family:'Lato',sans-serif;font-weight:900;font-size:12px;color:white;flex-shrink:0;position:relative">KG<div style="position:absolute;bottom:-1px;right:-1px;width:8px;height:8px;border-radius:50%;background:#2ECC71;border:2px solid #1A1208"></div></div>
-              <div style="flex:1">
-                <div style="font-size:12px;font-weight:700;color:white">Krystal Green-Bergnes</div>
-                <div style="font-size:10px;color:rgba(255,255,255,0.4)">Curated Living · In Progress</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
-              <div style="font-size:10px;color:rgba(255,255,255,0.3)">Building momentum ⚡</div>
-              <div style="font-size:14px;font-weight:900;color:#27AE60;font-family:'Lato',sans-serif">40%</div>
-            </div>
-            <div style="height:3px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-bottom:10px">
-              <div style="height:100%;background:#27AE60;border-radius:3px;width:40%"></div>
-            </div>
-            <a href="mailto:krystal@chezre.com?subject=Welcome+to+Chez!&body=Hi+Krystal!+Welcome+to+Chez+Realty+%F0%9F%A7%A1" style="display:flex;align-items:center;justify-content:center;gap:5px;background:#27AE60;color:white;text-decoration:none;border-radius:7px;padding:7px;font-size:11px;font-weight:700;width:100%">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              Say hi 🧡
-            </a>
-          </div>
-
-          <!-- LISA ROSEDIETCHER -->
-          <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:14px">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-              <div style="width:36px;height:36px;border-radius:50%;background:#1E8449;display:flex;align-items:center;justify-content:center;font-family:'Lato',sans-serif;font-weight:900;font-size:12px;color:white;flex-shrink:0;position:relative">LR<div style="position:absolute;bottom:-1px;right:-1px;width:8px;height:8px;border-radius:50%;background:#2ECC71;border:2px solid #1A1208"></div></div>
-              <div style="flex:1">
-                <div style="font-size:12px;font-weight:700;color:white">Lisa Rosedietcher</div>
-                <div style="font-size:10px;color:rgba(255,255,255,0.4)">Curated Living · In Progress</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
-              <div style="font-size:10px;color:rgba(255,255,255,0.3)">Getting started 🌟</div>
-              <div style="font-size:14px;font-weight:900;color:#1E8449;font-family:'Lato',sans-serif">15%</div>
-            </div>
-            <div style="height:3px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-bottom:10px">
-              <div style="height:100%;background:#1E8449;border-radius:3px;width:15%"></div>
-            </div>
-            <a href="mailto:lisa@chezre.com?subject=Welcome+to+Chez!&body=Hi+Lisa!+Welcome+to+Chez+Realty+%F0%9F%A7%A1" style="display:flex;align-items:center;justify-content:center;gap:5px;background:#1E8449;color:white;text-decoration:none;border-radius:7px;padding:7px;font-size:11px;font-weight:700;width:100%">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              Say hi 🧡
-            </a>
-          </div>
-
         </div>
         <div style="background:rgba(241,95,55,0.1);border:0.5px solid rgba(241,95,55,0.2);border-radius:8px;padding:10px 14px;margin-top:12px">
           <div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:4px">Why it matters</div>
           <div style="font-size:11px;color:rgba(255,255,255,0.65);line-height:1.6">A new agent in your team is activating. A quick message or offer to help can change their entire career trajectory at Chez.</div>
         </div>
       </div>
-    </div
+    </div>
 
     <!-- LE JOURNAL + MIAMI MARKET NEWS -->
     <div id="lejournal"></div>
@@ -647,7 +605,7 @@ function enterHub(agent) {
     <!-- END CRM LEADERBOARD -->
 <script>
 (function() {
-  var CRM_JSON = 'https://cdn.jsdelivr.net/gh/chezrealtymiami/chezhub@main/crm-data.json';
+  var CRM_JSON = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/crm-data.json';
   var CRM_EMBEDDED = {"lastUpdated":"2026-10-21T17:01:31.000Z","teamCompliance":80.9,"agents":[{"name":"Christian Padron","score":100,"totalRecords":195,"compliant":195,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Jennifer Miranda","score":100,"totalRecords":139,"compliant":139,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Yenelis Martinez","score":100,"totalRecords":41,"compliant":41,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Moulay Alaoui","score":100,"totalRecords":22,"compliant":22,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Krystal Green-Bergnes","score":100,"totalRecords":13,"compliant":13,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Jeny Campos","score":100,"totalRecords":5,"compliant":5,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Lisa Rosedietcher","score":100,"totalRecords":2,"compliant":2,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Connie Lozano","score":100,"totalRecords":1,"compliant":1,"atRisk":0,"neglected":0,"status":"Meets Standard"},{"name":"Jaydelyn Ortiz","score":98.82,"totalRecords":169,"compliant":167,"atRisk":2,"neglected":0,"status":"Meets Standard"},{"name":"Alex Mirambell","score":95.83,"totalRecords":24,"compliant":23,"atRisk":1,"neglected":0,"status":"Meets Standard"},{"name":"Maribel Reyes","score":95.83,"totalRecords":24,"compliant":23,"atRisk":0,"neglected":1,"status":"Meets Standard"},{"name":"Jessica Alvarez-Ducos","score":95.65,"totalRecords":115,"compliant":110,"atRisk":1,"neglected":4,"status":"Meets Standard"},{"name":"Ruben Grana","score":92.59,"totalRecords":27,"compliant":25,"atRisk":0,"neglected":2,"status":"Meets Standard"},{"name":"Roxana Ibanez","score":92.31,"totalRecords":13,"compliant":12,"atRisk":0,"neglected":1,"status":"Meets Standard"},{"name":"Camila Ciochon","score":89.74,"totalRecords":39,"compliant":35,"atRisk":1,"neglected":3,"status":"Meets Standard"},{"name":"Brian Leon","score":86.36,"totalRecords":44,"compliant":38,"atRisk":0,"neglected":6,"status":"Meets Standard"},{"name":"Jennifer Avila","score":85,"totalRecords":20,"compliant":17,"atRisk":3,"neglected":0,"status":"Meets Standard"}]};
 
   function getBadge(agent, rank) {
@@ -791,6 +749,161 @@ function enterHub(agent) {
   fetch(CRM_JSON + '?t=' + Date.now())
     .then(function(r){return r.json();})
     .then(renderWidget)
+    .catch(function(){});
+})();
+</script>
+
+<script>
+/* ── CELEBRATIONS WIDGET — live from celebrations-data.json ── */
+(function() {
+  var CEL_JSON = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/celebrations-data.json';
+  var IMG_BASE = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/';
+  var FALLBACK  = IMG_BASE + 'CHEZ%20LOGO.png';
+
+  function nameToSlug(name) {
+    return encodeURIComponent(name.toUpperCase().replace(/[^A-Z0-9 ]/g,'').trim() + '.png').replace(/%20/g,'%20');
+  }
+
+  function buildBdayItem(p) {
+    var img = IMG_BASE + nameToSlug(p.name);
+    var daysLabel = p.isToday ? '<span class="bday-days bday-today">Today! 🎉</span>' : '<span class="bday-days">' + p.dateStr + '</span>';
+    return '<div class="bday-item">'
+      + '<img class="bday-avt" src="' + img + '" onerror="this.src=\'' + FALLBACK + '\'">'
+      + '<div class="bday-info"><div class="bday-name">' + p.name + '</div>'
+      + '<div class="bday-date">' + p.dateStr + ' \xB7 ' + (p.team||'Chez Team') + '</div></div>'
+      + daysLabel + '</div>';
+  }
+
+  function buildAnnivItem(p) {
+    var img = IMG_BASE + nameToSlug(p.name);
+    var yLabel = p.years + ' Year' + (p.years !== 1 ? 's' : '');
+    var daysLabel = p.isToday ? '<span class="bday-days bday-today">Today! 🎉</span>' : '<span class="bday-days bday-today">This month!</span>';
+    return '<div class="bday-item">'
+      + '<img class="bday-avt" src="' + img + '" onerror="this.src=\'' + FALLBACK + '\'">'
+      + '<div class="bday-info"><div class="bday-name">' + p.name + '</div>'
+      + '<div class="bday-date">' + p.dateStr + ' \xB7 ' + (p.team||'Chez Team') + ' \xB7 🎊 ' + yLabel + '</div></div>'
+      + daysLabel + '</div>';
+  }
+
+  function renderCelebrations(data) {
+    var now = new Date();
+    var MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var monthName = MONTH_NAMES[now.getMonth()];
+
+    var bdays   = data.birthdays   || [];
+    var anniversaries = data.anniversaries || [];
+
+    var bdayTitle  = document.getElementById('bday-title');
+    var bdayCount  = document.getElementById('bday-count');
+    var bdayList   = document.getElementById('bday-list');
+    var annivTitle = document.getElementById('anniv-title');
+    var annivCount = document.getElementById('anniv-count');
+    var annivList  = document.getElementById('anniv-list');
+
+    if (bdayTitle)  bdayTitle.textContent = monthName + ' Birthdays 🎂';
+    if (bdayCount)  bdayCount.textContent = bdays.length;
+    if (annivTitle) annivTitle.textContent = monthName + ' Anniversaries 🎉';
+    if (annivCount) annivCount.textContent = anniversaries.length;
+
+    if (bdayList) {
+      if (bdays.length === 0) {
+        bdayList.innerHTML = '<div style="color:rgba(0,0,0,0.35);font-size:12px;padding:8px 0">No birthdays this month</div>';
+      } else {
+        var bdayHTML = '';
+        for (var i = 0; i < bdays.length; i++) { bdayHTML += buildBdayItem(bdays[i]); }
+        bdayList.innerHTML = bdayHTML;
+      }
+    }
+
+    if (annivList) {
+      if (anniversaries.length === 0) {
+        annivList.innerHTML = '<div style="color:rgba(0,0,0,0.35);font-size:12px;padding:8px 0">No anniversaries this month</div>';
+      } else {
+        var annivHTML = '';
+        for (var j = 0; j < anniversaries.length; j++) { annivHTML += buildAnnivItem(anniversaries[j]); }
+        annivList.innerHTML = annivHTML;
+      }
+    }
+  }
+
+  fetch(CEL_JSON + '?t=' + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(renderCelebrations)
+    .catch(function(){});
+})();
+</script>
+
+<script>
+/* ── ONBOARDING NOW WIDGET — live from onboarding-data.json ── */
+(function() {
+  var ONB_JSON = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/onboarding-data.json';
+  var GREEN_SHADES = ['#2ECC71','#27AE60','#1E8449','#196F3D','#145A32'];
+
+  function getInitials(name) {
+    var parts = name.trim().split(' ');
+    if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+    return name.substring(0,2).toUpperCase();
+  }
+
+  function getPhaseLabel(pct) {
+    if (pct < 20)  return 'Getting started 🌟';
+    if (pct < 50)  return 'Building momentum ⚡';
+    if (pct < 75)  return 'Getting there 🚀';
+    if (pct < 100) return 'Almost done 🔥';
+    return 'Completed ✅';
+  }
+
+  function buildAgentCard(agent, idx) {
+    var color    = GREEN_SHADES[idx % GREEN_SHADES.length];
+    var initials = getInitials(agent.name);
+    var pct      = agent.pct || 0;
+    var phase    = getPhaseLabel(pct);
+    var emailSlug = agent.name.split(' ')[0].toLowerCase();
+    var emailHref = 'mailto:' + emailSlug + '@chezre.com?subject=Welcome+to+Chez!&body=Hi+' + encodeURIComponent(agent.name.split(' ')[0]) + '!+Welcome+to+the+Chez+Realty+team+%F0%9F%A7%A1';
+    var daysLabel = agent.daysElapsed !== null ? ' \xB7 Day ' + agent.daysElapsed : '';
+
+    return '<div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:14px">'
+      + '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
+      + '<div style="width:36px;height:36px;border-radius:50%;background:' + color + ';display:flex;align-items:center;justify-content:center;font-family:\'Lato\',sans-serif;font-weight:900;font-size:12px;color:white;flex-shrink:0;position:relative">'
+      + initials
+      + '<div style="position:absolute;bottom:-1px;right:-1px;width:8px;height:8px;border-radius:50%;background:#2ECC71;border:2px solid #1A1208"></div></div>'
+      + '<div style="flex:1">'
+      + '<div style="font-size:12px;font-weight:700;color:white">' + agent.name + '</div>'
+      + '<div style="font-size:10px;color:rgba(255,255,255,0.4)">' + (agent.group||'Chez Team') + ' \xB7 In Progress' + daysLabel + '</div>'
+      + '</div></div>'
+      + '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">'
+      + '<div style="font-size:10px;color:rgba(255,255,255,0.3)">' + phase + '</div>'
+      + '<div style="font-size:14px;font-weight:900;color:' + color + ';font-family:\'Lato\',sans-serif">' + pct + '%</div>'
+      + '</div>'
+      + '<div style="height:3px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-bottom:10px">'
+      + '<div style="height:100%;background:' + color + ';border-radius:3px;width:' + pct + '%"></div></div>'
+      + '<a href="' + emailHref + '" style="display:flex;align-items:center;justify-content:center;gap:5px;background:' + color + ';color:white;text-decoration:none;border-radius:7px;padding:7px;font-size:11px;font-weight:700;width:100%">'
+      + '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>'
+      + 'Say hi 🥡</a>'
+      + '</div>';
+  }
+
+  function renderOnboarding(data) {
+    var agents = data.agents || [];
+    var countEl = document.getElementById('onb-count');
+    var listEl  = document.getElementById('onb-list');
+
+    if (countEl) countEl.textContent = agents.length + ' agent' + (agents.length !== 1 ? 's' : '');
+
+    if (listEl) {
+      if (agents.length === 0) {
+        listEl.innerHTML = '<div style="color:rgba(255,255,255,0.3);font-size:12px;padding:12px 0;text-align:center">No agents currently in onboarding</div>';
+      } else {
+        var html = '';
+        for (var i = 0; i < agents.length; i++) { html += buildAgentCard(agents[i], i); }
+        listEl.innerHTML = html;
+      }
+    }
+  }
+
+  fetch(ONB_JSON + '?t=' + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(renderOnboarding)
     .catch(function(){});
 })();
 </script>
