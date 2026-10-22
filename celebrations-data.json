@@ -1,0 +1,70 @@
+{
+  "lastUpdated": "2026-10-22T00:21:47.271Z",
+  "birthdays": [
+    {
+      "name": "Dayanara Munoz",
+      "firstName": "Dayanara",
+      "team": "Chez",
+      "month": "October",
+      "day": 6,
+      "dateStr": "October 6",
+      "daysUntil": 0,
+      "isToday": true
+    },
+    {
+      "name": "Mario Cabrera Sr.",
+      "firstName": "Mario",
+      "team": "Cabrera",
+      "month": "October",
+      "day": 10,
+      "dateStr": "October 10",
+      "daysUntil": 0,
+      "isToday": true
+    },
+    {
+      "name": "Nicole Paneque",
+      "firstName": "Nicole",
+      "team": "Chez",
+      "month": "October",
+      "day": 31,
+      "dateStr": "October 31",
+      "daysUntil": 9,
+      "isToday": false
+    }
+  ],
+  "anniversaries": [
+    {
+      "name": "Krystal Green-Bergnes",
+      "firstName": "Krystal",
+      "team": "Curated Living",
+      "month": "October",
+      "day": 5,
+      "dateStr": "October 5",
+      "years": 0,
+      "daysUntil": 0,
+      "isToday": true
+    },
+    {
+      "name": "Lisa Rosedietcher",
+      "firstName": "Lisa",
+      "team": "Curated Living",
+      "month": "October",
+      "day": 6,
+      "dateStr": "October 6",
+      "years": 0,
+      "daysUntil": 0,
+      "isToday": true
+    },
+    {
+      "name": "Laurie Moreno",
+      "firstName": "Laurie",
+      "team": "Chez",
+      "month": "October",
+      "day": 26,
+      "dateStr": "October 26",
+      "years": 1,
+      "daysUntil": 4,
+      "isToday": false
+    }
+  ]
+}
