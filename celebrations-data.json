@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-22T00:21:47.271Z",
+  "lastUpdated": "2026-10-22T00:33:47.844Z",
   "birthdays": [
     {
       "name": "Dayanara Munoz",
@@ -33,28 +33,6 @@
     }
   ],
   "anniversaries": [
-    {
-      "name": "Krystal Green-Bergnes",
-      "firstName": "Krystal",
-      "team": "Curated Living",
-      "month": "October",
-      "day": 5,
-      "dateStr": "October 5",
-      "years": 0,
-      "daysUntil": 0,
-      "isToday": true
-    },
-    {
-      "name": "Lisa Rosedietcher",
-      "firstName": "Lisa",
-      "team": "Curated Living",
-      "month": "October",
-      "day": 6,
-      "dateStr": "October 6",
-      "years": 0,
-      "daysUntil": 0,
-      "isToday": true
-    },
     {
       "name": "Laurie Moreno",
       "firstName": "Laurie",
