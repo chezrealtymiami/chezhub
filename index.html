@@ -908,6 +908,53 @@ function enterHub(agent) {
 })();
 </script>
 
+<script>
+(function() {
+  var CRM_JSON = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/crm-data.json';
+
+  function fmtDate(iso) {
+    try {
+      var d = new Date(iso);
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    } catch(e) { return ''; }
+  }
+
+  function renderMomentum(data) {
+    var compliance = data.teamCompliance || 0;
+    var neglected = 0;
+    var atRisk = 0;
+    var agents = data.agents || [];
+    for (var i = 0; i < agents.length; i++) {
+      neglected += agents[i].neglected || 0;
+      atRisk += agents[i].atRisk || 0;
+    }
+
+    var dateEl = document.getElementById('momentum-date');
+    var compEl = document.getElementById('momentum-compliance');
+    var neglEl = document.getElementById('momentum-neglected');
+    var riskEl = document.getElementById('momentum-atrisk');
+    var barEl  = document.getElementById('momentum-bar');
+    var lblEl  = document.getElementById('momentum-bar-label');
+
+    if (dateEl) dateEl.textContent = fmtDate(data.lastUpdated);
+    if (compEl) compEl.innerHTML = compliance.toFixed(1) + '<span style="font-size:14px;color:rgba(255,255,255,0.5)">%</span>';
+    if (neglEl) neglEl.textContent = neglected;
+    if (riskEl) riskEl.textContent = atRisk;
+    if (barEl)  barEl.style.width = Math.min(compliance, 100) + '%';
+    if (lblEl)  lblEl.textContent = compliance.toFixed(1) + '% today';
+  }
+
+  fetch(CRM_JSON + '?t=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(renderMomentum)
+    .catch(function() {
+      var dateEl = document.getElementById('momentum-date');
+      if (dateEl) dateEl.textContent = 'No data';
+    });
+})();
+</script>
+
     <!-- TEAM MOMENTUM WIDGET -->
     <div id="momentum-widget" style="margin-bottom:28px">
       <div style="background:linear-gradient(135deg,#111827 0%,#1e2433 100%);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)">
@@ -915,60 +962,42 @@ function enterHub(agent) {
         <div style="padding:16px 22px 12px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between">
           <div>
             <div style="font-family:'Lato',sans-serif;font-size:16px;font-weight:900;color:white;letter-spacing:0.3px">&#128200; Team Momentum</div>
-            <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:3px;letter-spacing:0.05em;text-transform:uppercase">Last 24h vs previous audit</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:3px;letter-spacing:0.05em;text-transform:uppercase">Last BATTR Audit</div>
           </div>
           <div style="background:rgba(241,95,55,0.12);border:1px solid rgba(241,95,55,0.25);border-radius:8px;padding:5px 12px">
-            <span style="color:#F15F37;font-size:11px;font-weight:700">Oct 21, 2026</span>
+            <span id="momentum-date" style="color:#F15F37;font-size:11px;font-weight:700">Loading...</span>
           </div>
         </div>
         <!-- Metrics grid -->
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0">
           <!-- Compliance % -->
           <div style="padding:18px 20px;border-right:1px solid rgba(255,255,255,0.06)">
             <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Compliance</div>
-            <div style="font-family:'Lato',sans-serif;font-size:26px;font-weight:900;color:white;line-height:1">80.9<span style="font-size:14px;color:rgba(255,255,255,0.5)">%</span></div>
-            <div style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,0.12);border-radius:6px;padding:3px 8px">
-              <span style="color:#22c55e;font-size:12px;font-weight:700">+3.4%</span>
-              <span style="color:rgba(255,255,255,0.35);font-size:10px">vs yesterday</span>
-            </div>
+            <div id="momentum-compliance" style="font-family:'Lato',sans-serif;font-size:26px;font-weight:900;color:white;line-height:1">—<span style="font-size:14px;color:rgba(255,255,255,0.5)">%</span></div>
+            <div style="margin-top:6px;font-size:10px;color:rgba(255,255,255,0.3)">team average</div>
           </div>
           <!-- Neglected -->
           <div style="padding:18px 20px;border-right:1px solid rgba(255,255,255,0.06)">
             <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Neglected</div>
-            <div style="font-family:'Lato',sans-serif;font-size:26px;font-weight:900;color:white;line-height:1">184</div>
-            <div style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,0.12);border-radius:6px;padding:3px 8px">
-              <span style="color:#22c55e;font-size:12px;font-weight:700">-53</span>
-              <span style="color:rgba(255,255,255,0.35);font-size:10px">vs yesterday</span>
-            </div>
+            <div id="momentum-neglected" style="font-family:'Lato',sans-serif;font-size:26px;font-weight:900;color:white;line-height:1">—</div>
+            <div style="margin-top:6px;font-size:10px;color:rgba(255,255,255,0.3)">total contacts</div>
           </div>
           <!-- At Risk -->
-          <div style="padding:18px 20px;border-right:1px solid rgba(255,255,255,0.06)">
-            <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">At Risk</div>
-            <div style="font-family:'Lato',sans-serif;font-size:26px;font-weight:900;color:white;line-height:1">53</div>
-            <div style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;background:rgba(239,68,68,0.12);border-radius:6px;padding:3px 8px">
-              <span style="color:#ef4444;font-size:12px;font-weight:700">+3</span>
-              <span style="color:rgba(255,255,255,0.35);font-size:10px">vs yesterday</span>
-            </div>
-          </div>
-          <!-- 4-Week Trend -->
           <div style="padding:18px 20px">
-            <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">4-Week Trend</div>
-            <div style="font-family:'Lato',sans-serif;font-size:26px;font-weight:900;color:white;line-height:1">80.9<span style="font-size:14px;color:rgba(255,255,255,0.5)">%</span></div>
-            <div style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,0.12);border-radius:6px;padding:3px 8px">
-              <span style="color:#22c55e;font-size:12px;font-weight:700">+8.1%</span>
-              <span style="color:rgba(255,255,255,0.35);font-size:10px">vs Sep 23</span>
-            </div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">At Risk</div>
+            <div id="momentum-atrisk" style="font-family:'Lato',sans-serif;font-size:26px;font-weight:900;color:white;line-height:1">—</div>
+            <div style="margin-top:6px;font-size:10px;color:rgba(255,255,255,0.3)">total contacts</div>
           </div>
         </div>
         <!-- Progress bar -->
         <div style="padding:10px 20px 14px">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
-            <span style="font-size:10px;color:rgba(255,255,255,0.3)">72.8% (4 wks ago)</span>
+            <span style="font-size:10px;color:rgba(255,255,255,0.3)">0%</span>
             <span style="font-size:10px;color:rgba(255,255,255,0.3)">80% target</span>
-            <span style="font-size:10px;color:#22c55e;font-weight:700">80.9% today</span>
+            <span id="momentum-bar-label" style="font-size:10px;color:#22c55e;font-weight:700">—</span>
           </div>
           <div style="height:4px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden">
-            <div style="height:100%;width:80.9%;background:linear-gradient(90deg,#F15F37,#22c55e);border-radius:4px"></div>
+            <div id="momentum-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#F15F37,#22c55e);border-radius:4px;transition:width 0.8s ease"></div>
           </div>
         </div>
       </div>
