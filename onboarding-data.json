@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-22T00:33:47.844Z",
+  "lastUpdated": "2026-10-22T10:50:35.083Z",
   "agents": [
     {
       "slug": "lisa",
@@ -7,7 +7,7 @@
       "group": "Curated Living",
       "status": "In Progress",
       "startDate": "10/07/2026",
-      "daysElapsed": 14,
+      "daysElapsed": 15,
       "completedSteps": 12,
       "totalSteps": 18,
       "pct": 67
@@ -18,10 +18,10 @@
       "group": "Chez Team",
       "status": "In Progress",
       "startDate": "09/30/2026",
-      "daysElapsed": 21,
-      "completedSteps": 9,
+      "daysElapsed": 22,
+      "completedSteps": 11,
       "totalSteps": 18,
-      "pct": 50
+      "pct": 61
     }
   ]
 }
