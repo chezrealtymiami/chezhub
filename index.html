@@ -207,6 +207,13 @@ var CHEZ_AGENTS = {
 var CHEZ_PASSWORD = 'ouioui';
 var PHOTO_BASE = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/';
 
+// ─── HERO AGENT COUNT (auto) ──────────────────────────────────
+(function() {
+  var count = Object.keys(CHEZ_AGENTS).length;
+  var el = document.getElementById('hero-agent-count');
+  if (el) el.textContent = count;
+})();
+
 // ─── AUTH FUNCTIONS ───────────────────────────────────────────
 function doLogin() {
   var email = document.getElementById('login-email').value.trim().toLowerCase();
@@ -398,7 +405,7 @@ function enterHub(agent) {
         <h1 class="hero-title">Chez Hub</h1>
         <p class="hero-sub">Your operations center · Miami Real Estate</p>
         <div class="hero-stats">
-          <div class="hstat"><div class="hstat-n">43</div><div class="hstat-l">Agents</div></div>
+          <div class="hstat"><div class="hstat-n" id="hero-agent-count">44</div><div class="hstat-l">Agents</div></div>
           <div class="hstat-div"></div>
           <div class="hstat"><div class="hstat-n">4</div><div class="hstat-l">Groups</div></div>
           <div class="hstat-div"></div>
