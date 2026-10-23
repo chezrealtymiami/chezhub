@@ -1,27 +1,27 @@
 {
-  "lastUpdated": "2026-10-22T10:50:35.083Z",
+  "lastUpdated": "2026-10-23T10:50:34.543Z",
   "agents": [
-    {
-      "slug": "lisa",
-      "name": "Lisa Rosedietcher",
-      "group": "Curated Living",
-      "status": "In Progress",
-      "startDate": "10/07/2026",
-      "daysElapsed": 15,
-      "completedSteps": 12,
-      "totalSteps": 18,
-      "pct": 67
-    },
     {
       "slug": "mariana",
       "name": "Mariana De Barros",
       "group": "Chez Team",
       "status": "In Progress",
       "startDate": "09/30/2026",
-      "daysElapsed": 22,
-      "completedSteps": 11,
+      "daysElapsed": 23,
+      "completedSteps": 12,
       "totalSteps": 18,
-      "pct": 61
+      "pct": 67
+    },
+    {
+      "slug": "lisa",
+      "name": "Lisa Rosedietcher",
+      "group": "Curated Living",
+      "status": "In Progress",
+      "startDate": "10/07/2026",
+      "daysElapsed": 16,
+      "completedSteps": 12,
+      "totalSteps": 18,
+      "pct": 67
     }
   ]
 }
