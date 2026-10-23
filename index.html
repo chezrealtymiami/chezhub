@@ -783,7 +783,14 @@ function enterHub(agent) {
 
   function buildBdayItem(p) {
     var img = IMG_BASE + nameToSlug(p.name);
-    var daysLabel = p.isToday ? '<span class="bday-days bday-today">Today! 🎉</span>' : '<span class="bday-days">' + p.dateStr + '</span>';
+    var todayM = now.getMonth() + 1;
+    var todayD = now.getDate();
+    var bdayParts = (p.dateStr || '').split(' ');
+    var MONTH_ABBR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var bdayM = MONTH_ABBR.indexOf(bdayParts[0]) + 1;
+    var bdayD = parseInt(bdayParts[1], 10);
+    var isReallyToday = (bdayM === todayM && bdayD === todayD);
+    var daysLabel = isReallyToday ? '<span class="bday-days bday-today">Today! 🎉</span>' : '<span class="bday-days">' + p.dateStr + '</span>';
     return '<div class="bday-item">'
       + '<img class="bday-avt" src="' + img + '" onerror="this.src=\'' + FALLBACK + '\'">'
       + '<div class="bday-info"><div class="bday-name">' + p.name + '</div>'
