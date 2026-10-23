@@ -531,7 +531,7 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
           <div class="block-label">Support</div>
           <div class="info-box">💬 If you have any questions or need assistance, reach out to the FUB support team at <strong>Support@Followupboss.com</strong> or directly through the app.</div>
 
-          <div class="confirm-row"><div class="chk" id="chk-s7" onclick="markDone('s7','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have completed the FUB training and set up my email</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s7" onclick="markDone('s7','b3',6)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have completed the FUB training and set up my email</div></div>
         </div>
       </div>
 
@@ -554,7 +554,7 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
           <a class="video-block" href="https://side.360learning.com/course/edit/69c2d54af392a057c29abd6b/element/69c2d55fc0a59b34b9f02b4f" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 6</div><div class="video-dur">Chez University</div></div></a>
           <a class="video-block" href="https://side.360learning.com/course/edit/69c572f8e0316642ada59073/element/69c5731130a66028da162ada" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 7</div><div class="video-dur">Chez University</div></div></a>
           <a class="video-block" href="https://side.360learning.com/course/edit/69c5721c949e769be3eb2450/element/69c57242806c99caf624fb72" target="_blank"><div class="play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="video-title">Matrix Best Practices — Vol. 8</div><div class="video-dur">Chez University</div></div></a>
-          <div class="confirm-row"><div class="chk" id="chk-s8" onclick="markDone('s8','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">All 8 Matrix videos watched</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s8" onclick="markDone('s8','b3',6)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">All 8 Matrix videos watched</div></div>
         </div>
       </div>
 
@@ -570,11 +570,14 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
           <div class="step-lock" id="lock-s9"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
         <div class="step-body" id="body-s9">
-          <div class="block-label">Step 1 — Request your invites</div>
-          <div class="desc">Send the email below to Admin to request your Zillow and Realtor.com invites. You will receive them within 24 hours.</div>
-
+          <div class="block-label">Step 1 — Create your Zillow profile</div>
+          <div class="desc">Go to <strong>zillowpro.com</strong> and create your agent profile. Complete all three fields before notifying the team.</div>
+          <div class="info-box">1️⃣ Go to <strong>zillowpro.com</strong> and create your agent profile<br>2️⃣ Upload your <strong>headshot</strong><br>3️⃣ Add your <strong>phone number</strong> and <strong>real estate license number</strong></div>
+          <a class="link-item" href="https://www.zillowpro.com" target="_blank"><div class="link-ico" style="background:#E8F0FE">🏡</div><div><div class="link-title">Create your Zillow Agent Profile</div><div class="link-sub">zillowpro.com</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          <div class="block-label">Step 2 — Notify the team &amp; request your invite</div>
+          <div class="desc">Once your profile is live, let Admin know so they can send your Zillow team invite. Copy the email below and send it to admin@chezre.com.</div>
           <div style="background:#F7F5F2;border:1px solid #eee;border-radius:10px;padding:16px;margin-bottom:12px">
-            <div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">📧 Zillow & Realtor.com Invite Request</div>
+            <div style="font-size:10px;font-weight:700;color:#999;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">📧 Zillow &amp; Realtor.com Invite Request</div>
             <div style="font-size:13px;color:#2A2A2A;line-height:1.6" id="zillow-email-template">Hi Chez,<br><br>I have completed the required onboarding steps and am ready to receive access to the next platforms.<br><br>Please send me my:<br>· Zillow invite<br>· Realtor.com invite<br><br>Let me know if you need anything else from me.<br><br>Thank you,</div>
             <div style="display:flex;gap:8px;margin-top:14px">
               <button onclick="copyZillowEmail()" id="copy-btn" style="width:100%;background:#F15F37;color:white;border:none;border-radius:8px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">📋 Copy email text</button>
@@ -582,23 +585,19 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
             <div class="info-box" style="margin-top:8px">📌 Copy the text above and paste it into your preferred email client (Gmail, Outlook, etc.) — send it to <strong>admin@chezre.com</strong></div>
           </div>
 
-          <div class="block-label">Step 2 — Set up your Zillow profile</div>
-          <div class="info-box">1️⃣ Create your Zillow agent profile using your <strong>@chezre.com</strong> email<br>2️⃣ Add headshot, phone number and real estate license number<br>3️⃣ Accept the Chez Realty team invite (arrives within 24h)</div>
-          <a class="link-item" href="https://drive.google.com/file/d/16TNHeFDR_RyN8ALAElJlWVpxbUOAsj_7/view?usp=sharing" target="_blank"><div class="link-ico" style="background:#E8F0FE">📊</div><div><div class="link-title">Zillow Onboarding Graphic Guide</div><div class="link-sub">Visual step-by-step · Google Drive</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-
-          <div class="block-label">Step 3 — Flex Agreement & Academy</div>
-          <div class="info-box">4️⃣ Go to <strong>zillow.com/pbflex/agent</strong> · Sign Flex Agreement (Broker = Side)<br>5️⃣ Download/update the <strong>Premier Agent App</strong> AFTER signing<br>6️⃣ Save backup number: <strong>(206) 539-0456</strong><br>7️⃣ Log into Zillow Academy and complete your Flex onboarding plan</div>
+          <div class="block-label">Step 3 — Flex Agreement &amp; Academy</div>
+          <div class="desc">Once Admin sends your invite and your account is activated, complete the steps below.</div>
+          <div class="info-box">4️⃣ Go to <strong>zillow.com/pbflex/agent</strong> · Sign Flex Agreement (Broker = Side)<br>5️⃣ Download/update the <strong>Premier Agent App</strong> AFTER signing<br>6️⃣ Save backup number: <strong>(206) 539-0456</strong><br>7️⃣ Complete all <strong>Mandatory Courses</strong> in Zillow Academy</div>
           <a class="link-item" href="https://www.zillow.com/pbflex/agent" target="_blank"><div class="link-ico" style="background:#E8F0FE">✍️</div><div><div class="link-title">Sign Zillow Flex Agreement</div><div class="link-sub">zillow.com/pbflex/agent</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-          <a class="link-item" href="https://drive.google.com/file/d/1j4C77tx1zDBCaxbS6WK0sVYoJQ9gaipG/view?usp=sharing" target="_blank"><div class="link-ico" style="background:#E8F0FE">🎓</div><div><div class="link-title">Zillow On-Demand Courses</div><div class="link-sub">Complete for your Flex onboarding · Google Drive</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-
+          <a class="link-item" href="https://zillowpreferredonboardingdashboard.zillowlabs.com/" target="_blank"><div class="link-ico" style="background:#E8F0FE">🎓</div><div><div class="link-title">Zillow Preferred Onboarding — Mandatory Courses</div><div class="link-sub">Complete all required courses · zillowlabs.com</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <div class="info-box" style="background:#FFF3E0;border-color:#FFB74D;border-left:4px solid #F15F37">
             <strong>🔄 Don't forget to refresh!</strong><br><br>
             Once Admin sends your invites, <strong>refresh this page</strong> to unlock the next step. If nothing changes after a few minutes, refresh again — it should appear right away.
           </div>
           <div class="info-box" style="background:#FFEBEE;border-color:#EF9A9A;border-left:4px solid #E53935" id="zillow-admin-notice">
-            ⏳ <strong>Waiting for Admin to send your Zillow & Realtor.com invites.</strong> Once sent, this step will unlock and you can proceed.
+            ⏳ <strong>Waiting for Admin to send your Zillow &amp; Realtor.com invites.</strong> Once sent, this step will unlock and you can proceed.
           </div>
-          <div class="confirm-row"><div class="chk" id="chk-s9" onclick="markDoneZillow()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Invite requested, profile live, Flex agreement signed and courses completed</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s9" onclick="markDoneZillow()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Profile created, invite requested, Flex agreement signed and courses completed</div></div>
         </div>
       </div>
 
@@ -619,20 +618,43 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
           <div class="block-label">Once you receive the invite</div>
           <div class="info-box">1️⃣ Accept the Chez Realty team invite from Realtor.com<br>2️⃣ Complete your profile — add your headshot, bio and license number<br>3️⃣ Contact Admin if you haven't received the invite within 24h</div>
 
-          <div class="confirm-row"><div class="chk" id="chk-s10" onclick="markDone('s10','b3',5)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Realtor.com invite accepted and profile complete</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s10" onclick="markDone('s10','b3',6)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Realtor.com invite accepted and profile complete</div></div>
         </div>
       </div>
 
       <div class="step locked" data-step="s11">
         <div class="step-header" onclick="toggleStep('s11')">
           <div class="step-num" id="snum-s11">11</div>
-          <div class="step-icon">⭐</div>
-          <div class="step-title" id="title-s11">Ylopo — setup &amp; training</div>
+          <div class="step-icon">🤖</div>
+          <div class="step-title" id="title-s11">Shilo — AI-powered call training</div>
           <div class="step-status pending" id="status-s11">Pending</div>
           <svg class="step-chev" id="chev-s11" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           <div class="step-lock" id="lock-s11"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
         <div class="step-body" id="body-s11">
+          <div class="block-label">What you need to do</div>
+          <div class="desc">Shilo is an AI-powered training tool that helps you master real estate calls through role play and live feedback. Complete the resources below before moving on.</div>
+
+          <div class="block-label">Step 1 — Watch the Getting Started webinar</div>
+          <a class="link-item" href="https://help.shilo.ai/en/articles/15124737-agent-training-getting-started-with-shilo-webinar-replay" target="_blank"><div class="link-ico" style="background:#E8F5E9">🎬</div><div><div class="link-title">Getting Started with Shilo — Webinar Replay</div><div class="link-sub">Agent training · help.shilo.ai</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+
+          <div class="block-label">Step 2 — Practice with Role Play &amp; Team Library</div>
+          <a class="link-item" href="https://help.shilo.ai/en/articles/16977417-how-to-use-role-play-team-library-new-agents-with-no-calls" target="_blank"><div class="link-ico" style="background:#E8F5E9">🎭</div><div><div class="link-title">Role Play &amp; Team Library — New Agents Guide</div><div class="link-sub">Practice calls · help.shilo.ai</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+
+          <div class="confirm-row"><div class="chk" id="chk-s11" onclick="markDone('s11','b3',6)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">Shilo webinar watched and role play practice completed</div></div>
+        </div>
+      </div>
+
+      <div class="step locked" data-step="s12">
+        <div class="step-header" onclick="toggleStep('s12')">
+          <div class="step-num" id="snum-s12">12</div>
+          <div class="step-icon">⭐</div>
+          <div class="step-title" id="title-s12">Ylopo — setup &amp; training</div>
+          <div class="step-status pending" id="status-s12">Pending</div>
+          <svg class="step-chev" id="chev-s12" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="step-lock" id="lock-s12"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        </div>
+        <div class="step-body" id="body-s12">
           <div class="block-label">What you need to do</div>
           <div class="desc">Admin fills out the Ylopo questionnaire to activate your account. Once activated, complete all the training resources below in order.</div>
           <div class="block-label">Step 1 — Request your Ylopo credentials</div>
@@ -664,7 +686,7 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
             <strong>🔄 Don't forget to refresh!</strong><br><br>
             Once Admin verifies your completion, <strong>refresh this page</strong> to unlock the next block. If nothing changes after a few minutes, refresh again — it should appear right away.
           </div>
-          <div class="confirm-row"><div class="chk" id="chk-s11" onclick="markDoneYlopo()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label" id="ylopo-confirm-label">Waiting for Admin to activate Ylopo — check back soon</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s12" onclick="markDoneYlopo()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label" id="ylopo-confirm-label">Waiting for Admin to activate Ylopo — check back soon</div></div>
         </div>
       </div>
 
@@ -686,16 +708,16 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
     </div>
     <div class="block-steps" id="bsteps-b4">
 
-      <div class="step locked" data-step="s12">
-        <div class="step-header" onclick="toggleStep('s12')">
-          <div class="step-num" id="snum-s12">12</div>
+      <div class="step locked" data-step="s13">
+        <div class="step-header" onclick="toggleStep('s13')">
+          <div class="step-num" id="snum-s13">13</div>
           <div class="step-icon">🏆</div>
-          <div class="step-title" id="title-s12">Agentz — Your In-House Marketing Agency</div>
-          <div class="step-status pending" id="status-s12">Pending</div>
-          <svg class="step-chev" id="chev-s12" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          <div class="step-lock" id="lock-s12"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="step-title" id="title-s13">Agentz — Your In-House Marketing Agency</div>
+          <div class="step-status pending" id="status-s13">Pending</div>
+          <svg class="step-chev" id="chev-s13" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="step-lock" id="lock-s13"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
-        <div class="step-body" id="body-s12">
+        <div class="step-body" id="body-s13">
           <div class="block-label">🏆 Agentz is here for you!</div>
           <div class="desc">As a Chez agent you have access to <strong>Agentz</strong>, our in-house marketing agency built exclusively for you. Agentz provides personalized, agile, and effective communication solutions to help you strengthen your brand, enhance your presence, and achieve your business goals. With a tailored approach and full support, you have access to all the tools you need to thrive in a competitive market.</div>
 
@@ -709,22 +731,22 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
           <a class="link-item" href="https://drive.google.com/file/d/1J_aG3epuPsUY4cVSgIy47BJN-iBlOpQa/view?usp=sharing" target="_blank"><div class="link-ico" style="background:#FFF0E8">📋</div><div><div class="link-title">Services Catalog</div><div class="link-sub">Chez Team catalog · Google Drive</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <a class="link-item" href="https://form.typeform.com/to/AXdssn8w" target="_blank"><div class="link-ico" style="background:#FFF0E8">📝</div><div><div class="link-title">Submit a Marketing Request</div><div class="link-sub">Request your marketing materials · Typeform</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
 
-          <div class="confirm-row"><div class="chk" id="chk-s12" onclick="markDone('s12','b4',4)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have explored Agentz and know how to submit a marketing request</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s13" onclick="markDone('s13','b4',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have explored Agentz and know how to submit a marketing request</div></div>
         </div>
       </div>
 
       
 
-      <div class="step locked" data-step="s13">
-        <div class="step-header" onclick="toggleStep('s13')">
-          <div class="step-num" id="snum-s13">13</div>
+      <div class="step locked" data-step="s14">
+        <div class="step-header" onclick="toggleStep('s14')">
+          <div class="step-num" id="snum-s14">14</div>
           <div class="step-icon">📝</div>
-          <div class="step-title" id="title-s13">Review scripts — focus on Zillow ALM</div>
-          <div class="step-status pending" id="status-s13">Pending</div>
-          <svg class="step-chev" id="chev-s13" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          <div class="step-lock" id="lock-s13"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="step-title" id="title-s14">Review scripts — focus on Zillow ALM</div>
+          <div class="step-status pending" id="status-s14">Pending</div>
+          <svg class="step-chev" id="chev-s14" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="step-lock" id="lock-s14"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
-        <div class="step-body" id="body-s13">
+        <div class="step-body" id="body-s14">
           <div class="block-label">ALM Script — Zillow Live Connection</div>
           <div class="desc">Study both scripts below and practice out loud. Use the AI mock call tool to prepare for your 1-on-1 role play session with Jose & Dexter.</div>
 
@@ -776,20 +798,20 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
           <a class="link-item" href="https://chezrealtymiami.github.io/chezhub/docs/ALM-SCRIPT_ONBOARDING_CHEZ%20REALTY.pdf" target="_blank"><div class="link-ico" style="background:#FFF0E8">📄</div><div><div class="link-title">ALM Script — PDF</div><div class="link-sub">Download or print · Chez Realty branded</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <a class="link-item" href="https://chezrealtymiami.github.io/chezhub/docs/REBUTTAL-SCRIPT_ONBOARDING_CHEZ%20REALTY.pdf" target="_blank"><div class="link-ico" style="background:#F5F0FF">📄</div><div><div class="link-title">Rebuttal Script — PDF</div><div class="link-sub">Download or print · Chez Realty branded</div></div><svg class="arr" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
 
-          <div class="confirm-row"><div class="chk" id="chk-s13" onclick="markDone('s13','b4',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have read both scripts and practiced with the AI mock call</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s14" onclick="markDone('s14','b4',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">I have read both scripts and practiced with the AI mock call</div></div>
         </div>
       </div>
 
-      <div class="step locked" data-step="s14">
-        <div class="step-header" onclick="toggleStep('s14')">
-          <div class="step-num" id="snum-s14">14</div>
+      <div class="step locked" data-step="s15">
+        <div class="step-header" onclick="toggleStep('s15')">
+          <div class="step-num" id="snum-s15">15</div>
           <div class="step-icon">🤝</div>
-          <div class="step-title" id="title-s14">1-on-1 with Jose &amp; Dexter</div>
-          <div class="step-status pending" id="status-s14">Pending</div>
-          <svg class="step-chev" id="chev-s14" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          <div class="step-lock" id="lock-s14"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="step-title" id="title-s15">1-on-1 with Jose &amp; Dexter</div>
+          <div class="step-status pending" id="status-s15">Pending</div>
+          <svg class="step-chev" id="chev-s15" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="step-lock" id="lock-s15"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         </div>
-        <div class="step-body" id="body-s14">
+        <div class="step-body" id="body-s15">
           <div class="block-label">What you need to do</div>
           <div class="desc">Your alignment call with Jose & Dexter. You will go over everything from your onboarding, discuss goals and strategy, and do a <strong>live role play of your scripts</strong>. Come prepared — know your ALM and Rebuttal scripts cold.</div>
 
@@ -805,7 +827,7 @@ canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:999}
             <div class="info-box" style="margin-top:8px">📌 Copy the text above and paste it into your preferred email client (Gmail, Outlook, etc.) — send it to <strong>admin@chezre.com</strong></div>
           </div>
 
-          <div class="confirm-row"><div class="chk" id="chk-s14" onclick="markDone('s14','b4',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">1-on-1 meeting requested and confirmed</div></div>
+          <div class="confirm-row"><div class="chk" id="chk-s15" onclick="markDone('s15','b4',3)"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="confirm-label">1-on-1 meeting requested and confirmed</div></div>
         </div>
       </div>
 
@@ -1022,22 +1044,22 @@ function closeCelebration(){ document.getElementById('celebration-modal').classL
 // ═══════════════════════════════════════════════════════════
 var SIDE_TOTAL = 5;
 var CHEZ_TOTAL = 15; // 14 steps + ready check // 15 steps + ready check // 14 steps + ready check // 13 steps + ready check
-var CATS = { b1:{total:3,done:0}, b2:{total:3,done:0}, b3:{total:5,done:0}, b4:{total:3,done:0} };
+var CATS = { b1:{total:3,done:0}, b2:{total:3,done:0}, b3:{total:6,done:0}, b4:{total:3,done:0} };
 // ── CHAPTER STRUCTURE ────────────────────────────────────────
 var CHAPTER1_STEPS = ['s1','s2','s3','s4','s5','s6'];
-var CHAPTER2_STEPS = ['s7','s8','s9','s10','s11','s12','s13','s14'];
+var CHAPTER2_STEPS = ['s7','s8','s9','s10','s11','s12','s13','s14','s15'];
 var CHAPTER1_SIDE  = 5;
 var CHAPTER1_TOTAL = 11; // 5 Side + 6 Chez steps
-var CHAPTER2_TOTAL = 8;
+var CHAPTER2_TOTAL = 9;
 var chapter2Unlocked = false;
 
-var STEP_ORDER = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14'];
+var STEP_ORDER = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15'];
 
 function lsKey(){ return 'ob_' + slug; }
 function getSaved(){ try{ return JSON.parse(localStorage.getItem(lsKey())||'{}'); }catch(e){ return {}; } }
 function setSaved(obj){ localStorage.setItem(lsKey(), JSON.stringify(obj)); }
 
-function getCat(id){ var n=parseInt(id.replace('s','')); return n<=3?'b1':n<=6?'b2':n<=11?'b3':'b4'; }
+function getCat(id){ var n=parseInt(id.replace('s','')); return n<=3?'b1':n<=6?'b2':n<=12?'b3':'b4'; }
 function getNextStep(id){ var i=STEP_ORDER.indexOf(id); return i>=0&&i<STEP_ORDER.length-1?STEP_ORDER[i+1]:null; }
 
 function lockStep(id){
@@ -1249,13 +1271,13 @@ function applyYlopoState(unlocked){
   var notice = document.getElementById('ylopo-admin-notice');
   var resources = document.getElementById('ylopo-resources');
   var confirmLabel = document.getElementById('ylopo-confirm-label');
-  var chk = document.getElementById('chk-s11');
+  var chk = document.getElementById('chk-s12');
   if(unlocked){
     if(notice) notice.style.display = 'none';
     if(resources) resources.style.display = 'block';
     if(confirmLabel) confirmLabel.textContent = 'Ylopo setup and all training resources completed';
     if(chk){ chk.style.opacity='1'; chk.style.cursor='pointer';
-      chk.onclick = function(){ markDone('s11','b3',5); }; }
+      chk.onclick = function(){ markDone('s12','b3',6); }; }
   } else {
     if(resources) resources.style.display = 'none';
     if(chk){ chk.style.opacity='0.4'; chk.style.cursor='not-allowed';
@@ -1265,7 +1287,7 @@ function applyYlopoState(unlocked){
 }
 
 function markDoneYlopo(){
-  if(DEV_MODE){ markDone('s11','b3',5); return; }
+  if(DEV_MODE){ markDone('s12','b3',6); return; }
   showCheckpointToast('Waiting for Admin to activate your Ylopo account');
 }
 
@@ -1315,8 +1337,8 @@ function applySideTrainingState(unlocked){
     // así que un fallo de red no debe volver a bloquear a quien ya pasó esa puerta.
     var saved=getSaved();
     var passedC1 = saved['_chapter1_done'] === true;
-    var b3done = passedC1 || ['s7','s8','s9','s10','s11'].some(function(s){ return saved[s]; });
-    var b4done = passedC1 || ['s12','s13','s14'].some(function(s){ return saved[s]; });
+    var b3done = passedC1 || ['s7','s8','s9','s10','s11','s12'].some(function(s){ return saved[s]; });
+    var b4done = passedC1 || ['s13','s14','s15'].some(function(s){ return saved[s]; });
     ['b3','b4'].forEach(function(bid){
       var card=document.getElementById(bid+'-card');
       var hasProgress = (bid==='b3') ? b3done : b4done;
@@ -1397,7 +1419,7 @@ function applyZillowState(unlocked){
   if(unlocked){
     if(notice) notice.style.display = 'none';
     if(chk){ chk.style.opacity='1'; chk.style.cursor='pointer';
-      chk.onclick = function(){ markDone('s9','b3',5); }; }
+      chk.onclick = function(){ markDone('s9','b3',6); }; }
   } else {
     if(chk){ chk.style.opacity='0.4'; chk.style.cursor='not-allowed';
       chk.onclick = function(){ showCheckpointToast('Waiting for Admin to send your Zillow & Realtor.com invites'); }; }
@@ -1542,7 +1564,7 @@ function initChapters(){
     if(sec) sec.style.display = 'block';
   }
   // Restore Chapter 2 complete card if fully done
-  if(saved['s14']){
+  if(saved['s15']){
     var card = document.getElementById('chapter2-complete-card');
     if(card){
       card.style.display = 'block';
