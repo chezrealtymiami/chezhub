@@ -40,7 +40,12 @@ a{text-decoration:none;color:inherit}
 .topbar-title{font-size:16px;font-weight:500;color:var(--gray-900)}
 .topbar-sub{font-size:12px;color:var(--gray-500);margin-left:8px}
 .body{padding:28px 32px 48px;flex:1}
-.hero-banner{background:#2A2A2A;border-radius:16px;padding:28px 32px;margin-bottom:24px;position:relative;overflow:hidden;min-height:200px;display:flex;align-items:center}
+.hero-banner{background:#2A2A2A;border-radius:16px;padding:28px 32px;margin-bottom:24px;position:relative;overflow:hidden;min-height:200px;display:flex;align-items:center;gap:24px}
+.hero-cal{display:flex;flex-direction:column;align-items:center;border-radius:14px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 16px rgba(0,0,0,0.35);z-index:1;position:relative;width:110px}
+.hero-cal-header{width:100%;background:var(--orange);padding:8px 12px 7px;text-align:center;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff}
+.hero-cal-body{width:100%;background:rgba(255,255,255,0.07);backdrop-filter:blur(10px);padding:6px 12px 12px;display:flex;flex-direction:column;align-items:center;gap:1px;border:1px solid rgba(255,255,255,0.1);border-top:none;border-bottom-left-radius:14px;border-bottom-right-radius:14px}
+.hero-cal-day{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+.hero-cal-num{font-family:'Lato',sans-serif;font-size:52px;font-weight:900;color:#fff;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-0.02em}
 .hero-content{flex:1;z-index:1;position:relative}
 .hero-tag{font-size:11px;font-weight:600;color:var(--orange);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px}
 .hero-title{font-family:'Lato',sans-serif;font-size:38px;font-weight:900;color:white;letter-spacing:2px;text-transform:uppercase;line-height:1;margin-bottom:8px}
@@ -212,6 +217,23 @@ var PHOTO_BASE = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main
   var count = Object.keys(CHEZ_AGENTS).length;
   var el = document.getElementById('hero-agent-count');
   if (el) el.textContent = count;
+})();
+
+// ─── HERO CALENDAR WIDGET ─────────────────────────────────────
+(function() {
+  var MONTHS_FULL = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
+  var DAYS_FULL   = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+  function updateCal() {
+    var now = new Date();
+    var elM = document.getElementById('hcal-month');
+    var elD = document.getElementById('hcal-day');
+    var elN = document.getElementById('hcal-num');
+    if (elM) elM.textContent = MONTHS_FULL[now.getMonth()];
+    if (elD) elD.textContent = DAYS_FULL[now.getDay()];
+    if (elN) elN.textContent = now.getDate();
+  }
+  updateCal();
+  setInterval(updateCal, 60000);
 })();
 
 // ─── AUTH FUNCTIONS ───────────────────────────────────────────
@@ -414,6 +436,14 @@ function enterHub(agent) {
           <div class="hstat"><div class="hstat-n">5.0★</div><div class="hstat-l">365 Reviews</div></div>
           <div class="hstat-div"></div>
           <div class="hstat"><div class="hstat-n">$646K</div><div class="hstat-l">Avg. Price</div></div>
+        </div>
+      </div>
+      <!-- Apple Calendar widget -->
+      <div class="hero-cal">
+        <div class="hero-cal-header" id="hcal-month">OCTOBER</div>
+        <div class="hero-cal-body">
+          <div class="hero-cal-day" id="hcal-day">FRIDAY</div>
+          <div class="hero-cal-num" id="hcal-num">23</div>
         </div>
       </div>
     </div>
