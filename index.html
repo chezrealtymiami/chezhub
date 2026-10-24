@@ -252,8 +252,7 @@ if (Object.keys(fresh).length > 0) {
   for (var k in STAFF) { fresh[k] = STAFF[k]; }
             CHEZ_AGENTS = fresh;
             var countEl = document.getElementById('hero-agent-count');
-            if (countEl) { var staffEmails = ['mar@chezre.com','admin@chezre.com','mariar@chezre.com','support@chezre.com','cm@chezre.com']; var agentCount = Object.keys(CHEZ_AGENTS).filter(function(e){return staffEmails.indexOf(e)===-1;}).length; countEl.textContent = agentCount; }countEl) countEl.textContent = Object.keys(CHEZ_AGENTS).length;
-          }
+if (countEl) countEl.textContent = Object.keys(CHEZ_AGENTS).length;          }
         }
       } catch(e) { /* parse error — usar fallback */ }
     }
