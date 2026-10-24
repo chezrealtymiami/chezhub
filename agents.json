@@ -1,0 +1,401 @@
+{
+  "lastUpdated": "2026-10-24T03:55:56.555Z",
+  "agents": [
+    {
+      "email": "abdallah@chezre.com",
+      "name": "Abdallah Fragomeno",
+      "first": "Abdallah",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "ABDALLAH%20FRAGOMENO.png"
+    },
+    {
+      "email": "cubas@chezre.com",
+      "name": "Alejandro Cubas",
+      "first": "Alejandro",
+      "group": "Cabrera",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "ALEJANDRO%20CUBAS.png"
+    },
+    {
+      "email": "alex@chezre.com",
+      "name": "Alex Mirambell",
+      "first": "Alex",
+      "group": "Chez",
+      "role": "Senior Agent/Realtor",
+      "status": "Active",
+      "photo": "ALEX%20MIRAMBELL.png"
+    },
+    {
+      "email": "alexander@chezre.com",
+      "name": "Alexander Novo",
+      "first": "Alexander",
+      "group": "Chez",
+      "role": "Agent/Realtor",
+      "status": "Active",
+      "photo": "ALEXANDER%20NOVO.png"
+    },
+    {
+      "email": "amalyn@chezre.com",
+      "name": "Amalyn Cabrera",
+      "first": "Amalyn",
+      "group": "Cabrera",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "AMALYN%20CABRERA.png"
+    },
+    {
+      "email": "brenda@chezre.com",
+      "name": "Brenda Tamayo Toirac",
+      "first": "Brenda",
+      "group": "Elev8",
+      "role": "Associate Agent/Realtor",
+      "status": "New Agent",
+      "photo": "BRENDA%20TAMAYO%20TOIRAC.png"
+    },
+    {
+      "email": "leon@chezre.com",
+      "name": "Brian Leon",
+      "first": "Brian",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "BRIAN%20LEON.png"
+    },
+    {
+      "email": "camila@chezre.com",
+      "name": "Camila Ciochon",
+      "first": "Camila",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "CAMILA%20CIOCHON.png"
+    },
+    {
+      "email": "cpadron@chezre.com",
+      "name": "Christian Padron",
+      "first": "Christian",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "CHRISTIAN%20PADRON.png"
+    },
+    {
+      "email": "connie@chezre.com",
+      "name": "Constanza Lozano",
+      "first": "Constanza",
+      "group": "Cabrera",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "CONSTANZA%20LOZANO.png"
+    },
+    {
+      "email": "dani@chezre.com",
+      "name": "Danielle Urrutia",
+      "first": "Danielle",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "DANIELLE%20URRUTIA.png"
+    },
+    {
+      "email": "dayanara@chezre.com",
+      "name": "Dayanara Munoz",
+      "first": "Dayanara",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "DAYANARA%20MUNOZ.png"
+    },
+    {
+      "email": "david@chezre.com",
+      "name": "David Linares",
+      "first": "David",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "New Agent",
+      "photo": "DAVID%20LINARES.png"
+    },
+    {
+      "email": "dexter@chezre.com",
+      "name": "Dexter Brandao",
+      "first": "Dexter",
+      "group": "Chez",
+      "role": "Founder/Realtor",
+      "status": "Active",
+      "photo": "DEXTER%20BRANDAO.png"
+    },
+    {
+      "email": "dorian@chezre.com",
+      "name": "Dorian Quintero",
+      "first": "Dorian",
+      "group": "Lo",
+      "role": "Associate Agent/Realtor",
+      "status": "New Agent",
+      "photo": "DORIAN%20QUINTERO.png"
+    },
+    {
+      "email": "erikcardero@chezre.com",
+      "name": "Erik Cardero",
+      "first": "Erik",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "New Agent",
+      "photo": "ERIK%20CARDERO.png"
+    },
+    {
+      "email": "jaydelyn@chezre.com",
+      "name": "Jaydelyn Ortiz",
+      "first": "Jaydelyn",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "JAYDELYN%20ORTIZ.png"
+    },
+    {
+      "email": "jenelle@chezre.com",
+      "name": "Jenelle Campos",
+      "first": "Jenelle",
+      "group": "Lo",
+      "role": "Associate Agent/Realtor",
+      "status": "New Agent",
+      "photo": "JENELLE%20CAMPOS.png"
+    },
+    {
+      "email": "jenniferavila@chezre.com",
+      "name": "Jennifer Avila",
+      "first": "Jennifer",
+      "group": "Elev8",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "JENNIFER%20AVILA.png"
+    },
+    {
+      "email": "jennym@chezre.com",
+      "name": "Jennifer Miranda",
+      "first": "Jennifer",
+      "group": "Elev8",
+      "role": "Team Leader/Realtor",
+      "status": "Active",
+      "photo": "JENNIFER%20MIRANDA.png"
+    },
+    {
+      "email": "jessica@chezre.com",
+      "name": "Jessica Alvarez-Ducos",
+      "first": "Jessica",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "JESSICA%20ALVAREZ-DUCOS.png"
+    },
+    {
+      "email": "jessicagonzalez@chezre.com",
+      "name": "Jessica Gonzalez",
+      "first": "Jessica",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "JESSICA%20GONZALEZ.png"
+    },
+    {
+      "email": "johana@chezre.com",
+      "name": "Johana Cabrera",
+      "first": "Johana",
+      "group": "Lo",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "JOHANA%20CABRERA.png"
+    },
+    {
+      "email": "jose@chezre.com",
+      "name": "Jose Medina",
+      "first": "Jose",
+      "group": "Chez",
+      "role": "Founder/Realtor",
+      "status": "Active",
+      "photo": "JOSE%20MEDINA.png"
+    },
+    {
+      "email": "katherine@chezre.com",
+      "name": "Katherine Ching",
+      "first": "Katherine",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "New Agent",
+      "photo": "KATHERINE%20CHING.png"
+    },
+    {
+      "email": "kiara@chezre.com",
+      "name": "Kiara Fernandez",
+      "first": "Kiara",
+      "group": "Elev8",
+      "role": "Associate Agent/Realtor",
+      "status": "New Agent",
+      "photo": "KIARA%20FERNANDEZ.png"
+    },
+    {
+      "email": "krystal@chezre.com",
+      "name": "Krystal Green-Bergnes",
+      "first": "Krystal",
+      "group": "Curated Living",
+      "role": "Team Leader/Realtor",
+      "status": "New Agent",
+      "photo": "KRYSTAL%20GREEN-BERGNES.png"
+    },
+    {
+      "email": "laurie@chezre.com",
+      "name": "Laurie Moreno",
+      "first": "Laurie",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "LAURIE%20MORENO.png"
+    },
+    {
+      "email": "linda@chezre.com",
+      "name": "Linda Escobar",
+      "first": "Linda",
+      "group": "Cabrera",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "LINDA%20ESCOBAR.png"
+    },
+    {
+      "email": "lisa@chezre.com",
+      "name": "Lisa Rosedietcher",
+      "first": "Lisa",
+      "group": "Curated Living",
+      "role": "Associate Agent/Realtor",
+      "status": "New Agent",
+      "photo": "LISA%20ROSEDIETCHER.png"
+    },
+    {
+      "email": "mairelys@chezre.com",
+      "name": "Mairelys Gonzalez",
+      "first": "Mairelys",
+      "group": "Elev8",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "MAIRELYS%20GONZALEZ.png"
+    },
+    {
+      "email": "mariana@chezre.com",
+      "name": "Mariana De Barros",
+      "first": "Mariana",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "New Agent",
+      "photo": "MARIANA%20DE%20BARROS.png"
+    },
+    {
+      "email": "maribel@chezre.com",
+      "name": "Maribel Reyes",
+      "first": "Maribel",
+      "group": "Elev8",
+      "role": "Team Leader/Realtor",
+      "status": "Active",
+      "photo": "MARIBEL%20REYES.png"
+    },
+    {
+      "email": "mario@chezre.com",
+      "name": "Mario Cabrera Jr.",
+      "first": "Mario",
+      "group": "Cabrera",
+      "role": "Team Leader | Realtor",
+      "status": "Active",
+      "photo": "MARIO%20CABRERA%20JR..png"
+    },
+    {
+      "email": "mario.cabrera@chezre.com",
+      "name": "Mario Cabrera Sr.",
+      "first": "Mario",
+      "group": "Cabrera",
+      "role": "Team Leader | Broker Associate",
+      "status": "Active",
+      "photo": "MARIO%20CABRERA%20SR..png"
+    },
+    {
+      "email": "melissa@chezre.com",
+      "name": "Melissa Sanchez",
+      "first": "Melissa",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "MELISSA%20SANCHEZ.png"
+    },
+    {
+      "email": "monica@chezre.com",
+      "name": "Monica Herrera",
+      "first": "Monica",
+      "group": "Cabrera",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "MONICA%20HERRERA.png"
+    },
+    {
+      "email": "moulay@chezre.com",
+      "name": "Moulay Alaoui",
+      "first": "Moulay",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "MOULAY%20ALAOUI.png"
+    },
+    {
+      "email": "nikki@chezre.com",
+      "name": "Nicole Paneque",
+      "first": "Nicole",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "NICOLE%20PANEQUE.png"
+    },
+    {
+      "email": "orianna@chezre.com",
+      "name": "Orianna Tancredi",
+      "first": "Orianna",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "ORIANNA%20TANCREDI.png"
+    },
+    {
+      "email": "patricia@chezre.com",
+      "name": "Patricia Monteagudo",
+      "first": "Patricia",
+      "group": "Elev8",
+      "role": "Associate Agent/Realtor",
+      "status": "New Agent",
+      "photo": "PATRICIA%20MONTEAGUDO.png"
+    },
+    {
+      "email": "ruben@chezre.com",
+      "name": "Ruben Grana",
+      "first": "Ruben",
+      "group": "Chez",
+      "role": "Broker Associate/Realtor",
+      "status": "Active",
+      "photo": "RUBEN%20GRANA.png"
+    },
+    {
+      "email": "yenelis@chezre.com",
+      "name": "Yenelis Martinez",
+      "first": "Yenelis",
+      "group": "Lo",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "YENELIS%20MARTINEZ.png"
+    },
+    {
+      "email": "yeni@chezre.com",
+      "name": "Yeni Martinez",
+      "first": "Yeni",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "YENI%20MARTINEZ.png"
+    }
+  ]
+}
