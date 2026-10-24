@@ -266,8 +266,7 @@ if (Object.keys(fresh).length > 0) {
 // ─── HERO AGENT COUNT (inicial con fallback) ──────────────────
 (function() {
   var el = document.getElementById('hero-agent-count');
-  if (el) el.textContent = Object.keys(CHEZ_AGENTS).length;
-})();
+if (el) { var se = ['mar@chezre.com','admin@chezre.com','mariar@chezre.com','support@chezre.com','cm@chezre.com']; el.textContent = Object.keys(CHEZ_AGENTS).filter(function(e){return se.indexOf(e)===-1;}).length; }})();
 
 // ─── HERO CALENDAR WIDGET ─────────────────────────────────────
 (function() {
