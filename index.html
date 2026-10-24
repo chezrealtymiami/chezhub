@@ -161,62 +161,110 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <script>
-// ─── AGENT TABLE ──────────────────────────────────────────────
+// ─── AGENT TABLE (fallback hardcoded — se sobreescribe con agents.json si disponible) ────
 var CHEZ_AGENTS = {
-  'jose@chezre.com':           { name:'Jose Medina',        first:'Jose',       role:'Founder',       group:'Founders', photo:'JOSE%20MEDINA.png' },
-  'dexter@chezre.com':         { name:'Dexter Brandao',     first:'Dexter',     role:'Founder',       group:'Founders', photo:'DEXTER%20BRANDAO.png' },
-  'alex@chezre.com':           { name:'Alex Mirambell',     first:'Alex',       role:'Senior Agent',  group:'Chez',     photo:'ALEX%20MIRAMBELL.png' },
-  'melissa@chezre.com':        { name:'Melissa Sanchez',    first:'Melissa',    role:'Senior Agent',  group:'Chez',     photo:'MELISSA%20SANCHEZ.png' },
-  'ruben@chezre.com':          { name:'Ruben Grana',        first:'Ruben',      role:'Senior Agent',  group:'Chez',     photo:'RUBEN%20GRANA.png' },
-  'johana@chezre.com':         { name:'Johana Cabrera',     first:'Johana',     role:'Lead Agent',    group:'Lo',       photo:'JOHANA%20CABRERA.png' },
-  'mario@chezre.com':          { name:'Mario Cabrera Jr',   first:'Mario',      role:'Lead Agent',    group:'Cabrera',  photo:'MARIO%20CABRERA%20JR.png' },
-  'mario.cabrera@chezre.com':  { name:'Mario Cabrera Sr',   first:'Mario',      role:'Lead Agent',    group:'Cabrera',  photo:'MARIO%20CABRERA%20SR.png' },
-  'alexander@chezre.com':      { name:'Alexander Novo',     first:'Alexander',  role:'Agent',         group:'Chez',     photo:'ALEXANDER%20NOVO.png' },
-  'cubas@chezre.com':          { name:'Alejandro Cubas',    first:'Alejandro',  role:'Associate',     group:'Cabrera',  photo:'ALEJANDRO%20CUBAS.png' },
-  'amalyn@chezre.com':         { name:'Amalyn Cabrera',     first:'Amalyn',     role:'Associate',     group:'Cabrera',  photo:'AMALYN%20CABRERA.png' },
-  'leon@chezre.com':           { name:'Brian Leon',         first:'Brian',      role:'Associate',     group:'Chez',     photo:'BRIAN%20LEON.png' },
-  'camila@chezre.com':         { name:'Camila Ciochon',     first:'Camila',     role:'Associate',     group:'Chez',     photo:'CAMILA%20CIOCHON.png' },
-  'cpadron@chezre.com':        { name:'Christian Padron',   first:'Christian',  role:'Associate',     group:'Chez',     photo:'CHRISTIAN%20PADRON.png' },
-  'dani@chezre.com':           { name:'Danielle Urrutia',   first:'Danielle',   role:'Associate',     group:'Chez',     photo:'DANIELLE%20URRUTIA.png' },
-  'jessica@chezre.com':        { name:'Jessica A. Ducos',   first:'Jessica',    role:'Associate',     group:'Chez',     photo:'JESSICA%20ALVAREZ-DUCOS.png' },
-  'jessicagonzalez@chezre.com':{ name:'Jessica Gonzalez',   first:'Jessica',    role:'Associate',     group:'Chez',     photo:'JESSICA%20GONZALEZ.png' },
-  'laurie@chezre.com':         { name:'Laurie Moreno',      first:'Laurie',     role:'Associate',     group:'Chez',     photo:'LAURIE%20MORENO.png' },
-  'linda@chezre.com':          { name:'Linda Escobar',      first:'Linda',      role:'Associate',     group:'Cabrera',  photo:'LINDA%20ESCOBAR.png' },
-  'nikki@chezre.com':          { name:'Nicole Paneque',     first:'Nicole',     role:'Associate',     group:'Chez',     photo:'NICOLE%20PANEQUE.png' },
-  'yenelis@chezre.com':        { name:'Yenelis Martinez',   first:'Yenelis',    role:'Associate',     group:'Lo',       photo:'YENELIS%20MARTINEZ.png' },
-  'yeni@chezre.com':           { name:'Yeni Martinez',      first:'Yeni',       role:'Associate',     group:'Chez',     photo:'YENI%20MARTINEZ.png' },
-  'constanza@chezre.com':      { name:'Constanza Lozano',   first:'Constanza',  role:'Associate',     group:'Cabrera',  photo:'CONSTANZA%20LOZANO.png' },
-  'dayanara@chezre.com':       { name:'Dayanara Munoz',     first:'Dayanara',   role:'Associate',     group:'Chez',     photo:'DAYANARA%20MUNOZ.png' },
-  'abdallah@chezre.com':       { name:'Abdallah Fragomeno', first:'Abdallah',   role:'Associate',     group:'Chez',     photo:'ABDALLAH%20FRAGOMENO.png' },
-  'erik.c@chezre.com':         { name:'Erik Cardero',       first:'Erik',       role:'Associate',     group:'Chez',     photo:'ERIK%20CARDERO.png' },
-  'jaydelyn@chezre.com':       { name:'Jaydelyn Ortiz',     first:'Jaydelyn',   role:'Associate',     group:'Chez',     photo:'JAYDELYN%20ORTIZ.png' },
-  'orianna@chezre.com':        { name:'Orianna Tancredi',   first:'Orianna',    role:'Associate',     group:'Chez',     photo:'ORIANNA%20TANCREDI.png' },
-  'katherine@chezre.com':      { name:'Katherine Ching',    first:'Katherine',  role:'Associate',     group:'Chez',     photo:'KATHERINE%20CHING.png' },
-  'mariana@chezre.com':        { name:'Mariana De Barros',  first:'Mariana',    role:'Associate',     group:'Chez',     photo:'MARIANA%20DE%20BARROS.png' },
-  'jennifer.m@chezre.com':     { name:'Jennifer Miranda',   first:'Jennifer',   role:'Lead Agent',    group:'Elev8',    photo:'JENNIFER%20MIRANDA.png' },
-  'maribel@chezre.com':        { name:'Maribel Reyes',      first:'Maribel',    role:'Lead Agent',    group:'Elev8',    photo:'MARIBEL%20REYES.png' },
-  'jennifer.a@chezre.com':     { name:'Jennifer Avila',     first:'Jennifer',   role:'Associate',     group:'Elev8',    photo:'JENNIFER%20AVILA.png' },
-  'mairelys@chezre.com':       { name:'Mairelys Gonzalez',  first:'Mairelys',   role:'Associate',     group:'Elev8',    photo:'MAIRELYS%20GONZALEZ.png' },
-  'kiara@chezre.com':          { name:'Kiara Fernandez',    first:'Kiara',      role:'Associate',     group:'Elev8',    photo:'KIARA%20FERNANDEZ.png' },
-  'patricia@chezre.com':       { name:'Patricia Monteagudo',first:'Patricia',   role:'Associate',     group:'Elev8',    photo:'PATRICIA%20MONTEAGUDO.png' },
-  'brenda@chezre.com':         { name:'Brenda Tamayo',      first:'Brenda',     role:'Associate',     group:'Elev8',    photo:'BRENDA%20TAMAYO.png' },
-  'krystal@chezre.com':        { name:'Krystal Green-Bergnes',first:'Krystal',  role:'Associate',     group:'Curated',  photo:'KRYSTAL%20GREEN-BERGNES.png' },
-  'lisa@chezre.com':           { name:'Lisa Rosedietcher',  first:'Lisa',       role:'Associate',     group:'Curated',  photo:'LISA%20ROSEDIETCHER.png' },
-    'dorian@chezre.com':   { name:'Dorian Quintero',    first:'Dorian',     role:'Associate',    group:'Lo',       photo:'DORIAN%20QUINTERO.png' },
-    'jenelle@chezre.com':  { name:'Jenelle Campos',     first:'Jenelle',    role:'Associate',    group:'Lo',       photo:'JENELLE%20CAMPOS.png' },
-  'mar@chezre.com':          { name:'Daniel Adum',        first:'Daniel',     role:'Marketing Director', group:'Chez',  photo:'CHEZ%20LOGO.png' },
-  'monica@chezre.com':       { name:'Monica Herrera',     first:'Monica',     role:'Associate',    group:'Cabrera', photo:'MONICA%20HERRERA.png' },
-  'admin@chezre.com':          { name:'Maria A. Rodriguez', first:'Maria',      role:'Admin Assistant',   group:'Chez',  photo:'MARIA%20RODRIGUEZ.png' }
+  'jose@chezre.com':            { name:'Jose Medina',          first:'Jose',       role:'Founder',            group:'Founders', photo:'JOSE%20MEDINA.png' },
+  'dexter@chezre.com':          { name:'Dexter Brandao',       first:'Dexter',     role:'Founder',            group:'Founders', photo:'DEXTER%20BRANDAO.png' },
+  'alex@chezre.com':            { name:'Alex Mirambell',       first:'Alex',       role:'Senior Agent',       group:'Chez',     photo:'ALEX%20MIRAMBELL.png' },
+  'melissa@chezre.com':         { name:'Melissa Sanchez',      first:'Melissa',    role:'Senior Agent',       group:'Chez',     photo:'MELISSA%20SANCHEZ.png' },
+  'ruben@chezre.com':           { name:'Ruben Grana',          first:'Ruben',      role:'Senior Agent',       group:'Chez',     photo:'RUBEN%20GRANA.png' },
+  'johana@chezre.com':          { name:'Johana Cabrera',       first:'Johana',     role:'Lead Agent',         group:'Lo',       photo:'JOHANA%20CABRERA.png' },
+  'mario@chezre.com':           { name:'Mario Cabrera Jr',     first:'Mario',      role:'Lead Agent',         group:'Cabrera',  photo:'MARIO%20CABRERA%20JR.png' },
+  'mario.cabrera@chezre.com':   { name:'Mario Cabrera Sr',     first:'Mario',      role:'Lead Agent',         group:'Cabrera',  photo:'MARIO%20CABRERA%20SR.png' },
+  'alexander@chezre.com':       { name:'Alexander Novo',       first:'Alexander',  role:'Agent',              group:'Chez',     photo:'ALEXANDER%20NOVO.png' },
+  'cubas@chezre.com':           { name:'Alejandro Cubas',      first:'Alejandro',  role:'Associate',          group:'Cabrera',  photo:'ALEJANDRO%20CUBAS.png' },
+  'amalyn@chezre.com':          { name:'Amalyn Cabrera',       first:'Amalyn',     role:'Associate',          group:'Cabrera',  photo:'AMALYN%20CABRERA.png' },
+  'leon@chezre.com':            { name:'Brian Leon',           first:'Brian',      role:'Associate',          group:'Chez',     photo:'BRIAN%20LEON.png' },
+  'camila@chezre.com':          { name:'Camila Ciochon',       first:'Camila',     role:'Associate',          group:'Chez',     photo:'CAMILA%20CIOCHON.png' },
+  'cpadron@chezre.com':         { name:'Christian Padron',     first:'Christian',  role:'Associate',          group:'Chez',     photo:'CHRISTIAN%20PADRON.png' },
+  'dani@chezre.com':            { name:'Danielle Urrutia',     first:'Danielle',   role:'Associate',          group:'Chez',     photo:'DANIELLE%20URRUTIA.png' },
+  'jessica@chezre.com':         { name:'Jessica A. Ducos',     first:'Jessica',    role:'Associate',          group:'Chez',     photo:'JESSICA%20ALVAREZ-DUCOS.png' },
+  'jessicagonzalez@chezre.com': { name:'Jessica Gonzalez',     first:'Jessica',    role:'Associate',          group:'Chez',     photo:'JESSICA%20GONZALEZ.png' },
+  'laurie@chezre.com':          { name:'Laurie Moreno',        first:'Laurie',     role:'Associate',          group:'Chez',     photo:'LAURIE%20MORENO.png' },
+  'linda@chezre.com':           { name:'Linda Escobar',        first:'Linda',      role:'Associate',          group:'Cabrera',  photo:'LINDA%20ESCOBAR.png' },
+  'nikki@chezre.com':           { name:'Nicole Paneque',       first:'Nicole',     role:'Associate',          group:'Chez',     photo:'NICOLE%20PANEQUE.png' },
+  'yenelis@chezre.com':         { name:'Yenelis Martinez',     first:'Yenelis',    role:'Associate',          group:'Lo',       photo:'YENELIS%20MARTINEZ.png' },
+  'yeni@chezre.com':            { name:'Yeni Martinez',        first:'Yeni',       role:'Associate',          group:'Chez',     photo:'YENI%20MARTINEZ.png' },
+  'connie@chezre.com':          { name:'Constanza Lozano',     first:'Constanza',  role:'Associate',          group:'Cabrera',  photo:'CONSTANZA%20LOZANO.png' },
+  'constanza@chezre.com':       { name:'Constanza Lozano',     first:'Constanza',  role:'Associate',          group:'Cabrera',  photo:'CONSTANZA%20LOZANO.png' },
+  'dayanara@chezre.com':        { name:'Dayanara Munoz',       first:'Dayanara',   role:'Associate',          group:'Chez',     photo:'DAYANARA%20MUNOZ.png' },
+  'abdallah@chezre.com':        { name:'Abdallah Fragomeno',   first:'Abdallah',   role:'Associate',          group:'Chez',     photo:'ABDALLAH%20FRAGOMENO.png' },
+  'erikcardero@chezre.com':     { name:'Erik Cardero',         first:'Erik',       role:'Associate',          group:'Chez',     photo:'ERIK%20CARDERO.png' },
+  'erik.c@chezre.com':          { name:'Erik Cardero',         first:'Erik',       role:'Associate',          group:'Chez',     photo:'ERIK%20CARDERO.png' },
+  'jaydelyn@chezre.com':        { name:'Jaydelyn Ortiz',       first:'Jaydelyn',   role:'Associate',          group:'Chez',     photo:'JAYDELYN%20ORTIZ.png' },
+  'orianna@chezre.com':         { name:'Orianna Tancredi',     first:'Orianna',    role:'Associate',          group:'Chez',     photo:'ORIANNA%20TANCREDI.png' },
+  'katherine@chezre.com':       { name:'Katherine Ching',      first:'Katherine',  role:'Associate',          group:'Chez',     photo:'KATHERINE%20CHING.png' },
+  'mariana@chezre.com':         { name:'Mariana De Barros',    first:'Mariana',    role:'Associate',          group:'Chez',     photo:'MARIANA%20DE%20BARROS.png' },
+  'jennym@chezre.com':          { name:'Jennifer Miranda',     first:'Jennifer',   role:'Lead Agent',         group:'Elev8',    photo:'JENNIFER%20MIRANDA.png' },
+  'jennifer.m@chezre.com':      { name:'Jennifer Miranda',     first:'Jennifer',   role:'Lead Agent',         group:'Elev8',    photo:'JENNIFER%20MIRANDA.png' },
+  'maribel@chezre.com':         { name:'Maribel Reyes',        first:'Maribel',    role:'Lead Agent',         group:'Elev8',    photo:'MARIBEL%20REYES.png' },
+  'jenniferavila@chezre.com':   { name:'Jennifer Avila',       first:'Jennifer',   role:'Associate',          group:'Elev8',    photo:'JENNIFER%20AVILA.png' },
+  'jennifer.a@chezre.com':      { name:'Jennifer Avila',       first:'Jennifer',   role:'Associate',          group:'Elev8',    photo:'JENNIFER%20AVILA.png' },
+  'mairelys@chezre.com':        { name:'Mairelys Gonzalez',    first:'Mairelys',   role:'Associate',          group:'Elev8',    photo:'MAIRELYS%20GONZALEZ.png' },
+  'kiara@chezre.com':           { name:'Kiara Fernandez',      first:'Kiara',      role:'Associate',          group:'Elev8',    photo:'KIARA%20FERNANDEZ.png' },
+  'patricia@chezre.com':        { name:'Patricia Monteagudo',  first:'Patricia',   role:'Associate',          group:'Elev8',    photo:'PATRICIA%20MONTEAGUDO.png' },
+  'brenda@chezre.com':          { name:'Brenda Tamayo',        first:'Brenda',     role:'Associate',          group:'Elev8',    photo:'BRENDA%20TAMAYO.png' },
+  'krystal@chezre.com':         { name:'Krystal Green-Bergnes',first:'Krystal',   role:'Associate',          group:'Curated',  photo:'KRYSTAL%20GREEN-BERGNES.png' },
+  'lisa@chezre.com':            { name:'Lisa Rosedietcher',    first:'Lisa',       role:'Associate',          group:'Curated',  photo:'LISA%20ROSEDIETCHER.png' },
+  'dorian@chezre.com':          { name:'Dorian Quintero',      first:'Dorian',     role:'Associate',          group:'Lo',       photo:'DORIAN%20QUINTERO.png' },
+  'jenelle@chezre.com':         { name:'Jenelle Campos',       first:'Jenelle',    role:'Associate',          group:'Lo',       photo:'JENELLE%20CAMPOS.png' },
+  'moulay@chezre.com':          { name:'Moulay Alaoui',        first:'Moulay',     role:'Associate',          group:'Chez',     photo:'MOULAY%20ALAOUI.png' },
+  'david@chezre.com':           { name:'David Linares',        first:'David',      role:'New Agent',          group:'Chez',     photo:'DAVID%20LINARES.png' },
+  'mar@chezre.com':             { name:'Daniel Adum',          first:'Daniel',     role:'Marketing Director', group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'monica@chezre.com':          { name:'Monica Herrera',       first:'Monica',     role:'Associate',          group:'Cabrera',  photo:'MONICA%20HERRERA.png' },
+  'mariar@chezre.com':          { name:'Maria A. Rodriguez',   first:'Maria',      role:'Admin Assistant',    group:'Chez',     photo:'MARIA%20RODRIGUEZ.png' },
+  'admin@chezre.com':           { name:'Maria A. Rodriguez',   first:'Maria',      role:'Admin Assistant',    group:'Chez',     photo:'MARIA%20RODRIGUEZ.png' },
+  'support@chezre.com':         { name:'Gencen Bautista',      first:'Gencen',     role:'Support',            group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'cm@chezre.com':              { name:'Nathalia Madrigal',    first:'Nathalia',   role:'Content Manager',    group:'Chez',     photo:'CHEZ%20LOGO.png' }
 };
 
 var CHEZ_PASSWORD = 'ouioui';
 var PHOTO_BASE = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/images/';
 
-// ─── HERO AGENT COUNT (auto) ──────────────────────────────────
+// ─── AUTO-SYNC: carga agents.json desde GitHub si existe ─────────
+// Cuando el Apps Script sube agents.json, el Hub lo usa automáticamente.
+// Si no existe aún (404) o falla, queda el CHEZ_AGENTS hardcodeado arriba.
 (function() {
-  var count = Object.keys(CHEZ_AGENTS).length;
+  var AGENTS_URL = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main/agents.json';
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', AGENTS_URL, true);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      try {
+        var data = JSON.parse(xhr.responseText);
+        if (data && data.agents && data.agents.length > 0) {
+          // Reconstruir CHEZ_AGENTS desde el JSON
+          var fresh = {};
+          for (var i = 0; i < data.agents.length; i++) {
+            var a = data.agents[i];
+            if (a.email) {
+              fresh[a.email] = {
+                name:  a.name  || a.email,
+                first: a.first || a.name.split(' ')[0],
+                role:  a.role  || 'Agent',
+                group: a.group || 'Chez',
+                photo: a.photo || 'CHEZ%20LOGO.png'
+              };
+            }
+          }
+          if (Object.keys(fresh).length > 0) {
+            CHEZ_AGENTS = fresh;
+            var countEl = document.getElementById('hero-agent-count');
+            if (countEl) countEl.textContent = Object.keys(CHEZ_AGENTS).length;
+          }
+        }
+      } catch(e) { /* parse error — usar fallback */ }
+    }
+    // Si falla (404, network, etc.) → CHEZ_AGENTS hardcodeado ya está listo
+  };
+  xhr.onerror = function() { /* network error — usar fallback */ };
+  xhr.send();
+})();
+
+// ─── HERO AGENT COUNT (inicial con fallback) ──────────────────
+(function() {
   var el = document.getElementById('hero-agent-count');
-  if (el) el.textContent = count;
+  if (el) el.textContent = Object.keys(CHEZ_AGENTS).length;
 })();
 
 // ─── HERO CALENDAR WIDGET ─────────────────────────────────────
@@ -240,7 +288,6 @@ var PHOTO_BASE = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main
 function doLogin() {
   var email = document.getElementById('login-email').value.trim().toLowerCase();
   var pass  = document.getElementById('login-pass').value;
-  var errEl = document.getElementById('login-error');
 
   // Validate email domain
   if (!email.endsWith('@chezre.com')) {
