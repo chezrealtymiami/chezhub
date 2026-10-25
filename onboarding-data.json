@@ -1,27 +1,47 @@
 {
-  "lastUpdated": "2026-10-24T23:00:00.000Z",
+  "lastUpdated": "2026-10-25T04:46:18.283Z",
   "agents": [
     {
-      "email": "mariana@chezre.com",
+      "slug": "mariana",
       "name": "Mariana De Barros",
       "first": "Mariana",
+      "email": "mariana@chezre.com",
+      "initials": "MD",
+      "group": "Chez Team",
       "startDate": "2026-09-30",
-      "stepsCompleted": 13,
-      "totalSteps": 20,
-      "status": "In Progress",
-      "group": "Chez",
-      "photo": "MARIANA%20DE%20BARROS.png"
+      "photo": "MARIANA%20DE%20BARROS.png",
+      "stepsCompleted": 12,
+      "totalSteps": 15,
+      "pct": 80,
+      "status": "In Progress"
     },
     {
-      "email": "lisa@chezre.com",
+      "slug": "lisa",
       "name": "Lisa Rosedietcher",
       "first": "Lisa",
+      "email": "lisa@chezre.com",
+      "initials": "LR",
+      "group": "Curated Living",
       "startDate": "2026-10-07",
-      "stepsCompleted": 12,
-      "totalSteps": 20,
-      "status": "In Progress",
-      "group": "Chez",
-      "photo": "LISA%20ROSEDIETCHER.png"
+      "photo": "LISA%20ROSEDIETCHER.png",
+      "stepsCompleted": 11,
+      "totalSteps": 15,
+      "pct": 73,
+      "status": "In Progress"
+    },
+    {
+      "slug": "david",
+      "name": "David Linares",
+      "first": "David",
+      "email": "david@chezre.com",
+      "initials": "DL",
+      "group": "Chez Team",
+      "startDate": "2026-10-23",
+      "photo": "DAVID%20LINARES.png",
+      "stepsCompleted": 0,
+      "totalSteps": 15,
+      "pct": 0,
+      "status": "In Progress"
     }
   ]
 }
