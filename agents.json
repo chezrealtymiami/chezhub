@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-25T03:08:07.028Z",
+  "lastUpdated": "2026-10-25T03:47:17.985Z",
   "agents": [
     {
       "email": "abdallah@chezre.com",
@@ -8,7 +8,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "ABDALLAH%20FRAGOMENO.png"
+      "photo": "ABDALLAH%20FRAGOMENO.png",
+      "isStaff": false
     },
     {
       "email": "cubas@chezre.com",
@@ -17,7 +18,8 @@
       "group": "Cabrera",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "ALEJANDRO%20CUBAS.png"
+      "photo": "ALEJANDRO%20CUBAS.png",
+      "isStaff": false
     },
     {
       "email": "alex@chezre.com",
@@ -26,7 +28,8 @@
       "group": "Chez",
       "role": "Senior Agent/Realtor",
       "status": "Active",
-      "photo": "ALEX%20MIRAMBELL.png"
+      "photo": "ALEX%20MIRAMBELL.png",
+      "isStaff": false
     },
     {
       "email": "alexander@chezre.com",
@@ -35,7 +38,8 @@
       "group": "Chez",
       "role": "Agent/Realtor",
       "status": "Active",
-      "photo": "ALEXANDER%20NOVO.png"
+      "photo": "ALEXANDER%20NOVO.png",
+      "isStaff": false
     },
     {
       "email": "amalyn@chezre.com",
@@ -44,7 +48,8 @@
       "group": "Cabrera",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "AMALYN%20CABRERA.png"
+      "photo": "AMALYN%20CABRERA.png",
+      "isStaff": false
     },
     {
       "email": "brenda@chezre.com",
@@ -53,7 +58,8 @@
       "group": "Elev8",
       "role": "Associate Agent/Realtor",
       "status": "New Agent",
-      "photo": "BRENDA%20TAMAYO%20TOIRAC.png"
+      "photo": "BRENDA%20TAMAYO%20TOIRAC.png",
+      "isStaff": false
     },
     {
       "email": "leon@chezre.com",
@@ -62,7 +68,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "BRIAN%20LEON.png"
+      "photo": "BRIAN%20LEON.png",
+      "isStaff": false
     },
     {
       "email": "camila@chezre.com",
@@ -71,7 +78,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "CAMILA%20CIOCHON.png"
+      "photo": "CAMILA%20CIOCHON.png",
+      "isStaff": false
     },
     {
       "email": "cpadron@chezre.com",
@@ -80,7 +88,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "CHRISTIAN%20PADRON.png"
+      "photo": "CHRISTIAN%20PADRON.png",
+      "isStaff": false
     },
     {
       "email": "connie@chezre.com",
@@ -89,7 +98,8 @@
       "group": "Cabrera",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "CONSTANZA%20LOZANO.png"
+      "photo": "CONSTANZA%20LOZANO.png",
+      "isStaff": false
     },
     {
       "email": "dani@chezre.com",
@@ -98,7 +108,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "DANIELLE%20URRUTIA.png"
+      "photo": "DANIELLE%20URRUTIA.png",
+      "isStaff": false
     },
     {
       "email": "dayanara@chezre.com",
@@ -107,7 +118,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "DAYANARA%20MUNOZ.png"
+      "photo": "DAYANARA%20MUNOZ.png",
+      "isStaff": false
     },
     {
       "email": "david@chezre.com",
@@ -116,7 +128,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "New Agent",
-      "photo": "DAVID%20LINARES.png"
+      "photo": "DAVID%20LINARES.png",
+      "isStaff": false
     },
     {
       "email": "dexter@chezre.com",
@@ -125,7 +138,8 @@
       "group": "Chez",
       "role": "Founder/Realtor",
       "status": "Active",
-      "photo": "DEXTER%20BRANDAO.png"
+      "photo": "DEXTER%20BRANDAO.png",
+      "isStaff": false
     },
     {
       "email": "dorian@chezre.com",
@@ -134,7 +148,8 @@
       "group": "Lo",
       "role": "Associate Agent/Realtor",
       "status": "New Agent",
-      "photo": "DORIAN%20QUINTERO.png"
+      "photo": "DORIAN%20QUINTERO.png",
+      "isStaff": false
     },
     {
       "email": "erikcardero@chezre.com",
@@ -143,7 +158,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "New Agent",
-      "photo": "ERIK%20CARDERO.png"
+      "photo": "ERIK%20CARDERO.png",
+      "isStaff": false
     },
     {
       "email": "jaydelyn@chezre.com",
@@ -152,7 +168,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "JAYDELYN%20ORTIZ.png"
+      "photo": "JAYDELYN%20ORTIZ.png",
+      "isStaff": false
     },
     {
       "email": "jenelle@chezre.com",
@@ -161,7 +178,8 @@
       "group": "Lo",
       "role": "Associate Agent/Realtor",
       "status": "New Agent",
-      "photo": "JENELLE%20CAMPOS.png"
+      "photo": "JENELLE%20CAMPOS.png",
+      "isStaff": false
     },
     {
       "email": "jenniferavila@chezre.com",
@@ -170,7 +188,8 @@
       "group": "Elev8",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "JENNIFER%20AVILA.png"
+      "photo": "JENNIFER%20AVILA.png",
+      "isStaff": false
     },
     {
       "email": "jennym@chezre.com",
@@ -179,7 +198,8 @@
       "group": "Elev8",
       "role": "Team Leader/Realtor",
       "status": "Active",
-      "photo": "JENNIFER%20MIRANDA.png"
+      "photo": "JENNIFER%20MIRANDA.png",
+      "isStaff": false
     },
     {
       "email": "jessica@chezre.com",
@@ -188,7 +208,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "JESSICA%20ALVAREZ-DUCOS.png"
+      "photo": "JESSICA%20ALVAREZ-DUCOS.png",
+      "isStaff": false
     },
     {
       "email": "jessicagonzalez@chezre.com",
@@ -197,7 +218,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "JESSICA%20GONZALEZ.png"
+      "photo": "JESSICA%20GONZALEZ.png",
+      "isStaff": false
     },
     {
       "email": "johana@chezre.com",
@@ -206,7 +228,8 @@
       "group": "Lo",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "JOHANA%20CABRERA.png"
+      "photo": "JOHANA%20CABRERA.png",
+      "isStaff": false
     },
     {
       "email": "jose@chezre.com",
@@ -215,7 +238,8 @@
       "group": "Chez",
       "role": "Founder/Realtor",
       "status": "Active",
-      "photo": "JOSE%20MEDINA.png"
+      "photo": "JOSE%20MEDINA.png",
+      "isStaff": false
     },
     {
       "email": "katherine@chezre.com",
@@ -224,7 +248,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "New Agent",
-      "photo": "KATHERINE%20CHING.png"
+      "photo": "KATHERINE%20CHING.png",
+      "isStaff": false
     },
     {
       "email": "kiara@chezre.com",
@@ -233,7 +258,8 @@
       "group": "Elev8",
       "role": "Associate Agent/Realtor",
       "status": "New Agent",
-      "photo": "KIARA%20FERNANDEZ.png"
+      "photo": "KIARA%20FERNANDEZ.png",
+      "isStaff": false
     },
     {
       "email": "krystal@chezre.com",
@@ -242,7 +268,8 @@
       "group": "Curated Living",
       "role": "Team Leader/Realtor",
       "status": "New Agent",
-      "photo": "KRYSTAL%20GREEN-BERGNES.png"
+      "photo": "KRYSTAL%20GREEN-BERGNES.png",
+      "isStaff": false
     },
     {
       "email": "laurie@chezre.com",
@@ -251,7 +278,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "LAURIE%20MORENO.png"
+      "photo": "LAURIE%20MORENO.png",
+      "isStaff": false
     },
     {
       "email": "linda@chezre.com",
@@ -260,7 +288,8 @@
       "group": "Cabrera",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "LINDA%20ESCOBAR.png"
+      "photo": "LINDA%20ESCOBAR.png",
+      "isStaff": false
     },
     {
       "email": "lisa@chezre.com",
@@ -269,7 +298,8 @@
       "group": "Curated Living",
       "role": "Associate Agent/Realtor",
       "status": "New Agent",
-      "photo": "LISA%20ROSEDIETCHER.png"
+      "photo": "LISA%20ROSEDIETCHER.png",
+      "isStaff": false
     },
     {
       "email": "mairelys@chezre.com",
@@ -278,7 +308,8 @@
       "group": "Elev8",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "MAIRELYS%20GONZALEZ.png"
+      "photo": "MAIRELYS%20GONZALEZ.png",
+      "isStaff": false
     },
     {
       "email": "mariana@chezre.com",
@@ -287,7 +318,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "New Agent",
-      "photo": "MARIANA%20DE%20BARROS.png"
+      "photo": "MARIANA%20DE%20BARROS.png",
+      "isStaff": false
     },
     {
       "email": "maribel@chezre.com",
@@ -296,7 +328,8 @@
       "group": "Elev8",
       "role": "Team Leader/Realtor",
       "status": "Active",
-      "photo": "MARIBEL%20REYES.png"
+      "photo": "MARIBEL%20REYES.png",
+      "isStaff": false
     },
     {
       "email": "mario@chezre.com",
@@ -305,7 +338,8 @@
       "group": "Cabrera",
       "role": "Team Leader | Realtor",
       "status": "Active",
-      "photo": "MARIO%20CABRERA%20JR..png"
+      "photo": "MARIO%20CABRERA%20JR..png",
+      "isStaff": false
     },
     {
       "email": "mario.cabrera@chezre.com",
@@ -314,7 +348,8 @@
       "group": "Cabrera",
       "role": "Team Leader | Broker Associate",
       "status": "Active",
-      "photo": "MARIO%20CABRERA%20SR..png"
+      "photo": "MARIO%20CABRERA%20SR..png",
+      "isStaff": false
     },
     {
       "email": "melissa@chezre.com",
@@ -323,7 +358,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "MELISSA%20SANCHEZ.png"
+      "photo": "MELISSA%20SANCHEZ.png",
+      "isStaff": false
     },
     {
       "email": "monica@chezre.com",
@@ -332,7 +368,8 @@
       "group": "Cabrera",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "MONICA%20HERRERA.png"
+      "photo": "MONICA%20HERRERA.png",
+      "isStaff": false
     },
     {
       "email": "moulay@chezre.com",
@@ -341,7 +378,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "MOULAY%20ALAOUI.png"
+      "photo": "MOULAY%20ALAOUI.png",
+      "isStaff": false
     },
     {
       "email": "nikki@chezre.com",
@@ -350,7 +388,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "NICOLE%20PANEQUE.png"
+      "photo": "NICOLE%20PANEQUE.png",
+      "isStaff": false
     },
     {
       "email": "orianna@chezre.com",
@@ -359,7 +398,8 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "ORIANNA%20TANCREDI.png"
+      "photo": "ORIANNA%20TANCREDI.png",
+      "isStaff": false
     },
     {
       "email": "patricia@chezre.com",
@@ -368,7 +408,8 @@
       "group": "Elev8",
       "role": "Associate Agent/Realtor",
       "status": "New Agent",
-      "photo": "PATRICIA%20MONTEAGUDO.png"
+      "photo": "PATRICIA%20MONTEAGUDO.png",
+      "isStaff": false
     },
     {
       "email": "ruben@chezre.com",
@@ -377,7 +418,8 @@
       "group": "Chez",
       "role": "Broker Associate/Realtor",
       "status": "Active",
-      "photo": "RUBEN%20GRANA.png"
+      "photo": "RUBEN%20GRANA.png",
+      "isStaff": false
     },
     {
       "email": "yenelis@chezre.com",
@@ -386,7 +428,8 @@
       "group": "Lo",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "YENELIS%20MARTINEZ.png"
+      "photo": "YENELIS%20MARTINEZ.png",
+      "isStaff": false
     },
     {
       "email": "yeni@chezre.com",
@@ -395,7 +438,48 @@
       "group": "Chez",
       "role": "Associate Agent/Realtor",
       "status": "Active",
-      "photo": "YENI%20MARTINEZ.png"
+      "photo": "YENI%20MARTINEZ.png",
+      "isStaff": false
+    },
+    {
+      "email": "mariar@chezre.com",
+      "name": "Maria A. Rodriguez",
+      "first": "Maria",
+      "group": "Admin",
+      "role": "Admin Assistant",
+      "status": "Active",
+      "photo": "MARIA%20A.%20RODRIGUEZ.png",
+      "isStaff": true
+    },
+    {
+      "email": "support@chezre.com",
+      "name": "Gencen Bautista",
+      "first": "Gencen",
+      "group": "Admin",
+      "role": "Virtual Assistance",
+      "status": "Active",
+      "photo": "GENCEN%20BAUTISTA.png",
+      "isStaff": true
+    },
+    {
+      "email": "mar@chezre.com",
+      "name": "Daniel Adum",
+      "first": "Daniel",
+      "group": "Marketing",
+      "role": "Marketing Director",
+      "status": "Active",
+      "photo": "DANIEL%20ADUM.png",
+      "isStaff": true
+    },
+    {
+      "email": "cm@chezre.com",
+      "name": "Nathalia Madrigal",
+      "first": "Nathalia",
+      "group": "Marketing",
+      "role": "Social Media Manager",
+      "status": "Active",
+      "photo": "NATHALIA%20MADRIGAL.png",
+      "isStaff": true
     }
   ]
 }
