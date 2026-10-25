@@ -210,12 +210,23 @@ var CHEZ_AGENTS = {
   'jenelle@chezre.com':         { name:'Jenelle Campos',       first:'Jenelle',    role:'Associate',          group:'Lo',       photo:'JENELLE%20CAMPOS.png' },
   'moulay@chezre.com':          { name:'Moulay Alaoui',        first:'Moulay',     role:'Associate',          group:'Chez',     photo:'MOULAY%20ALAOUI.png' },
   'david@chezre.com':           { name:'David Linares',        first:'David',      role:'New Agent',          group:'Chez',     photo:'DAVID%20LINARES.png' },
-  'mar@chezre.com':             { name:'Daniel Adum',          first:'Daniel',     role:'Marketing Director', group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'roxana@chezre.com':          { name:'Roxana',               first:'Roxana',     role:'Associate',          group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'yamary@athometitlefl.com':   { name:'Yamary',               first:'Yamary',     role:'Associate',          group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'franger@chezre.com':         { name:'Franger',              first:'Franger',    role:'Associate',          group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'maria@chezre.com':           { name:'Maria',                first:'Maria',      role:'Associate',          group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'arelis@chezre.com':          { name:'Arelis',               first:'Arelis',     role:'Associate',          group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'ramses@chezre.com':          { name:'Ramses',               first:'Ramses',     role:'Associate',          group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'erick@chezre.com':           { name:'Erick',                first:'Erick',      role:'Associate',          group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'dayana@chezre.com':          { name:'Dayana',               first:'Dayana',     role:'Associate',          group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'zuzy@chezre.com':            { name:'Zuzy',                 first:'Zuzy',       role:'Associate',          group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'irasema@chezre.com':         { name:'Irasema',              first:'Irasema',    role:'Associate',          group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'yensi@chezre.com':           { name:'Yensi',                first:'Yensi',      role:'Associate',          group:'Chez',     photo:'CHEZ%20LOGO.png' },
+  'mar@chezre.com':             { name:'Daniel Adum',          first:'Daniel',     role:'Marketing Director', group:'Marketing', photo:'CHEZ%20LOGO.png',      isStaff:true },
   'monica@chezre.com':          { name:'Monica Herrera',       first:'Monica',     role:'Associate',          group:'Cabrera',  photo:'MONICA%20HERRERA.png' },
-  'mariar@chezre.com':          { name:'Maria A. Rodriguez',   first:'Maria',      role:'Admin Assistant',    group:'Chez',     photo:'MARIA%20RODRIGUEZ.png' },
-  'admin@chezre.com':           { name:'Maria A. Rodriguez',   first:'Maria',      role:'Admin Assistant',    group:'Chez',     photo:'MARIA%20RODRIGUEZ.png' },
-  'support@chezre.com':         { name:'Gencen Bautista',      first:'Gencen',     role:'Support',            group:'Chez',     photo:'CHEZ%20LOGO.png' },
-  'cm@chezre.com':              { name:'Nathalia Madrigal',    first:'Nathalia',   role:'Content Manager',    group:'Chez',     photo:'CHEZ%20LOGO.png' }
+  'mariar@chezre.com':          { name:'Maria A. Rodriguez',   first:'Maria',      role:'Admin Assistant',    group:'Admin',    photo:'MARIA%20RODRIGUEZ.png', isStaff:true },
+  'admin@chezre.com':           { name:'Maria A. Rodriguez',   first:'Maria',      role:'Admin Assistant',    group:'Admin',    photo:'MARIA%20RODRIGUEZ.png', isStaff:true },
+  'support@chezre.com':         { name:'Gencen Bautista',      first:'Gencen',     role:'Support',            group:'Admin',    photo:'CHEZ%20LOGO.png',       isStaff:true },
+  'cm@chezre.com':              { name:'Nathalia Madrigal',    first:'Nathalia',   role:'Content Manager',    group:'Marketing',photo:'CHEZ%20LOGO.png',       isStaff:true }
 };
 
 var CHEZ_PASSWORD = 'ouioui';
@@ -233,24 +244,27 @@ var PHOTO_BASE = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main
       try {
         var data = JSON.parse(xhr.responseText);
         if (data && data.agents && data.agents.length > 0) {
-          // Reconstruir CHEZ_AGENTS desde el JSON
+          // Reconstruir CHEZ_AGENTS desde el JSON (Hub Access tab)
           var fresh = {};
+          var agentCount = 0;
           for (var i = 0; i < data.agents.length; i++) {
             var a = data.agents[i];
             if (a.email) {
               fresh[a.email] = {
-                name:  a.name  || a.email,
-                first: a.first || a.name.split(' ')[0],
-                role:  a.role  || 'Agent',
-                group: a.group || 'Chez',
-                photo: a.photo || 'CHEZ%20LOGO.png'
+                name:    a.name    || a.email,
+                first:   a.first   || a.name.split(' ')[0],
+                role:    a.role    || 'Agent',
+                group:   a.group   || 'Chez',
+                photo:   a.photo   || 'CHEZ%20LOGO.png',
+                isStaff: a.isStaff || false
               };
+              if (!a.isStaff) agentCount++;
             }
           }
           if (Object.keys(fresh).length > 0) {
             CHEZ_AGENTS = fresh;
             var countEl = document.getElementById('hero-agent-count');
-            if (countEl) countEl.textContent = Object.keys(CHEZ_AGENTS).length;
+            if (countEl) { countEl.textContent = agentCount; }
           }
         }
       } catch(e) { /* parse error — usar fallback */ }
@@ -261,10 +275,15 @@ var PHOTO_BASE = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main
   xhr.send();
 })();
 
-// ─── HERO AGENT COUNT (inicial con fallback) ──────────────────
+// ─── HERO AGENT COUNT (inicial con fallback hardcodeado) ─────
 (function() {
   var el = document.getElementById('hero-agent-count');
-  if (el) el.textContent = Object.keys(CHEZ_AGENTS).length;
+  if (el) {
+    var count = Object.keys(CHEZ_AGENTS).filter(function(e){
+      return !CHEZ_AGENTS[e].isStaff;
+    }).length;
+    el.textContent = count;
+  }
 })();
 
 // ─── HERO CALENDAR WIDGET ─────────────────────────────────────
