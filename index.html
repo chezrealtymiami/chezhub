@@ -247,12 +247,11 @@ var PHOTO_BASE = 'https://raw.githubusercontent.com/chezrealtymiami/chezhub/main
               };
             }
           }
-         var STAFF = {'mar@chezre.com':{name:'Daniel Adum',first:'Daniel',role:'Marketing Director',group:'Chez',photo:'CHEZ%20LOGO.png'},'admin@chezre.com':{name:'Maria A. Rodriguez',first:'Maria',role:'Admin Assistant',group:'Chez',photo:'MARIA%20RODRIGUEZ.png'},'mariar@chezre.com':{name:'Maria A. Rodriguez',first:'Maria',role:'Admin Assistant',group:'Chez',photo:'MARIA%20RODRIGUEZ.png'},'support@chezre.com':{name:'Gencen Bautista',first:'Gencen',role:'Support',group:'Chez',photo:'CHEZ%20LOGO.png'},'cm@chezre.com':{name:'Nathalia Madrigal',first:'Nathalia',role:'Content Manager',group:'Chez',photo:'CHEZ%20LOGO.png'}};
-if (Object.keys(fresh).length > 0) {
-  for (var k in STAFF) { fresh[k] = STAFF[k]; }
+          if (Object.keys(fresh).length > 0) {
             CHEZ_AGENTS = fresh;
             var countEl = document.getElementById('hero-agent-count');
-if (countEl) countEl.textContent = Object.keys(CHEZ_AGENTS).length;          }
+            if (countEl) countEl.textContent = Object.keys(CHEZ_AGENTS).length;
+          }
         }
       } catch(e) { /* parse error — usar fallback */ }
     }
@@ -265,7 +264,9 @@ if (countEl) countEl.textContent = Object.keys(CHEZ_AGENTS).length;          }
 // ─── HERO AGENT COUNT (inicial con fallback) ──────────────────
 (function() {
   var el = document.getElementById('hero-agent-count');
-if (el) el.textContent = Object.keys(CHEZ_AGENTS).length;
+  if (el) el.textContent = Object.keys(CHEZ_AGENTS).length;
+})();
+
 // ─── HERO CALENDAR WIDGET ─────────────────────────────────────
 (function() {
   var MONTHS_FULL = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
