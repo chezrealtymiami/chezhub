@@ -1,4 +1,27 @@
 {
-  "lastUpdated": "2026-10-24T10:50:34.139Z",
-  "agents": []
+  "lastUpdated": "2026-10-24T23:00:00.000Z",
+  "agents": [
+    {
+      "email": "mariana@chezre.com",
+      "name": "Mariana De Barros",
+      "first": "Mariana",
+      "startDate": "2026-09-30",
+      "stepsCompleted": 13,
+      "totalSteps": 20,
+      "status": "In Progress",
+      "group": "Chez",
+      "photo": "MARIANA%20DE%20BARROS.png"
+    },
+    {
+      "email": "lisa@chezre.com",
+      "name": "Lisa Rosedietcher",
+      "first": "Lisa",
+      "startDate": "2026-10-07",
+      "stepsCompleted": 12,
+      "totalSteps": 20,
+      "status": "In Progress",
+      "group": "Chez",
+      "photo": "LISA%20ROSEDIETCHER.png"
+    }
+  ]
 }
