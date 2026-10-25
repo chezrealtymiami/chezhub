@@ -866,10 +866,15 @@ function enterHub(agent) {
 
   renderWidget(CRM_EMBEDDED);
 
-  fetch(CRM_JSON + '?t=' + Date.now())
-    .then(function(r){return r.json();})
-    .then(renderWidget)
-    .catch(function(){});
+  var xhrCrm = new XMLHttpRequest();
+  xhrCrm.open('GET', CRM_JSON + '?t=' + Date.now(), true);
+  xhrCrm.onload = function() {
+    if (xhrCrm.status === 200) {
+      try { renderWidget(JSON.parse(xhrCrm.responseText)); } catch(e) {}
+    }
+  };
+  xhrCrm.onerror = function() {};
+  xhrCrm.send();
 })();
 </script>
 
@@ -953,10 +958,15 @@ function enterHub(agent) {
     }
   }
 
-  fetch(CEL_JSON + '?t=' + Date.now())
-    .then(function(r){ return r.json(); })
-    .then(renderCelebrations)
-    .catch(function(){});
+  var xhrCel = new XMLHttpRequest();
+  xhrCel.open('GET', CEL_JSON + '?t=' + Date.now(), true);
+  xhrCel.onload = function() {
+    if (xhrCel.status === 200) {
+      try { renderCelebrations(JSON.parse(xhrCel.responseText)); } catch(e) {}
+    }
+  };
+  xhrCel.onerror = function() {};
+  xhrCel.send();
 })();
 </script>
 
@@ -1028,10 +1038,15 @@ function enterHub(agent) {
     }
   }
 
-  fetch(ONB_JSON + '?t=' + Date.now())
-    .then(function(r){ return r.json(); })
-    .then(renderOnboarding)
-    .catch(function(){});
+  var xhrOnb = new XMLHttpRequest();
+  xhrOnb.open('GET', ONB_JSON + '?t=' + Date.now(), true);
+  xhrOnb.onload = function() {
+    if (xhrOnb.status === 200) {
+      try { renderOnboarding(JSON.parse(xhrOnb.responseText)); } catch(e) {}
+    }
+  };
+  xhrOnb.onerror = function() {};
+  xhrOnb.send();
 })();
 </script>
 
@@ -1072,13 +1087,21 @@ function enterHub(agent) {
     if (lblEl)  lblEl.textContent = compliance.toFixed(1) + '% today';
   }
 
-  fetch(CRM_JSON + '?t=' + Date.now())
-    .then(function(r) { return r.json(); })
-    .then(renderMomentum)
-    .catch(function() {
-      var dateEl = document.getElementById('momentum-date');
-      if (dateEl) dateEl.textContent = 'No data';
-    });
+  var xhrMom = new XMLHttpRequest();
+  xhrMom.open('GET', CRM_JSON + '?t=' + Date.now(), true);
+  xhrMom.onload = function() {
+    if (xhrMom.status === 200) {
+      try { renderMomentum(JSON.parse(xhrMom.responseText)); } catch(e) {
+        var dateEl = document.getElementById('momentum-date');
+        if (dateEl) dateEl.textContent = 'No data';
+      }
+    }
+  };
+  xhrMom.onerror = function() {
+    var dateEl = document.getElementById('momentum-date');
+    if (dateEl) dateEl.textContent = 'No data';
+  };
+  xhrMom.send();
 })();
 </script>
 
