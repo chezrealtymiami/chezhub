@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-25T10:50:34.370Z",
+  "lastUpdated": "2026-10-26T10:50:34.411Z",
   "birthdays": [
     {
       "name": "Dayanara Munoz",
@@ -28,7 +28,7 @@
       "month": "October",
       "day": 31,
       "dateStr": "October 31",
-      "daysUntil": 5,
+      "daysUntil": 4,
       "isToday": false
     }
   ],
@@ -40,7 +40,7 @@
       "month": "October",
       "day": 26,
       "dateStr": "October 26",
-      "years": 1,
+      "years": 2,
       "daysUntil": 0,
       "isToday": true
     }
