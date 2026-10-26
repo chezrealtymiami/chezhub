@@ -1,4 +1,47 @@
 {
-  "lastUpdated": "2026-10-26T10:50:34.411Z",
-  "agents": []
+  "lastUpdated": "2026-10-26T11:36:07.906Z",
+  "agents": [
+    {
+      "slug": "mariana",
+      "name": "Mariana De Barros",
+      "first": "Mariana",
+      "email": "mariana@chezre.com",
+      "initials": "MD",
+      "group": "Chez Team",
+      "startDate": "2026-09-30",
+      "photo": "MARIANA%20DE%20BARROS.png",
+      "stepsCompleted": 12,
+      "totalSteps": 15,
+      "pct": 80,
+      "status": "In Progress"
+    },
+    {
+      "slug": "lisa",
+      "name": "Lisa Rosedietcher",
+      "first": "Lisa",
+      "email": "lisa@chezre.com",
+      "initials": "LR",
+      "group": "Curated Living",
+      "startDate": "2026-10-07",
+      "photo": "LISA%20ROSEDIETCHER.png",
+      "stepsCompleted": 11,
+      "totalSteps": 15,
+      "pct": 73,
+      "status": "In Progress"
+    },
+    {
+      "slug": "david",
+      "name": "David Linares",
+      "first": "David",
+      "email": "david@chezre.com",
+      "initials": "DL",
+      "group": "Chez Team",
+      "startDate": "2026-10-23",
+      "photo": "DAVID%20LINARES.png",
+      "stepsCompleted": 0,
+      "totalSteps": 15,
+      "pct": 0,
+      "status": "In Progress"
+    }
+  ]
 }
