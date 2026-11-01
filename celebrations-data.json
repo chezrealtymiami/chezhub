@@ -1,48 +1,78 @@
 {
-  "lastUpdated": "2026-10-31T10:50:35.287Z",
+  "lastUpdated": "2026-11-01T10:50:34.024Z",
   "birthdays": [
     {
-      "name": "Dayanara Munoz",
-      "firstName": "Dayanara",
+      "name": "Jessica Alvarez-Ducos",
+      "firstName": "Jessica",
       "team": "Chez",
-      "month": "October",
-      "day": 6,
-      "dateStr": "October 6",
-      "daysUntil": 0,
-      "isToday": true
+      "month": "November",
+      "day": 3,
+      "dateStr": "November 3",
+      "daysUntil": 1,
+      "isToday": false
     },
     {
-      "name": "Mario Cabrera Sr.",
-      "firstName": "Mario",
-      "team": "Cabrera",
-      "month": "October",
-      "day": 10,
-      "dateStr": "October 10",
-      "daysUntil": 0,
-      "isToday": true
+      "name": "Maria A. Rodriguez",
+      "firstName": "Maria A.",
+      "team": "Admin",
+      "month": "November",
+      "day": 5,
+      "dateStr": "November 5",
+      "daysUntil": 3,
+      "isToday": false
     },
     {
-      "name": "Nicole Paneque",
-      "firstName": "Nicole",
+      "name": "Patricia Monteagudo",
+      "firstName": "Patricia",
+      "team": "Elev8",
+      "month": "November",
+      "day": 16,
+      "dateStr": "November 16",
+      "daysUntil": 14,
+      "isToday": false
+    },
+    {
+      "name": "Abdallah Fragomeno",
+      "firstName": "Abdallah",
       "team": "Chez",
-      "month": "October",
-      "day": 31,
-      "dateStr": "October 31",
-      "daysUntil": 0,
-      "isToday": true
+      "month": "November",
+      "day": 21,
+      "dateStr": "November 21",
+      "daysUntil": 19,
+      "isToday": false
+    },
+    {
+      "name": "Mairelys Gonzalez",
+      "firstName": "Mairelys",
+      "team": "Elev8",
+      "month": "November",
+      "day": 21,
+      "dateStr": "November 21",
+      "daysUntil": 19,
+      "isToday": false
+    },
+    {
+      "name": "Christian Padron",
+      "firstName": "Christian",
+      "team": "Chez",
+      "month": "November",
+      "day": 22,
+      "dateStr": "November 22",
+      "daysUntil": 20,
+      "isToday": false
     }
   ],
   "anniversaries": [
     {
-      "name": "Laurie Moreno",
-      "firstName": "Laurie",
-      "team": "Chez",
-      "month": "October",
-      "day": 26,
-      "dateStr": "October 26",
-      "years": 2,
-      "daysUntil": 0,
-      "isToday": true
+      "name": "Mario Cabrera Jr.",
+      "firstName": "Mario",
+      "team": "Cabrera",
+      "month": "November",
+      "day": 24,
+      "dateStr": "November 24",
+      "years": 1,
+      "daysUntil": 22,
+      "isToday": false
     }
   ]
 }
