@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-01T23:36:08.091Z",
+  "lastUpdated": "2026-11-02T00:36:10.237Z",
   "agents": [
     {
       "slug": "mariana",
@@ -24,9 +24,9 @@
       "group": "Curated Living",
       "startDate": "2026-10-07",
       "photo": "LISA%20ROSEDIETCHER.png",
-      "stepsCompleted": 11,
+      "stepsCompleted": 12,
       "totalSteps": 15,
-      "pct": 73,
+      "pct": 80,
       "status": "In Progress"
     },
     {
