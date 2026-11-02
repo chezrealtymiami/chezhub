@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-01T10:50:34.024Z",
+  "lastUpdated": "2026-11-02T10:50:33.418Z",
   "birthdays": [
     {
       "name": "Jessica Alvarez-Ducos",
@@ -8,8 +8,8 @@
       "month": "November",
       "day": 3,
       "dateStr": "November 3",
-      "daysUntil": 1,
-      "isToday": false
+      "daysUntil": 0,
+      "isToday": true
     },
     {
       "name": "Maria A. Rodriguez",
@@ -18,7 +18,7 @@
       "month": "November",
       "day": 5,
       "dateStr": "November 5",
-      "daysUntil": 3,
+      "daysUntil": 2,
       "isToday": false
     },
     {
@@ -28,7 +28,7 @@
       "month": "November",
       "day": 16,
       "dateStr": "November 16",
-      "daysUntil": 14,
+      "daysUntil": 13,
       "isToday": false
     },
     {
@@ -38,7 +38,7 @@
       "month": "November",
       "day": 21,
       "dateStr": "November 21",
-      "daysUntil": 19,
+      "daysUntil": 18,
       "isToday": false
     },
     {
@@ -48,7 +48,7 @@
       "month": "November",
       "day": 21,
       "dateStr": "November 21",
-      "daysUntil": 19,
+      "daysUntil": 18,
       "isToday": false
     },
     {
@@ -58,7 +58,7 @@
       "month": "November",
       "day": 22,
       "dateStr": "November 22",
-      "daysUntil": 20,
+      "daysUntil": 19,
       "isToday": false
     }
   ],
@@ -71,7 +71,7 @@
       "day": 24,
       "dateStr": "November 24",
       "years": 1,
-      "daysUntil": 22,
+      "daysUntil": 21,
       "isToday": false
     }
   ]
