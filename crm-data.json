@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-11-13T18:02:07.000Z",
-  "teamCompliance": 80.5,
+  "lastUpdated": "2026-11-14T18:02:24.000Z",
+  "teamCompliance": 79.7,
   "agents": [
     {
       "name": "Christian Padron",
@@ -12,10 +12,28 @@
       "status": "Meets Standard"
     },
     {
+      "name": "Yenelis Martinez",
+      "score": 100,
+      "totalRecords": 38,
+      "compliant": 38,
+      "atRisk": 0,
+      "neglected": 0,
+      "status": "Meets Standard"
+    },
+    {
       "name": "Dorian Quintero",
       "score": 100,
       "totalRecords": 9,
       "compliant": 9,
+      "atRisk": 0,
+      "neglected": 0,
+      "status": "Meets Standard"
+    },
+    {
+      "name": "Patricia Monteagudo",
+      "score": 100,
+      "totalRecords": 4,
+      "compliant": 4,
       "atRisk": 0,
       "neglected": 0,
       "status": "Meets Standard"
@@ -39,19 +57,10 @@
       "status": "Meets Standard"
     },
     {
-      "name": "Yenelis Martinez",
-      "score": 97.37,
-      "totalRecords": 38,
-      "compliant": 37,
-      "atRisk": 1,
-      "neglected": 0,
-      "status": "Meets Standard"
-    },
-    {
       "name": "Dani Urrutia",
-      "score": 94.44,
-      "totalRecords": 18,
-      "compliant": 17,
+      "score": 94.74,
+      "totalRecords": 19,
+      "compliant": 18,
       "atRisk": 1,
       "neglected": 0,
       "status": "Meets Standard"
@@ -66,12 +75,12 @@
       "status": "Meets Standard"
     },
     {
-      "name": "Krystal Green-Bergnes",
-      "score": 91.67,
-      "totalRecords": 24,
-      "compliant": 22,
-      "atRisk": 2,
-      "neglected": 0,
+      "name": "Orianna Tancredi",
+      "score": 92.31,
+      "totalRecords": 13,
+      "compliant": 12,
+      "atRisk": 0,
+      "neglected": 1,
       "status": "Meets Standard"
     },
     {
@@ -84,21 +93,12 @@
       "status": "Meets Standard"
     },
     {
-      "name": "Jessica Alvarez-Ducos",
-      "score": 89.62,
-      "totalRecords": 106,
-      "compliant": 95,
-      "atRisk": 5,
-      "neglected": 6,
-      "status": "Meets Standard"
-    },
-    {
       "name": "Jaydelyn Ortiz",
-      "score": 88.74,
-      "totalRecords": 151,
-      "compliant": 134,
-      "atRisk": 15,
-      "neglected": 2,
+      "score": 90,
+      "totalRecords": 150,
+      "compliant": 135,
+      "atRisk": 14,
+      "neglected": 1,
       "status": "Meets Standard"
     },
     {
@@ -115,17 +115,17 @@
       "score": 85,
       "totalRecords": 60,
       "compliant": 51,
-      "atRisk": 6,
-      "neglected": 3,
+      "atRisk": 4,
+      "neglected": 5,
       "status": "Meets Standard"
     },
     {
-      "name": "Jennifer Miranda",
-      "score": 84.62,
-      "totalRecords": 52,
-      "compliant": 44,
-      "atRisk": 7,
-      "neglected": 1,
+      "name": "Jessica Alvarez-Ducos",
+      "score": 84.47,
+      "totalRecords": 103,
+      "compliant": 87,
+      "atRisk": 13,
+      "neglected": 3,
       "status": "Meets Standard"
     },
     {
@@ -147,84 +147,84 @@
       "status": "Meets Standard"
     },
     {
-      "name": "Maribel Reyes",
-      "score": 80,
-      "totalRecords": 15,
-      "compliant": 12,
-      "atRisk": 0,
-      "neglected": 3,
+      "name": "Krystal Green-Bergnes",
+      "score": 83.33,
+      "totalRecords": 24,
+      "compliant": 20,
+      "atRisk": 4,
+      "neglected": 0,
       "status": "Meets Standard"
     },
     {
-      "name": "Orianna Tancredi",
-      "score": 80,
-      "totalRecords": 15,
-      "compliant": 12,
-      "atRisk": 0,
-      "neglected": 3,
+      "name": "Jennifer Miranda",
+      "score": 82.69,
+      "totalRecords": 52,
+      "compliant": 43,
+      "atRisk": 7,
+      "neglected": 2,
       "status": "Meets Standard"
     },
     {
       "name": "Ruben Grana",
-      "score": 75,
-      "totalRecords": 20,
+      "score": 78.95,
+      "totalRecords": 19,
       "compliant": 15,
       "atRisk": 0,
-      "neglected": 5,
+      "neglected": 4,
       "status": "Below Standard"
     },
     {
-      "name": "Patricia Monteagudo",
+      "name": "Maribel Reyes",
       "score": 75,
-      "totalRecords": 4,
-      "compliant": 3,
-      "atRisk": 0,
-      "neglected": 1,
+      "totalRecords": 16,
+      "compliant": 12,
+      "atRisk": 2,
+      "neglected": 2,
       "status": "Below Standard"
     },
     {
       "name": "Yeni Martinez",
-      "score": 70.59,
-      "totalRecords": 34,
-      "compliant": 24,
-      "atRisk": 6,
-      "neglected": 4,
+      "score": 69.7,
+      "totalRecords": 33,
+      "compliant": 23,
+      "atRisk": 7,
+      "neglected": 3,
       "status": "Below Standard"
     },
     {
       "name": "Jennifer Avila",
-      "score": 64.29,
+      "score": 57.14,
       "totalRecords": 14,
-      "compliant": 9,
+      "compliant": 8,
       "atRisk": 1,
-      "neglected": 4,
+      "neglected": 5,
       "status": "Below Standard"
     },
     {
       "name": "Brian Leon",
-      "score": 54.55,
+      "score": 56.82,
       "totalRecords": 44,
-      "compliant": 24,
-      "atRisk": 2,
+      "compliant": 25,
+      "atRisk": 1,
       "neglected": 18,
       "status": "Below Standard"
     },
     {
-      "name": "Johana Cabrera",
-      "score": 53.85,
-      "totalRecords": 65,
-      "compliant": 35,
-      "atRisk": 0,
-      "neglected": 30,
+      "name": "Melissa Sanchez",
+      "score": 55.56,
+      "totalRecords": 18,
+      "compliant": 10,
+      "atRisk": 1,
+      "neglected": 7,
       "status": "Below Standard"
     },
     {
-      "name": "Melissa Sanchez",
-      "score": 52.94,
-      "totalRecords": 17,
-      "compliant": 9,
-      "atRisk": 1,
-      "neglected": 7,
+      "name": "Dayanara Munoz",
+      "score": 50,
+      "totalRecords": 4,
+      "compliant": 2,
+      "atRisk": 0,
+      "neglected": 2,
       "status": "Below Standard"
     },
     {
@@ -246,12 +246,12 @@
       "status": "Below Standard"
     },
     {
-      "name": "Dayanara Munoz",
-      "score": 40,
-      "totalRecords": 5,
-      "compliant": 2,
-      "atRisk": 1,
-      "neglected": 2,
+      "name": "Johana Cabrera",
+      "score": 40.32,
+      "totalRecords": 62,
+      "compliant": 25,
+      "atRisk": 10,
+      "neglected": 27,
       "status": "Below Standard"
     },
     {
