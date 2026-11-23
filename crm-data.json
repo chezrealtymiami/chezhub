@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-11-21T18:02:16.000Z",
-  "teamCompliance": 77.9,
+  "lastUpdated": "2026-11-22T18:02:13.000Z",
+  "teamCompliance": 76.6,
   "agents": [
     {
       "name": "Jennifer Avila",
@@ -57,15 +57,6 @@
       "status": "Meets Standard"
     },
     {
-      "name": "Yenelis Martinez",
-      "score": 94.74,
-      "totalRecords": 38,
-      "compliant": 36,
-      "atRisk": 2,
-      "neglected": 0,
-      "status": "Meets Standard"
-    },
-    {
       "name": "Dani Urrutia",
       "score": 94.12,
       "totalRecords": 17,
@@ -76,11 +67,11 @@
     },
     {
       "name": "Jaydelyn Ortiz",
-      "score": 93.62,
-      "totalRecords": 141,
-      "compliant": 132,
-      "atRisk": 8,
-      "neglected": 1,
+      "score": 93.66,
+      "totalRecords": 142,
+      "compliant": 133,
+      "atRisk": 7,
+      "neglected": 2,
       "status": "Meets Standard"
     },
     {
@@ -102,15 +93,6 @@
       "status": "Meets Standard"
     },
     {
-      "name": "Jennifer Miranda",
-      "score": 89.13,
-      "totalRecords": 46,
-      "compliant": 41,
-      "atRisk": 2,
-      "neglected": 3,
-      "status": "Meets Standard"
-    },
-    {
       "name": "Abdallah Fragomeno",
       "score": 88.24,
       "totalRecords": 17,
@@ -120,21 +102,21 @@
       "status": "Meets Standard"
     },
     {
-      "name": "Maribel Reyes",
-      "score": 84.21,
-      "totalRecords": 19,
-      "compliant": 16,
-      "atRisk": 1,
-      "neglected": 2,
+      "name": "Yenelis Martinez",
+      "score": 86.84,
+      "totalRecords": 38,
+      "compliant": 33,
+      "atRisk": 5,
+      "neglected": 0,
       "status": "Meets Standard"
     },
     {
-      "name": "Camila Ciochon",
-      "score": 83.72,
-      "totalRecords": 43,
-      "compliant": 36,
+      "name": "Jennifer Miranda",
+      "score": 82.61,
+      "totalRecords": 46,
+      "compliant": 38,
       "atRisk": 5,
-      "neglected": 2,
+      "neglected": 3,
       "status": "Meets Standard"
     },
     {
@@ -147,21 +129,48 @@
       "status": "Meets Standard"
     },
     {
-      "name": "Laurie Moreno",
-      "score": 80,
-      "totalRecords": 55,
-      "compliant": 44,
-      "atRisk": 8,
-      "neglected": 3,
-      "status": "Meets Standard"
-    },
-    {
       "name": "Brian Leon",
       "score": 77.08,
       "totalRecords": 48,
       "compliant": 37,
-      "atRisk": 2,
-      "neglected": 9,
+      "atRisk": 0,
+      "neglected": 11,
+      "status": "Below Standard"
+    },
+    {
+      "name": "Laurie Moreno",
+      "score": 75.86,
+      "totalRecords": 58,
+      "compliant": 44,
+      "atRisk": 10,
+      "neglected": 4,
+      "status": "Below Standard"
+    },
+    {
+      "name": "Dorian Quintero",
+      "score": 75,
+      "totalRecords": 8,
+      "compliant": 6,
+      "atRisk": 0,
+      "neglected": 2,
+      "status": "Below Standard"
+    },
+    {
+      "name": "Camila Ciochon",
+      "score": 74.42,
+      "totalRecords": 43,
+      "compliant": 32,
+      "atRisk": 8,
+      "neglected": 3,
+      "status": "Below Standard"
+    },
+    {
+      "name": "Maribel Reyes",
+      "score": 73.68,
+      "totalRecords": 19,
+      "compliant": 14,
+      "atRisk": 3,
+      "neglected": 2,
       "status": "Below Standard"
     },
     {
@@ -169,17 +178,17 @@
       "score": 72.73,
       "totalRecords": 22,
       "compliant": 16,
-      "atRisk": 3,
-      "neglected": 3,
+      "atRisk": 0,
+      "neglected": 6,
       "status": "Below Standard"
     },
     {
       "name": "Moulay Alaoui",
-      "score": 66.67,
+      "score": 63.33,
       "totalRecords": 30,
-      "compliant": 20,
-      "atRisk": 4,
-      "neglected": 6,
+      "compliant": 19,
+      "atRisk": 3,
+      "neglected": 8,
       "status": "Below Standard"
     },
     {
@@ -189,15 +198,6 @@
       "compliant": 10,
       "atRisk": 0,
       "neglected": 6,
-      "status": "Below Standard"
-    },
-    {
-      "name": "Dorian Quintero",
-      "score": 62.5,
-      "totalRecords": 8,
-      "compliant": 5,
-      "atRisk": 2,
-      "neglected": 1,
       "status": "Below Standard"
     },
     {
@@ -232,8 +232,8 @@
       "score": 31.82,
       "totalRecords": 22,
       "compliant": 7,
-      "atRisk": 12,
-      "neglected": 3,
+      "atRisk": 5,
+      "neglected": 10,
       "status": "Below Standard"
     },
     {
