@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-23T18:08:06.351Z",
+  "lastUpdated": "2026-11-23T19:08:05.483Z",
   "agents": [
     {
       "email": "abdallah@chezre.com",
@@ -57,7 +57,7 @@
       "first": "Brenda",
       "group": "Elev8",
       "role": "Associate Agent/Realtor",
-      "status": "New Agent",
+      "status": "Active",
       "photo": "BRENDA%20TAMAYO%20TOIRAC.png",
       "isStaff": false
     },
@@ -89,6 +89,16 @@
       "role": "Associate Agent/Realtor",
       "status": "Active",
       "photo": "CHRISTIAN%20PADRON.png",
+      "isStaff": false
+    },
+    {
+      "email": "claribel@chezre.com",
+      "name": "Claribel Purcell",
+      "first": "Claribel",
+      "group": "Chez",
+      "role": "Associate Agent/Realtor",
+      "status": "Active",
+      "photo": "CLARIBEL%20PURCELL.png",
       "isStaff": false
     },
     {
@@ -147,7 +157,7 @@
       "first": "Dorian",
       "group": "Lo",
       "role": "Associate Agent/Realtor",
-      "status": "New Agent",
+      "status": "Active",
       "photo": "DORIAN%20QUINTERO.png",
       "isStaff": false
     },
@@ -157,7 +167,7 @@
       "first": "Erik",
       "group": "Chez",
       "role": "Associate Agent/Realtor",
-      "status": "New Agent",
+      "status": "Active",
       "photo": "ERIK%20CARDERO.png",
       "isStaff": false
     },
@@ -177,7 +187,7 @@
       "first": "Jenelle",
       "group": "Lo",
       "role": "Associate Agent/Realtor",
-      "status": "New Agent",
+      "status": "Active",
       "photo": "JENELLE%20CAMPOS.png",
       "isStaff": false
     },
@@ -257,7 +267,7 @@
       "first": "Kiara",
       "group": "Elev8",
       "role": "Associate Agent/Realtor",
-      "status": "New Agent",
+      "status": "Active",
       "photo": "KIARA%20FERNANDEZ.png",
       "isStaff": false
     },
@@ -267,7 +277,7 @@
       "first": "Krystal",
       "group": "Curated Living",
       "role": "Team Leader/Realtor",
-      "status": "New Agent",
+      "status": "Active",
       "photo": "KRYSTAL%20GREEN-BERGNES.png",
       "isStaff": false
     },
@@ -407,7 +417,7 @@
       "first": "Patricia",
       "group": "Elev8",
       "role": "Associate Agent/Realtor",
-      "status": "New Agent",
+      "status": "Active",
       "photo": "PATRICIA%20MONTEAGUDO.png",
       "isStaff": false
     },
