@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-24T20:36:08.927Z",
+  "lastUpdated": "2026-11-24T21:36:07.886Z",
   "agents": [
     {
       "slug": "mariana",
@@ -38,9 +38,9 @@
       "group": "Chez Team",
       "startDate": "2026-10-23",
       "photo": "DAVID%20LINARES.png",
-      "stepsCompleted": 5,
+      "stepsCompleted": 6,
       "totalSteps": 15,
-      "pct": 33,
+      "pct": 40,
       "status": "In Progress"
     },
     {
