@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-25T15:36:09.246Z",
+  "lastUpdated": "2026-11-25T16:36:07.861Z",
   "agents": [
     {
       "slug": "mariana",
@@ -52,9 +52,9 @@
       "group": "Chez Team",
       "startDate": "2026-11-17",
       "photo": "CLARIBEL%20PURCELL.png",
-      "stepsCompleted": 6,
+      "stepsCompleted": 7,
       "totalSteps": 15,
-      "pct": 40,
+      "pct": 47,
       "status": "In Progress"
     }
   ]
